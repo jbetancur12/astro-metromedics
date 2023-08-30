@@ -5,6 +5,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  // site: 'http://localhost:5500',
+  site: 'https://main--lucent-faloodeh-cc8acd.netlify.app/',
   // base: '/dist'
 });
