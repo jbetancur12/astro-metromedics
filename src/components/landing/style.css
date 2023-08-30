@@ -1,0 +1,21 @@
+.overlay2{
+  position: relative;
+}
+
+.overlay2 img{
+width: 100%;
+}
+.overlay2::before {
+  position: absolute;
+  content: '';
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(https://smaf.com.co/images/overaly.png);
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}

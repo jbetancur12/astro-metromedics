@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Calibración de Equipos Bio Medicos",
+    "content": "La metrología biomédica es la parte de la metrología industrial que se encarga de asegurar que los equipos empleados en un proceso asistencial del sector de salud, operen dentro de los estándares de calidad nacionales e internacionales establecidos por los fabricantes, y cumplan a su vez, los rangos permitidos para las magnitudes biomédicas, otorgando confianza en los resultados obtenidos para diagnosticar, intervenir y tratar el cuidado de la salud de los pacientes.",
+    "imgUrl" : "images/calibracion_biomedicos.jpg"
+  },
+  {
+    "title": "Validación Y Calificación De Autoclaves",
+    "content": "Para la validación se emplea el método de comparación directa, se procede a realizar pruebas de validación (IQ) calificación de operación (OQ), calificación de desempeño (PQ) y determinación de (F).",
+    "imgUrl":"images/autoclave.jpg"
+  },
+  {
+    "title": "Mantenimiento De Equipos Médicos Y Odontológicos",
+    "content": "El mantenimiento de los equipos médicos se puede dividir en dos principales categorías: mantenimiento preventivo (MP) y mantenimiento correctivo (MC) Por MP se entienden todas las actividades programadas que aseguran la funcionalidad de los equipos y previenen averías o fallas. El mantenimiento preventivo (MP) comprende todas las actividades que se realizan para prolongar la vida útil de un dispositivo y prevenir desperfectos.",
+    "imgUrl": "images/mantenimiento.jpg"
+  },
+  {"title":"Venta De Equipos Médicos Y Odontológicos",
+"content":"En esta linea encuentra una amplia gama de equipos médicos de alta tecnología con diversas aplicaciones para el sector clínico y hospitalario. Encuentre monitores fetales, dopplers fetales y vasculares, ecografos, monitores de signos vitales holters, lavadoras ultrasonicas, esterilizadores, unidades de electrocirugia, entre otros.",
+"imgUrl": "images/servici2.jpg"}
+]

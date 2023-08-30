@@ -1,0 +1,24 @@
+---
+import nosotros from "../config/nosotros.json";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title='Nosotros'>
+  <div class='bg-[url(images/fondo_titulos.jpg)] h-40 flex'>
+    <div class='container w-full m-auto font-bold text-3xl max-w-5xl'>
+      <h1>Nosotros</h1>
+    </div>
+  </div>
+  <div class='container m-auto my-10'>
+    <div class='grid md:grid-cols-2 gap-16 items-center max-w-5xl m-auto'>
+      {
+        nosotros.map(item =>(
+        <div>
+              <h1 class='font-bold text-xl mb-7'>{item.title}</h1>
+              <p class='text-justify leading-relaxed'>{item.content}</p>
+            </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

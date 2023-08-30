@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+}
+import Copyright from '../components/landing/Copyright.astro';
+import Footer from '../components/landing/Footer.astro';
+import Header from '../components/landing/Header.astro';
+import '../styles/Layout.css';
+
+const { title } = Astro.props;
+
+
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Astro Landing - {title}</title>
+  </head>
+  <body>
+    <Header/>
+    <main id='mainContent' class='mx-auto mt-[87px]'>
+      <slot />
+    </main>
+   <Footer/>
+   <Copyright/>
+  </body>
+</html>
