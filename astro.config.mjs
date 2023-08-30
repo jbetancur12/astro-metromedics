@@ -6,5 +6,5 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [tailwind()],
   site: 'https://main--lucent-faloodeh-cc8acd.netlify.app',
-  base: '/_astro'
+  base: '/'
 });
