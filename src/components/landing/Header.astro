@@ -1,6 +1,7 @@
 ---
 const pathname = Astro.url.pathname;
 ---
+
 <nav
   id='header'
   class='fixed w-full z-50 top-0 text-white border-y-green-500 border-t-6 bg-black'
@@ -23,7 +24,7 @@ const pathname = Astro.url.pathname;
     <div class='block lg:hidden pr-4'>
       <button
         id='nav-toggle'
-        class='flex items-center p-1 text-green-500  focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
+        class='flex items-center p-1 text-green-500 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
       >
         <svg
           class='fill-current h-6 w-6'
@@ -44,9 +45,7 @@ const pathname = Astro.url.pathname;
         <li class='mr-3'>
           <a
             class='inline-block py-2 px-4 text-white no-underlin hover:text-green-500 hover:text-underline'
-            class:list={[
-              pathname == '/' && 'text-green-400 font-bold',
-            ]}
+            class:list={[pathname == '/' && 'text-green-400 font-bold']}
             href='/'>Inicio</a
           >
         </li>
@@ -61,25 +60,72 @@ const pathname = Astro.url.pathname;
         </li>
         <li class='mr-3'>
           <a
-            class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
-            href='#'>Laboratorios</a
+            id='laboratoriosLink'
+            class='text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline'
+            href='#'
           >
+            Laboratorios
+            <span class='ml-2'>
+              <svg
+                id='angle-up'
+                class='hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 14 8'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7'></path>
+              </svg>
+              <svg
+                id='angle-down'
+                class='w-6 h-6 text-white dark:text-white group-hover:text-green-500'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 14 8'
+              >
+                <path
+                  stroke='currentColor'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1'></path>
+              </svg>
+            </span>
+          </a>
+
+          <div
+            id='laboratorios'
+            class='absolute rounded-lg bg-black py-2 hidden'
+          >
+            <a
+              href='#'
+              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              >Laboratorio Acreditado</a
+            >
+            <a
+              href='#'
+              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              >Laboratorio con Tarazabilidad</a
+            >
+          </div>
         </li>
         <li class='mr-3'>
           <a
             class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
-            class:list={[
-              pathname == '/nosotros' && 'text-green-400 font-bold',
-            ]}
+            class:list={[pathname == '/nosotros' && 'text-green-400 font-bold']}
             href='/nosotros'>Nosotros</a
           >
         </li>
         <li class='mr-3'>
           <a
             class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
-            class:list={[
-              pathname == '/contacto' && 'text-green-400 font-bold',
-            ]}
+            class:list={[pathname == '/contacto' && 'text-green-400 font-bold']}
             href='/contacto'>Contacto</a
           >
         </li>
@@ -92,42 +138,49 @@ const pathname = Astro.url.pathname;
       </button>
     </div>
   </div>
+
   <div id='burgerMenu' class='hidden'>
     <a
       href='/'
       class='block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800'
-      class:list={[
-        pathname == '/' && 'text-green-400 font-bold',
-      ]}
-      >Inicio</a
+      class:list={[pathname == '/' && 'text-green-400 font-bold']}>Inicio</a
     >
     <a
       href='/servicios'
       class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      class:list={[
-        pathname == '/servicios' && 'text-green-400 font-bold',
-      ]}
+      class:list={[pathname == '/servicios' && 'text-green-400 font-bold']}
       >Servicios</a
     >
-    <a
-      href='/laboratorios'
-      class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      >Laboratorios</a
-    >
+    <div>
+      <div
+      id="laboratoriosMobileLink"
+
+        class='mt-1 block px-2 py-1 text-white font-semibold rounded  sm:mt-0 sm:ml-2'
+        >Laboratorios</div
+      >
+      <div id='laboratoriosMobile' class='hidden bg-gray-900 py-2  rounded-lg'>
+        <a
+          href='#'
+          class='block px-8 py-2 text-white hover:bg-gray-700 hover:text-white '
+          >Laboratorio Acreditado</a
+        >
+        <a
+          href='#'
+          class='block px-8 py-2 text-white hover:bg-gray-700 hover:text-white'
+          >Laboratorio con Tarazabilidad</a
+        >
+      </div>
+    </div>
     <a
       href='/nosotros'
       class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      class:list={[
-        pathname == '/nosotros' && 'text-green-400 font-bold',
-      ]}
+      class:list={[pathname == '/nosotros' && 'text-green-400 font-bold']}
       >Nosotros</a
     >
     <a
       href='/contacto'
       class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      class:list={[
-        pathname == '/contacto' && 'text-green-400 font-bold',
-      ]}
+      class:list={[pathname == '/contacto' && 'text-green-400 font-bold']}
       >Contacto</a
     >
   </div>
@@ -135,7 +188,22 @@ const pathname = Astro.url.pathname;
 </nav>
 
 <script>
-  // ... other script imports ...
+  const laboratoriosLink = document.getElementById('laboratoriosLink');
+  const laboratorios = document.getElementById('laboratorios');
+  const laboratoriosMobileLink = document.getElementById('laboratoriosMobileLink');
+  const laboratoriosMobile = document.getElementById('laboratoriosMobile');
+  const angelUp = document.getElementById('angle-up');
+  const angelDown = document.getElementById('angle-down');
+
+  laboratoriosLink?.addEventListener('click', () => {
+    laboratorios?.classList.toggle('hidden');
+    angelUp?.classList.toggle('hidden');
+    angelDown?.classList.toggle('hidden');
+  });
+
+  laboratoriosMobileLink?.addEventListener('click', () => {
+    laboratoriosMobile?.classList.toggle('hidden');
+  });
 
   // Function to toggle burger menu visibility
   const navToggle = document.getElementById('nav-toggle');
