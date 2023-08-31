@@ -5,16 +5,16 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title='Servicios'>
   <div class='bg-[url(/images/fondo_titulos.webp)] h-40 flex'>
-    <div class='container w-full m-auto font-bold text-3xl max-w-5xl'>
+    <div class='container w-full m-auto font-bold text-3xl md:max-w-5xl'>
       <h1>Servicios</h1>
     </div>
   </div>
-  <div class='container m-auto max-w-5xl'>
+  <div class='container m-auto md:max-w-5xl'>
     <p class='text-center my-10'>
       Servicios Pensados Para El Mejoramiento De Tu Empresa, Ofrecemos Nuestros
       Servicios En:
     </p>
-    <div class='grid md:grid-cols-2 gap-16 items-center'>
+    <div class='grid md:grid-cols-2 gap-16 items-center grid-cols-1 justify-items-center'>
       {
         services.map((service) => (
           <>
