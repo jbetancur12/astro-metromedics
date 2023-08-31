@@ -24,11 +24,10 @@ import Layout from '../../layouts/Layout.astro';
             <div class='grid md:grid-cols-2 m-auto mb-10'>
               <img src={item.image} alt={item.title} />
               <div>
-                <h3 class='font-bold text-3xl mb-5'>
+                <h3 class='font-bold text-3xl my-5'>
                   {item.title}
                 </h3>
                 <p set:html={item.content} class='leading-relaxed'/>
-
               </div>
             </div>
 
