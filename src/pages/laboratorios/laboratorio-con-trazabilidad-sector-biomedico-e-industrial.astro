@@ -1,0 +1,40 @@
+---
+import laboratorioTrazabilidad from '../../config/laboratorio-trazabilidad.json';
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title='Laboratorio Con Trazabilidad Sector Biomédico e Industrial'>
+  <div class='bg-[url(/images/fondo_titulos.webp)] h-40 flex'>
+    <div class='container w-full m-auto font-bold text-3xl md:max-w-5xl'>
+      <h1>Laboratorio Con Trazabilidad Sector Biomédico e Industrial</h1>
+    </div>
+  </div>
+  <div class='container m-auto md:max-w-5xl'>
+    <p class='mt-9 text-center'>
+      El Laboratorio Metromedics S.A.S, asegura el mantenimiento de la
+      trazabilidad de los patrones utilizados en las mediciones a través de
+      equipos de referencia nacionales e internacionales los cuales están
+      trazados al sistema internacional de unidades (SI) o a través del NIST
+    </p>
+
+    <div class='mt-10'>
+      {
+        laboratorioTrazabilidad.map((item) => (
+          <>
+            <div class='grid md:grid-cols-2 m-auto mb-10'>
+              <img src={item.image} alt={item.title} />
+              <div>
+                <h3 class='font-bold text-3xl mb-5'>
+                  {item.title}
+                </h3>
+                <p set:html={item.content} class='leading-relaxed'/>
+
+              </div>
+            </div>
+
+          </>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

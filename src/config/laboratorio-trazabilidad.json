@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Laboratorio De Temperatura",
+    "content": "El laboratorio de Temperatura ofrece en el intervalo de (-20 a 200)°C, calibración de los siguientes instrumentos: <p class=''> Termómetros Ambientales, Termómetros Corporales, Termohigrómetros, Autoclave (Validación, Calificación y Calibración), Baños serológicos, Hornos industriales y de cultivos, Medios Isotermos, Incubadora de transporte, Lamparas de calor radiante. Neveras.</p>",
+    "image": "/images/item1-1.jpg"
+  },
+  {
+    "title":"Laboratorio De Presión",
+    "content":"El laboratorio de Presión ofrece en el intervalo de (0 a 300) mmHg, (0 a 40) kPa calibración de los siguientes instrumentos: Infusores de presión, El laboratorio de Presión ofrece en el intervalo de (-10 a 150) psi, (0 a 135) kPa calibración de los siguientes instrumentos: Aspiradores, Manómetros digitales y análogos, Autoclaves, Cámaras Hiperbáricas, El laboratorio de Presión para variables fisiológicas ofrece la calibración de los siguientes instrumentos: Tensiómetros Digitales, Monitores de signos vitales, Ventiladores Mecánicos, Entre otros.",
+    "image":"/images/item3.jpg"
+  },
+  {
+    "title": "Laboratorio De Volumen",
+    "content": "El laboratorio de Volumen ofrece en el intervalo de 1 μL a 200 mL calibración de los siguientes instrumentos:  <p class='mt-4'>  Micropipetas Fijas y variables, Micropipetas multicanal. Buretas, Picnómetros, Balones aforados, Probetas Graduadas.</p>",
+    "image":"/images/item4.jpg"
+  },
+  {
+    "title": "Laboratorio De Flujo",
+    "content": "El laboratorio de Flujo ofrece en el intervalo de (0 a 1000) L/Min, calibración de los siguientes instrumentos:  <p class='mt-4'> Bombas de infusión, Flujómetros, Regulador de Oxígeno, Ventiladores Mecánicos, Maquinas de anestesia, Cabinas de Flujo laminar, Nebulizadores, Entre otros.</p>",
+    "image":"/images/item5.jpg"
+  }
+]
