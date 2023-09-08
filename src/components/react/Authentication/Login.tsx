@@ -1,7 +1,7 @@
 import axios from 'axios'; // Import Axios
 import { useState } from 'react';
-import * as Yup from 'yup'; // Importa Yup para la validación
 import toast, { Toaster } from 'react-hot-toast';
+import * as Yup from 'yup'; // Importa Yup para la validación
 
 const apiUrl = import.meta.env.PUBLIC_API_URL;
 
@@ -37,10 +37,6 @@ const Login: React.FC = () => {
       email: formData.email,
       contraseña: formData.password
     }
-
-    const GoToDashboard = () => <a href={`/dashboard`}>Go To Solid</a>;
-
-
 
 
     try {
