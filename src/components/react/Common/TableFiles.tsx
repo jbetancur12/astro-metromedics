@@ -1,4 +1,4 @@
-import { Delete, Edit, CloudUpload, CheckCircle, Cancel } from '@mui/icons-material';
+import { Delete, Edit, CloudUpload, CheckCircle, Cancel, Visibility } from '@mui/icons-material';
 import { differenceInDays, format } from 'date-fns';
 import {
   Box,
@@ -55,6 +55,22 @@ export interface FileData {
   userId: number;
   certificateTypeId: number;
   deviceId: number
+  // Nuevas propiedades para las relaciones
+  user: {
+    id: number;
+    nombre: string;
+    // Otras propiedades de User
+  };
+  device: {
+    id: number;
+    name: string
+    // Otras propiedades de Device
+  };
+  certificateType: {
+    id: number;
+    name: string
+    // Otras propiedades de Certificate
+  };
 }
 
 
@@ -108,6 +124,7 @@ const Table: React.FC = () => {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(`${apiUrl}/files`);
+
 
 
       if (response.statusText === 'OK') {
@@ -251,14 +268,62 @@ const Table: React.FC = () => {
   const columns = useMemo<MRT_ColumnDef<FileData>[]>(
     () => [
       {
+        // accessorKey: 'show', //access nested data with dot notation
+        header: 'Ver',
+        size: 10,
+        enableEditing: false,
+        Cell: ({ cell }) => (
+          <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Tooltip arrow placement="left" title="Editar">
+              <IconButton onClick={() => handleVisibilityRow(row)}>
+                <Visibility />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        )
+
+      },
+
+      {
         accessorKey: 'id', //access nested data with dot notation
         header: 'ID',
         size: 10,
         enableEditing: false,
       },
       {
+        accessorKey: 'user.nombre', //access nested data with dot notation
+        header: 'Cliente',
+        size: 150,
+        enableEditing: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+        type: "selectUserId"
+      },
+      {
+        accessorKey: 'device.name', //access nested data with dot notation
+        header: 'Equipo',
+        enableEditing: false,
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+        type: "selectDeviceId"
+      },
+      {
+        accessorKey: 'certificateType.name', //access nested data with dot notation
+        header: 'Tipo de Certificado',
+        size: 150,
+        enableEditing: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+        type: "selectCertificateTypeId"
+      },
+      {
         accessorKey: 'name', //access nested data with dot notation
         header: 'Nombre',
+        enableEditing: false,
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -322,7 +387,7 @@ const Table: React.FC = () => {
         accessorKey: 'nextCalibrationDate', //access nested data with dot notation
         header: 'Proxima Fecha de Calibración',
         size: 350,
-        Cell: ({ cell,row }) => {
+        Cell: ({ cell, row }) => {
           const now = new Date()
           const nextCalibrationDate = new Date(row.original.nextCalibrationDate);
           console.log("🚀 ~ file: TableFiles.tsx:328 ~ nextCalibrationDate:", nextCalibrationDate)
@@ -339,11 +404,11 @@ const Table: React.FC = () => {
           return (
             <div className="flex flex-col ">
               <div>
-              {icon}
-            <span className="ml-2">{formattedCalibrationDate}</span>
+                {icon}
+                <span className="ml-2">{formattedCalibrationDate}</span>
+              </div>
+              <span className="mt-2">{daysRemaining < 0 ? 'VENCIDO' : `Días restantes: ${daysRemaining}`}</span>
             </div>
-            <span className="mt-2">{daysRemaining < 0 ? 'VENCIDO' : `Días restantes: ${daysRemaining}`}</span>
-          </div>
           );
 
         },
@@ -358,39 +423,14 @@ const Table: React.FC = () => {
         header: 'filePath',
         size: 150,
         hidden: true,
-        muiTableBodyCellEditTextFieldProps: ({ cell,column }) => ({
+        enableEditing: false,
+        muiTableBodyCellEditTextFieldProps: ({ cell, column }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
         // Cell : (w) => w.column.getIsVisible(),
         type: "upload"
       },
-      {
-        accessorKey: 'userId', //access nested data with dot notation
-        header: 'userId',
-        size: 150,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-        }),
-        type: "selectUserId"
-      },
-      {
-        accessorKey: 'deviceId', //access nested data with dot notation
-        header: 'deviceId',
-        size: 150,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-        }),
-        type: "selectDeviceId"
-      },
-      {
-        accessorKey: 'certificateTypeId', //access nested data with dot notation
-        header: 'certificateTypeId',
-        size: 150,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-        }),
-        type: "selectCertificateTypeId"
-      },
+
 
 
 
@@ -419,17 +459,18 @@ const Table: React.FC = () => {
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
+        positionActionsColumn="last"
         enableHiding={false}
         initialState={{
           columnVisibility: { filePath: false },
         }}
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
-            <Tooltip arrow placement="left" title="Edit">
+            {/* <Tooltip arrow placement="left" title="Edit">
               <IconButton onClick={() => table.setEditingRow(row)}>
                 <Edit />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip arrow placement="right" title="Delete">
               <IconButton color="error" onClick={() => handleDeleteRow(row)}>
                 <Delete />
