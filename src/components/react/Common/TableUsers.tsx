@@ -1,7 +1,6 @@
 import { Delete, Edit } from '@mui/icons-material';
 import {
   Box,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,7 +8,7 @@ import {
   IconButton,
   Stack,
   TextField,
-  Tooltip,
+  Tooltip
 } from '@mui/material';
 import axios from 'axios';
 import {
@@ -224,6 +223,7 @@ const Table: React.FC = () => {
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
+          type: 'show'
         }),
       },
       {
@@ -232,6 +232,7 @@ const Table: React.FC = () => {
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
+          type: 'show'
         }),
       },
       {
@@ -240,7 +241,7 @@ const Table: React.FC = () => {
         size: 200,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
-          type: 'email',
+          type: 'show',
         }),
       },
       {
@@ -357,7 +358,7 @@ export const CreateNewAccountModal = ({
             }}
           >
             {columns.map((column) => (
-              column.accessorKey !== 'id' && <TextField
+              (column.accessorKey !== 'id' && column.accessorKey !== 'active')&& <TextField
                 key={column.accessorKey}
                 label={column.header}
                 name={column.accessorKey}

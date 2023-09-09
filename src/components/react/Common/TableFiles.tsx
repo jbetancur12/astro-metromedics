@@ -1,7 +1,8 @@
-import { Delete, Edit } from '@mui/icons-material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { Delete, Edit, CloudUpload, CheckCircle, Cancel } from '@mui/icons-material';
+import { differenceInDays, format } from 'date-fns';
 import {
   Box,
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -11,7 +12,9 @@ import {
   TextField,
   Tooltip
 } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import axios from 'axios';
+import { styled } from '@mui/material/styles';
 import {
   MaterialReactTable,
   type MRT_Cell,
@@ -21,6 +24,20 @@ import {
 } from 'material-react-table';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import AutoComplete from './AutoComplete';
+
+
+const VisuallyHiddenInput = styled('input')`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  white-space: nowrap;
+  width: 1px;
+`;
 
 
 // Define interfaces
@@ -36,7 +53,7 @@ export interface FileData {
   nextCalibrationDate: Date;
   filePath: string;
   userId: number;
-  cetificateTypeId: number;
+  certificateTypeId: number;
   deviceId: number
 }
 
@@ -50,18 +67,31 @@ const Table: React.FC = () => {
   const [tableData, setTableData] = useState<FileData[]>([]);
 
 
+
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string;
   }>({});
+
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+    }
+  };
 
   // Create a new file
   const onCreateFile = async (fileData: FileData) => {
 
     try {
-      const response = await axios.post(`${apiUrl}/files`, { name: fileData.name });
+      const response = await axios.post(`${apiUrl}/files`, fileData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
       if (response.status === 201) {
-        toast.success('Equipo Creado Exitosamente!', {
+        toast.success('Certificado Creado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
@@ -114,6 +144,7 @@ const Table: React.FC = () => {
   }, []);
 
   const handleCreateNewRow = (values: FileData) => {
+    console.log("🚀 ~ file: TableFiles.tsx:147 ~ handleCreateNewRow ~ values:", values)
     onCreateFile(values);
     setCreateModalOpen(false);
   };
@@ -277,27 +308,61 @@ const Table: React.FC = () => {
         accessorKey: 'calibrationDate', //access nested data with dot notation
         header: 'Fecha de Calibración',
         size: 250,
+
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
+        Cell: ({ cell }) => (
+          <span>{cell.getValue<number>().substring(0, 10)}</span>
+        ),
+
         type: "date"
       },
       {
         accessorKey: 'nextCalibrationDate', //access nested data with dot notation
         header: 'Proxima Fecha de Calibración',
         size: 350,
+        Cell: ({ cell,row }) => {
+          const now = new Date()
+          const nextCalibrationDate = new Date(row.original.nextCalibrationDate);
+          console.log("🚀 ~ file: TableFiles.tsx:328 ~ nextCalibrationDate:", nextCalibrationDate)
+          const daysRemaining = differenceInDays(nextCalibrationDate, now);
+          const formattedCalibrationDate = format(nextCalibrationDate, 'yyyy-MM-dd');
+
+          let icon;
+          if (daysRemaining > 0) {
+            icon = <CheckCircle sx={{ color: 'green' }} />;
+          } else {
+            icon = <Cancel sx={{ color: 'red' }} />;
+          }
+
+          return (
+            <div className="flex flex-col ">
+              <div>
+              {icon}
+            <span className="ml-2">{formattedCalibrationDate}</span>
+            </div>
+            <span className="mt-2">{daysRemaining < 0 ? 'VENCIDO' : `Días restantes: ${daysRemaining}`}</span>
+          </div>
+          );
+
+        },
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
+
         type: "date"
       },
       {
         accessorKey: 'filePath', //access nested data with dot notation
         header: 'filePath',
         size: 150,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+        hidden: true,
+        muiTableBodyCellEditTextFieldProps: ({ cell,column }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
+        // Cell : (w) => w.column.getIsVisible(),
+        type: "upload"
       },
       {
         accessorKey: 'userId', //access nested data with dot notation
@@ -306,6 +371,7 @@ const Table: React.FC = () => {
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
+        type: "selectUserId"
       },
       {
         accessorKey: 'deviceId', //access nested data with dot notation
@@ -314,14 +380,16 @@ const Table: React.FC = () => {
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
+        type: "selectDeviceId"
       },
       {
-        accessorKey: 'cetificateTypeId', //access nested data with dot notation
+        accessorKey: 'certificateTypeId', //access nested data with dot notation
         header: 'certificateTypeId',
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
+        type: "selectCertificateTypeId"
       },
 
 
@@ -351,6 +419,10 @@ const Table: React.FC = () => {
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
+        enableHiding={false}
+        initialState={{
+          columnVisibility: { filePath: false },
+        }}
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement="left" title="Edit">
@@ -400,6 +472,9 @@ export const CreateNewAccountModal = ({
   onClose,
   onSubmit,
 }: CreateModalProps) => {
+  const [file, setFile] = useState<File | null>(null);
+  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
+
   const [values, setValues] = useState<any>(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ''] = '';
@@ -407,9 +482,43 @@ export const CreateNewAccountModal = ({
     }, {} as any),
   );
 
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setSelectedFileName(selectedFile.name);
+    }
+  };
+
+  function logFormData(formData) {
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}:`, value);
+    }
+  }
+
   const handleSubmit = () => {
     //put your validation logic here
-    onSubmit(values);
+
+
+    const formData = new FormData();
+    formData.append('name', values.name);
+    formData.append('city', values.city);
+    formData.append('location', values.location);
+    formData.append('sede', values.sede);
+    formData.append('activoFijo', values.activoFijo);
+    formData.append('serie', values.serie);
+    formData.append('calibrationDate', values.calibrationDate);
+    formData.append('nextCalibrationDate', values.nextCalibrationDate);
+    formData.append('pdf', file as Blob);
+    formData.append('userId', values.userId.toString());
+    formData.append('certificateTypeId', values.certificateTypeId.toString());
+    formData.append('deviceId', values.deviceId.toString());
+
+    // .toISOString().split('T')[0]
+    logFormData(formData)
+
+    onSubmit(formData);
     onClose();
   };
 
@@ -427,31 +536,99 @@ export const CreateNewAccountModal = ({
           >
             {columns.map((column) => {
 
-              if (column.accessorKey !== 'id') {
+              if (column.accessorKey !== 'id' && column.accessorKey !== 'name') {
 
-                return (
+                switch (column.type) {
+                  case "date":
+                    return (
+                      <DatePicker
+                        label={column.header}
+                        name={column.accessorKey}
+                        value={values[column.accessorKey]}
+                        onChange={(e) => setValues({ ...values, [column.accessorKey]: new Date(e) })}
+                      />
 
-                  column.type === 'date' ? ( // Verificar si la columna es de tipo Date
-                    <DatePicker
-                    label={column.header}
+                    )
+                  case "selectUserId":
+                    return <AutoComplete
+                      endpoint="http://localhost:5050/users"
+                      label="Buscar Cliente"
+                      mapOption={(data) =>
+                        data.map((item) => ({
+                          id: item.id,
+                          nombre: item.nombre,
+                        }))}
+                      //isOptionEqualToValue={(option, value) => option.id === value.id}
+                      getOptionLabel={(option) => option.nombre}
                       name={column.accessorKey}
                       value={values[column.accessorKey]}
-                      onChange={(e) =>
-                        setValues({ ...values, [column.accessorKey]: e.target.value })
-                      }
+                      onClientSelection={e => setValues({ ...values, [column.accessorKey]: e.id })}
+
                     />
-                  ) : (
-                    <TextField
-                      label={column.header}
+
+                  case "selectDeviceId":
+                    return <AutoComplete
+                      endpoint="http://localhost:5050/devices"
+                      label="Buscar Equipo"
+                      mapOption={(data) =>
+                        data.map((item: any) => ({
+                          id: item.id,
+                          name: item.name,
+                        }))}
+                      getOptionLabel={(option) => option.name}
                       name={column.accessorKey}
                       value={values[column.accessorKey]}
-                      onChange={(e) =>
-                        setValues({ ...values, [column.accessorKey]: e.target.value })
-                      }
-                    />
-                  )
+                      onClientSelection={e => setValues({ ...values, [column.accessorKey]: e.id })}
 
-                )
+                    />
+
+
+                  case "selectCertificateTypeId":
+                    return <AutoComplete
+                      endpoint="http://localhost:5050/certificateTypes"
+                      label="Buscar Tipo de Certificado"
+                      mapOption={(data) =>
+                        data.map((item: any) => ({
+                          id: item.id,
+                          name: item.name,
+                        }))}
+                      //isOptionEqualToValue={(option, value) => option?.id?.toString() === (value?.id ?? value)?.toString()}
+                      getOptionLabel={(option) => option.name}
+                      name={column.accessorKey}
+                      value={values[column.accessorKey]}
+                      onClientSelection={e => setValues({ ...values, [column.accessorKey]: e.id })}
+
+                    />
+
+                  case "upload":
+                    return <Button
+                      component="label"
+                      variant="contained"
+                      startIcon={<CloudUpload />}
+                      href="#file-upload"
+                      onChange={handleFileChange}
+                      style={{
+                        textTransform: "none"
+                      }}
+                    >
+                      {selectedFileName ? selectedFileName : "Cargar Archivo"}
+                      <VisuallyHiddenInput type="file" accept=".pdf" />
+                    </Button>
+
+                  default:
+                    return (
+                      <TextField
+                        label={column.header}
+                        name={column.accessorKey}
+                        value={values[column.accessorKey]}
+                        onChange={(e) =>
+                          setValues({ ...values, [column.accessorKey]: e.target.value })
+                        }
+                      />
+                    )
+                }
+
+
               }
             }
             )}
