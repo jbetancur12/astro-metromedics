@@ -1,7 +1,7 @@
 import { Delete, Edit } from '@mui/icons-material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import {
   Box,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,7 +9,7 @@ import {
   IconButton,
   Stack,
   TextField,
-  Tooltip,
+  Tooltip
 } from '@mui/material';
 import axios from 'axios';
 import {
@@ -22,14 +22,22 @@ import {
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
+
 // Define interfaces
-export interface UserData {
+export interface FileData {
   id: number;
-  nombre: string;
-  identificacion: string;
-  email: string;
-  contraseña: string;
-  active: boolean
+  name: string;
+  city: string;
+  location: string;
+  sede: string;
+  activoFijo: string;
+  serie: string;
+  calibrationDate: Date;
+  nextCalibrationDate: Date;
+  filePath: string;
+  userId: number;
+  cetificateTypeId: number;
+  deviceId: number
 }
 
 
@@ -39,63 +47,62 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
 // Main component
 const Table: React.FC = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState<UserData[]>([]);
-  const [filteredTableData, setFilteredTableData] = useState<UserData[]>([]);
+  const [tableData, setTableData] = useState<FileData[]>([]);
+
 
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string;
   }>({});
 
-  // Create a new user
-  const onCreateUser = async (userData: UserData) => {
+  // Create a new file
+  const onCreateFile = async (fileData: FileData) => {
+
     try {
-      const response = await axios.post(`${apiUrl}/auth/register`, userData);
+      const response = await axios.post(`${apiUrl}/files`, { name: fileData.name });
 
       if (response.status === 201) {
-        toast.success('Usuario Creado Exitosamente!', {
+        toast.success('Equipo Creado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         fetchUsers(); // Refresh data after creation
       } else {
-        console.error('Error al crear usuario');
+        console.error('Error al crear equipo');
       }
     } catch (error) {
       console.error('Error de red:', error);
     }
   };
 
-  // Fetch users data
+  // Fetch files data
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/users`);
+      const response = await axios.get(`${apiUrl}/files`);
 
 
       if (response.statusText === 'OK') {
         // @ts-ignore: Ignorar el error en esta línea
-        const filteredData = response.data.filter((user: UserData) => user.rol !== "admin");
-        setTableData(filteredData);
-        setFilteredTableData(filteredData);
+        setTableData(response.data);
       }
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      console.error('Error fetching file data:', error);
     }
   };
 
 
-  const updateUser = async (userData: UserData) => {
+  const updateUser = async (fileData: FileData) => {
 
     try {
-      const response = await axios.put(`${apiUrl}/users/${userData.id}`, userData);
+      const response = await axios.put(`${apiUrl}/files/${fileData.id}`, fileData);
 
       if (response.status === 201) {
-        toast.success('Usuario Modificado Exitosamente!', {
+        toast.success('Equipo Modificado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         ; // Refresh data after creation
       } else {
-        console.error('Error al crear usuario');
+        console.error('Error al crear equipo');
       }
     } catch (error) {
       console.error('Error de red:', error);
@@ -106,29 +113,29 @@ const Table: React.FC = () => {
     fetchUsers();
   }, []);
 
-  const handleCreateNewRow = (values: UserData) => {
-    onCreateUser(values);
+  const handleCreateNewRow = (values: FileData) => {
+    onCreateFile(values);
     setCreateModalOpen(false);
   };
 
-  const handleSaveRowEdits: MaterialReactTableProps<UserData>['onEditingRowSave'] =
+  const handleSaveRowEdits: MaterialReactTableProps<FileData>['onEditingRowSave'] =
     async ({ exitEditingMode, row, values }) => {
 
       if (!Object.keys(validationErrors).length) {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/users/${values.id}`, updatedValues);
+          const response = await axios.put(`${apiUrl}/files/${values.id}`, updatedValues);
 
           if (response.status === 201) {
-            toast.success('Usuario Modificado Exitosamente!', {
+            toast.success('Equipo Modificado Exitosamente!', {
               duration: 4000,
               position: 'top-center',
             });
             tableData[row.index] = values;
             setTableData([...tableData]);
           } else {
-            console.error('Error al crear usuario');
+            console.error('Error al crear equipo');
           }
         } catch (error) {
           console.error('Error de red:', error);
@@ -144,17 +151,17 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/users/${id}`);
+      const response = await axios.delete(`${apiUrl}/files/${id}`);
 
       if (response.status === 201) {
-        toast.success('Usuario Eliminado Exitosamente!', {
+        toast.success('Equipo Eliminado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         tableData.splice(rowIndex, 1);
         setTableData([...tableData]);
       } else {
-        console.error('Error al crear usuario');
+        console.error('Error al crear equipo');
       }
     } catch (error) {
       console.error('Error de red:', error);
@@ -162,9 +169,9 @@ const Table: React.FC = () => {
   }
 
   const handleDeleteRow = useCallback(
-    (row: MRT_Row<UserData>) => {
+    (row: MRT_Row<FileData>) => {
       if (
-        !confirm(`Are you sure you want to delete ${row.getValue('nombre')}`)
+        !confirm(`Are you sure you want to delete ${row.getValue('name')}`)
       ) {
         return;
       }
@@ -177,8 +184,8 @@ const Table: React.FC = () => {
 
   const getCommonEditTextFieldProps = useCallback(
     (
-      cell: MRT_Cell<UserData>,
-    ): MRT_ColumnDef<UserData>['muiTableBodyCellEditTextFieldProps'] => {
+      cell: MRT_Cell<FileData>,
+    ): MRT_ColumnDef<FileData>['muiTableBodyCellEditTextFieldProps'] => {
       return {
         error: !!validationErrors[cell.id],
         helperText: validationErrors[cell.id],
@@ -210,7 +217,7 @@ const Table: React.FC = () => {
 
 
   //should be memoized or stable
-  const columns = useMemo<MRT_ColumnDef<UserData>[]>(
+  const columns = useMemo<MRT_ColumnDef<FileData>[]>(
     () => [
       {
         accessorKey: 'id', //access nested data with dot notation
@@ -219,7 +226,7 @@ const Table: React.FC = () => {
         enableEditing: false,
       },
       {
-        accessorKey: 'nombre', //access nested data with dot notation
+        accessorKey: 'name', //access nested data with dot notation
         header: 'Nombre',
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -227,35 +234,97 @@ const Table: React.FC = () => {
         }),
       },
       {
-        accessorKey: 'identificacion',
-        header: 'Identificacion',
+        accessorKey: 'city', //access nested data with dot notation
+        header: 'Ciudad',
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'email', //normal accessorKey
-        header: 'Email',
-        size: 200,
+        accessorKey: 'location', //access nested data with dot notation
+        header: 'Ubicación',
+        size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
-          type: 'email',
         }),
       },
       {
-        accessorKey: "active",
-        header: "Activo",
-        size: 10,
-        Cell: ({ cell }) => (
-          <div className={`circle ${cell.getValue() ? "bg-green-600" : "bg-orange-400"}`}
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-            }} ></div>
-        ),
-      }
+        accessorKey: 'sede', //access nested data with dot notation
+        header: 'Sede',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'activoFijo', //access nested data with dot notation
+        header: 'Activo Fijo',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'serie', //access nested data with dot notation
+        header: 'Serie',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'calibrationDate', //access nested data with dot notation
+        header: 'Fecha de Calibración',
+        size: 250,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+        type: "date"
+      },
+      {
+        accessorKey: 'nextCalibrationDate', //access nested data with dot notation
+        header: 'Proxima Fecha de Calibración',
+        size: 350,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+        type: "date"
+      },
+      {
+        accessorKey: 'filePath', //access nested data with dot notation
+        header: 'filePath',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'userId', //access nested data with dot notation
+        header: 'userId',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'deviceId', //access nested data with dot notation
+        header: 'deviceId',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'cetificateTypeId', //access nested data with dot notation
+        header: 'certificateTypeId',
+        size: 150,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+
+
 
     ],
     [getCommonEditTextFieldProps],
@@ -276,7 +345,7 @@ const Table: React.FC = () => {
           },
         }}
         columns={columns}
-        data={filteredTableData}
+        data={tableData}
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing
@@ -296,14 +365,14 @@ const Table: React.FC = () => {
             </Tooltip>
           </Box>
         )}
-        // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Usuario</button>
+        // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Equipo</button>
         renderTopToolbarCustomActions={() => (
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
             onClick={() => setCreateModalOpen(true)}
 
           >
-            Crear Nueva Cuenta
+            Subir Nuevo Certificado
           </button>
         )}
       />
@@ -318,9 +387,9 @@ const Table: React.FC = () => {
 };
 
 interface CreateModalProps {
-  columns: MRT_ColumnDef<UserData>[];
+  columns: MRT_ColumnDef<FileData>[];
   onClose: () => void;
-  onSubmit: (values: UserData) => void;
+  onSubmit: (values: FileData) => void;
   open: boolean;
 }
 
@@ -346,7 +415,7 @@ export const CreateNewAccountModal = ({
 
   return (
     <Dialog open={open}>
-      <DialogTitle textAlign="center">Crear Nueva Cuenta</DialogTitle>
+      <DialogTitle textAlign="center">Subir Nuevo Certificado</DialogTitle>
       <DialogContent>
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
@@ -356,30 +425,46 @@ export const CreateNewAccountModal = ({
               gap: '1.5rem',
             }}
           >
-            {columns.map((column) => (
-              column.accessorKey !== 'id' && <TextField
-                key={column.accessorKey}
-                label={column.header}
-                name={column.accessorKey}
-                onChange={(e) =>
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }
-              />
-            ))}
-            <TextField
-              label="Contraseña"
-              name="contraseña"
-              onChange={(e) =>
-                setValues({ ...values, [e.target.name]: e.target.value })
+            {columns.map((column) => {
+
+              if (column.accessorKey !== 'id') {
+
+                return (
+
+                  column.type === 'date' ? ( // Verificar si la columna es de tipo Date
+                    <DatePicker
+                    label={column.header}
+                      name={column.accessorKey}
+                      value={values[column.accessorKey]}
+                      onChange={(e) =>
+                        setValues({ ...values, [column.accessorKey]: e.target.value })
+                      }
+                    />
+                  ) : (
+                    <TextField
+                      label={column.header}
+                      name={column.accessorKey}
+                      value={values[column.accessorKey]}
+                      onChange={(e) =>
+                        setValues({ ...values, [column.accessorKey]: e.target.value })
+                      }
+                    />
+                  )
+
+                )
               }
-            />
+            }
+            )}
+
+
+
           </Stack>
         </form>
       </DialogContent>
       <DialogActions sx={{ p: '1.25rem' }}>
         <button className="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-10" onClick={onClose} >Cancelar</button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit} variant="contained">
-          Crear Cuenta
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit} >
+          Subir Certificado
         </button>
       </DialogActions>
     </Dialog>

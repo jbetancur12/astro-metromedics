@@ -1,7 +1,6 @@
 import { Delete, Edit } from '@mui/icons-material';
 import {
   Box,
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,7 +8,7 @@ import {
   IconButton,
   Stack,
   TextField,
-  Tooltip,
+  Tooltip
 } from '@mui/material';
 import axios from 'axios';
 import {
@@ -23,13 +22,9 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
 // Define interfaces
-export interface UserData {
+export interface CertificateTypeData {
   id: number;
-  nombre: string;
-  identificacion: string;
-  email: string;
-  contraseña: string;
-  active: boolean
+  name: string;
 }
 
 
@@ -39,63 +34,62 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
 // Main component
 const Table: React.FC = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState<UserData[]>([]);
-  const [filteredTableData, setFilteredTableData] = useState<UserData[]>([]);
+  const [tableData, setTableData] = useState<CertificateTypeData[]>([]);
+  const [filteredTableData, setFilteredTableData] = useState<CertificateTypeData[]>([]);
 
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string;
   }>({});
 
-  // Create a new user
-  const onCreateUser = async (userData: UserData) => {
+  // Create a new certificateType
+  const onCreateCertificateType = async (certificateTypeData: CertificateTypeData) => {
+
     try {
-      const response = await axios.post(`${apiUrl}/auth/register`, userData);
+      const response = await axios.post(`${apiUrl}/certificateTypes`, {name: certificateTypeData.name});
 
       if (response.status === 201) {
-        toast.success('Usuario Creado Exitosamente!', {
+        toast.success('Equipo Creado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         fetchUsers(); // Refresh data after creation
       } else {
-        console.error('Error al crear usuario');
+        console.error('Error al crear tipo de certificado');
       }
     } catch (error) {
       console.error('Error de red:', error);
     }
   };
 
-  // Fetch users data
+  // Fetch certificateTypes data
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/users`);
+      const response = await axios.get(`${apiUrl}/certificateTypes`);
 
 
       if (response.statusText === 'OK') {
         // @ts-ignore: Ignorar el error en esta línea
-        const filteredData = response.data.filter((user: UserData) => user.rol !== "admin");
-        setTableData(filteredData);
-        setFilteredTableData(filteredData);
+        setTableData(response.data);
       }
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      console.error('Error fetching certificateType data:', error);
     }
   };
 
 
-  const updateUser = async (userData: UserData) => {
+  const updateUser = async (certificateTypeData: CertificateTypeData) => {
 
     try {
-      const response = await axios.put(`${apiUrl}/users/${userData.id}`, userData);
+      const response = await axios.put(`${apiUrl}/certificateTypes/${certificateTypeData.id}`, certificateTypeData);
 
       if (response.status === 201) {
-        toast.success('Usuario Modificado Exitosamente!', {
+        toast.success('Equipo Modificado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         ; // Refresh data after creation
       } else {
-        console.error('Error al crear usuario');
+        console.error('Error al crear tipo de certificado');
       }
     } catch (error) {
       console.error('Error de red:', error);
@@ -106,29 +100,29 @@ const Table: React.FC = () => {
     fetchUsers();
   }, []);
 
-  const handleCreateNewRow = (values: UserData) => {
-    onCreateUser(values);
+  const handleCreateNewRow = (values: CertificateTypeData) => {
+    onCreateCertificateType(values);
     setCreateModalOpen(false);
   };
 
-  const handleSaveRowEdits: MaterialReactTableProps<UserData>['onEditingRowSave'] =
+  const handleSaveRowEdits: MaterialReactTableProps<CertificateTypeData>['onEditingRowSave'] =
     async ({ exitEditingMode, row, values }) => {
 
       if (!Object.keys(validationErrors).length) {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/users/${values.id}`, updatedValues);
+          const response = await axios.put(`${apiUrl}/certificateTypes/${values.id}`, updatedValues);
 
           if (response.status === 201) {
-            toast.success('Usuario Modificado Exitosamente!', {
+            toast.success('Equipo Modificado Exitosamente!', {
               duration: 4000,
               position: 'top-center',
             });
             tableData[row.index] = values;
             setTableData([...tableData]);
           } else {
-            console.error('Error al crear usuario');
+            console.error('Error al crear tipo de certificado');
           }
         } catch (error) {
           console.error('Error de red:', error);
@@ -144,17 +138,17 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/users/${id}`);
+      const response = await axios.delete(`${apiUrl}/certificateTypes/${id}`);
 
       if (response.status === 201) {
-        toast.success('Usuario Eliminado Exitosamente!', {
+        toast.success('Equipo Eliminado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         tableData.splice(rowIndex, 1);
         setTableData([...tableData]);
       } else {
-        console.error('Error al crear usuario');
+        console.error('Error al crear tipo de certificado');
       }
     } catch (error) {
       console.error('Error de red:', error);
@@ -162,9 +156,9 @@ const Table: React.FC = () => {
   }
 
   const handleDeleteRow = useCallback(
-    (row: MRT_Row<UserData>) => {
+    (row: MRT_Row<CertificateTypeData>) => {
       if (
-        !confirm(`Are you sure you want to delete ${row.getValue('nombre')}`)
+        !confirm(`Are you sure you want to delete ${row.getValue('name')}`)
       ) {
         return;
       }
@@ -177,8 +171,8 @@ const Table: React.FC = () => {
 
   const getCommonEditTextFieldProps = useCallback(
     (
-      cell: MRT_Cell<UserData>,
-    ): MRT_ColumnDef<UserData>['muiTableBodyCellEditTextFieldProps'] => {
+      cell: MRT_Cell<CertificateTypeData>,
+    ): MRT_ColumnDef<CertificateTypeData>['muiTableBodyCellEditTextFieldProps'] => {
       return {
         error: !!validationErrors[cell.id],
         helperText: validationErrors[cell.id],
@@ -210,7 +204,7 @@ const Table: React.FC = () => {
 
 
   //should be memoized or stable
-  const columns = useMemo<MRT_ColumnDef<UserData>[]>(
+  const columns = useMemo<MRT_ColumnDef<CertificateTypeData>[]>(
     () => [
       {
         accessorKey: 'id', //access nested data with dot notation
@@ -219,43 +213,14 @@ const Table: React.FC = () => {
         enableEditing: false,
       },
       {
-        accessorKey: 'nombre', //access nested data with dot notation
+        accessorKey: 'name', //access nested data with dot notation
         header: 'Nombre',
         size: 150,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
-      {
-        accessorKey: 'identificacion',
-        header: 'Identificacion',
-        size: 150,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-        }),
-      },
-      {
-        accessorKey: 'email', //normal accessorKey
-        header: 'Email',
-        size: 200,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'email',
-        }),
-      },
-      {
-        accessorKey: "active",
-        header: "Activo",
-        size: 10,
-        Cell: ({ cell }) => (
-          <div className={`circle ${cell.getValue() ? "bg-green-600" : "bg-orange-400"}`}
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-            }} ></div>
-        ),
-      }
+
 
     ],
     [getCommonEditTextFieldProps],
@@ -276,7 +241,7 @@ const Table: React.FC = () => {
           },
         }}
         columns={columns}
-        data={filteredTableData}
+        data={tableData}
         editingMode="modal" //default
         enableColumnOrdering
         enableEditing
@@ -296,14 +261,14 @@ const Table: React.FC = () => {
             </Tooltip>
           </Box>
         )}
-        // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Usuario</button>
+        // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Equipo</button>
         renderTopToolbarCustomActions={() => (
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
             onClick={() => setCreateModalOpen(true)}
 
           >
-            Crear Nueva Cuenta
+            Crear Nuevo Tipo de Certificado
           </button>
         )}
       />
@@ -318,9 +283,9 @@ const Table: React.FC = () => {
 };
 
 interface CreateModalProps {
-  columns: MRT_ColumnDef<UserData>[];
+  columns: MRT_ColumnDef<CertificateTypeData>[];
   onClose: () => void;
-  onSubmit: (values: UserData) => void;
+  onSubmit: (values: CertificateTypeData) => void;
   open: boolean;
 }
 
@@ -346,7 +311,7 @@ export const CreateNewAccountModal = ({
 
   return (
     <Dialog open={open}>
-      <DialogTitle textAlign="center">Crear Nueva Cuenta</DialogTitle>
+      <DialogTitle textAlign="center">Crear Nuevo Tipo de Certificado</DialogTitle>
       <DialogContent>
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
@@ -366,20 +331,14 @@ export const CreateNewAccountModal = ({
                 }
               />
             ))}
-            <TextField
-              label="Contraseña"
-              name="contraseña"
-              onChange={(e) =>
-                setValues({ ...values, [e.target.name]: e.target.value })
-              }
-            />
+
           </Stack>
         </form>
       </DialogContent>
       <DialogActions sx={{ p: '1.25rem' }}>
         <button className="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-10" onClick={onClose} >Cancelar</button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit} variant="contained">
-          Crear Cuenta
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit} >
+          Crear Tipo de Certificado
         </button>
       </DialogActions>
     </Dialog>
