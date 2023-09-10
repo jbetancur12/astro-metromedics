@@ -1,5 +1,4 @@
-import { Delete, Edit, CloudUpload, CheckCircle, Cancel, Visibility } from '@mui/icons-material';
-import { differenceInDays, format } from 'date-fns';
+import { Cancel, CheckCircle, CloudUpload, Delete, FileDownload } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -12,9 +11,10 @@ import {
   TextField,
   Tooltip
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import axios from 'axios';
-import { styled } from '@mui/material/styles';
+import { differenceInDays, format } from 'date-fns';
 import {
   MaterialReactTable,
   type MRT_Cell,
@@ -123,7 +123,11 @@ const Table: React.FC = () => {
   // Fetch files data
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/files`);
+      const response = await axios.get(`${apiUrl}/files`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        }
+      });
 
 
 
@@ -173,7 +177,11 @@ const Table: React.FC = () => {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/files/${values.id}`, updatedValues);
+          const response = await axios.put(`${apiUrl}/files/${values.id}`, updatedValues ,{
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+            }
+          });
 
           if (response.status === 201) {
             toast.success('Equipo Modificado Exitosamente!', {
@@ -199,7 +207,9 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/files/${id}`);
+      const response = await axios.delete(`${apiUrl}/files/${id}`,{ headers: {
+        'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+      }});
 
       if (response.status === 201) {
         toast.success('Equipo Eliminado Exitosamente!', {
@@ -263,27 +273,63 @@ const Table: React.FC = () => {
     [validationErrors],
   );
 
+  const handleDownload = async (row) => {
+    const filePath = row.getValue("filePath");
+
+    const partes = filePath.split("-");
+    let resultado = "";
+
+    if (partes.length > 1) {
+      resultado = partes.slice(1).join("-");
+    } else {
+      resultado = filePath;
+    }
+
+    try {
+      const response = await axios.get(`${apiUrl}/files/download/${filePath}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+        responseType: 'blob', // Indicar que esperamos una respuesta binaria
+      });
+
+
+
+
+      if (response.statusText = "OK") {
+
+        // Crear un objeto URL para el archivo descargado
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+
+        // Crear un enlace en el DOM para descargar el archivo
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', resultado); // Nombre del archivo a descargar
+             document.body.appendChild(link);
+
+
+             // Simular el clic en el enlace para iniciar la descarga
+             link.click();
+
+             // Liberar el objeto URL y eliminar el enlace después de la descarga
+             window.URL.revokeObjectURL(url);
+             document.body.removeChild(link);
+
+
+            }
+    } catch (error) {
+
+      toast.error(`Error al descargar el archivo: ${error.response.statusText}`, {
+        duration: 4000,
+        position: 'top-center',
+      });
+    }
+  }
+
 
   //should be memoized or stable
   const columns = useMemo<MRT_ColumnDef<FileData>[]>(
     () => [
-      {
-        // accessorKey: 'show', //access nested data with dot notation
-        header: 'Ver',
-        size: 10,
-        enableEditing: false,
-        Cell: ({ cell }) => (
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
-            <Tooltip arrow placement="left" title="Editar">
-              <IconButton onClick={() => handleVisibilityRow(row)}>
-                <Visibility />
-              </IconButton>
-            </Tooltip>
-          </Box>
-        )
-
-      },
-
       {
         accessorKey: 'id', //access nested data with dot notation
         header: 'ID',
@@ -390,7 +436,6 @@ const Table: React.FC = () => {
         Cell: ({ cell, row }) => {
           const now = new Date()
           const nextCalibrationDate = new Date(row.original.nextCalibrationDate);
-          console.log("🚀 ~ file: TableFiles.tsx:328 ~ nextCalibrationDate:", nextCalibrationDate)
           const daysRemaining = differenceInDays(nextCalibrationDate, now);
           const formattedCalibrationDate = format(nextCalibrationDate, 'yyyy-MM-dd');
 
@@ -443,6 +488,7 @@ const Table: React.FC = () => {
   return (
     <>
       <Toaster />
+      {/* <Pdf/> */}
       <MaterialReactTable
         displayColumnDefOptions={{
           'mrt-row-actions': {
@@ -474,6 +520,11 @@ const Table: React.FC = () => {
             <Tooltip arrow placement="right" title="Delete">
               <IconButton color="error" onClick={() => handleDeleteRow(row)}>
                 <Delete />
+              </IconButton>
+            </Tooltip>
+            <Tooltip arrow placement="left" title="Descargar">
+              <IconButton onClick={() => handleDownload(row)}>
+                <FileDownload />
               </IconButton>
             </Tooltip>
           </Box>
@@ -541,7 +592,7 @@ export const CreateNewAccountModal = ({
   const handleSubmit = () => {
     //put your validation logic here
 
-
+console.log('%cTableFiles.tsx line:575 values', 'color: #007acc;', values["user.name"]);
     const formData = new FormData();
     formData.append('name', values.name);
     formData.append('city', values.city);
@@ -552,9 +603,9 @@ export const CreateNewAccountModal = ({
     formData.append('calibrationDate', values.calibrationDate);
     formData.append('nextCalibrationDate', values.nextCalibrationDate);
     formData.append('pdf', file as Blob);
-    formData.append('userId', values.userId.toString());
-    formData.append('certificateTypeId', values.certificateTypeId.toString());
-    formData.append('deviceId', values.deviceId.toString());
+    formData.append('userId', values["user.nombre"].toString());
+    formData.append('certificateTypeId', values["certificateType.name"].toString());
+    formData.append('deviceId', values["device.name"].toString());
 
     // .toISOString().split('T')[0]
     logFormData(formData)

@@ -3,20 +3,24 @@ import { Link } from "react-router-dom";
 
 interface DropdownButtonProps {
   buttonText: string;
-  menuItems: { label: string; url: string }[];
+  menuItems: { label: string; url: string, roles: string[] }[];
   pathData: string;
+  rol: string
 }
 
 const DropdownButton: React.FC<DropdownButtonProps> = ({
   buttonText,
   menuItems,
-  pathData
+  pathData,
+  rol
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+
 
   return (
     <div>
@@ -31,16 +35,18 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
         className={`${isDropdownOpen ? "block" : "hidden"
           } py-2 space-y-2`}
       >
-        {menuItems.map((item) => (
-          <li key={item.label}>
-            <Link to={item.url}
-
-              className="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
+        {menuItems
+          .filter((item) => item.roles.includes(rol)) // Filtrar elementos basados en los roles permitidos
+          .map((item) => (
+            <li key={item.label}>
+              <Link
+                to={item.url}
+                className="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
       </ul>
     </div>
   );
