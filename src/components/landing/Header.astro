@@ -122,20 +122,72 @@ const pathname = Astro.url.pathname;
             href='/nosotros'>Nosotros</a
           >
         </li>
-        <li class='mr-3'>
+        <!-- <li class='mr-3'>
           <a
             class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
             class:list={[pathname == '/contacto' && 'text-green-400 font-bold']}
             href='/contacto'>Contacto</a
           >
+        </li> -->
+        <li class="mr-3">
+          <a
+          id='clientesLink'
+          class='text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline'
+          href='#'
+          >
+        Clientes
+        <span class='ml-2'>
+          <svg
+            id='angle-up-clientes'
+            class='hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 14 8'
+          >
+            <path
+              stroke='currentColor'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7'></path>
+          </svg>
+          <svg
+            id='angle-down-clientes'
+            class='w-6 h-6 text-white dark:text-white group-hover:text-green-500'
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 14 8'
+          >
+            <path
+              stroke='currentColor'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1'></path>
+          </svg>
+        </span>
+        </a>
+        <div
+            id='clientes'
+            class='absolute rounded-lg bg-black py-2 hidden'
+          >
+            <a
+              href='/login'
+              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              >Calibraciones</a
+            >
+            <a
+              href='/login/laboratorio-con-trazabilidad-sector-biomedico-e-industrial'
+              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              >Mantenimiento</a
+            >
+          </div>
+
         </li>
       </ul>
-      <button
-        id='navAction'
-        class='mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
-      >
-        Clientes
-      </button>
+
     </div>
   </div>
 
@@ -177,12 +229,12 @@ const pathname = Astro.url.pathname;
       class:list={[pathname == '/nosotros' && 'text-green-400 font-bold']}
       >Nosotros</a
     >
-    <a
+    <!-- <a
       href='/contacto'
       class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
       class:list={[pathname == '/contacto' && 'text-green-400 font-bold']}
       >Contacto</a
-    >
+    > -->
   </div>
   <!-- <hr class="border-b border-gray-100 opacity-25 my-0 py-0" /> -->
 </nav>
@@ -246,4 +298,25 @@ const pathname = Astro.url.pathname;
 
   // Add scroll event listener
   document.addEventListener('scroll', updateHeaderStyles);
+
+
+  //clientes
+  const clientesLink = document.getElementById('clientesLink');
+  const clientes = document.getElementById('clientes');
+  const clientesMobileLink = document.getElementById('clientesMobileLink');
+  const clientesMobile = document.getElementById('clientesMobile');
+  const angelUpClientes = document.getElementById('angle-up-clientes');
+  const angelDownClientes = document.getElementById('angle-down-clientes');
+
+  clientesLink?.addEventListener('click', () => {
+    clientes?.classList.toggle('hidden');
+    angelUpClientes?.classList.toggle('hidden');
+    angelDownClientes?.classList.toggle('hidden');
+  });
+
+  clientesMobileLink?.addEventListener('click', () => {
+    clientesMobile?.classList.toggle('hidden');
+  });
+
+
 </script>

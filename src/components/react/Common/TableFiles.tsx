@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import axios from 'axios';
+import axios, { AxiosError, type AxiosResponse } from 'axios';
 import { differenceInDays, format } from 'date-fns';
 import {
   MaterialReactTable,
@@ -286,7 +286,7 @@ const Table: React.FC = () => {
     }
 
     try {
-      const response = await axios.get(`${apiUrl}/files/download/${filePath}`, {
+      const response: AxiosResponse<Blob> = await axios.get(`${apiUrl}/files/download/${filePath}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         },
@@ -318,11 +318,29 @@ const Table: React.FC = () => {
 
             }
     } catch (error) {
-
-      toast.error(`Error al descargar el archivo: ${error.response.statusText}`, {
-        duration: 4000,
-        position: 'top-center',
-      });
+      if (axios.isAxiosError(error)) {
+        // Manejo de errores de Axios
+        const axiosError = error as AxiosError;
+        if (axiosError.response) {
+          // La solicitud recibió una respuesta del servidor
+          toast.error(`Error al descargar el archivo: ${axiosError.response.statusText}`, {
+            duration: 4000,
+            position: 'top-center',
+          });
+        } else {
+          // La solicitud no recibió una respuesta del servidor
+          toast.error(`Error de red al descargar el archivo: ${axiosError.message}`, {
+            duration: 4000,
+            position: 'top-center',
+          });
+        }
+      } else {
+        // Manejo de otros errores
+        toast.error(`Error desconocido al descargar el archivo: ${error.message}`, {
+          duration: 4000,
+          position: 'top-center',
+        });
+      }
     }
   }
 

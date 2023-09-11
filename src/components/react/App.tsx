@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RequireAuth from "./Authentication/RequireAuth";
 import Layout from "./Common/Layout";
 import Clientes from "./pages/Clientes";
+import Customers from "./pages/Customers";
 import Equipos from "./pages/Equipos";
 import Files from "./pages/Files";
 import TiposDeCertificados from "./pages/TiposdeCertificado";
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={protectedLayout}>
             <Route path="clientes" element={<Clientes />} />
+            <Route path="customers" element={<Customers />} />
             <Route path="calibraciones">
               <Route path="equipos" element={<Equipos />} />
               <Route path="tipos-de-certificado" element={<TiposDeCertificados />} />

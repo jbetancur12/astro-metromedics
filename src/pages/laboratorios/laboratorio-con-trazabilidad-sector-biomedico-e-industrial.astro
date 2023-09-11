@@ -3,7 +3,10 @@ import laboratorioTrazabilidad from '../../config/laboratorio-trazabilidad.json'
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title='Laboratorio Con Trazabilidad Sector Biomédico e Industrial'>
+<Layout
+  title='Metromedics SAS - Ingeniería y Laboratorio de Metrología'
+  description='Metromedics S.A.S Dosquebradas, Es una compañía dedicada dedicada a realizar procesos metrológicos bajo normas técnicas nacionales e internaciones, contribuyendo en la estandarización de los procedimientos metrológicos a nivel nacional'
+>
   <div class='bg-[url(/images/fondo_titulos.webp)] h-40 flex'>
     <div class='container w-full m-auto font-bold text-3xl md:max-w-5xl'>
       <h1>Laboratorio Con Trazabilidad Sector Biomédico e Industrial</h1>
@@ -24,13 +27,10 @@ import Layout from '../../layouts/Layout.astro';
             <div class='grid md:grid-cols-2 m-auto mb-10'>
               <img src={item.image} alt={item.title} />
               <div>
-                <h3 class='font-bold text-3xl my-5'>
-                  {item.title}
-                </h3>
-                <p set:html={item.content} class='leading-relaxed'/>
+                <h3 class='font-bold text-3xl my-5'>{item.title}</h3>
+                <p set:html={item.content} class='leading-relaxed' />
               </div>
             </div>
-
           </>
         ))
       }

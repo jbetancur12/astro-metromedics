@@ -31,23 +31,25 @@ import './style.css';
   >
     <!--First item-->
     <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none overlay2'
+      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none'
       style='backface-visibility: hidden'
     >
-      <img
-        src='https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).webp'
-        class='block w-full'
-        alt='...'
-      />
+    <img
+    src="/images/1-1.jpg"
+    class="block w-full mx-auto"
+    alt="..."
+
+  />
     </div>
     <!--Second item-->
     <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none overlay2'
+      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none overlay2 m-auto'
       style='backface-visibility: hidden'
     >
+
       <img
-        src='https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).webp'
-        class='block w-full'
+        src='/images/2.jpg'
+        class="block w-full mx-auto"
         alt='...'
       />
     </div>
@@ -56,11 +58,12 @@ import './style.css';
       class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none overlay2'
       style='backface-visibility: hidden'
     >
-      <img
-        src='https://tecdn.b-cdn.net/img/Photos/Slides/img%20(23).webp'
-        class='block w-full'
-        alt='...'
-      />
+
+    <img
+    src='/images/3.jpg'
+    class="block w-full mx-auto"
+    alt='...'
+  />
     </div>
   </div>
 
@@ -118,6 +121,14 @@ import './style.css';
   </button>
 </div>
 
+<style>
+  img {
+  max-height: 100vh; /* Limita la altura máxima al 100% de la altura de la ventana */
+  width: auto; /* Mantiene la proporción original del ancho */
+  height: auto; /* Mantiene la proporción original de la altura */
+}
+</style>
+
 <script>
   // const header: HTMLElement | null = document.getElementById('header');
   // const carousel: HTMLElement | null = document.getElementById('carousel');
@@ -138,7 +149,7 @@ import './style.css';
   buttonNext?.addEventListener('click', () => {
     stopAutoSlide();
     plusSlides(1);
-    startAutoSlide();
+    // startAutoSlide();
   });
   buttonBefore?.addEventListener('click', () => plusSlides(-1));
 

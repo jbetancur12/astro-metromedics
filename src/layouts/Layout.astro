@@ -2,23 +2,37 @@
 interface Props {
   title: string;
 }
+import { SEOMetadata } from 'astro-seo-metadata';
 import Copyright from '../components/landing/Copyright.astro';
 import Footer from '../components/landing/Footer.astro';
 import Header from '../components/landing/Header.astro';
 import '../styles/Layout.css';
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='es'>
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <meta name="description" content="Metromedics S.A.S, Es una compañía dedicada dedicada a realizar procesos metrológicos bajo normas técnicas nacionales e internaciones, contribuyendo en la estandarización de los procedimientos metrológicos a nivel nacional">
-    <title>Astro Landing - {title}</title>
+    <!-- <meta name="description" content="Metromedics S.A.S, Es una compañía dedicada dedicada a realizar procesos metrológicos bajo normas técnicas nacionales e internaciones, contribuyendo en la estandarización de los procedimientos metrológicos a nivel nacional">
+    <title>Astro Landing - {title}</title> -->
+    <SEOMetadata
+    siteName={`Metromedics SAS`}
+    title={title}
+    description={description}
+    image={'http://example.com/the_image_url-preferably_absolute.jpg'}
+    favicon={'/images/favicon-1.png'}
+    author="Jorge Betancur"
+    copyright="ISC"
+    astroSitemap={true}
+    canonicalUrl={Astro.url.toString()}
+    type={'website'}
+    astroGenerator={true}
+  />
   </head>
   <body>
     <Header/>

@@ -1,9 +1,12 @@
 ---
-import nosotros from "../config/nosotros.json";
-import Layout from "../layouts/Layout.astro";
+import nosotros from '../config/nosotros.json';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Nosotros'>
+<Layout
+  title='Metromedics SAS - Ingeniería y Laboratorio de Metrología'
+  description='Metromedics S.A.S Dosquebradas, Es una compañía dedicada dedicada a realizar procesos metrológicos bajo normas técnicas nacionales e internaciones, contribuyendo en la estandarización de los procedimientos metrológicos a nivel nacional'
+>
   <div class='bg-[url(/images/fondo_titulos.webp)] h-40 flex'>
     <div class='container w-full m-auto font-bold text-3xl max-w-5xl'>
       <h1>Nosotros</h1>
@@ -12,11 +15,11 @@ import Layout from "../layouts/Layout.astro";
   <div class='container m-auto my-10'>
     <div class='grid md:grid-cols-2 gap-16 items-center max-w-5xl m-auto'>
       {
-        nosotros.map(item =>(
-        <div>
-              <h1 class='font-bold text-xl mb-7'>{item.title}</h1>
-              <p class='text-justify leading-relaxed'>{item.content}</p>
-            </div>
+        nosotros.map((item) => (
+          <div>
+            <h1 class='font-bold text-xl mb-7'>{item.title}</h1>
+            <p class='text-justify leading-relaxed'>{item.content}</p>
+          </div>
         ))
       }
     </div>
