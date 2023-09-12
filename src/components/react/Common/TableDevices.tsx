@@ -45,7 +45,11 @@ const Table: React.FC = () => {
   const onCreateDevice = async (deviceData: DeviceData) => {
 
     try {
-      const response = await axios.post(`${apiUrl}/devices`, {name: deviceData.name});
+      const response = await axios.post(`${apiUrl}/devices`, {name: deviceData.name}, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Creado Exitosamente!', {
@@ -64,7 +68,11 @@ const Table: React.FC = () => {
   // Fetch devices data
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/devices`);
+      const response = await axios.get(`${apiUrl}/devices`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
 
       if (response.statusText === 'OK') {
@@ -80,7 +88,11 @@ const Table: React.FC = () => {
   const updateUser = async (deviceData: DeviceData) => {
 
     try {
-      const response = await axios.put(`${apiUrl}/devices/${deviceData.id}`, deviceData);
+      const response = await axios.put(`${apiUrl}/devices/${deviceData.id}`, deviceData, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Modificado Exitosamente!', {
@@ -112,7 +124,11 @@ const Table: React.FC = () => {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/devices/${values.id}`, updatedValues);
+          const response = await axios.put(`${apiUrl}/devices/${values.id}`, updatedValues,{
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+            },
+          });
 
           if (response.status === 201) {
             toast.success('Equipo Modificado Exitosamente!', {
@@ -138,7 +154,11 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/devices/${id}`);
+      const response = await axios.delete(`${apiUrl}/devices/${id}`,{
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Eliminado Exitosamente!', {

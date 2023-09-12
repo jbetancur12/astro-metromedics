@@ -1,4 +1,4 @@
-import { Delete, Edit, Visibility } from '@mui/icons-material';
+import { Delete, Edit } from '@mui/icons-material';
 import {
   Box,
   Dialog,
@@ -20,20 +20,20 @@ import {
 } from 'material-react-table';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // Define interfaces
-export interface CustomerData {
+export interface UserData {
   id: number;
   nombre: string;
-  identificacion: string;
-  direccion: string;
   email: string;
-  telefono: string;
-  ciudad: string;
-  departamento: string;
-  pais: string;
+  contraseña: string;
   active: boolean;
+  customer: {
+    id: number;
+    nombre: string;
+    // Otras propiedades de User
+  };
 }
 
 
@@ -43,45 +43,41 @@ const apiUrl = import.meta.env.PUBLIC_API_URL;
 // Main component
 const Table: React.FC = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState<CustomerData[]>([]);
-  const [filteredTableData, setFilteredTableData] = useState<CustomerData[]>([]);
+  const [tableData, setTableData] = useState<UserData[]>([]);
+  const [filteredTableData, setFilteredTableData] = useState<UserData[]>([]);
+  const { id } = useParams();
 
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string;
   }>({});
 
-  // Create a new customer
-  const onCreateCustomer = async (customerData: CustomerData) => {
+  // Create a new user
+  const onCreateUser = async (userData: UserData) => {
     try {
-      const updatedValues = { ...customerData };
-      delete updatedValues.id;
-
-      console.log("🚀 ~ file: TableCustomers.tsx:63 ~ constcustomerWithoutId:CustomerData=Object.keys ~ customerWithoutId:", updatedValues)
-      const response = await axios.post(`${apiUrl}/customers`, updatedValues, {
+      const response = await axios.post(`${apiUrl}/auth/register`, userData, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         },
       });
 
-
       if (response.status === 201) {
-        toast.success('Cliente Creado Exitosamente!', {
+        toast.success('Usuario Creado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
-        fetchCustomers(); // Refresh data after creation
+        fetchUsers(); // Refresh data after creation
       } else {
-        console.error('Error al crear cliente');
+        console.error('Error al crear usuario');
       }
     } catch (error) {
       console.error('Error de red:', error);
     }
   };
 
-  // Fetch customers data
-  const fetchCustomers = async () => {
+  // Fetch users data
+  const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/customers`, {
+      const response = await axios.get(`${apiUrl}/customers/${id}/users`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         },
@@ -90,70 +86,49 @@ const Table: React.FC = () => {
 
       if (response.statusText === 'OK') {
         // @ts-ignore: Ignorar el error en esta línea
-        const filteredData = response.data.filter((customer: CustomerData) => customer.rol !== "admin");
+        const filteredData = response.data.filter((user: UserData) => user.rol !== "admin");
         setTableData(filteredData);
         setFilteredTableData(filteredData);
       }
     } catch (error) {
-      console.error('Error fetching customer data:', error);
+      console.error('Error fetching user data:', error);
     }
   };
 
 
-  const updateCustomer = async (customerData: CustomerData) => {
-
-    try {
-      const response = await axios.put(`${apiUrl}/customers/${customerData.id}`, customerData, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
-        },
-      });
-
-      if (response.status === 201) {
-        toast.success('Cliente Modificado Exitosamente!', {
-          duration: 4000,
-          position: 'top-center',
-        });
-        ; // Refresh data after creation
-      } else {
-        console.error('Error al crear cliente');
-      }
-    } catch (error) {
-      console.error('Error de red:', error);
-    }
-  }
 
   useEffect(() => {
-    fetchCustomers();
+    console.log('%cTableUsersCustomer.tsx line:88 "HOLAAAAAAA"', 'color: #007acc;', "HOLAAAAAAA");
+    fetchUsers();
   }, []);
 
-  const handleCreateNewRow = (values: CustomerData) => {
-    onCreateCustomer(values);
+  const handleCreateNewRow = (values: UserData) => {
+    onCreateUser({...values, customerId: id});
     setCreateModalOpen(false);
   };
 
-  const handleSaveRowEdits: MaterialReactTableProps<CustomerData>['onEditingRowSave'] =
+  const handleSaveRowEdits: MaterialReactTableProps<UserData>['onEditingRowSave'] =
     async ({ exitEditingMode, row, values }) => {
 
       if (!Object.keys(validationErrors).length) {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/customers/${values.id}`, updatedValues, {
+          const response = await axios.put(`${apiUrl}/users/${values.id}`, updatedValues, {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
             },
           });
 
           if (response.status === 201) {
-            toast.success('Cliente Modificado Exitosamente!', {
+            toast.success('Usuario Modificado Exitosamente!', {
               duration: 4000,
               position: 'top-center',
             });
             tableData[row.index] = values;
             setTableData([...tableData]);
           } else {
-            console.error('Error al crear cliente');
+            console.error('Error al crear usuario');
           }
         } catch (error) {
           console.error('Error de red:', error);
@@ -167,23 +142,23 @@ const Table: React.FC = () => {
     setValidationErrors({});
   };
 
-  const deleteCustomer = async (rowIndex: number, id: number) => {
+  const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/customers/${id}`, {
+      const response = await axios.delete(`${apiUrl}/users/${id}`,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         },
       });
 
       if (response.status === 201) {
-        toast.success('Cliente Eliminado Exitosamente!', {
+        toast.success('Usuario Eliminado Exitosamente!', {
           duration: 4000,
           position: 'top-center',
         });
         tableData.splice(rowIndex, 1);
         setTableData([...tableData]);
       } else {
-        console.error('Error al crear cliente');
+        console.error('Error al crear usuario');
       }
     } catch (error) {
       console.error('Error de red:', error);
@@ -191,27 +166,23 @@ const Table: React.FC = () => {
   }
 
   const handleDeleteRow = useCallback(
-    (row: MRT_Row<CustomerData>) => {
+    (row: MRT_Row<UserData>) => {
       if (
         !confirm(`Are you sure you want to delete ${row.getValue('nombre')}`)
       ) {
         return;
       }
-      deleteCustomer(row.index, row.getValue('id'))
+      deleteUser(row.index, row.getValue('id'))
       tableData.splice(row.index, 1);
       setTableData([...tableData]);
     },
     [tableData],
   );
 
-  const handleViewRow = (row) => {
-    console.log('%cTableCustomers.tsx line:187 row', 'color: #007acc;', row);
-  }
-
   const getCommonEditTextFieldProps = useCallback(
     (
-      cell: MRT_Cell<CustomerData>,
-    ): MRT_ColumnDef<CustomerData>['muiTableBodyCellEditTextFieldProps'] => {
+      cell: MRT_Cell<UserData>,
+    ): MRT_ColumnDef<UserData>['muiTableBodyCellEditTextFieldProps'] => {
       return {
         error: !!validationErrors[cell.id],
         helperText: validationErrors[cell.id],
@@ -243,7 +214,7 @@ const Table: React.FC = () => {
 
 
   //should be memoized or stable
-  const columns = useMemo<MRT_ColumnDef<CustomerData>[]>(
+  const columns = useMemo<MRT_ColumnDef<UserData>[]>(
     () => [
       {
         accessorKey: 'id', //access nested data with dot notation
@@ -255,74 +226,38 @@ const Table: React.FC = () => {
         accessorKey: 'nombre', //access nested data with dot notation
         header: 'Nombre',
         size: 150,
+        type: 'show',
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
-          type: 'show'
-        }),
-      },
-      {
-        accessorKey: 'identificacion',
-        header: 'Identificacion',
-        size: 150,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'show'
         }),
       },
       {
         accessorKey: 'email', //normal accessorKey
         header: 'Email',
         size: 200,
+        type: 'show',
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
-          type: 'show',
         }),
       },
       {
-        accessorKey: 'direccion', //normal accessorKey
-        header: 'Direccion',
-        size: 200,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'show',
-        }),
+        accessorKey: "active",
+        header: "Activo",
+        size: 10,
+        Cell: ({ cell }) => (
+          <div className={`circle ${cell.getValue() ? "bg-green-600" : "bg-orange-400"}`}
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+            }} ></div>
+        ),
       },
       {
-        accessorKey: 'telefono', //normal accessorKey
-        header: 'Telefono',
-        size: 200,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'show',
-        }),
-      },
-      {
-        accessorKey: 'ciudad', //normal accessorKey
-        header: 'Ciudad',
-        size: 200,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'show',
-        }),
-      },
-      {
-        accessorKey: 'departamento', //normal accessorKey
-        header: 'Departamento',
-        size: 200,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'show',
-        }),
-      },
-      {
-        accessorKey: 'pais', //normal accessorKey
-        header: 'Pais',
-        size: 200,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'show',
-        }),
-      },
+        accessorKey: "customer.nombre",
+        header: "Compañia",
+        size: 10,
+      }
 
     ],
     [getCommonEditTextFieldProps],
@@ -361,16 +296,9 @@ const Table: React.FC = () => {
                 <Delete />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="right" title="Ver">
-              <Link to={`${row.original.id}`}>
-                <IconButton color="error">
-                  <Visibility />
-                </IconButton>
-              </Link>
-            </Tooltip>
           </Box>
         )}
-        // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Cliente</button>
+        // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Usuario</button>
         renderTopToolbarCustomActions={() => (
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
@@ -392,9 +320,9 @@ const Table: React.FC = () => {
 };
 
 interface CreateModalProps {
-  columns: MRT_ColumnDef<CustomerData>[];
+  columns: MRT_ColumnDef<UserData>[];
   onClose: () => void;
-  onSubmit: (values: CustomerData) => void;
+  onSubmit: (values: UserData) => void;
   open: boolean;
 }
 
@@ -405,6 +333,7 @@ export const CreateNewAccountModal = ({
   onClose,
   onSubmit,
 }: CreateModalProps) => {
+  const { id } = useParams();
   const [values, setValues] = useState<any>(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ''] = '';
@@ -417,6 +346,10 @@ export const CreateNewAccountModal = ({
     onSubmit(values);
     onClose();
   };
+
+  useEffect(() => {
+    setValues({ ...values, customerId: id })
+  }, [])
 
   return (
     <Dialog open={open}>
@@ -431,7 +364,7 @@ export const CreateNewAccountModal = ({
             }}
           >
             {columns.map((column) => (
-              (column.accessorKey !== 'id' && column.accessorKey !== 'active') && <TextField
+              (column.accessorKey !== 'id' && column.accessorKey !== 'active' && column.accessorKey !== 'customer.nombre') && <TextField
                 key={column.accessorKey}
                 label={column.header}
                 name={column.accessorKey}
@@ -440,14 +373,27 @@ export const CreateNewAccountModal = ({
                 }
               />
             ))}
-
+            <TextField
+              label="Contraseña"
+              name="contraseña"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+            />
+            <TextField
+              label="Compañia"
+              name="customerId"
+              disabled
+              sx={{display: "none"}}
+              value={values.customerId}
+            />
           </Stack>
         </form>
       </DialogContent>
       <DialogActions sx={{ p: '1.25rem' }}>
         <button className="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-10" onClick={onClose} >Cancelar</button>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleSubmit} variant="contained">
-          Crear Cuenta
+          Crear Usuario
         </button>
       </DialogActions>
     </Dialog>

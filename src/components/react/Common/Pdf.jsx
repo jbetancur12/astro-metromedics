@@ -21,7 +21,6 @@ function PDFViewer() {
       .then((response) => {
         const blob = new Blob([response.data], { type: 'application/pdf' });
         const objectURL = URL.createObjectURL(blob);
-        console.log("🚀 ~ file: Pdf.tsx:17 ~ .then ~ objectURL:", objectURL)
         setPdfURL(objectURL);
       })
       .catch((error) => {

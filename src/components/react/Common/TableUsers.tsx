@@ -48,7 +48,11 @@ const Table: React.FC = () => {
   // Create a new user
   const onCreateUser = async (userData: UserData) => {
     try {
-      const response = await axios.post(`${apiUrl}/auth/register`, userData);
+      const response = await axios.post(`${apiUrl}/auth/register`, userData , {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Usuario Creado Exitosamente!', {
@@ -67,7 +71,11 @@ const Table: React.FC = () => {
   // Fetch users data
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/users`);
+      const response = await axios.get(`${apiUrl}/users`,{
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
 
       if (response.statusText === 'OK') {
@@ -85,7 +93,11 @@ const Table: React.FC = () => {
   const updateUser = async (userData: UserData) => {
 
     try {
-      const response = await axios.put(`${apiUrl}/users/${userData.id}`, userData);
+      const response = await axios.put(`${apiUrl}/users/${userData.id}`, userData, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Usuario Modificado Exitosamente!', {
@@ -117,7 +129,11 @@ const Table: React.FC = () => {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/users/${values.id}`, updatedValues);
+          const response = await axios.put(`${apiUrl}/users/${values.id}`, updatedValues, {
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+            },
+          });
 
           if (response.status === 201) {
             toast.success('Usuario Modificado Exitosamente!', {
@@ -143,7 +159,11 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/users/${id}`);
+      const response = await axios.delete(`${apiUrl}/users/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Usuario Eliminado Exitosamente!', {

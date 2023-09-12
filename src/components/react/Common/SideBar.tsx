@@ -9,6 +9,7 @@ import DropdownButton from "./DropdownButton";
 const SideBar: React.FC = () => {
 
   const $userStore = useStore(userStore);
+  console.log("🚀 ~ file: SideBar.tsx:12 ~ userStore:", $userStore)
 
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -31,20 +32,20 @@ const SideBar: React.FC = () => {
                 </a>
               </li>
               <li>
-              { $userStore.rol === 'admin' &&
+                {$userStore.rol === 'admin' &&
 
-              (
-                <>
-              <Link to="clientes" className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
-                  <FaUser className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
-                  <span className="ml-3" sidebar-toggle-item="">Clientes</span>
-                </Link>
-                  <Link to="customers" className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
-                  <FaUser className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
-                  <span className="ml-3" sidebar-toggle-item="">Customers</span>
-                </Link>
-                </>
-                )}
+                  (
+                    <>
+                      <Link to="customers" className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                        <FaUser className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+                        <span className="ml-3" sidebar-toggle-item="">Empresas</span>
+                      </Link>
+                      <Link to="users" className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                        <FaUser className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+                        <span className="ml-3" sidebar-toggle-item="">Usuarios</span>
+                      </Link>
+                    </>
+                  )}
               </li>
 
               <li>

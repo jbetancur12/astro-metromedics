@@ -12,7 +12,6 @@ function Header() {
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
-    console.log('%cHeader.tsx line:10 "Holaaa', 'color: #007acc;', "Holaaa");
     setIsMenuOpen(!isMenuOpen);
   };
 

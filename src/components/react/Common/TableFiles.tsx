@@ -52,7 +52,7 @@ export interface FileData {
   calibrationDate: Date;
   nextCalibrationDate: Date;
   filePath: string;
-  userId: number;
+  customerId: number;
   certificateTypeId: number;
   deviceId: number
   // Nuevas propiedades para las relaciones
@@ -103,6 +103,7 @@ const Table: React.FC = () => {
       const response = await axios.post(`${apiUrl}/files`, fileData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         },
       });
 
@@ -144,7 +145,11 @@ const Table: React.FC = () => {
   const updateUser = async (fileData: FileData) => {
 
     try {
-      const response = await axios.put(`${apiUrl}/files/${fileData.id}`, fileData);
+      const response = await axios.put(`${apiUrl}/files/${fileData.id}`, fileData, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Modificado Exitosamente!', {
@@ -355,14 +360,14 @@ const Table: React.FC = () => {
         enableEditing: false,
       },
       {
-        accessorKey: 'user.nombre', //access nested data with dot notation
-        header: 'Cliente',
+        accessorKey: 'customer.nombre', //access nested data with dot notation
+        header: 'Compañia',
         size: 150,
         enableEditing: false,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
-        type: "selectUserId"
+        type: "selectCustomerId"
       },
       {
         accessorKey: 'device.name', //access nested data with dot notation
@@ -621,7 +626,7 @@ console.log('%cTableFiles.tsx line:575 values', 'color: #007acc;', values["user.
     formData.append('calibrationDate', values.calibrationDate);
     formData.append('nextCalibrationDate', values.nextCalibrationDate);
     formData.append('pdf', file as Blob);
-    formData.append('userId', values["user.nombre"].toString());
+    formData.append('customerId', values["customer.nombre"].toString());
     formData.append('certificateTypeId', values["certificateType.name"].toString());
     formData.append('deviceId', values["device.name"].toString());
 
@@ -659,9 +664,9 @@ console.log('%cTableFiles.tsx line:575 values', 'color: #007acc;', values["user.
                       />
 
                     )
-                  case "selectUserId":
+                  case "selectCustomerId":
                     return <AutoComplete
-                      endpoint="http://localhost:5050/users"
+                      endpoint="http://localhost:5050/customers"
                       label="Buscar Cliente"
                       mapOption={(data) =>
                         data.map((item) => ({

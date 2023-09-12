@@ -45,7 +45,11 @@ const Table: React.FC = () => {
   const onCreateCertificateType = async (certificateTypeData: CertificateTypeData) => {
 
     try {
-      const response = await axios.post(`${apiUrl}/certificateTypes`, {name: certificateTypeData.name});
+      const response = await axios.post(`${apiUrl}/certificateTypes`, {name: certificateTypeData.name} , {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Creado Exitosamente!', {
@@ -64,7 +68,11 @@ const Table: React.FC = () => {
   // Fetch certificateTypes data
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/certificateTypes`);
+      const response = await axios.get(`${apiUrl}/certificateTypes`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
 
       if (response.statusText === 'OK') {
@@ -80,7 +88,11 @@ const Table: React.FC = () => {
   const updateUser = async (certificateTypeData: CertificateTypeData) => {
 
     try {
-      const response = await axios.put(`${apiUrl}/certificateTypes/${certificateTypeData.id}`, certificateTypeData);
+      const response = await axios.put(`${apiUrl}/certificateTypes/${certificateTypeData.id}`, certificateTypeData, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Modificado Exitosamente!', {
@@ -112,7 +124,11 @@ const Table: React.FC = () => {
         const updatedValues = { ...values };
         delete updatedValues.id;
         try {
-          const response = await axios.put(`${apiUrl}/certificateTypes/${values.id}`, updatedValues);
+          const response = await axios.put(`${apiUrl}/certificateTypes/${values.id}`, updatedValues, {
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+            },
+          });
 
           if (response.status === 201) {
             toast.success('Equipo Modificado Exitosamente!', {
@@ -138,7 +154,11 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/certificateTypes/${id}`);
+      const response = await axios.delete(`${apiUrl}/certificateTypes/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
+        },
+      });
 
       if (response.status === 201) {
         toast.success('Equipo Eliminado Exitosamente!', {
