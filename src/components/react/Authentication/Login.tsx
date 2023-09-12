@@ -82,7 +82,9 @@ const Login: React.FC = () => {
       // Handle login error based on status code
       if (error.response && error.response.status === 401) {
         setError('Credenciales incorrectas. Por favor, verifica tus credenciales.');
-      } else {
+      } else if(error.response && error.response.status === 400 && error.response.data.message === "You are not verified"){
+        setError('La cuenta aun no ha sido activada');
+      }else {
         setError('Error de inicio de sesión. Por favor, inténtalo de nuevo más tarde.');
       }
     }

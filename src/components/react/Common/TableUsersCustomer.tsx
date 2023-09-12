@@ -103,7 +103,7 @@ const Table: React.FC = () => {
   }, []);
 
   const handleCreateNewRow = (values: UserData) => {
-    onCreateUser({...values, customerId: id});
+    onCreateUser({ ...values, customerId: id, contraseña: '123456' });
     setCreateModalOpen(false);
   };
 
@@ -144,7 +144,7 @@ const Table: React.FC = () => {
 
   const deleteUser = async (rowIndex: number, id: number) => {
     try {
-      const response = await axios.delete(`${apiUrl}/users/${id}`,{
+      const response = await axios.delete(`${apiUrl}/users/${id}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("accessToken")}`
         },
@@ -364,7 +364,7 @@ export const CreateNewAccountModal = ({
             }}
           >
             {columns.map((column) => (
-              (column.accessorKey !== 'id' && column.accessorKey !== 'active' && column.accessorKey !== 'customer.nombre') && <TextField
+              (column.accessorKey !== 'id' && column.accessorKey !== 'active' && column.accessorKey !== 'customer.nombre' && column.accessorKey !== 'customer.contraseña') && <TextField
                 key={column.accessorKey}
                 label={column.header}
                 name={column.accessorKey}
@@ -384,7 +384,14 @@ export const CreateNewAccountModal = ({
               label="Compañia"
               name="customerId"
               disabled
-              sx={{display: "none"}}
+              sx={{ display: "none" }}
+              value={values.customerId}
+            />
+            <TextField
+              label="Contraseña"
+              name="contraseña"
+              disabled
+              sx={{ display: "none" }}
               value={values.customerId}
             />
           </Stack>
