@@ -351,6 +351,13 @@ const Table: React.FC = () => {
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
+            <Tooltip arrow placement="right" title="Ver">
+              <Link to={`${row.original.id}`}>
+                <IconButton>
+                  <Visibility />
+                </IconButton>
+              </Link>
+            </Tooltip>
             <Tooltip arrow placement="left" title="Edit">
               <IconButton onClick={() => table.setEditingRow(row)}>
                 <Edit />
@@ -361,13 +368,7 @@ const Table: React.FC = () => {
                 <Delete />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="right" title="Ver">
-              <Link to={`${row.original.id}`}>
-                <IconButton color="error">
-                  <Visibility />
-                </IconButton>
-              </Link>
-            </Tooltip>
+
           </Box>
         )}
         // <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Cliente</button>

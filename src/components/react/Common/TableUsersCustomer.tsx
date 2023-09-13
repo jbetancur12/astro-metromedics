@@ -75,7 +75,7 @@ const Table: React.FC = () => {
   };
 
   // Fetch users data
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
       const response = await axios.get(`${apiUrl}/customers/${id}/users`, {
         headers: {
@@ -93,7 +93,7 @@ const Table: React.FC = () => {
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
-  };
+  });
 
 
 
