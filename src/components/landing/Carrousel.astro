@@ -1,7 +1,10 @@
 ---
 import './style.css';
 ---
-
+  <div id="preloader">
+    <div id="loader"></div>
+    <!-- <img src="/images/logo2.png" alt="logo"> -->
+  </div>
 <div id='carousel' class='relative md:mt-0'>
   <!--Carousel indicators-->
   <div
@@ -35,7 +38,7 @@ import './style.css';
       style='backface-visibility: hidden'
     >
     <img
-    src="/images/1-1.jpg"
+    src="/images/1-1.webp"
     class="block w-full mx-auto"
     alt="..."
 
@@ -43,24 +46,24 @@ import './style.css';
     </div>
     <!--Second item-->
     <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none overlay2 m-auto'
+      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none  m-auto'
       style='backface-visibility: hidden'
     >
 
       <img
-        src='/images/2.jpg'
+        src='/images/2.webp'
         class="block w-full mx-auto"
         alt='...'
       />
     </div>
     <!--Third item-->
     <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none overlay2'
+      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none '
       style='backface-visibility: hidden'
     >
 
     <img
-    src='/images/3.jpg'
+    src='/images/3.webp'
     class="block w-full mx-auto"
     alt='...'
   />
@@ -127,18 +130,45 @@ import './style.css';
   width: auto; /* Mantiene la proporción original del ancho */
   height: auto; /* Mantiene la proporción original de la altura */
 }
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#loader {
+  border: 4px solid #34db87;
+  border-top: 4px solid #0f0f0f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
 
 <script>
-  // const header: HTMLElement | null = document.getElementById('header');
-  // const carousel: HTMLElement | null = document.getElementById('carousel');
-  // const height: number | undefined = header?.offsetHeight;
-  // console.log("🚀 ~ file: Carrousel.astro:124 ~ height:", height)
+ window.addEventListener('load', function () {
+  const preloader = document.getElementById('preloader');
+  const carousel = document.getElementById('carousel');
 
-  // if(header?.offsetWidth &&  header.offsetWidth < 1024){
-  //   if(carousel)
-  //   carousel.style.marginTop = height + "px";
-  // }
+  // Ocultar el preloader
+  preloader.style.display = 'none';
+  // Mostrar el carrusel
+  carousel.style.display = 'block';
+});
 
 </script>
 

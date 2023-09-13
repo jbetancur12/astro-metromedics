@@ -1,0 +1,18 @@
+---
+import Customers from '../components/react/pages/Customers';
+import LayoutDashboard from "../layouts/LayoutDashboard.astro";
+import { userStore } from '../store/userStore';
+
+console.log("🚀 ~ file: auth.ts:2 ~ userStore:", userStore)
+---
+
+<div>
+  <LayoutDashboard>
+    <Customers/>
+  </LayoutDashboard>
+</div>
+
+<script>
+import { token } from '../utils/auth';
+console.log("🚀 ~ file: dashboard-test.astro:6 ~ token:", token)
+</script>
