@@ -12,6 +12,8 @@ import {
   Tooltip
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import axios, { AxiosError, type AxiosResponse } from 'axios';
 import { differenceInDays, format } from 'date-fns';
@@ -656,12 +658,14 @@ console.log('%cTableFiles.tsx line:575 values', 'color: #007acc;', values["user.
                 switch (column.type) {
                   case "date":
                     return (
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
                       <DatePicker
                         label={column.header}
                         name={column.accessorKey}
                         value={values[column.accessorKey]}
                         onChange={(e) => setValues({ ...values, [column.accessorKey]: new Date(e) })}
                       />
+                      </LocalizationProvider>
 
                     )
                   case "selectCustomerId":

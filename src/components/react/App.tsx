@@ -24,7 +24,7 @@ function App() {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <BrowserRouter>
         <Routes>
-          <Route path="/dashboard" element={protectedLayout}>
+          <Route path="/dashboard-back" element={protectedLayout}>
             <Route path="users" element={<Clientes />} />
             <Route path="customers" >
               <Route index element={<Customers/>}/>

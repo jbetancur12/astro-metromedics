@@ -20,7 +20,6 @@ import {
 } from 'material-react-table';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
 
 // Define interfaces
 export interface CustomerData {
@@ -39,6 +38,8 @@ export interface CustomerData {
 
 // API URL
 const apiUrl = import.meta.env.PUBLIC_API_URL;
+
+const route = 'customers'
 
 // Main component
 const Table: React.FC = () => {
@@ -352,11 +353,17 @@ const Table: React.FC = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: 'flex', gap: '1rem' }}>
             <Tooltip arrow placement="right" title="Ver">
-              <Link to={`${row.original.id}`}>
+              {/* <Link to={`${row.original.id}`}>
                 <IconButton>
                   <Visibility />
                 </IconButton>
-              </Link>
+              </Link> */}
+
+              <a href={`/dashboard/${route}/${row.original.id}`}>
+              <IconButton>
+                  <Visibility />
+                </IconButton>
+              </a>
             </Tooltip>
             <Tooltip arrow placement="left" title="Edit">
               <IconButton onClick={() => table.setEditingRow(row)}>

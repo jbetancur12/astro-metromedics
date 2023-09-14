@@ -21,6 +21,7 @@ import {
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { getIdFromUrl } from './../../../utils/functions';
 
 // Define interfaces
 export interface UserData {
@@ -40,12 +41,15 @@ export interface UserData {
 // API URL
 const apiUrl = import.meta.env.PUBLIC_API_URL;
 
+// ID
+const id = getIdFromUrl()
+
 // Main component
 const Table: React.FC = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState<UserData[]>([]);
   const [filteredTableData, setFilteredTableData] = useState<UserData[]>([]);
-  const { id } = useParams();
+
 
   const [validationErrors, setValidationErrors] = useState<{
     [cellId: string]: string;
