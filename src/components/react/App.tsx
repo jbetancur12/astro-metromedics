@@ -12,7 +12,8 @@ import TiposDeCertificados from "./pages/TiposdeCertificado";
 
 const apiUrl = import.meta.env.PUBLIC_API_URL;
 
-function App() {
+function App({url}) {
+console.log("🚀 ~ file: App.tsx:16 ~ App ~ url:", url)
 
   const protectedLayout = (
     <RequireAuth>

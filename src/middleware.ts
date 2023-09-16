@@ -1,5 +1,11 @@
-export function onRequest ({ locals, request }, next) {
-  console.log("🚀 ~ file: middleware.ts:2 ~ onRequest ~ request:", request.url)
+export function onRequest (request, next) {
+console.log("🚀 ~ file: middleware.ts:2 ~ onRequest ~ request:", request.url)
+
+
+
+
+
+
   // intercept response data from a request
   // optionally, transform the response by modifying `locals`
 

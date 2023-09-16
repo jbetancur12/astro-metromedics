@@ -3,5 +3,5 @@ import App from '../components/react/App';
 ---
 
 <div>
-  <App client:only/>
+  <App url={Astro.url.pathname} client:only/>
 </div>
