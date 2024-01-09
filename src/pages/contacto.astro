@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Metromedics SAS | Calibración y Mantenimiento de Equipos Médicos e Industriales"
+  description="Metromedics S.A.S Dosquebradas: Expertos en Calibración y Mantenimiento de Equipos Médicos e Industriales. Contribuimos a la Estandarización de la Medición en el Sector de la Salud y la Industria."
+>
+  <div
+    class="flex flex-col md:flex-row items-center justify-center h-screen md:gap-40 mt-10"
+  >
+    <div class="bg-white p-8 rounded shadow-md max-w-md mt-3">
+      <h1 class="text-3xl font-bold mb-4">Contáctate Con Nosotros</h1>
+      <p class="mb-5">Déjanos un mensaje y pronto nos comunicaremos contigo.</p>
+      <form method="POST" class="max-w-md" id="contactForm">
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-gray-700"
+            >Nombre<span class="text-red-600"> *</span></label
+          >
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            class="w-full p-3 border rounded-md"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700"
+            >Email<span class="text-red-600"> *</span></label
+          >
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="w-full p-2 border rounded-md"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="subject" class="block text-sm font-medium text-gray-700"
+            >Asunto<span class="text-red-600"> *</span></label
+          >
+          <input
+            type="subject"
+            name="subject"
+            placeholder="Asunto"
+            class="w-full p-2 border rounded-md"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-sm font-medium text-gray-700"
+            >Mensaje<span class="text-red-600"> *</span></label
+          >
+          <textarea
+            name="message"
+            placeholder="Mensaje"
+            class="w-full p-2 border rounded-md"></textarea>
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="bg-green-500 text-white px-4 py-2 rounded-md">Enviar</button
+          >
+        </div>
+      </form>
+    </div>
+    <div class="bg-white p-8 rounded shadow-md max-w-md mt-10">
+      <h1 class="text-3xl font-bold mb-4">PQR</h1>
+      <p class="mb-5">
+        Accede al siguiente formulario si tienes alguna peticion queja o
+        reclamo.
+      </p>
+      <a
+        href="https://www.calameo.com/read/007460758775f4141e5f8"
+        target="_blank"
+        class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded inline-flex items-center"
+      >
+        Ir a formulario
+      </a>
+    </div>
+  </div>
+
+  <div class="container grid md:grid-cols-2 max-w-5xl m-auto gap-10">
+    <div>
+      <h2 class="text-2xl mb-5 font-bold">Sede Principal Dosquebradas</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.826058505492!2d-75.6735850225377!3d4.83649849013859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3881e9b7e5b21b%3A0x83aa5ad351e4379b!2sMETROMEDICS%20SAS!5e0!3m2!1ses!2sco!4v1694566315079!5m2!1ses!2sco"
+        width="400"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="shadow-md"></iframe>
+    </div>
+
+    <div>
+      <h2 class="text-2xl mb-5 font-bold">Sede Bogotá</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3976.4555922909576!2d-74.07101932411071!3d4.690616441743001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNMKwNDEnMjYuMiJOIDc0wrAwNCcwNi40Ilc!5e0!3m2!1ses!2sco!4v1694566355171!5m2!1ses!2sco"
+        width="400"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="shadow-md"></iframe>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const contactForm = document.getElementById("contactForm");
+
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+
+    const formData = new FormData(contactForm);
+
+    const object = {};
+    formData.forEach(function (value, key) {
+      object[key] = value;
+    });
+    const json = JSON.stringify(object);
+    console.log("🚀 ~ file: contact.astro:111 ~ json:", json);
+
+    fetch("http://localhost:5050/contact", {
+      method: "POST",
+      body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito o redirigir al usuario a una página de confirmación.
+        console.log(data);
+      })
+      .catch((error) => {
+        // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario.
+        console.error(error);
+      });
+  });
+</script>

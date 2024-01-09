@@ -1,34 +1,43 @@
 ---
-import services from '../config/services.json';
-import Layout from '../layouts/Layout.astro';
+import services from "../config/services.json";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
   title="Metromedics SAS | Calibración y Mantenimiento de Equipos Médicos e Industriales"
   description="Metromedics S.A.S Dosquebradas: Expertos en Calibración y Mantenimiento de Equipos Médicos e Industriales. Contribuimos a la Estandarización de la Medición en el Sector de la Salud y la Industria."
 >
-  <div class='bg-[url(/images/fondo_titulos.webp)] h-40 flex'>
-    <div class='container w-full m-auto font-bold text-3xl md:max-w-5xl'>
+  <div class="bg-[url(/images/fondo_titulos.webp)] h-40 flex">
+    <div class="container w-full m-auto font-bold text-3xl md:max-w-5xl">
       <h1>Servicios</h1>
     </div>
   </div>
-  <div class='container m-auto md:max-w-5xl'>
-    <p class='text-center my-10'>
+  <div class="container m-auto md:max-w-5xl">
+    <p class="text-center my-10">
       Servicios Pensados Para El Mejoramiento De Tu Empresa, Ofrecemos Nuestros
       Servicios En:
     </p>
     <div
-      class='grid md:grid-cols-2 gap-16 items-center grid-cols-1 justify-items-center'
+      class="grid md:grid-cols-2 gap-16 items-center grid-cols-1 justify-items-center"
     >
       {
         services.map((service) => (
           <>
             <div>
-              <h1 class='font-bold text-xl mb-7'>{service.title}</h1>
-              <p class='text-justify leading-relaxed'>{service.content}</p>
+              <h1 class="font-bold text-xl mb-7">{service.title}</h1>
+              <p class="text-justify leading-relaxed">{service.content}</p>
+              {service.portafolio.length > 0 && (
+                <a
+                  href={service.portafolio}
+                  target="_blank"
+                  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mt-7"
+                >
+                  Ver portafolio
+                </a>
+              )}
             </div>
             <div>
-              <img src={service.imgUrl} alt='' class='rounded-xl' />
+              <img src={service.imgUrl} alt="" class="rounded-xl" />
             </div>
           </>
         ))
