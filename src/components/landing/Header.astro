@@ -3,236 +3,261 @@ const pathname = Astro.url.pathname;
 ---
 
 <nav
-  id='header'
-  class='fixed w-full z-50 top-0 text-white border-y-green-500 border-t-6 bg-black'
+  id="header"
+  class="fixed w-full z-50 top-0 text-white border-y-green-500 border-t-6 bg-black"
 >
   <div
-    class='w-full container mx-auto flex items-center justify-between mt-0 py-2'
+    class="w-full container mx-auto flex items-center justify-between mt-0 py-2"
   >
-    <div class='pl-4 flex items-center'>
+    <div class="pl-4 flex items-center">
       <a
-        class='toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl'
-        href='/'
+        class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+        href="/"
       >
         <img
-          class='max-w-[200px] md:max-w-fu mx-auto h-auto'
-          src='/images/logo-1.png'
-          alt='Logo'
+          class="max-w-[200px] md:max-w-fu mx-auto h-auto"
+          src="/images/logo-1.png"
+          alt="Logo"
         />
       </a>
     </div>
-    <div class='block lg:hidden pr-4'>
+    <div class="block lg:hidden pr-4">
       <button
-        id='nav-toggle'
-        class='flex items-center p-1 text-green-500 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out'
+        id="nav-toggle"
+        class="flex items-center p-1 text-green-500 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
         <svg
-          class='fill-current h-6 w-6'
-          viewBox='0 0 20 20'
-          xmlns='http://www.w3.org/2000/svg'
+          class="fill-current h-6 w-6"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <title>Menu</title>
-          <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
         </svg>
       </button>
     </div>
 
     <div
-      class='w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20'
-      id='nav-content'
+      class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+      id="nav-content"
     >
-      <ul class='list-reset lg:flex justify-end flex-1 items-center text-lg'>
-        <li class='mr-3'>
+      <ul class="list-reset lg:flex justify-end flex-1 items-center text-lg">
+        <li class="mr-3">
           <a
-            class='inline-block py-2 px-4 text-white no-underlin hover:text-green-500 hover:text-underline'
-            class:list={[pathname == '/' && 'text-green-400 font-bold']}
-            href='/'>Inicio</a
+            class="inline-block py-2 px-4 text-white no-underlin hover:text-green-500 hover:text-underline"
+            class:list={[pathname == "/" && "text-green-400 font-bold"]}
+            href="/">Inicio</a
           >
         </li>
-        <li class='mr-3'>
+        <li class="mr-3">
           <a
-            class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
+            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
             class:list={[
-              pathname == '/servicios' && 'text-green-400 font-bold',
+              pathname == "/servicios" && "text-green-400 font-bold",
             ]}
-            href='/servicios'>Servicios</a
+            href="/servicios">Servicios</a
           >
         </li>
-        <li class='mr-3'>
+        <li class="mr-3">
           <a
-            id='laboratoriosLink'
-            class='text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline'
-            href='#'
+            id="laboratoriosLink"
+            class="text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline"
+            href="#"
           >
             Laboratorios
-            <span class='ml-2'>
+            <span class="ml-2">
               <svg
-                id='angle-up'
-                class='hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 14 8'
+                id="angle-up"
+                class="hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 8"
               >
                 <path
-                  stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7'></path>
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"></path>
               </svg>
               <svg
-                id='angle-down'
-                class='w-6 h-6 text-white dark:text-white group-hover:text-green-500'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 14 8'
+                id="angle-down"
+                class="w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 8"
               >
                 <path
-                  stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1'></path>
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"></path>
               </svg>
             </span>
           </a>
 
           <div
-            id='laboratorios'
-            class='absolute rounded-lg bg-black py-2 hidden'
+            id="laboratorios"
+            class="absolute rounded-lg bg-black py-2 hidden"
           >
             <a
-              href='/laboratorios/laboratorio-acreditado'
-              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              href="/laboratorios/laboratorio-acreditado"
+              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
               >Laboratorio Acreditado</a
             >
             <a
-              href='/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial'
-              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
+              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
               >Laboratorio con Trazabilidad sector Biomédico e Industrial</a
             >
           </div>
         </li>
-        <li class='mr-3'>
+        <li class="mr-3">
           <a
-            class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
-            class:list={[pathname == '/nosotros' && 'text-green-400 font-bold']}
-            href='/nosotros'>Nosotros</a
-          >
-        </li>
-        <li class='mr-3'>
-          <a
-            class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
-            class:list={[pathname == '/contact' && 'text-green-400 font-bold']}
-            href='/contacto'>Contacto</a
+            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class:list={[pathname == "/nosotros" && "text-green-400 font-bold"]}
+            href="/nosotros">Nosotros</a
           >
         </li>
         <li class="mr-3">
           <a
-          id='clientesLink'
-          class='text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline'
-          href='#'
+            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class:list={[
+              pathname == "/evaluacion-del-servicio" &&
+                "text-green-400 font-bold",
+            ]}
+            href="/evaluacion-del-servicio">Evaluación del servicio</a
           >
-        Clientes
-        <span class='ml-2'>
-          <svg
-            id='angle-up-clientes'
-            class='hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500'
-            aria-hidden='true'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 14 8'
+        </li>
+        <li class="mr-3">
+          <a
+            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class:list={[pathname == "/pqr" && "text-green-400 font-bold"]}
+            href="/pqr">PQR</a
           >
-            <path
-              stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7'></path>
-          </svg>
-          <svg
-            id='angle-down-clientes'
-            class='w-6 h-6 text-white dark:text-white group-hover:text-green-500'
-            aria-hidden='true'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 14 8'
+        </li>
+        <li class="mr-3">
+          <a
+            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
+            href="/contacto">Contacto</a
           >
-            <path
-              stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1'></path>
-          </svg>
-        </span>
-        </a>
-        <div
-            id='clientes'
-            class='absolute rounded-lg bg-black py-2 hidden'
+        </li>
+
+        <li class="mr-3">
+          <a
+            id="clientesLink"
+            class="text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline"
+            href="#"
           >
+            Clientes
+            <span class="ml-2">
+              <svg
+                id="angle-up-clientes"
+                class="hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 8"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"></path>
+              </svg>
+              <svg
+                id="angle-down-clientes"
+                class="w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 8"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"></path>
+              </svg>
+            </span>
+          </a>
+          <div id="clientes" class="absolute rounded-lg bg-black py-2 hidden">
             <a
-              href='https://app.metromedics.co/login'
-              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              href="https://app.metromedics.co/login"
+              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
               >Calibraciones</a
             >
             <a
-              href='https://fm34.easytechpro.com/fmi/webd'
-              class='block px-4 py-2 text-white hover:bg-gray-700 hover:text-white'
+              href="https://fm34.easytechpro.com/fmi/webd"
+              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
               >Mantenimiento</a
             >
           </div>
-
         </li>
       </ul>
-
     </div>
   </div>
 
-  <div id='burgerMenu' class='hidden'>
+  <div id="burgerMenu" class="hidden">
     <a
-      href='/'
-      class='block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800'
-      class:list={[pathname == '/' && 'text-green-400 font-bold']}>Inicio</a
+      href="/"
+      class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800"
+      class:list={[pathname == "/" && "text-green-400 font-bold"]}>Inicio</a
     >
     <a
-      href='/servicios'
-      class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      class:list={[pathname == '/servicios' && 'text-green-400 font-bold']}
+      href="/servicios"
+      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class:list={[pathname == "/servicios" && "text-green-400 font-bold"]}
       >Servicios</a
     >
     <div>
       <div
-      id="laboratoriosMobileLink"
-
-        class='mt-1 block px-2 py-1 text-white font-semibold rounded  sm:mt-0 sm:ml-2'
-        >Laboratorios</div
+        id="laboratoriosMobileLink"
+        class="mt-1 block px-2 py-1 text-white font-semibold rounded sm:mt-0 sm:ml-2"
       >
-      <div id='laboratoriosMobile' class='hidden bg-gray-900 py-2  rounded-lg'>
+        Laboratorios
+      </div>
+      <div id="laboratoriosMobile" class="hidden bg-gray-900 py-2 rounded-lg">
         <a
-          href='/laboratorios/laboratorio-acreditado'
-          class='block px-8 py-2 text-white hover:bg-gray-700 hover:text-white '
+          href="/laboratorios/laboratorio-acreditado"
+          class="block px-8 py-2 text-white hover:bg-gray-700 hover:text-white"
           >Laboratorio Acreditado</a
         >
         <a
-          href='/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial'
-          class='block px-8 py-2 text-white hover:bg-gray-700 hover:text-white'
+          href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
+          class="block px-8 py-2 text-white hover:bg-gray-700 hover:text-white"
           >Laboratorio con Trazabilidad sector Biomédico e Industrial</a
         >
       </div>
     </div>
     <a
-      href='/nosotros'
-      class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      class:list={[pathname == '/nosotros' && 'text-green-400 font-bold']}
+      href="/nosotros"
+      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class:list={[pathname == "/nosotros" && "text-green-400 font-bold"]}
       >Nosotros</a
     >
     <a
-      href='/contacto'
-      class='mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2'
-      class:list={[pathname == '/contact' && 'text-green-400 font-bold']}
+      href="/nosotros"
+      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class:list={[
+        pathname == "/evaluacion-del-servicio" && "text-green-400 font-bold",
+      ]}>Evaluación del servicio</a
+    >
+    <a
+      href="/nosotros"
+      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class:list={[pathname == "/pqr" && "text-green-400 font-bold"]}>PQR</a
+    >
+    <a
+      href="/contacto"
+      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
       >Contacto</a
     >
   </div>
@@ -240,83 +265,82 @@ const pathname = Astro.url.pathname;
 </nav>
 
 <script>
-  const laboratoriosLink = document.getElementById('laboratoriosLink');
-  const laboratorios = document.getElementById('laboratorios');
-  const laboratoriosMobileLink = document.getElementById('laboratoriosMobileLink');
-  const laboratoriosMobile = document.getElementById('laboratoriosMobile');
-  const angelUp = document.getElementById('angle-up');
-  const angelDown = document.getElementById('angle-down');
+  const laboratoriosLink = document.getElementById("laboratoriosLink");
+  const laboratorios = document.getElementById("laboratorios");
+  const laboratoriosMobileLink = document.getElementById(
+    "laboratoriosMobileLink"
+  );
+  const laboratoriosMobile = document.getElementById("laboratoriosMobile");
+  const angelUp = document.getElementById("angle-up");
+  const angelDown = document.getElementById("angle-down");
 
-  laboratoriosLink?.addEventListener('click', () => {
-    laboratorios?.classList.toggle('hidden');
-    angelUp?.classList.toggle('hidden');
-    angelDown?.classList.toggle('hidden');
+  laboratoriosLink?.addEventListener("click", () => {
+    laboratorios?.classList.toggle("hidden");
+    angelUp?.classList.toggle("hidden");
+    angelDown?.classList.toggle("hidden");
   });
 
-  laboratoriosMobileLink?.addEventListener('click', () => {
-    laboratoriosMobile?.classList.toggle('hidden');
+  laboratoriosMobileLink?.addEventListener("click", () => {
+    laboratoriosMobile?.classList.toggle("hidden");
   });
 
   // Function to toggle burger menu visibility
-  const navToggle = document.getElementById('nav-toggle');
-  const burgerMenu = document.getElementById('burgerMenu');
+  const navToggle = document.getElementById("nav-toggle");
+  const burgerMenu = document.getElementById("burgerMenu");
 
-  navToggle?.addEventListener('click', () => {
-    burgerMenu?.classList.toggle('hidden');
+  navToggle?.addEventListener("click", () => {
+    burgerMenu?.classList.toggle("hidden");
   });
 
   // Function to handle scroll and change header styles
-  const header = document.getElementById('header');
-  const navAction = document.getElementById('navAction');
-  const toToggle = document.querySelectorAll('.toggleColour');
-  const navContent = document.getElementById('nav-content');
+  const header = document.getElementById("header");
+  const navAction = document.getElementById("navAction");
+  const toToggle = document.querySelectorAll(".toggleColour");
+  const navContent = document.getElementById("nav-content");
   let scrollPos = window.scrollY;
 
   function updateHeaderStyles() {
     scrollPos = window.scrollY;
 
     if (scrollPos > 10) {
-      header?.classList.add('bg-black', 'shadow');
-      navAction?.classList.remove('bg-white', 'text-gray-800');
-      navAction?.classList.add('gradient', 'text-white');
+      header?.classList.add("bg-black", "shadow");
+      navAction?.classList.remove("bg-white", "text-gray-800");
+      navAction?.classList.add("gradient", "text-white");
 
       // ... update toggleColour elements ...
 
-      navContent?.classList.remove('bg-gray-100');
-      navContent?.classList.add('bg-white');
+      navContent?.classList.remove("bg-gray-100");
+      navContent?.classList.add("bg-white");
     } else {
-      header?.classList.remove('bg-white', 'shadow');
-      navAction?.classList.remove('gradient', 'text-white');
-      navAction?.classList.add('bg-white', 'text-gray-800');
+      header?.classList.remove("bg-white", "shadow");
+      navAction?.classList.remove("gradient", "text-white");
+      navAction?.classList.add("bg-white", "text-gray-800");
 
       // ... update toggleColour elements ...
 
-      navContent?.classList.remove('bg-white');
-      navContent?.classList.add('bg-gray-100');
+      navContent?.classList.remove("bg-white");
+      navContent?.classList.add("bg-gray-100");
     }
   }
 
   // Add scroll event listener
-  document.addEventListener('scroll', updateHeaderStyles);
-
+  document.addEventListener("scroll", updateHeaderStyles);
 
   //clientes
-  const clientesLink = document.getElementById('clientesLink');
-  const clientes = document.getElementById('clientes');
-  const clientesMobileLink = document.getElementById('clientesMobileLink');
-  const clientesMobile = document.getElementById('clientesMobile');
-  const angelUpClientes = document.getElementById('angle-up-clientes');
-  const angelDownClientes = document.getElementById('angle-down-clientes');
+  const clientesLink = document.getElementById("clientesLink");
+  const clientes = document.getElementById("clientes");
+  const clientesMobileLink = document.getElementById("clientesMobileLink");
+  const clientesMobile = document.getElementById("clientesMobile");
+  const angelUpClientes = document.getElementById("angle-up-clientes");
+  const angelDownClientes = document.getElementById("angle-down-clientes");
 
-  clientesLink?.addEventListener('click', () => {
-    clientes?.classList.toggle('hidden');
-    angelUpClientes?.classList.toggle('hidden');
-    angelDownClientes?.classList.toggle('hidden');
+  clientesLink?.addEventListener("click", () => {
+    clientes?.classList.toggle("hidden");
+    angelUpClientes?.classList.toggle("hidden");
+    angelDownClientes?.classList.toggle("hidden");
   });
 
-  clientesMobileLink?.addEventListener('click', () => {
-    clientesMobile?.classList.toggle('hidden');
+  clientesMobileLink?.addEventListener("click", () => {
+    clientesMobile?.classList.toggle("hidden");
   });
-
-
 </script>

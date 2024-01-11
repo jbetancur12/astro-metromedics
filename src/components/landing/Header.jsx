@@ -80,6 +80,13 @@ export default function Header() {
                 href='contacto'>Contacto</a
               >
             </li>
+            <li class='mr-3'>
+              <a
+                class='inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4'
+                class: list={[Astro.url.pathname == "/evaluacion-del-servicio" && "text-green-500 font-bold"]}
+                href='contacto'>Evaluación del Servicio</a
+              >
+            </li>
           </ul>
           <button
             id='navAction'
