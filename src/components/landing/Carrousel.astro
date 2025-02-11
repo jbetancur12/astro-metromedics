@@ -1,251 +1,83 @@
 ---
-import './style.css';
+import "./style.css";
 ---
-  <div id="preloader">
-    <div id="loader"></div>
-    <!-- <img src="/images/logo2.png" alt="logo"> -->
-  </div>
-<div id='carousel' class='relative md:mt-0'>
-  <!--Carousel indicators-->
-  <div
-    class='absolute bottom-0 left-0 right-0 z-30 mx-[15%] mb-4 flex list-none justify-center p-0'
+
+<div id="preloader">
+  <div id="loader"></div>
+  <!-- <img src="/images/logo2.png" alt="logo"> -->
+</div>
+
+<div id="video-container" class="relative md:mt-0">
+  <video
+    id="main-video"
+    class="w-full max-h-screen object-cover"
+    autoplay
+    loop
+    muted
+    playsinline
   >
-    <button
-      type='button'
-      data-te-slide-to='0'
-      class='dot mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none'
-      aria-current='true'
-      aria-label='Slide 1'></button>
-    <button
-      type='button'
-      data-te-slide-to='1'
-      class='dot mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none'
-      aria-label='Slide 2'></button>
-    <button
-      type='button'
-      data-te-slide-to='2'
-      class='dot mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none'
-      aria-label='Slide 3'></button>
-  </div>
-
-  <!--Carousel items-->
-  <div
-    class="relative w-full overflow-hidden after:clear-both after:block after:content-['']"
-  >
-    <!--First item-->
-    <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none'
-      style='backface-visibility: hidden'
-    >
-    <img
-    src="/images/1-1.webp"
-    class="block w-full mx-auto"
-    alt="..."
-
-  />
-    </div>
-    <!--Second item-->
-    <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none  m-auto'
-      style='backface-visibility: hidden'
-    >
-
-      <img
-        src='/images/2.webp'
-        class="block w-full mx-auto"
-        alt='...'
-      />
-    </div>
-    <!--Third item-->
-    <div
-      class='mySlides float-left -mr-[100%] w-full transform transition-transform duration-600 ease-in-out motion-reduce:transition-none '
-      style='backface-visibility: hidden'
-    >
-
-    <img
-    src='/images/3.webp'
-    class="block w-full mx-auto"
-    alt='...'
-  />
-    </div>
-  </div>
-
-  <!--Carousel controls - prev item-->
-  <button
-    class='absolute bottom-0 left-0 top-0 z-30 flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none'
-    type='button'
-    id='before'
-  >
-    <span class='inline-block h-8 w-8'>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke-width='1.5'
-        stroke='currentColor'
-        class='h-6 w-6'
-      >
-        <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          d='M15.75 19.5L8.25 12l7.5-7.5'></path>
-      </svg>
-    </span>
-    <span
-      class='!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]'
-      >Previous</span
-    >
-  </button>
-  <!--Carousel controls - next item-->
-  <button
-    class='absolute bottom-0 right-0 top-0 flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none z-30'
-    type='button'
-    id='next'
-  >
-    <span class='inline-block h-8 w-8'>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke-width='1.5'
-        stroke='currentColor'
-        class='h-6 w-6'
-      >
-        <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          d='M8.25 4.5l7.5 7.5-7.5 7.5'></path>
-      </svg>
-    </span>
-    <span
-      class='!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]'
-      >Next</span
-    >
-  </button>
+    <source src="/videos/videommcs.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </div>
 
 <style>
   img {
-  max-height: 100vh; /* Limita la altura máxima al 100% de la altura de la ventana */
-  width: auto; /* Mantiene la proporción original del ancho */
-  height: auto; /* Mantiene la proporción original de la altura */
-}
+    max-height: 100vh; /* Limita la altura máxima al 100% de la ventana */
+    width: auto; /* Mantiene la proporción del ancho */
+    height: auto; /* Mantiene la proporción de la altura */
+  }
 
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
 
-#loader {
-  border: 4px solid #34db87;
-  border-top: 4px solid #0f0f0f;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 2s linear infinite;
-}
+  #loader {
+    border: 4px solid #34db87;
+    border-top: 4px solid #0f0f0f;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #video-container {
+    display: none; /* Se oculta mientras se muestra el preloader */
+  }
+
+  video {
+    max-height: 100vh;
+    width: 100%;
+    object-fit: cover; /* Asegura que el video se ajuste correctamente */
+  }
 </style>
 
 <script>
- window.addEventListener('load', function () {
-  const preloader = document.getElementById('preloader');
-  const carousel = document.getElementById('carousel');
+  window.addEventListener("load", function () {
+    const preloader = document.getElementById("preloader");
+    const videoContainer = document.getElementById("video-container");
 
-  // Ocultar el preloader
-  preloader.style.display = 'none';
-  // Mostrar el carrusel
-  carousel.style.display = 'block';
-});
-
-</script>
-
-<script>
-  const buttonNext = document.getElementById('next');
-  const buttonBefore = document.getElementById('before');
-
-  buttonNext?.addEventListener('click', () => {
-    stopAutoSlide();
-    plusSlides(1);
-    // startAutoSlide();
+    // Ocultar el preloader
+    preloader.style.display = "none";
+    // Mostrar el contenedor del video
+    videoContainer.style.display = "block";
   });
-  buttonBefore?.addEventListener('click', () => plusSlides(-1));
-
-  let dots: HTMLCollectionOf<Element> = document.getElementsByClassName('dot');
-  const dotsArray: HTMLElement[] = Array.from(dots) as HTMLElement[];
-
-  dotsArray.forEach((dot) => {
-    const teSlideTo = dot.dataset.teSlideTo;
-    if (teSlideTo !== undefined) {
-      dot.addEventListener('click', () =>
-        currentSlide(parseInt(teSlideTo, 10)),
-      );
-    }
-  });
-
-  let slideIndex = 1;
-  showSlides(slideIndex);
-
-  let autoSlideInterval = setInterval(() => plusSlides(1), 5000);
-
-  function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-  }
-
-  // Restablecer el temporizador
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(() => plusSlides(1), 5000);
-  }
-
-  // Next/previous controls
-  function plusSlides(n: number) {
-    showSlides((slideIndex += n));
-  }
-
-  // Thumbnail image controls
-  function currentSlide(n: number) {
-    showSlides((slideIndex = n + 1));
-  }
-
-  function showSlides(n: number): void {
-    let i: number;
-    let slides: HTMLCollectionOf<Element> =
-      document.getElementsByClassName('mySlides');
-
-    const dots: HTMLCollectionOf<Element> =
-      document.getElementsByClassName('dot');
-    const dotsArray: HTMLElement[] = Array.from(dots) as HTMLElement[];
-
-    if (n > slides.length) {
-      slideIndex = 1;
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-      (slides[i] as HTMLElement).style.display = 'none';
-    }
-
-    for (i = 0; i < dotsArray.length; i++) {
-      (dotsArray[i] as HTMLElement).className = (
-        dotsArray[i] as HTMLElement
-      ).className.replace('bg-green-500', 'bg-white');
-    }
-    (slides[slideIndex - 1] as HTMLElement).style.display = 'block';
-    (dotsArray[slideIndex - 1] as HTMLElement).className = (
-      dotsArray[slideIndex - 1] as HTMLElement
-    ).className.replace('bg-white', 'bg-green-500');
-  }
 </script>

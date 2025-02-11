@@ -4,19 +4,19 @@ const pathname = Astro.url.pathname;
 
 <nav
   id="header"
-  class="fixed w-full z-50 top-0 text-white border-y-green-500 border-t-6 bg-black"
+  class="fixed w-full z-50 top-0 text-black border-y-green-500 border-t-6 bg-white"
 >
   <div
     class="w-full container mx-auto flex items-center justify-between mt-0 py-2"
   >
     <div class="pl-4 flex items-center">
       <a
-        class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+        class="toggleColour text-black no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
         href="/"
       >
         <img
           class="max-w-[200px] md:max-w-fu mx-auto h-auto"
-          src="/images/logo-1.png"
+          src="/images/image.png"
           alt="Logo"
         />
       </a>
@@ -24,7 +24,7 @@ const pathname = Astro.url.pathname;
     <div class="block lg:hidden pr-4">
       <button
         id="nav-toggle"
-        class="flex items-center p-1 text-green-500 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+        class="flex items-center p-1 text-green-300 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
       >
         <svg
           class="fill-current h-6 w-6"
@@ -44,14 +44,14 @@ const pathname = Astro.url.pathname;
       <ul class="list-reset lg:flex justify-end flex-1 items-center text-lg">
         <li class="mr-3">
           <a
-            class="inline-block py-2 px-4 text-white no-underlin hover:text-green-500 hover:text-underline"
+            class="inline-block py-2 px-4 text-black no-underlin hover:text-green-300 hover:text-underline"
             class:list={[pathname == "/" && "text-green-400 font-bold"]}
             href="/">Inicio</a
           >
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
             class:list={[
               pathname == "/servicios" && "text-green-400 font-bold",
             ]}
@@ -61,14 +61,14 @@ const pathname = Astro.url.pathname;
         <li class="mr-3">
           <a
             id="laboratoriosLink"
-            class="text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline"
+            class="text-black no-underline py-2 px-4 flex items-center group hover:text-green-300 hover:text-underline"
             href="#"
           >
             Laboratorios
             <span class="ml-2">
               <svg
                 id="angle-up"
-                class="hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                class="hidden w-6 h-6 text-black dark:text-black group-hover:text-green-300"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -83,7 +83,7 @@ const pathname = Astro.url.pathname;
               </svg>
               <svg
                 id="angle-down"
-                class="w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                class="w-6 h-6 text-black dark:text-black group-hover:text-green-300"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -101,30 +101,30 @@ const pathname = Astro.url.pathname;
 
           <div
             id="laboratorios"
-            class="absolute rounded-lg bg-black py-2 hidden"
+            class="absolute rounded-lg bg-white py-2 hidden"
           >
             <a
               href="/laboratorios/laboratorio-acreditado"
-              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
               >Laboratorio Acreditado</a
             >
             <a
               href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
-              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
               >Laboratorio con Trazabilidad sector Biomédico e Industrial</a
             >
           </div>
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
             class:list={[pathname == "/nosotros" && "text-green-400 font-bold"]}
             href="/nosotros">Nosotros</a
           >
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
             class:list={[
               pathname == "/evaluacion-del-servicio" &&
                 "text-green-400 font-bold",
@@ -134,14 +134,14 @@ const pathname = Astro.url.pathname;
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
             class:list={[pathname == "/pqr" && "text-green-400 font-bold"]}
             href="/pqr">PQR</a
           >
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-white no-underline hover:text-green-500 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
             class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
             href="/contacto">Contacto</a
           >
@@ -150,14 +150,14 @@ const pathname = Astro.url.pathname;
         <li class="mr-3">
           <a
             id="clientesLink"
-            class="text-white no-underline py-2 px-4 flex items-center group hover:text-green-500 hover:text-underline"
+            class="text-black no-underline py-2 px-4 flex items-center group hover:text-green-300 hover:text-underline"
             href="#"
           >
             Clientes
             <span class="ml-2">
               <svg
                 id="angle-up-clientes"
-                class="hidden w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                class="hidden w-6 h-6 text-black dark:text-black group-hover:text-green-300"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -172,7 +172,7 @@ const pathname = Astro.url.pathname;
               </svg>
               <svg
                 id="angle-down-clientes"
-                class="w-6 h-6 text-white dark:text-white group-hover:text-green-500"
+                class="w-6 h-6 text-black dark:text-black group-hover:text-green-300"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -187,15 +187,15 @@ const pathname = Astro.url.pathname;
               </svg>
             </span>
           </a>
-          <div id="clientes" class="absolute rounded-lg bg-black py-2 hidden">
+          <div id="clientes" class="absolute rounded-lg bg-white py-2 hidden">
             <a
               href="https://app.metromedics.co/login"
-              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
               >Calibraciones</a
             >
             <a
               href="https://fm34.easytechpro.com/fmi/webd"
-              class="block px-4 py-2 text-white hover:bg-gray-700 hover:text-white"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
               >Mantenimiento</a
             >
           </div>
@@ -207,56 +207,56 @@ const pathname = Astro.url.pathname;
   <div id="burgerMenu" class="hidden">
     <a
       href="/"
-      class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800"
+      class="block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800"
       class:list={[pathname == "/" && "text-green-400 font-bold"]}>Inicio</a
     >
     <a
       href="/servicios"
-      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
       class:list={[pathname == "/servicios" && "text-green-400 font-bold"]}
       >Servicios</a
     >
     <div>
       <div
         id="laboratoriosMobileLink"
-        class="mt-1 block px-2 py-1 text-white font-semibold rounded sm:mt-0 sm:ml-2"
+        class="mt-1 block px-2 py-1 text-black font-semibold rounded sm:mt-0 sm:ml-2"
       >
         Laboratorios
       </div>
       <div id="laboratoriosMobile" class="hidden bg-gray-900 py-2 rounded-lg">
         <a
           href="/laboratorios/laboratorio-acreditado"
-          class="block px-8 py-2 text-white hover:bg-gray-700 hover:text-white"
+          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
           >Laboratorio Acreditado</a
         >
         <a
           href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
-          class="block px-8 py-2 text-white hover:bg-gray-700 hover:text-white"
+          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
           >Laboratorio con Trazabilidad sector Biomédico e Industrial</a
         >
       </div>
     </div>
     <a
       href="/nosotros"
-      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
       class:list={[pathname == "/nosotros" && "text-green-400 font-bold"]}
       >Nosotros</a
     >
     <a
       href="/evaluacion-del-servicio"
-      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
       class:list={[
         pathname == "/evaluacion-del-servicio" && "text-green-400 font-bold",
       ]}>Evaluación del servicio</a
     >
     <a
       href="/pqr"
-      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
       class:list={[pathname == "/pqr" && "text-green-400 font-bold"]}>PQR</a
     >
     <a
       href="/contacto"
-      class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
       class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
       >Contacto</a
     >
@@ -303,9 +303,9 @@ const pathname = Astro.url.pathname;
     scrollPos = window.scrollY;
 
     if (scrollPos > 10) {
-      header?.classList.add("bg-black", "shadow");
+      header?.classList.add("bg-white", "shadow");
       navAction?.classList.remove("bg-white", "text-gray-800");
-      navAction?.classList.add("gradient", "text-white");
+      navAction?.classList.add("gradient", "text-black");
 
       // ... update toggleColour elements ...
 
@@ -313,7 +313,7 @@ const pathname = Astro.url.pathname;
       navContent?.classList.add("bg-white");
     } else {
       header?.classList.remove("bg-white", "shadow");
-      navAction?.classList.remove("gradient", "text-white");
+      navAction?.classList.remove("gradient", "text-black");
       navAction?.classList.add("bg-white", "text-gray-800");
 
       // ... update toggleColour elements ...

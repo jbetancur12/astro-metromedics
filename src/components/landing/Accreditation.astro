@@ -1,40 +1,59 @@
 ---
+
 ---
 
-<div class='container m-auto mt-20'>
+<div class="container m-auto mt-20">
   <div>
-    <h2 class='text-5xl font-bold'>
-      Conoce Nuestras<br class='md:hidden' />
-      <span class='md:block text-green-500 mt-2'>Acreditaciones</span>
+    <h2 class="text-5xl font-bold">
+      Conoce Nuestras<br class="md:hidden" />
+      <span class="md:block text-green-300 mt-2">Acreditaciones</span>
     </h2>
-    <div class='w-1/3 h-2 bg-green-500 mt-2 rounded-full'></div>
+    <div class="w-1/3 h-2 bg-green-300 mt-2 rounded-full"></div>
   </div>
-  <div class='grid md:grid-cols-4 mt-20 justify-evenly'>
-    <a href="/pdf/18-LAC-020.pdf">
-      <img class='scaled-img cursor-pointer' src='/images/balanzas.png' alt='Acreditacion 1' />
-    </a>
-    <a href="/pdf/18-LAC-020.pdf">
+  <div class="grid md:grid-cols-4 mt-20 justify-evenly">
+    <a href="/pdf/18-LAC-020.pdf" target="_blank">
       <img
-        class='scaled-img cursor-pointer'
-        src='/images/temperatura.png'
-        alt=''
+        class="scaled-img cursor-pointer"
+        src="/images/balanzas.png"
+        alt="Acreditacion 1"
       />
     </a>
-    <a href="/pdf/18-LAC-020.pdf">
-      <img class='scaled-img cursor-pointer' src='/images/presion.png' alt='Acreditacion 2' />
+    <a href="/pdf/18-LAC-020.pdf" target="_blank">
+      <img
+        class="scaled-img cursor-pointer"
+        src="/images/temperatura.png"
+        alt=""
+      />
     </a>
-    <a href="/pdf/18-LAC-020.pdf">
-      <img class='scaled-img cursor-pointer' src='/images/temp2.png' alt='Acreditacion 3' />
+    <a href="/pdf/18-LAC-020.pdf" target="_blank">
+      <img
+        class="scaled-img cursor-pointer"
+        src="/images/presion.png"
+        alt="Acreditacion 2"
+      />
+    </a>
+    <a href="/pdf/18-LAC-020.pdf" target="_blank">
+      <img
+        class="scaled-img cursor-pointer"
+        src="/images/temp2.png"
+        alt="Acreditacion 3"
+      />
     </a>
   </div>
 </div>
 
 <style>
   .scaled-img {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: pulse 3s infinite ease-in-out;
   }
 
-  .scaled-img:hover {
-    transform: scale(0.95);
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
   }
 </style>
