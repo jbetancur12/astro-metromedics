@@ -1,5 +1,6 @@
 ---
 const pathname = Astro.url.pathname;
+
 ---
 
 <nav
@@ -16,7 +17,7 @@ const pathname = Astro.url.pathname;
       >
         <img
           class="max-w-[200px] md:max-w-fu mx-auto h-auto"
-          src="/images/image.png"
+          src="/images/Logo-pagina-web.png"
           alt="Logo"
         />
       </a>
@@ -41,7 +42,7 @@ const pathname = Astro.url.pathname;
       class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
       id="nav-content"
     >
-      <ul class="list-reset lg:flex justify-end flex-1 items-center text-lg">
+      <ul class="list-reset lg:flex justify-end flex-1 items-center text-base">
         <li class="mr-3">
           <a
             class="inline-block py-2 px-4 text-black no-underlin hover:text-green-300 hover:text-underline"
@@ -204,7 +205,7 @@ const pathname = Astro.url.pathname;
     </div>
   </div>
 
-  <div id="burgerMenu" class="hidden">
+  <div id="burgerMenu" class="hidden" >
     <a
       href="/"
       class="block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800"
@@ -260,7 +261,28 @@ const pathname = Astro.url.pathname;
       class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
       >Contacto</a
     >
+    <div>
+      <div
+        id="clientesMobileLink"
+        class="mt-1 block px-2 py-1 text-black font-semibold rounded sm:mt-0 sm:ml-2"
+      >
+        Clientes
+      </div>
+      <div id="clientesMobile" class="hidden bg-white py-2 rounded-lg">
+        <a
+          href="https://app.metromedics.co/login"
+          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
+          >Calibraciones</a
+        >
+        <a
+          href="https://fm34.easytechpro.com/fmi/webd"
+          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
+          >Mantenimiento</a
+        >
+      </div>
+    </div>
   </div>
+  
   <!-- <hr class="border-b border-gray-100 opacity-25 my-0 py-0" /> -->
 </nav>
 
@@ -300,28 +322,31 @@ const pathname = Astro.url.pathname;
   let scrollPos = window.scrollY;
 
   function updateHeaderStyles() {
-    scrollPos = window.scrollY;
-
-    if (scrollPos > 10) {
-      header?.classList.add("bg-white", "shadow");
-      navAction?.classList.remove("bg-white", "text-gray-800");
+  scrollPos = window.scrollY;
+  const burgerMenu = document.getElementById("burgerMenu");
+  
+  if (scrollPos > 10) {
+    header?.classList.add("bg-white", "shadow");
+    burgerMenu?.classList.add("bg-white", "shadow"); // Mantener fondo en scroll
+    navAction?.classList.remove("bg-white", "text-gray-800");
       navAction?.classList.add("gradient", "text-black");
 
       // ... update toggleColour elements ...
 
       navContent?.classList.remove("bg-gray-100");
       navContent?.classList.add("bg-white");
-    } else {
-      header?.classList.remove("bg-white", "shadow");
-      navAction?.classList.remove("gradient", "text-black");
+  } else {
+    header?.classList.remove("bg-white", "shadow");
+    burgerMenu?.classList.remove("shadow"); // Conservar fondo blanco siempre
+    navAction?.classList.remove("gradient", "text-black");
       navAction?.classList.add("bg-white", "text-gray-800");
 
       // ... update toggleColour elements ...
 
       navContent?.classList.remove("bg-white");
       navContent?.classList.add("bg-gray-100");
-    }
   }
+}
 
   // Add scroll event listener
   document.addEventListener("scroll", updateHeaderStyles);
@@ -344,3 +369,11 @@ const pathname = Astro.url.pathname;
     clientesMobile?.classList.toggle("hidden");
   });
 </script>
+
+<style>
+  #burgerMenu {
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 4.5rem); /* Ajusta según altura de tu header */
+    overflow-y: auto;
+  }
+</style>
