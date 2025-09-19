@@ -6,126 +6,306 @@ import Layout from "../layouts/Layout.astro";
   title="Metromedics SAS | Calibración y Mantenimiento de Equipos Médicos e Industriales"
   description="Metromedics S.A.S Dosquebradas: Expertos en Calibración y Mantenimiento de Equipos Médicos e Industriales. Contribuimos a la Estandarización de la Medición en el Sector de la Salud y la Industria."
 >
-  <div
-    class="flex flex-col md:flex-row items-center justify-center h-screen md:gap-40 mt-10"
-  >
-    <div class="bg-white p-8 rounded shadow-md max-w-md mt-3">
-      <h1 class="text-3xl font-bold mb-4">Contáctate Con Nosotros</h1>
-      <p class="mb-5">Déjanos un mensaje y pronto nos comunicaremos contigo.</p>
-      <form method="POST" class="max-w-md" id="contactForm">
-        <div class="mb-4">
-          <label for="name" class="block text-sm font-medium text-gray-700"
-            >Nombre<span class="text-red-600"> *</span></label
-          >
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre"
-            class="w-full p-3 border rounded-md"
-            required
-          />
-        </div>
-        <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-700"
-            >Email<span class="text-red-600"> *</span></label
-          >
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            class="w-full p-2 border rounded-md"
-            required
-          />
-        </div>
-        <div class="mb-4">
-          <label for="subject" class="block text-sm font-medium text-gray-700"
-            >Asunto<span class="text-red-600"> *</span></label
-          >
-          <input
-            type="subject"
-            name="subject"
-            placeholder="Asunto"
-            class="w-full p-2 border rounded-md"
-            required
-          />
-        </div>
-        <div class="mb-4">
-          <label for="message" class="block text-sm font-medium text-gray-700"
-            >Mensaje<span class="text-red-600"> *</span></label
-          >
-          <textarea
-            name="message"
-            placeholder="Mensaje"
-            class="w-full p-2 border rounded-md"></textarea>
-        </div>
-        <div>
-          <button
-            type="submit"
-            class="bg-green-300 text-white px-4 py-2 rounded-md">Enviar</button
-          >
-        </div>
-      </form>
-    </div>
-    <div class="bg-white p-8 rounded shadow-md max-w-md mt-10">
-      <h1 class="text-3xl font-bold mb-4">PQR</h1>
-      <p class="mb-5">
-        Accede al siguiente formulario si tienes alguna peticion queja o
-        reclamo.
-      </p>
-      <a
-        href="https://docs.google.com/forms/d/133KSZVkJTqoXgOGOGrZ4FC2eZh2a7NQNbcOjSPDXNn8"
-        target="_blank"
-        class="bg-green-300 hover:bg-green-700 text-white py-2 px-4 rounded inline-flex items-center"
-      >
-        Ir a formulario
-      </a>
-    </div>
-  </div>
+  <!-- Modern Contact Section -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="text-display-md font-bold text-gray-900 mb-4">
+          Contáctate Con <span class="text-medical-blue">Nosotros</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Estamos aquí para ayudarte con todas tus necesidades de calibración y mantenimiento.
+          Déjanos un mensaje y pronto nos comunicaremos contigo.
+        </p>
+      </div>
 
-  <div class="container grid md:grid-cols-2 max-w-5xl m-auto gap-10">
-    <div>
-      <h2 class="text-2xl mb-5 font-bold">Sede Principal Dosquebradas</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.826058505492!2d-75.6735850225377!3d4.83649849013859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3881e9b7e5b21b%3A0x83aa5ad351e4379b!2sMETROMEDICS%20SAS!5e0!3m2!1ses!2sco!4v1694566315079!5m2!1ses!2sco"
-        width="400"
-        height="300"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        class="shadow-md"></iframe>
-    </div>
+      <!-- Contact Form and PQR Cards -->
+      <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-2xl shadow-large p-8">
+          <div class="mb-8">
+            <div class="w-16 h-16 bg-medical-blue/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Envíanos un Mensaje</h2>
+            <p class="text-gray-600">Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.</p>
+          </div>
 
-    <div>
-      <h2 class="text-2xl mb-5 font-bold">Bogotá</h2>
+          <form method="POST" id="contactForm" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Nombre Completo<span class="text-red-500 ml-1">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Tu nombre completo"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Correo Electrónico<span class="text-red-500 ml-1">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="tu@correo.com"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+                  required
+                />
+              </div>
+            </div>
 
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.572622659888!2d-74.10693371524424!3d4.670019703465869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b767d854307%3A0x8ac6edac8ed712d0!2sCra.%2071c%20%2352-34%2C%20Teusaquillo%2C%20Bogot%C3%A1!5e0!3m2!1sen!2sco!4v1739484493319!5m2!1sen!2sco"
-        width="400"
-        height="300"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        class="shadow-md"></iframe>
+            <div>
+              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
+                Asunto<span class="text-red-500 ml-1">*</span>
+              </label>
+              <select
+                name="subject"
+                id="subject"
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+                required
+              >
+                <option value="">Selecciona el tipo de consulta</option>
+                <option value="calibracion">Calibración de Equipos</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="validacion">Validación de Autoclaves</option>
+                <option value="cotizacion">Solicitar Cotización</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+                Mensaje<span class="text-red-500 ml-1">*</span>
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Describe tu consulta o necesidad en detalle..."
+                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none resize-none"
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-medical-blue hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-medical-blue/30 shadow-lg hover:shadow-xl"
+            >
+              <span class="flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                Enviar Mensaje
+              </span>
+            </button>
+          </form>
+        </div>
+
+        <!-- PQR Section -->
+        <div class="space-y-8">
+          <!-- PQR Card -->
+          <div class="bg-white rounded-2xl shadow-large p-8">
+            <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">PQR - Peticiones, Quejas y Reclamos</h2>
+            <p class="text-gray-600 mb-6">
+              Si tienes alguna petición, queja o reclamo específico, accede a nuestro formulario
+              especializado donde podremos brindarte una atención más personalizada.
+            </p>
+            <a
+              href="https://docs.google.com/forms/d/133KSZVkJTqoXgOGOGrZ4FC2eZh2a7NQNbcOjSPDXNn8"
+              target="_blank"
+              class="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-orange-300"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+              Ir al Formulario PQR
+            </a>
+          </div>
+
+          <!-- Contact Info Card -->
+          <div class="bg-gradient-to-br from-medical-blue to-primary-600 rounded-2xl p-8 text-white">
+            <h3 class="text-xl font-bold mb-6">Información de Contacto Directo</h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                <span class="text-blue-100">+57 (606) 352 6161</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M6 6h12v12H6V6z"></path>
+                </svg>
+                <span class="text-blue-100">301 254 1543</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-blue-100">comercial@metromedicslab.com.co</span>
+              </div>
+            </div>
+            <div class="mt-6 p-4 bg-white/10 rounded-xl">
+              <p class="text-sm text-blue-100">
+                <strong>Horario de atención:</strong><br>
+                Lunes a Viernes: 8:00 AM - 5:00 PM<br>
+                Sábados: 8:00 AM - 12:00 PM
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-display-md font-bold text-gray-900 mb-4">
+          Nuestras <span class="text-medical-blue">Ubicaciones</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Visítanos en cualquiera de nuestras sedes para recibir atención personalizada
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <!-- Dosquebradas Location -->
+        <div class="bg-white rounded-2xl shadow-large overflow-hidden">
+          <div class="h-64 relative">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4727.826058505492!2d-75.6735850225377!3d4.83649849013859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3881e9b7e5b21b%3A0x83aa5ad351e4379b!2sMETROMEDICS%20SAS!5e0!3m2!1ses!2sco!4v1694566315079!5m2!1ses!2sco"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="rounded-t-2xl"
+            ></iframe>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-medical-blue/10 rounded-xl flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Sede Principal</h3>
+                <p class="text-medical-blue font-semibold">Dosquebradas, Risaralda</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 mr-3 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-gray-600">Calle 35 13-46 Guadalupe, Dosquebradas</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                <span class="text-gray-600">+57 (606) 352 6161</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bogotá Location -->
+        <div class="bg-white rounded-2xl shadow-large overflow-hidden">
+          <div class="h-64 relative">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.572622659888!2d-74.10693371524424!3d4.670019703465869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b767d854307%3A0x8ac6edac8ed712d0!2sCra.%2071c%20%2352-34%2C%20Teusaquillo%2C%20Bogot%C3%A1!5e0!3m2!1sen!2sco!4v1739484493319!5m2!1sen!2sco"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="rounded-t-2xl"
+            ></iframe>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">Oficina Bogotá</h3>
+                <p class="text-primary-500 font-semibold">Bogotá, Cundinamarca</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 mr-3 mt-0.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-gray-600">Cra. 71c #52-34, Oficina 101, Teusaquillo</span>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                <span class="text-gray-600">300 816 3096</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <script>
-  const contactForm = document.getElementById("contactForm");
+  const contactForm = document.getElementById("contactForm") as HTMLFormElement;
 
-  contactForm.addEventListener("submit", function (event) {
+  contactForm?.addEventListener("submit", function (event) {
     event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
 
     const formData = new FormData(contactForm);
 
-    const object = {};
+    const object: Record<string, FormDataEntryValue> = {};
     formData.forEach(function (value, key) {
       object[key] = value;
     });
     const json = JSON.stringify(object);
-    console.log("🚀 ~ file: contact.astro:111 ~ json:", json);
+    console.log("🚀 ~ file: contacto.astro ~ json:", json);
+
+    // Show loading state
+    const submitButton = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.innerHTML = `
+      <span class="flex items-center justify-center">
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Enviando...
+      </span>
+    `;
 
     fetch("http://localhost:5050/contact", {
       method: "POST",
@@ -136,11 +316,42 @@ import Layout from "../layouts/Layout.astro";
     })
       .then((response) => response.json())
       .then((data) => {
-        // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito o redirigir al usuario a una página de confirmación.
+        // Show success message
+        submitButton.innerHTML = `
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            ¡Mensaje Enviado!
+          </span>
+        `;
+
+        // Reset form after 2 seconds
+        setTimeout(() => {
+          contactForm.reset();
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalText;
+        }, 2000);
+
         console.log(data);
       })
       .catch((error) => {
-        // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario.
+        // Show error message
+        submitButton.innerHTML = `
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+            Error al Enviar
+          </span>
+        `;
+
+        // Reset button after 2 seconds
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalText;
+        }, 2000);
+
         console.error(error);
       });
   });

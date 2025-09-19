@@ -2,51 +2,192 @@
 
 ---
 
-<div class="bg-[url(/images/fondo_servicios.webp)] bg-cover mt-20 py-16">
-  <div class="container m-auto">
-    <div class="font-bold text-white text-center">
-      <h2 class="text-5xl">Conoce Nuestros Servicios</h2>
-      <h3 class="mt-4 text-2xl">Servicios Especializados Para Su Empresa</h3>
+<!-- Modern Services Section -->
+<section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-display-md font-bold text-gray-900 mb-4">
+        Conoce Nuestros <span class="text-medical-blue">Servicios</span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Servicios especializados de metrología biomédica e industrial
+        con la más alta calidad y certificación
+      </p>
     </div>
-    <div class="grid md:grid-cols-3 mt-16 place-items-center">
-      <div>
-        <img
-          class="scaled-img cursor-pointer"
-          src="/images/laboratorio_acreditado_nuevo.png"
-          alt="servicio 0"
-        />
-        <div class="text-center">
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Service 1: Laboratorio Acreditado -->
+      <div class="group bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+        <div class="p-8">
+          <div class="w-16 h-16 bg-medical-blue/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-medical-blue/20 transition-colors">
+            <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-heading-lg text-gray-900 mb-4">Laboratorio Acreditado</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Servicios de calibración certificados bajo normas ISO 17025 con acreditación ONAC,
+            garantizando trazabilidad y precisión en cada proceso.
+          </p>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Acreditación ONAC
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Norma ISO 17025
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Trazabilidad garantizada
+            </div>
+          </div>
           <a
             href="https://www.calameo.com/read/007460758775f4141e5f8"
             target="_blank"
-            class="bg-green-300 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
+            class="inline-flex items-center justify-center w-full px-6 py-3 bg-medical-blue hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300"
           >
-            Ver portafolio
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Ver Portafolio
           </a>
         </div>
       </div>
-      <img
-        class="scaled-img cursor-pointer"
-        src="/images/servicio2.png"
-        alt="servicio 1"
-      />
-      <img
-        class="scaled-img cursor-pointer"
-        src="/images/servicio3.png"
-        alt="servicio 3"
-      />
+
+      <!-- Service 2: Validation -->
+      <div class="group bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+        <div class="p-8">
+          <div class="w-16 h-16 bg-primary-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-500/20 transition-colors">
+            <svg class="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-heading-lg text-gray-900 mb-4">Validación de Autoclaves</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Validación y calificación completa de autoclaves mediante métodos de comparación directa,
+            incluyendo IQ, OQ, PQ y determinación de Factor F.
+          </p>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Calificación IQ, OQ, PQ
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Determinación Factor F
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Método comparación directa
+            </div>
+          </div>
+          <a
+            href="/servicios"
+            class="inline-flex items-center justify-center w-full px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Más Información
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3: Maintenance -->
+      <div class="group bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+        <div class="p-8">
+          <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition-colors">
+            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-heading-lg text-gray-900 mb-4">Mantenimiento Especializado</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Mantenimiento preventivo y correctivo de equipos médicos y odontológicos,
+            prolongando la vida útil y garantizando el funcionamiento óptimo.
+          </p>
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Mantenimiento preventivo
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Mantenimiento correctivo
+            </div>
+            <div class="flex items-center text-sm text-gray-500">
+              <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              Equipos médicos y odontológicos
+            </div>
+          </div>
+          <a
+            href="/servicios"
+            class="inline-flex items-center justify-center w-full px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-orange-300"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Más Información
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 text-center">
+      <div class="bg-gradient-to-r from-medical-blue to-primary-600 rounded-2xl p-8 text-white">
+        <h3 class="text-2xl font-bold mb-4">¿Necesita una cotización personalizada?</h3>
+        <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+          Nuestro equipo de expertos está listo para evaluar sus necesidades específicas
+          y brindarle la mejor solución en calibración y mantenimiento.
+        </p>
+        <a
+          href="/contacto"
+          class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-white/30"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          Solicitar Cotización Gratuita
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <style>
-  .scaled-img {
-    transition:
-      transform 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
+  /* Card hover animations */
+  .group:hover .transform {
+    transform: translateY(-8px);
   }
 
-  .scaled-img:hover {
-    transform: scale(0.95);
+  /* Smooth transitions for all interactive elements */
+  * {
+    transition-property: transform, box-shadow, background-color, border-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
   }
 </style>

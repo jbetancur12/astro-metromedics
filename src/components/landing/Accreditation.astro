@@ -2,58 +2,205 @@
 
 ---
 
-<div class="container m-auto mt-20">
-  <div>
-    <h2 class="text-5xl font-bold">
-      Conoce Nuestras<br class="md:hidden" />
-      <span class="md:block text-green-300 mt-2">Acreditaciones</span>
-    </h2>
-    <div class="w-1/3 h-2 bg-green-300 mt-2 rounded-full"></div>
+<!-- Modern Accreditations Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-medical-blue/10 rounded-2xl mb-6">
+        <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+        </svg>
+      </div>
+      <h2 class="text-display-md font-bold text-gray-900 mb-4">
+        Conoce Nuestras <span class="text-medical-blue">Acreditaciones</span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Certificaciones y acreditaciones que respaldan la calidad y confiabilidad
+        de nuestros servicios de calibración y metrología
+      </p>
+    </div>
+
+    <!-- Accreditations Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      <!-- Balanzas -->
+      <div class="group">
+        <a href="/pdf/18-LAC-020.pdf" target="_blank"
+           class="block bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 p-6">
+          <div class="aspect-square bg-gray-50 rounded-xl mb-4 p-4 group-hover:bg-gray-100 transition-colors">
+            <img
+              class="w-full h-full object-contain"
+              src="/images/balanzas.png"
+              alt="Acreditación Balanzas - Calibración de Masa"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-heading-sm text-gray-900 mb-2 text-center">Balanzas</h3>
+          <p class="text-sm text-gray-600 text-center">Calibración de Masa</p>
+          <div class="mt-4 flex items-center justify-center text-medical-blue group-hover:text-blue-700">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span class="text-sm font-medium">Ver Certificado</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Temperatura -->
+      <div class="group">
+        <a href="/pdf/18-LAC-020.pdf" target="_blank"
+           class="block bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 p-6">
+          <div class="aspect-square bg-gray-50 rounded-xl mb-4 p-4 group-hover:bg-gray-100 transition-colors">
+            <img
+              class="w-full h-full object-contain"
+              src="/images/temperatura.png"
+              alt="Acreditación Temperatura - Calibración Térmica"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-heading-sm text-gray-900 mb-2 text-center">Temperatura</h3>
+          <p class="text-sm text-gray-600 text-center">Calibración Térmica</p>
+          <div class="mt-4 flex items-center justify-center text-medical-blue group-hover:text-blue-700">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span class="text-sm font-medium">Ver Certificado</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Presión -->
+      <div class="group">
+        <a href="/pdf/18-LAC-020.pdf" target="_blank"
+           class="block bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 p-6">
+          <div class="aspect-square bg-gray-50 rounded-xl mb-4 p-4 group-hover:bg-gray-100 transition-colors">
+            <img
+              class="w-full h-full object-contain"
+              src="/images/presion.png"
+              alt="Acreditación Presión - Calibración de Presión"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-heading-sm text-gray-900 mb-2 text-center">Presión</h3>
+          <p class="text-sm text-gray-600 text-center">Calibración de Presión</p>
+          <div class="mt-4 flex items-center justify-center text-medical-blue group-hover:text-blue-700">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span class="text-sm font-medium">Ver Certificado</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Temperatura 2 -->
+      <div class="group">
+        <a href="/pdf/18-LAC-020.pdf" target="_blank"
+           class="block bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 p-6">
+          <div class="aspect-square bg-gray-50 rounded-xl mb-4 p-4 group-hover:bg-gray-100 transition-colors">
+            <img
+              class="w-full h-full object-contain"
+              src="/images/temp2.png"
+              alt="Acreditación Temperatura Avanzada - Calibración Especializada"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-heading-sm text-gray-900 mb-2 text-center">Temperatura Avanzada</h3>
+          <p class="text-sm text-gray-600 text-center">Calibración Especializada</p>
+          <div class="mt-4 flex items-center justify-center text-medical-blue group-hover:text-blue-700">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span class="text-sm font-medium">Ver Certificado</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Trust Section -->
+    <div class="mt-16 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8">
+      <div class="text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          Respaldados por las Máximas Certificaciones
+        </h3>
+        <p class="text-gray-600 mb-8 max-w-3xl mx-auto">
+          Nuestras acreditaciones ONAC y certificaciones ISO garantizan que nuestros procesos
+          cumplen con los más altos estándares internacionales de calidad y precisión.
+        </p>
+
+        <!-- Certification Badges -->
+        <div class="flex flex-wrap justify-center items-center gap-8">
+          <div class="flex items-center bg-white rounded-xl px-6 py-3 shadow-soft">
+            <div class="w-10 h-10 bg-medical-blue/10 rounded-lg flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-medical-blue" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <div class="font-semibold text-gray-900">ONAC</div>
+              <div class="text-sm text-gray-600">Acreditado</div>
+            </div>
+          </div>
+
+          <div class="flex items-center bg-white rounded-xl px-6 py-3 shadow-soft">
+            <div class="w-10 h-10 bg-primary-500/10 rounded-lg flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <div class="font-semibold text-gray-900">ISO 17025</div>
+              <div class="text-sm text-gray-600">Certificado</div>
+            </div>
+          </div>
+
+          <div class="flex items-center bg-white rounded-xl px-6 py-3 shadow-soft">
+            <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center mr-3">
+              <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div class="text-left">
+              <div class="font-semibold text-gray-900">15+ Años</div>
+              <div class="text-sm text-gray-600">Experiencia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="grid md:grid-cols-4 mt-20 justify-evenly">
-    <a href="/pdf/18-LAC-020.pdf" target="_blank">
-      <img
-        class="scaled-img cursor-pointer"
-        src="/images/balanzas.png"
-        alt="Acreditacion 1"
-      />
-    </a>
-    <a href="/pdf/18-LAC-020.pdf" target="_blank">
-      <img
-        class="scaled-img cursor-pointer"
-        src="/images/temperatura.png"
-        alt=""
-      />
-    </a>
-    <a href="/pdf/18-LAC-020.pdf" target="_blank">
-      <img
-        class="scaled-img cursor-pointer"
-        src="/images/presion.png"
-        alt="Acreditacion 2"
-      />
-    </a>
-    <a href="/pdf/18-LAC-020.pdf" target="_blank">
-      <img
-        class="scaled-img cursor-pointer"
-        src="/images/temp2.png"
-        alt="Acreditacion 3"
-      />
-    </a>
-  </div>
-</div>
+</section>
 
 <style>
-  .scaled-img {
-    animation: pulse 3s infinite ease-in-out;
+  /* Smooth hover transitions for accreditation cards */
+  .group:hover .transform {
+    transform: translateY(-8px);
   }
 
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(1);
+  /* Subtle fade-in animation for content */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
-    50% {
-      transform: scale(0.95);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
+
+  .group {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .group:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .group:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .group:nth-child(4) {
+    animation-delay: 0.3s;
   }
 </style>

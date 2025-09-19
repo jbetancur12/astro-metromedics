@@ -1,83 +1,91 @@
 ---
-import "./style.css";
 ---
 
-<div id="preloader">
-  <div id="loader"></div>
-  <!-- <img src="/images/logo2.png" alt="logo"> -->
-</div>
+<!-- Modern Hero Section -->
+<div class="relative bg-gradient-to-br from-medical-blue to-primary-600 overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 bg-black/10"></div>
 
-<div id="video-container" class="relative md:mt-0">
-  <video
-    id="main-video"
-    class="w-full max-h-screen object-cover"
-    autoplay
-    loop
-    muted
-    playsinline
-  >
-    <source src="/videos/video2.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <!-- Content -->
+  <div class="relative container mx-auto px-4 py-20 lg:py-32">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <!-- Main Heading -->
+      <h1 class="text-display-lg md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
+        Calibración <span class="text-green-300">Certificada</span><br>
+        de Equipos Médicos
+      </h1>
+
+      <!-- Subheading -->
+      <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.2s">
+        Servicios especializados en metrología biomédica e industrial con acreditación ONAC,
+        garantizando precisión y confiabilidad para su empresa.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in" style="animation-delay: 0.4s">
+        <a href="/contacto"
+           class="inline-flex items-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+          </svg>
+          Solicitar Cotización
+        </a>
+
+        <a href="/servicios"
+           class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-xl border-2 border-white/30 hover:border-white/50 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          Ver Servicios
+        </a>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-12 animate-fade-in" style="animation-delay: 0.6s">
+        <p class="text-blue-200 text-sm mb-4">Confiado por más de 500+ empresas</p>
+        <div class="flex items-center justify-center space-x-8 text-blue-200">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm">Acreditado ONAC</span>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm">ISO 17025</span>
+          </div>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-sm">15+ Años</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+  <div class="absolute bottom-10 right-10 w-32 h-32 bg-green-300/20 rounded-full blur-xl"></div>
+  <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-300/20 rounded-full blur-lg"></div>
 </div>
 
 <style>
-  img {
-    max-height: 100vh; /* Limita la altura máxima al 100% de la ventana */
-    width: auto; /* Mantiene la proporción del ancho */
-    height: auto; /* Mantiene la proporción de la altura */
-  }
-
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  #loader {
-    border: 4px solid #34db87;
-    border-top: 4px solid #0f0f0f;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 2s linear infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-    100% {
-      transform: rotate(360deg);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  #video-container {
-    display: none; /* Se oculta mientras se muestra el preloader */
-  }
-
-  video {
-    max-height: 100vh;
-    width: 100%;
-    object-fit: cover; /* Asegura que el video se ajuste correctamente */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
   }
 </style>
-
-<script>
-  window.addEventListener("load", function () {
-    const preloader = document.getElementById("preloader");
-    const videoContainer = document.getElementById("video-container");
-
-    // Ocultar el preloader
-    preloader.style.display = "none";
-    // Mostrar el contenedor del video
-    videoContainer.style.display = "block";
-  });
-</script>

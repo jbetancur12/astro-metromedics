@@ -16,16 +16,23 @@ const pathname = Astro.url.pathname;
         href="/"
       >
         <img
-          class="max-w-[200px] md:max-w-fu mx-auto h-auto"
+          class="max-w-[200px] md:max-w-full mx-auto h-auto"
           src="/images/Logo-pagina-web.png"
-          alt="Logo"
+          alt="MetroMedics - Servicios de Calibración y Mantenimiento"
+          loading="eager"
+          width="200"
+          height="auto"
         />
       </a>
     </div>
     <div class="block lg:hidden pr-4">
       <button
         id="nav-toggle"
-        class="flex items-center p-1 text-green-300 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+        class="flex items-center p-2 text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transform transition hover:scale-105 duration-300 ease-in-out rounded-md min-h-[44px] min-w-[44px] justify-center"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="nav-content"
+        aria-haspopup="true"
       >
         <svg
           class="fill-current h-6 w-6"
@@ -45,14 +52,14 @@ const pathname = Astro.url.pathname;
       <ul class="list-reset lg:flex justify-end flex-1 items-center text-base">
         <li class="mr-3">
           <a
-            class="inline-block py-2 px-4 text-black no-underlin hover:text-green-300 hover:text-underline"
+            class="inline-block py-2 px-4 text-black no-underline hover:text-green-300 hover:underline focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             class:list={[pathname == "/" && "text-green-400 font-bold"]}
             href="/">Inicio</a
           >
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:underline py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             class:list={[
               pathname == "/servicios" && "text-green-400 font-bold",
             ]}
@@ -62,8 +69,11 @@ const pathname = Astro.url.pathname;
         <li class="mr-3">
           <a
             id="laboratoriosLink"
-            class="text-black no-underline py-2 px-4 flex items-center group hover:text-green-300 hover:text-underline"
+            class="text-black no-underline py-2 px-4 flex items-center group hover:text-green-300 hover:underline focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             href="#"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="laboratorios"
           >
             Laboratorios
             <span class="ml-2">
@@ -102,30 +112,34 @@ const pathname = Astro.url.pathname;
 
           <div
             id="laboratorios"
-            class="absolute rounded-lg bg-white py-2 hidden"
+            class="absolute rounded-lg bg-white py-2 hidden shadow-lg border border-gray-200 mt-1 z-10"
+            role="menu"
+            aria-labelledby="laboratoriosLink"
           >
             <a
               href="/laboratorios/laboratorio-acreditado"
-              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black focus:outline-none focus:bg-green-300 focus:text-black transition-colors duration-200"
+              role="menuitem"
               >Laboratorio Acreditado</a
             >
             <a
               href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
-              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black focus:outline-none focus:bg-green-300 focus:text-black transition-colors duration-200"
+              role="menuitem"
               >Laboratorio con Trazabilidad sector Biomédico e Industrial</a
             >
           </div>
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:underline py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             class:list={[pathname == "/nosotros" && "text-green-400 font-bold"]}
             href="/nosotros">Nosotros</a
           >
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:underline py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             class:list={[
               pathname == "/evaluacion-del-servicio" &&
                 "text-green-400 font-bold",
@@ -135,14 +149,14 @@ const pathname = Astro.url.pathname;
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:underline py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             class:list={[pathname == "/pqr" && "text-green-400 font-bold"]}
             href="/pqr">PQR</a
           >
         </li>
         <li class="mr-3">
           <a
-            class="inline-block text-black no-underline hover:text-green-300 hover:text-underline py-2 px-4"
+            class="inline-block text-black no-underline hover:text-green-300 hover:underline py-2 px-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
             href="/contacto">Contacto</a
           >
@@ -151,8 +165,11 @@ const pathname = Astro.url.pathname;
         <li class="mr-3">
           <a
             id="clientesLink"
-            class="text-black no-underline py-2 px-4 flex items-center group hover:text-green-300 hover:text-underline"
+            class="text-black no-underline py-2 px-4 flex items-center group hover:text-green-300 hover:underline focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
             href="#"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="clientes"
           >
             Clientes
             <span class="ml-2">
@@ -188,15 +205,22 @@ const pathname = Astro.url.pathname;
               </svg>
             </span>
           </a>
-          <div id="clientes" class="absolute rounded-lg bg-white py-2 hidden">
+          <div
+            id="clientes"
+            class="absolute rounded-lg bg-white py-2 hidden shadow-lg border border-gray-200 mt-1 z-10"
+            role="menu"
+            aria-labelledby="clientesLink"
+          >
             <a
               href="https://app.metromedics.co/login"
-              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black focus:outline-none focus:bg-green-300 focus:text-black transition-colors duration-200"
+              role="menuitem"
               >Calibraciones</a
             >
             <a
               href="https://fm34.easytechpro.com/fmi/webd"
-              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black focus:outline-none focus:bg-green-300 focus:text-black transition-colors duration-200"
+              role="menuitem"
               >Mantenimiento</a
             >
           </div>
@@ -205,78 +229,83 @@ const pathname = Astro.url.pathname;
     </div>
   </div>
 
-  <div id="burgerMenu" class="hidden" >
+  <div
+    id="burgerMenu"
+    class="hidden lg:hidden bg-white border-t border-gray-200 shadow-medium animate-slide-in"
+    role="menu"
+    aria-labelledby="nav-toggle"
+  >
     <a
       href="/"
-      class="block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800"
+      class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center"
       class:list={[pathname == "/" && "text-green-400 font-bold"]}>Inicio</a
     >
     <a
       href="/servicios"
-      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center"
       class:list={[pathname == "/servicios" && "text-green-400 font-bold"]}
       >Servicios</a
     >
     <div>
       <div
         id="laboratoriosMobileLink"
-        class="mt-1 block px-2 py-1 text-black font-semibold rounded sm:mt-0 sm:ml-2"
+        class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center justify-between cursor-pointer"
       >
         Laboratorios
       </div>
-      <div id="laboratoriosMobile" class="hidden bg-gray-900 py-2 rounded-lg">
+      <div id="laboratoriosMobile" class="hidden bg-white py-2 ml-4 border-l-2 border-primary-200">
         <a
           href="/laboratorios/laboratorio-acreditado"
-          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
+          class="block px-6 py-3 text-black hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 min-h-[44px] flex items-center"
           >Laboratorio Acreditado</a
         >
         <a
           href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
-          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
+          class="block px-6 py-3 text-black hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 min-h-[44px] flex items-center"
           >Laboratorio con Trazabilidad sector Biomédico e Industrial</a
         >
       </div>
     </div>
     <a
       href="/nosotros"
-      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center"
       class:list={[pathname == "/nosotros" && "text-green-400 font-bold"]}
       >Nosotros</a
     >
     <a
       href="/evaluacion-del-servicio"
-      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center"
       class:list={[
         pathname == "/evaluacion-del-servicio" && "text-green-400 font-bold",
       ]}>Evaluar servicio</a
     >
     <a
       href="/pqr"
-      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center"
       class:list={[pathname == "/pqr" && "text-green-400 font-bold"]}>PQR</a
     >
     <a
       href="/contacto"
-      class="mt-1 block px-2 py-1 text-black font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+      class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center"
       class:list={[pathname == "/contact" && "text-green-400 font-bold"]}
       >Contacto</a
     >
     <div>
       <div
         id="clientesMobileLink"
-        class="mt-1 block px-2 py-1 text-black font-semibold rounded sm:mt-0 sm:ml-2"
+        class="block px-4 py-3 text-black font-semibold rounded hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 border-b border-gray-100 min-h-[44px] flex items-center justify-between cursor-pointer"
       >
         Clientes
       </div>
-      <div id="clientesMobile" class="hidden bg-white py-2 rounded-lg">
+      <div id="clientesMobile" class="hidden bg-white py-2 ml-4 border-l-2 border-primary-200">
         <a
           href="https://app.metromedics.co/login"
-          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
+          class="block px-6 py-3 text-black hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 min-h-[44px] flex items-center"
           >Calibraciones</a
         >
         <a
           href="https://fm34.easytechpro.com/fmi/webd"
-          class="block px-8 py-2 text-black hover:bg-green-300 hover:text-black"
+          class="block px-6 py-3 text-black hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 min-h-[44px] flex items-center"
           >Mantenimiento</a
         >
       </div>
@@ -296,10 +325,15 @@ const pathname = Astro.url.pathname;
   const angelUp = document.getElementById("angle-up");
   const angelDown = document.getElementById("angle-down");
 
-  laboratoriosLink?.addEventListener("click", () => {
+  laboratoriosLink?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const isHidden = laboratorios?.classList.contains("hidden");
     laboratorios?.classList.toggle("hidden");
     angelUp?.classList.toggle("hidden");
     angelDown?.classList.toggle("hidden");
+
+    // Update ARIA attributes
+    laboratoriosLink?.setAttribute("aria-expanded", isHidden ? "true" : "false");
   });
 
   laboratoriosMobileLink?.addEventListener("click", () => {
@@ -311,13 +345,16 @@ const pathname = Astro.url.pathname;
   const burgerMenu = document.getElementById("burgerMenu");
 
   navToggle?.addEventListener("click", () => {
+    const isHidden = burgerMenu?.classList.contains("hidden");
     burgerMenu?.classList.toggle("hidden");
+
+    // Update ARIA attributes
+    navToggle?.setAttribute("aria-expanded", isHidden ? "true" : "false");
   });
 
   // Function to handle scroll and change header styles
   const header = document.getElementById("header");
   const navAction = document.getElementById("navAction");
-  const toToggle = document.querySelectorAll(".toggleColour");
   const navContent = document.getElementById("nav-content");
   let scrollPos = window.scrollY;
 
@@ -359,10 +396,15 @@ const pathname = Astro.url.pathname;
   const angelUpClientes = document.getElementById("angle-up-clientes");
   const angelDownClientes = document.getElementById("angle-down-clientes");
 
-  clientesLink?.addEventListener("click", () => {
+  clientesLink?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const isHidden = clientes?.classList.contains("hidden");
     clientes?.classList.toggle("hidden");
     angelUpClientes?.classList.toggle("hidden");
     angelDownClientes?.classList.toggle("hidden");
+
+    // Update ARIA attributes
+    clientesLink?.setAttribute("aria-expanded", isHidden ? "true" : "false");
   });
 
   clientesMobileLink?.addEventListener("click", () => {
@@ -372,8 +414,31 @@ const pathname = Astro.url.pathname;
 
 <style>
   #burgerMenu {
-    transition: all 0.3s ease;
-    max-height: calc(100vh - 4.5rem); /* Ajusta según altura de tu header */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: calc(100vh - 4.5rem);
     overflow-y: auto;
+  }
+
+  /* Focus styles for better accessibility */
+  .focus-visible:focus {
+    outline: 2px solid #22c55e;
+    outline-offset: 2px;
+  }
+
+  /* Smooth transitions for dropdowns */
+  #laboratorios, #clientes {
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  #laboratorios.hidden, #clientes.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  #laboratorios:not(.hidden), #clientes:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 </style>
