@@ -8,49 +8,234 @@ import process from "../../public/images/proceso.jpeg";
   title="Metromedics SAS | Calibración y Mantenimiento de Equipos Médicos e Industriales"
   description="Metromedics S.A.S Dosquebradas: Expertos en Calibración y Mantenimiento de Equipos Médicos e Industriales. Contribuimos a la Estandarización de la Medición en el Sector de la Salud y la Industria."
 >
-  <div class="text-center min-h-screen md:gap-40 mt-6">
-    <!-- Miniatura con efecto hover -->
-    <div class="cursor-pointer inline-block" id="thumbnail">
-      <Image
-        src={process}
-        alt="Proceso de quejas de Metromedics"
-        class="w-32 h-auto transition-transform transform hover:scale-110 border rounded-lg shadow-lg"
-      />
-      <p class="text-sm mt-2 text-gray-600">Haz clic para ampliar</p>
-    </div>
-
-    <!-- Modal de imagen ampliada -->
-    <div
-      id="modal"
-      class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
-    >
-      <div
-        class="max-w-[90vw] max-h-[90vh] p-4 bg-white rounded-lg shadow-lg relative flex justify-center"
-      >
-        <button
-          class="absolute top-2 right-2 text-white bg-red-600 rounded-full px-3 py-1 z-50"
-          id="closeModal"
-        >
-          ✖
-        </button>
-        <img
-          src="/images/proceso.jpeg"
-          alt="Proceso de quejas"
-          class="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-lg"
-        />
+  <!-- Modern Hero Section -->
+  <section class="bg-gradient-to-br from-orange-500 to-red-600 text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+        <h1 class="text-display-lg font-bold mb-6">PQR - Peticiones, Quejas y Reclamos</h1>
+        <p class="text-xl mb-8 text-orange-100 leading-relaxed">
+          Tu opinión es importante para nosotros. Comparte tus peticiones, quejas o reclamos
+          y te brindaremos una respuesta oportuna y efectiva.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#formulario" class="inline-flex items-center px-6 py-3 bg-white text-orange-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+            </svg>
+            Presentar PQR
+          </a>
+          <a href="#proceso" class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Ver Proceso
+          </a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Formulario de Google -->
-    <iframe
-      src="https://docs.google.com/forms/d/133KSZVkJTqoXgOGOGrZ4FC2eZh2a7NQNbcOjSPDXNn8/viewform?embedded=true"
-      width="100%"
-      height="800"
-      class="mt-6"
+  <!-- Process Information Section -->
+  <section id="proceso" class="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Proceso de Atención PQR</h2>
+          <p class="text-xl text-gray-600">
+            Conoce cómo manejamos tus peticiones, quejas y reclamos de manera profesional y oportuna
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Process Image -->
+          <div class="order-2 lg:order-1">
+            <div class="bg-white rounded-2xl shadow-large p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Diagrama del Proceso</h3>
+              <div class="cursor-pointer inline-block w-full" id="thumbnail">
+                <Image
+                  src={process}
+                  alt="Proceso de quejas de Metromedics"
+                  class="w-full h-auto transition-transform transform hover:scale-105 rounded-lg shadow-md hover:shadow-lg"
+                />
+                <div class="mt-4 text-center">
+                  <span class="inline-flex items-center px-4 py-2 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-colors">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    Haz clic para ampliar
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Process Steps -->
+          <div class="order-1 lg:order-2 space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-orange-600 font-bold text-lg">1</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">Recepción</h4>
+                <p class="text-gray-600">Recibimos tu PQR a través del formulario en línea y la registramos en nuestro sistema.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-orange-600 font-bold text-lg">2</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">Evaluación</h4>
+                <p class="text-gray-600">Nuestro equipo especializado analiza tu solicitud y determina las acciones a seguir.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-orange-600 font-bold text-lg">3</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">Investigación</h4>
+                <p class="text-gray-600">Realizamos una investigación detallada para entender completamente la situación.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="text-orange-600 font-bold text-lg">4</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">Respuesta</h4>
+                <p class="text-gray-600">Te proporcionamos una respuesta clara y las acciones correctivas implementadas.</p>
+              </div>
+            </div>
+
+            <div class="bg-orange-50 rounded-xl p-6 mt-8">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="font-semibold text-orange-800">Tiempo de Respuesta</span>
+              </div>
+              <p class="text-orange-700">Nos comprometemos a responder tu PQR en un máximo de <strong>15 días hábiles</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de imagen ampliada -->
+  <div
+    id="modal"
+    class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+  >
+    <div
+      class="max-w-[90vw] max-h-[90vh] p-4 bg-white rounded-2xl shadow-2xl relative flex justify-center"
     >
-      Loading…
-    </iframe>
+      <button
+        class="absolute -top-4 -right-4 w-10 h-10 text-white bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center z-50 transition-colors shadow-lg"
+        id="closeModal"
+        aria-label="Cerrar modal"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <img
+        src="/images/proceso.jpeg"
+        alt="Proceso de quejas detallado"
+        class="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-xl"
+      />
+    </div>
   </div>
+
+  <!-- PQR Form Section -->
+  <section id="formulario" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Presenta tu PQR</h2>
+          <p class="text-xl text-gray-600">
+            Completa el siguiente formulario con todos los detalles necesarios.
+            Toda la información será tratada de manera confidencial.
+          </p>
+        </div>
+
+        <!-- Form Container -->
+        <div class="bg-white rounded-2xl shadow-large overflow-hidden">
+          <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-6">
+            <div class="flex items-center">
+              <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <h3 class="text-lg font-semibold">Formulario PQR</h3>
+            </div>
+            <p class="text-orange-100 mt-2">
+              Todos los campos marcados con asterisco (*) son obligatorios
+            </p>
+          </div>
+
+          <!-- Google Forms Iframe -->
+          <div class="p-1">
+            <iframe
+              src="https://docs.google.com/forms/d/133KSZVkJTqoXgOGOGrZ4FC2eZh2a7NQNbcOjSPDXNn8/viewform?embedded=true"
+              width="100%"
+              height="800"
+              class="border-0 rounded-b-2xl"
+              loading="lazy"
+              title="Formulario PQR MetroMedics"
+            >
+              <div class="p-8 text-center">
+                <p class="text-gray-600 mb-4">Cargando formulario...</p>
+                <div class="inline-flex items-center">
+                  <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Cargando...
+                </div>
+              </div>
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Contact Alternative -->
+        <div class="mt-12 bg-gray-50 rounded-2xl p-8 text-center">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">¿Prefieres contactarnos directamente?</h3>
+          <p class="text-gray-600 mb-6">
+            Si tienes dificultades con el formulario, puedes contactarnos por estos medios:
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:comercial@metromedicslab.com.co?subject=PQR"
+              class="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              Enviar Email
+            </a>
+            <a
+              href="tel:+5760635261611"
+              class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              Llamar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Script del cliente para manejar interactividad -->
   <script>
