@@ -7,21 +7,238 @@ import Layout from '../layouts/Layout.astro';
   title="Metromedics SAS | Calibración y Mantenimiento de Equipos Médicos e Industriales"
   description="Metromedics S.A.S Dosquebradas: Expertos en Calibración y Mantenimiento de Equipos Médicos e Industriales. Contribuimos a la Estandarización de la Medición en el Sector de la Salud y la Industria."
 >
-  <div class='bg-[url(/images/fondo_titulos.webp)] h-40 flex'>
-    <div class='container w-full m-auto font-bold text-3xl max-w-5xl'>
-      <h1>Nosotros</h1>
+  <!-- Modern Hero Section -->
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h1 class="text-display-lg font-bold mb-6">Conócenos</h1>
+        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+          Líderes en metrología con más de 15 años de experiencia, comprometidos con la
+          excelencia y la innovación en servicios de calibración.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contacto" class="inline-flex items-center px-6 py-3 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            Trabajemos Juntos
+          </a>
+          <a href="#empresa" class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+            Nuestra Historia
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class='container m-auto my-10'>
-    <div class='grid md:grid-cols-2 gap-16 items-center max-w-5xl m-auto'>
-      {
-        nosotros.map((item) => (
-          <div>
-            <h1 class='font-bold text-xl mb-7'>{item.title}</h1>
-            <p class='text-justify leading-relaxed'>{item.content}</p>
+  </section>
+
+  <!-- Company Stats Section -->
+  <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-medical-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
           </div>
-        ))
-      }
+          <div class="text-3xl font-bold text-medical-blue">15+</div>
+          <div class="text-sm text-gray-600">Años de Experiencia</div>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-primary-500">500+</div>
+          <div class="text-sm text-gray-600">Clientes Satisfechos</div>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-green-500">ONAC</div>
+          <div class="text-sm text-gray-600">Acreditados</div>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-orange-500">99.9%</div>
+          <div class="text-sm text-gray-600">Precisión</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Company Information Section -->
+  <section id="empresa" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto space-y-16">
+        {
+          nosotros.map((item, index) => {
+            const isEven = index % 2 === 0;
+            const icons = {
+              "Quienes Somos": "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+              "Misión": "M13 10V3L4 14h7v7l9-11h-7z",
+              "Política De Calidad": "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+              "Visión": "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            };
+            const colors = {
+              "Quienes Somos": "medical-blue",
+              "Misión": "primary-600",
+              "Política De Calidad": "green-500",
+              "Visión": "orange-500"
+            };
+
+            return (
+              <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-start gap-12`}>
+                <!-- Icon and Title -->
+                <div class="flex-shrink-0">
+                  <div class={`w-20 h-20 bg-${colors[item.title]}/10 rounded-2xl flex items-center justify-center mb-6`}>
+                    <svg class={`w-10 h-10 text-${colors[item.title]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[item.title]}></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1 space-y-4">
+                  <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">{item.title}</h2>
+                    <div class={`w-20 h-1 bg-${colors[item.title]} rounded-full`}></div>
+                  </div>
+                  <p class="text-lg text-gray-600 leading-relaxed">
+                    {item.content}
+                  </p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-display-md font-bold text-gray-900 mb-4">
+          Nuestros <span class="text-medical-blue">Valores</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Los principios que guían cada uno de nuestros procesos y nos permiten
+          ofrecer servicios de la más alta calidad.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-large p-8 text-center group hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 bg-medical-blue/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-medical-blue/20 transition-colors">
+            <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Excelencia</h3>
+          <p class="text-gray-600">Buscamos la perfección en cada calibración, garantizando los más altos estándares de calidad.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-large p-8 text-center group hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 bg-primary-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600/20 transition-colors">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Confianza</h3>
+          <p class="text-gray-600">Construimos relaciones duraderas basadas en la transparencia y la responsabilidad.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-large p-8 text-center group hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 bg-green-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500/20 transition-colors">
+            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Innovación</h3>
+          <p class="text-gray-600">Adoptamos las últimas tecnologías para ofrecer soluciones avanzadas y eficientes.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-large p-8 text-center group hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-500/20 transition-colors">
+            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Puntualidad</h3>
+          <p class="text-gray-600">Cumplimos con los tiempos establecidos, respetando el cronograma de nuestros clientes.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-large p-8 text-center group hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500/20 transition-colors">
+            <svg class="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Colaboración</h3>
+          <p class="text-gray-600">Trabajamos en equipo para superar expectativas y alcanzar objetivos comunes.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-large p-8 text-center group hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-indigo-500/20 transition-colors">
+            <svg class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Sostenibilidad</h3>
+          <p class="text-gray-600">Promovemos prácticas responsables que contribuyan al desarrollo sostenible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-medical-blue to-primary-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Listo para trabajar con los mejores?</h2>
+        <p class="text-xl text-blue-100 mb-8">
+          Únete a los más de 500 clientes que confían en nuestra experiencia y
+          compromiso con la excelencia en metrología.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contacto"
+            class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            Iniciar Proyecto
+          </a>
+          <a
+            href="/servicios"
+            class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+            Ver Servicios
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
