@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MaintenanceReportForm from "../../components/maintenance/MaintenanceReportForm.tsx";
+---
+
+<Layout
+  title="Solicitud de Mantenimiento | Metromedics SAS"
+  description="Solicite servicios de mantenimiento para equipos médicos e industriales. Formulario completo con seguimiento en tiempo real."
+>
+  <main class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8">
+    <div class="container mx-auto px-4">
+      <MaintenanceReportForm client:load />
+    </div>
+  </main>
+</Layout>

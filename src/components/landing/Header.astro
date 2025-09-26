@@ -16,16 +16,16 @@ const pathname = Astro.url.pathname;
         href="/"
       >
         <img
-          class="max-w-[200px] md:max-w-full mx-auto h-auto"
+          class="max-w-[200px] md:max-w-[240px] lg:max-w-[280px] xl:max-w-[320px] mx-auto h-auto"
           src="/images/Logo-pagina-web.png"
           alt="MetroMedics - Servicios de Calibración y Mantenimiento"
           loading="eager"
-          width="200"
+          width="280"
           height="auto"
         />
       </a>
     </div>
-    <div class="block lg:hidden pr-4">
+    <div class="block nav:hidden pr-4">
       <button
         id="nav-toggle"
         class="flex items-center p-2 text-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transform transition hover:scale-105 duration-300 ease-in-out rounded-md min-h-[44px] min-w-[44px] justify-center"
@@ -46,10 +46,10 @@ const pathname = Astro.url.pathname;
     </div>
 
     <div
-      class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+      class="w-full flex-grow nav:flex nav:items-center nav:w-auto hidden mt-2 nav:mt-0 bg-white nav:bg-transparent text-black p-4 nav:p-0 z-20"
       id="nav-content"
     >
-      <ul class="list-reset lg:flex justify-end flex-1 items-center text-base">
+      <ul class="list-reset nav:flex justify-end flex-1 items-center text-sm nav:text-base">
         <li class="mr-3">
           <a
             class="inline-block py-2 px-4 text-black no-underline hover:text-green-300 hover:underline focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-md transition-colors duration-200"
@@ -218,6 +218,12 @@ const pathname = Astro.url.pathname;
               >Calibraciones</a
             >
             <a
+              href="/mantenimiento"
+              class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black focus:outline-none focus:bg-green-300 focus:text-black transition-colors duration-200"
+              role="menuitem"
+              >Tickets</a
+            >
+            <a
               href="https://fm34.easytechpro.com/fmi/webd"
               class="block px-4 py-2 text-black hover:bg-green-300 hover:text-black focus:outline-none focus:bg-green-300 focus:text-black transition-colors duration-200"
               role="menuitem"
@@ -231,7 +237,7 @@ const pathname = Astro.url.pathname;
 
   <div
     id="burgerMenu"
-    class="hidden lg:hidden bg-white border-t border-gray-200 shadow-medium animate-slide-in"
+    class="hidden nav:hidden bg-white border-t border-gray-200 shadow-medium animate-slide-in"
     role="menu"
     aria-labelledby="nav-toggle"
   >
@@ -302,6 +308,11 @@ const pathname = Astro.url.pathname;
           href="https://app.metromedics.co/login"
           class="block px-6 py-3 text-black hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 min-h-[44px] flex items-center"
           >Calibraciones</a
+        >
+        <a
+          href="/mantenimiento"
+          class="block px-6 py-3 text-black hover:bg-primary-50 focus:outline-none focus:bg-primary-50 transition-colors duration-200 min-h-[44px] flex items-center"
+          >Tickets</a
         >
         <a
           href="https://fm34.easytechpro.com/fmi/webd"
