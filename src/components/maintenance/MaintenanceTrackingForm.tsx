@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Search, Person, LocationOn, Phone, Email, AttachFile, Schedule } from '@mui/icons-material'
 import { format } from 'date-fns'
-import { es } from 'date-fns/locale'
+import { es } from 'date-fns/locale/es/index.js'
 import MaintenanceStatusBadge from './MaintenanceStatusBadge'
 import MaintenancePriorityBadge from './MaintenancePriorityBadge'
 import MaintenanceTimeline from './MaintenanceTimeline'
