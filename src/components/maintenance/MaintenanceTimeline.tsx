@@ -1,6 +1,6 @@
 import React from 'react'
 import { format } from 'date-fns'
-import { es } from 'date-fns/locale/es/index.js'
+import es from 'date-fns/locale/es/index.js'
 import {
   Build,
   Person,
