@@ -51,18 +51,18 @@
 
             <!-- Actual Video (Hidden Initially) -->
             <div id="video-player" class="hidden aspect-video rounded-2xl overflow-hidden shadow-large">
-              <iframe
-                id="video-iframe"
+              <video
+                id="video-element"
                 width="100%"
                 height="100%"
-                src=""
-                data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0&modestbranding=1"
-                title="MetroMedics - Tour del Laboratorio"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                class="rounded-2xl"
-              ></iframe>
+                controls
+                autoplay
+                muted
+                class="w-full h-full object-cover rounded-2xl"
+              >
+                <source src="/videos/videommcs.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+              </video>
             </div>
           </div>
 
@@ -173,7 +173,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const thumbnail = document.getElementById('video-thumbnail');
     const player = document.getElementById('video-player');
-    const iframe = document.getElementById('video-iframe');
+    const videoElement = document.getElementById('video-element');
     const replayBtn = document.getElementById('replay-btn');
 
     // Play video on thumbnail click
@@ -183,10 +183,9 @@
       player?.classList.remove('hidden');
       replayBtn?.classList.remove('hidden');
 
-      // Load video src to start playback
-      const videoSrc = iframe?.getAttribute('data-src');
-      if (videoSrc && iframe) {
-        iframe.src = videoSrc;
+      // Start video playback
+      if (videoElement) {
+        videoElement.play();
       }
     });
 
@@ -197,10 +196,16 @@
       player?.classList.add('hidden');
       replayBtn?.classList.add('hidden');
 
-      // Stop video
-      if (iframe) {
-        iframe.src = '';
+      // Stop and reset video
+      if (videoElement) {
+        videoElement.pause();
+        videoElement.currentTime = 0;
       }
+    });
+
+    // Show replay button when video ends
+    videoElement?.addEventListener('ended', function() {
+      replayBtn?.classList.remove('hidden');
     });
   });
 </script>
