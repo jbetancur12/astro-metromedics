@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MaintenanceTrackingForm from "../../components/maintenance/MaintenanceTrackingForm.tsx";
+---
+
+<Layout
+  title="Seguimiento de Mantenimiento | Metromedics SAS"
+  description="Rastree el estado de su solicitud de mantenimiento en tiempo real. Ingrese su número de ticket para ver el progreso."
+>
+  <main class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8">
+    <div class="container mx-auto px-4">
+      <MaintenanceTrackingForm client:load />
+    </div>
+  </main>
+</Layout>
