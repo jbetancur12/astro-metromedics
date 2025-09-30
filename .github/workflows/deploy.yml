@@ -45,6 +45,9 @@ jobs:
         with:
           name: dist
           path: dist/
+      - name: 🔍 Debug SSH key format
+        run: |
+          echo "${{ secrets.DO_SSH_KEY }}" | ssh-keygen -yf - > /dev/null && echo "✅ Clave válida" || echo "❌ Clave inválida"
 
       - name: ✅ Test SSH connection
         uses: appleboy/ssh-action@v1.2.0
