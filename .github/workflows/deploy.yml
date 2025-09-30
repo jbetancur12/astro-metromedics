@@ -52,6 +52,7 @@ jobs:
           host: ${{ secrets.DO_HOST }}
           user: ${{ secrets.DO_USERNAME }}
           private_key: ${{ secrets.DO_SSH_KEY }}
+          host_fingerprint: ${{ secrets.DO_HOST_FINGERPRINT }}
           command: mkdir -p /home/metromedics/mmcs/landingpage/dist
 
       - name: Setup SSH for SCP
@@ -71,6 +72,7 @@ jobs:
           host: ${{ secrets.DO_HOST }}
           user: ${{ secrets.DO_USERNAME }}
           private_key: ${{ secrets.DO_SSH_KEY }}
+          host_fingerprint: ${{ secrets.DO_HOST_FINGERPRINT }}
           command: |
             cd /home/metromedics/mmcs/landingpage
 
