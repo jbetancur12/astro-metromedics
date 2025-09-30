@@ -45,16 +45,16 @@ jobs:
         with:
           name: dist
           path: dist/
-      - name: 🔍 Debug SSH key format
+      - name: Decode SSH key
         run: |
-          echo "${{ secrets.DO_SSH_KEY }}" | ssh-keygen -yf - > /dev/null && echo "✅ Clave válida" || echo "❌ Clave inválida"
-
+          echo "${{ secrets.DO_SSH_KEY_BASE64 }}" | base64 -d > id_ed25519
+          chmod 600 id_ed25519
       - name: ✅ Test SSH connection
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
+          key_path: ${{ secrets.DO_SSH_KEY }}
           script: echo "✅ Conexión SSH exitosa desde GitHub Actions"
 
       - name: Create remote directory
@@ -62,7 +62,7 @@ jobs:
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
+          key_path: ${{ secrets.DO_SSH_KEY }}
           script: mkdir -p /home/metromedics/mmcs/landingpage/dist
 
       - name: Copy files via SCP
@@ -70,7 +70,7 @@ jobs:
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
+          key_path: ${{ secrets.DO_SSH_KEY }}
           source: "dist/**"
           target: "/home/metromedics/mmcs/landingpage/dist/"
           strip_components: 0
@@ -80,7 +80,7 @@ jobs:
         with:
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
+          key_path: ${{ secrets.DO_SSH_KEY }}
           script: |
             set -e
             cd /home/metromedics/mmcs/landingpage
