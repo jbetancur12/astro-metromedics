@@ -1,0 +1,122 @@
+name: Deploy to Digital Ocean
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Permite ejecutar manualmente desde GitHub
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  deploy:
+    name: Deploy to Production
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy to Digital Ocean via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          source: "dist/*"
+          target: "/home/metromedics/mmcs/landingpage/"
+          strip_components: 0
+
+      - name: Execute deployment script
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            cd /home/metromedics/mmcs/landingpage
+
+            # Obtener timestamp
+            timestamp=$(date +"%Y%m%d-%H%M%S")
+
+            # Renombrar dist a build con timestamp
+            mv dist "build$timestamp"
+
+            # Crear backup del sitio actual
+            echo "Creando backup del sitio actual..."
+            sudo mkdir -p /var/www/metromedics.co/html_backup
+            sudo rm -rf /var/www/metromedics.co/html_backup/*
+            sudo cp -r /var/www/metromedics.co/html/* /var/www/metromedics.co/html_backup/ 2>/dev/null || true
+
+            # Desplegar nueva versión
+            echo "Desplegando nueva versión..."
+            sudo cp -r "build$timestamp"/* /var/www/metromedics.co/html/
+
+            # Verificar resultado
+            if [ $? -ne 0 ]; then
+              echo "Error al copiar archivos"
+              sudo cp -r /var/www/metromedics.co/html_backup/* /var/www/metromedics.co/html/
+              exit 1
+            fi
+
+            # Verificar servidor web
+            echo "Verificando servidor web..."
+            sleep 3
+            http_status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost)
+
+            if [ "$http_status" != "200" ] && [ "$http_status" != "301" ] && [ "$http_status" != "302" ]; then
+              echo "ADVERTENCIA: Servidor web no responde correctamente (HTTP $http_status)"
+              sudo cp -r /var/www/metromedics.co/html_backup/* /var/www/metromedics.co/html/
+              exit 1
+            fi
+
+            echo "Servidor web funcionando correctamente (HTTP $http_status)"
+            sudo rm -rf /var/www/metromedics.co/html_backup
+
+            # Limpiar builds antiguos (mantener solo 2 más recientes)
+            cd /home/metromedics/mmcs/landingpage
+            dirs_to_delete=$(ls -dt build*/ | awk 'NR>2')
+            if [ -n "$dirs_to_delete" ]; then
+              echo "Eliminando directorios antiguos..."
+              rm -rf $dirs_to_delete
+            fi
+
+            echo "✅ Despliegue completado exitosamente!"
+
+      - name: Notify deployment status
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ Deployment successful to metromedics.co"
+          else
+            echo "❌ Deployment failed"
+          fi
