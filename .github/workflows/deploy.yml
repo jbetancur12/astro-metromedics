@@ -46,20 +46,32 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Setup SSH key
+      - name: Deploy files to Digital Ocean via SCP
+        uses: D3rHase/ssh-command-action@latest
+        with:
+          host: ${{ secrets.DO_HOST }}
+          user: ${{ secrets.DO_USERNAME }}
+          private_key: ${{ secrets.DO_SSH_KEY }}
+          command: mkdir -p /home/metromedics/mmcs/landingpage/dist
+
+      - name: Setup SSH for SCP
         run: |
           mkdir -p ~/.ssh
           printf '%s\n' "${{ secrets.DO_SSH_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.DO_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to Digital Ocean via SCP
+      - name: Copy files via SCP
         run: |
-          scp -i ~/.ssh/deploy_key -r dist/* ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/metromedics/mmcs/landingpage/
+          scp -i ~/.ssh/deploy_key -r dist/* ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/metromedics/mmcs/landingpage/dist/
 
       - name: Execute deployment script
-        run: |
-          ssh -i ~/.ssh/deploy_key ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }} << 'ENDSSH'
+        uses: D3rHase/ssh-command-action@latest
+        with:
+          host: ${{ secrets.DO_HOST }}
+          user: ${{ secrets.DO_USERNAME }}
+          private_key: ${{ secrets.DO_SSH_KEY }}
+          command: |
             cd /home/metromedics/mmcs/landingpage
 
             # Obtener timestamp
@@ -108,7 +120,6 @@ jobs:
             fi
 
             echo "✅ Despliegue completado exitosamente!"
-          ENDSSH
 
       - name: Notify deployment status
         if: always()
