@@ -46,23 +46,20 @@ jobs:
           name: dist
           path: dist/
 
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DO_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.DO_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy to Digital Ocean via SCP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
-          source: "dist/*"
-          target: "/home/metromedics/mmcs/landingpage/"
-          strip_components: 0
+        run: |
+          scp -i ~/.ssh/deploy_key -r dist/* ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/metromedics/mmcs/landingpage/
 
       - name: Execute deployment script
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.DO_SSH_KEY }}
-          script: |
+        run: |
+          ssh -i ~/.ssh/deploy_key ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }} << 'ENDSSH'
             cd /home/metromedics/mmcs/landingpage
 
             # Obtener timestamp
@@ -111,6 +108,7 @@ jobs:
             fi
 
             echo "✅ Despliegue completado exitosamente!"
+          ENDSSH
 
       - name: Notify deployment status
         if: always()
