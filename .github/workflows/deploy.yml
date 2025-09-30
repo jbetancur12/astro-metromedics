@@ -46,34 +46,31 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Deploy files to Digital Ocean via SCP
-        uses: D3rHase/ssh-command-action@latest
+      - name: Create remote directory
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.DO_HOST }}
-          user: ${{ secrets.DO_USERNAME }}
-          private_key: ${{ secrets.DO_SSH_KEY }}
-          host_fingerprint: ${{ secrets.DO_HOST_FINGERPRINT }}
-          command: mkdir -p /home/metromedics/mmcs/landingpage/dist
-
-      - name: Setup SSH for SCP
-        run: |
-          mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.DO_SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.DO_HOST }} >> ~/.ssh/known_hosts
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: mkdir -p /home/metromedics/mmcs/landingpage/dist
 
       - name: Copy files via SCP
-        run: |
-          scp -i ~/.ssh/deploy_key -r dist/* ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/metromedics/mmcs/landingpage/dist/
-
-      - name: Execute deployment script
-        uses: D3rHase/ssh-command-action@latest
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DO_HOST }}
-          user: ${{ secrets.DO_USERNAME }}
-          private_key: ${{ secrets.DO_SSH_KEY }}
-          host_fingerprint: ${{ secrets.DO_HOST_FINGERPRINT }}
-          command: |
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          source: "dist/*"
+          target: "/home/metromedics/mmcs/landingpage/dist/"
+          strip_components: 1
+
+      - name: Execute deployment script
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
             cd /home/metromedics/mmcs/landingpage
 
             # Obtener timestamp
