@@ -53,6 +53,7 @@ const mapBackendTypeToAction = (backendType: string): MaintenanceAction => {
 export const maintenanceApi = {
   // Create a new maintenance ticket (public endpoint)
   async createTicket(data: MaintenanceCreateRequest): Promise<any> {
+   
     const formData = new FormData()
 
     // Add text fields
@@ -71,12 +72,8 @@ export const maintenanceApi = {
 
     const response = await axiosPublic.post<any>(
       `/public/maintenance/tickets`,
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
+      formData
+      // Don't set Content-Type manually - let axios add the boundary automatically
     )
     return response.data
   },

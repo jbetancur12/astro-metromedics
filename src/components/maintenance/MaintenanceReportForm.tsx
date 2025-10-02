@@ -81,6 +81,7 @@ const MaintenanceReportForm: React.FC = () => {
           files: files
         }
 
+       
         const result = await maintenanceApi.createTicket(submitData)
 
         setSubmissionResult({
