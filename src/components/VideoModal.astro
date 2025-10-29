@@ -1,0 +1,266 @@
+---
+// VideoModal.astro - Modal de video que aparece al cargar la página
+---
+
+<div id="videoModal" class="video-modal">
+  <div class="video-modal-overlay"></div>
+  <div class="video-modal-content">
+    <div class="video-modal-header">
+      <h3 class="video-modal-title">Bienvenido a Metromedics</h3>
+      <div class="video-modal-controls">
+        <button id="minimizeBtn" class="control-btn minimize-btn" title="Minimizar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+        <button id="closeBtn" class="control-btn close-btn" title="Cerrar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="video-container">
+      <video id="modalVideo" controls autoplay muted>
+        <source src="/videos/video2.mp4" type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+  </div>
+</div>
+
+<!-- Modal minimizado -->
+<div id="minimizedModal" class="minimized-modal hidden">
+  <button id="restoreBtn" class="restore-btn" title="Restaurar video">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+      <polygon points="9 9 15 9 15 15 9 15 9 9"></polygon>
+    </svg>
+    <span>Video de bienvenida</span>
+  </button>
+</div>
+
+<style>
+  .video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .video-modal.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .video-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+  }
+
+  .video-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 800px;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+
+  .video-modal.show .video-modal-content {
+    transform: scale(1);
+  }
+
+  .video-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .video-modal-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .video-modal-controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .control-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+
+  .video-container {
+    position: relative;
+    padding: 0;
+  }
+
+  #modalVideo {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    display: block;
+  }
+
+  .minimized-modal {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9998;
+    transition: all 0.3s ease;
+  }
+
+  .minimized-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+  }
+
+  .restore-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .restore-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .video-modal-content {
+      width: 95vw;
+      margin: 20px;
+    }
+
+    .video-modal-title {
+      font-size: 16px;
+    }
+
+    #modalVideo {
+      max-height: 60vh;
+    }
+
+    .minimized-modal {
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .restore-btn {
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("videoModal");
+    const minimizedModal = document.getElementById("minimizedModal");
+    const video = document.getElementById("modalVideo");
+    const minimizeBtn = document.getElementById("minimizeBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const restoreBtn = document.getElementById("restoreBtn");
+
+    // Mostrar modal después de un pequeño delay
+    setTimeout(() => {
+      modal?.classList.add("show");
+    }, 1000);
+
+    // Función para cerrar el modal
+    function closeModal() {
+      modal?.classList.remove("show");
+      video?.pause();
+      setTimeout(() => {
+        modal!.style.display = "none";
+      }, 300);
+    }
+
+    // Función para minimizar el modal
+    function minimizeModal() {
+      modal?.classList.remove("show");
+      setTimeout(() => {
+        modal!.style.display = "none";
+        minimizedModal?.classList.remove("hidden");
+      }, 300);
+    }
+
+    // Función para restaurar el modal
+    function restoreModal() {
+      minimizedModal?.classList.add("hidden");
+      modal!.style.display = "flex";
+      setTimeout(() => {
+        modal?.classList.add("show");
+      }, 50);
+    }
+
+    // Event listeners
+    closeBtn?.addEventListener("click", closeModal);
+    minimizeBtn?.addEventListener("click", minimizeModal);
+    restoreBtn?.addEventListener("click", restoreModal);
+
+    // Cerrar al hacer clic en el overlay
+    modal
+      ?.querySelector(".video-modal-overlay")
+      ?.addEventListener("click", closeModal);
+
+    // Cerrar con la tecla Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal?.classList.contains("show")) {
+        closeModal();
+      }
+    });
+
+    // Pausar video cuando se minimiza o cierra
+    minimizeBtn?.addEventListener("click", () => video?.pause());
+    closeBtn?.addEventListener("click", () => video?.pause());
+  });
+</script>
