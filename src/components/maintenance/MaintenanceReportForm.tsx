@@ -193,11 +193,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.customerName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.customerName && formik.errors.customerName
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.customerName && formik.errors.customerName
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="Ingrese su nombre completo"
               />
               {formik.touched.customerName && formik.errors.customerName && (
@@ -215,11 +214,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.customerEmail}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.customerEmail && formik.errors.customerEmail
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.customerEmail && formik.errors.customerEmail
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="correo@ejemplo.com"
               />
               {formik.touched.customerEmail && formik.errors.customerEmail && (
@@ -237,11 +235,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.customerPhone}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.customerPhone && formik.errors.customerPhone
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.customerPhone && formik.errors.customerPhone
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="3001234567"
               />
               {formik.touched.customerPhone && formik.errors.customerPhone && (
@@ -259,11 +256,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.location}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.location && formik.errors.location
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.location && formik.errors.location
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="Ej: Quirófano 1, UCI, Laboratorio"
               />
               {formik.touched.location && formik.errors.location && (
@@ -285,25 +281,19 @@ const MaintenanceReportForm: React.FC = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Tipo de Equipo *
-              </label>
-              <select
+              </label>   
+              <input
+                type="text"
                 name="equipmentType"
                 value={formik.values.equipmentType}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.equipmentType && formik.errors.equipmentType
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentType && formik.errors.equipmentType
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
-              >
-                <option value="">Seleccione un tipo</option>
-                {EQUIPMENT_TYPES.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
+                  }`}
+                placeholder="Ej: Monitor de signos vitales, Máquina de anestesia"
+              />
               {formik.touched.equipmentType && formik.errors.equipmentType && (
                 <p className="mt-1 text-sm text-red-600">{formik.errors.equipmentType}</p>
               )}
@@ -319,11 +309,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentBrand}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.equipmentBrand && formik.errors.equipmentBrand
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentBrand && formik.errors.equipmentBrand
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="Ej: Philips, GE, Siemens"
               />
               {formik.touched.equipmentBrand && formik.errors.equipmentBrand && (
@@ -341,11 +330,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentModel}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.equipmentModel && formik.errors.equipmentModel
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentModel && formik.errors.equipmentModel
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="Modelo del equipo"
               />
               {formik.touched.equipmentModel && formik.errors.equipmentModel && (
@@ -363,11 +351,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentSerial}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                  formik.touched.equipmentSerial && formik.errors.equipmentSerial
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentSerial && formik.errors.equipmentSerial
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="Número de serie del equipo"
               />
               {formik.touched.equipmentSerial && formik.errors.equipmentSerial && (
@@ -396,11 +383,10 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.issueDescription}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none ${
-                  formik.touched.issueDescription && formik.errors.issueDescription
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none ${formik.touched.issueDescription && formik.errors.issueDescription
                     ? 'border-red-500'
                     : 'border-gray-300'
-                }`}
+                  }`}
                 placeholder="Describa detalladamente el problema que presenta el equipo, síntomas, códigos de error, etc."
               />
               {formik.touched.issueDescription && formik.errors.issueDescription && (
@@ -580,10 +566,9 @@ const MaintenanceReportForm: React.FC = () => {
                 <div
                   className={`
                     flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium
-                    ${
-                      index <= activeStep
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-200 text-gray-600'
+                    ${index <= activeStep
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-200 text-gray-600'
                     }
                   `}
                 >
@@ -592,8 +577,7 @@ const MaintenanceReportForm: React.FC = () => {
                 <span
                   className={`
                     ml-3 text-sm font-medium
-                    ${
-                      index <= activeStep ? 'text-blue-600' : 'text-gray-500'
+                    ${index <= activeStep ? 'text-blue-600' : 'text-gray-500'
                     }
                   `}
                 >
@@ -603,8 +587,7 @@ const MaintenanceReportForm: React.FC = () => {
                   <div
                     className={`
                       ml-6 w-16 h-0.5
-                      ${
-                        index < activeStep ? 'bg-blue-600' : 'bg-gray-200'
+                      ${index < activeStep ? 'bg-blue-600' : 'bg-gray-200'
                       }
                     `}
                   />

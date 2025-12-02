@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Política de Tratamiento de Datos | MetroMedics"
+  description="Política de Tratamiento de Datos Personales de MetroMedics S.A.S. Conoce cómo protegemos y gestionamos tu información."
+>
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-[#10b981]">
+        Política de Tratamiento de Datos
+      </h1>
+      
+      <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100">
+        <div class="w-full h-[800px] bg-gray-50 rounded-lg overflow-hidden">
+          <iframe
+            src="/pdf/FOGC-MMCS-44  POLITICA DE TRATAMIENTO DE DATOS-.pdf"
+            class="w-full h-full border-0"
+            title="Política de Tratamiento de Datos MetroMedics"
+          >
+          </iframe>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <a 
+            href="/pdf/FOGC-MMCS-44  POLITICA DE TRATAMIENTO DE DATOS-.pdf" 
+            download
+            class="inline-flex items-center px-6 py-3 bg-[#10b981] hover:bg-[#059669] text-white font-semibold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Descargar PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

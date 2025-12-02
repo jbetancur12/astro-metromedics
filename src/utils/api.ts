@@ -8,7 +8,7 @@ export const axiosPublic = axios.create({
   baseURL: API_BASE_URL,
   timeout: 30000,
   headers: {
-    'Content-Type': 'application/json'
+    // 'Content-Type': 'application/json'
   }
 })
 
@@ -16,7 +16,7 @@ export const axiosPublic = axios.create({
 axiosPublic.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error('API Error:', error)
+    // console.error('API Error:', error)
     return Promise.reject(error)
   }
 )
