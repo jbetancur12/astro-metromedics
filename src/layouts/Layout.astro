@@ -45,5 +45,14 @@ const { title, description } = Astro.props;
     <WhatsAppFloat phoneNumber="573001234567" />
 
     <!-- <Copyright /> -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
