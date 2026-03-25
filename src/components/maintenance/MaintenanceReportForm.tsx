@@ -129,6 +129,15 @@ const MaintenanceReportForm: React.FC = () => {
     }
   }
 
+  const handlePrimaryAction = async () => {
+    if (activeStep === steps.length - 1) {
+      await formik.submitForm()
+      return
+    }
+
+    handleNext()
+  }
+
   const handleFilesChange = (newFiles: File[]) => {
     setFiles((prev) => [...prev, ...newFiles])
   }
@@ -625,26 +634,29 @@ const MaintenanceReportForm: React.FC = () => {
               Anterior
             </button>
 
-            {activeStep === steps.length - 1 ? (
-              <button
-                type="submit"
-                disabled={!formik.isValid || isLoading}
-                className="inline-flex items-center px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <Send className="w-4 h-4 mr-2" />
-                Enviar Solicitud
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleNext}
-                disabled={!isStepValid(activeStep)}
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Siguiente
-                <ArrowForward className="w-4 h-4 ml-2" />
-              </button>
-            )}
+            <button
+              key={`primary-action-step-${activeStep}`}
+              type="button"
+              onClick={handlePrimaryAction}
+              disabled={
+                activeStep === steps.length - 1
+                  ? !formik.isValid || isLoading
+                  : !isStepValid(activeStep)
+              }
+              className="inline-flex items-center px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {activeStep === steps.length - 1 ? (
+                <>
+                  <Send className="w-4 h-4 mr-2" />
+                  Enviar Solicitud
+                </>
+              ) : (
+                <>
+                  Siguiente
+                  <ArrowForward className="w-4 h-4 ml-2" />
+                </>
+              )}
+            </button>
           </div>
         </form>
       </div>
