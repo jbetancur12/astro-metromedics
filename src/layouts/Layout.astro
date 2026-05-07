@@ -7,6 +7,8 @@ import { SEOMetadata } from "astro-seo-metadata";
 import Copyright from "../components/landing/Copyright.astro";
 import Footer from "../components/landing/Footer.astro";
 import Header from "../components/landing/Header.astro";
+import WhatsAppFloat from "../components/ui/WhatsAppFloat.astro";
+
 import "../styles/Layout.css";
 
 const { title, description } = Astro.props;
@@ -40,6 +42,17 @@ const { title, description } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <Copyright />
+    <WhatsAppFloat phoneNumber="573001234567" />
+
+    <!-- <Copyright /> -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
