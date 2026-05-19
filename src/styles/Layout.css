@@ -2,3 +2,32 @@ body {
   /* background: #202020;
   color: whitesmoke; */
 }
+
+.prose.blog-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 6rem;
+}
+.prose.blog-content h2::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: #2563eb;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+}
+.prose.blog-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+.prose.blog-content ul li::marker { color: #2563eb; }
+.prose.blog-content strong { color: #111827; font-weight: 600; }
+.prose.blog-content a { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }

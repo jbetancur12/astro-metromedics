@@ -1,19 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="Validación de autoclaves en Colombia: IQ, OQ, PQ | Metromedics SAS"
   description="Proceso IQ, OQ, PQ y normativa para validación de autoclaves en Colombia. Factor F y requisitos para los sectores salud e industrial. Solicite su validación."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="Validación de autoclaves en Colombia: IQ, OQ, PQ"
     description="Proceso IQ, OQ, PQ y normativa para validación de autoclaves en Colombia. Factor F y requisitos para los sectores salud e industrial."
     datePublished="2026-04-21"
   />
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-orange-600 to-red-600 text-white py-20">
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -21,19 +24,32 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
         </div>
-        <p class="text-sm text-orange-200 mb-2 tracking-widest uppercase font-medium">21 de abril, 2026 · 10 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">21 de abril, 2026 · 10 min de lectura</p>
         <h1 class="text-display-lg font-bold mb-6">Validación de autoclaves — Requisitos normativos en Colombia</h1>
-        <p class="text-xl mb-4 text-orange-100 leading-relaxed max-w-3xl mx-auto">
+        <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Conozca el proceso completo de validación de autoclaves y esterilizadores: etapas IQ, OQ, PQ, determinación del Factor F y la normativa colombiana aplicable.
         </p>
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           La validación de autoclaves es uno de los procesos más críticos en la operación de cualquier institución de salud, laboratorio farmacéutico o industria que requiera esterilización. Un autoclave que no funciona correctamente puede comprometer la esterilidad de los instrumentos, poniendo en riesgo la salud de las personas y la calidad de los productos. En el ámbito industrial, los autoclaves se utilizan en procesos de manufactura de alimentos, productos farmacéuticos, dispositivos médicos y materiales de laboratorio.
@@ -172,22 +188,22 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
   </article>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+  <section class="py-20 bg-gradient-to-r from-medical-blue to-primary-600 text-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Valide sus autoclaves con laboratorio acreditado ONAC</h2>
-        <p class="text-xl text-orange-100 mb-8">
+        <p class="text-xl text-blue-100 mb-8">
           En Metromedics SAS realizamos la validación completa de autoclaves (IQ, OQ, PQ) con instrumentos calibrados y trazables, respaldados por nuestra acreditación ONAC código 18-LAC-020.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/contacto"
-            class="inline-flex items-center px-8 py-4 bg-white text-orange-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+            class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
             </svg>
-            Solicitar Validación
+            Solicitar Asesoría
           </a>
           <a
             href="/servicios"
@@ -199,10 +215,11 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             Ver Servicios
           </a>
         </div>
-        <p class="text-orange-200 mt-6 text-sm">
-          Leer también: <a href="/blog/iso-17025-calibracion-acreditada-empresas-colombia" class="text-white underline hover:text-orange-200">ISO/IEC 17025 — Calibración acreditada para su empresa</a> · <a href="/servicios" class="text-white underline hover:text-orange-200">Ver servicios de validación</a>
+        <p class="text-blue-200 mt-6 text-sm">
+           Leer también: <a href="/blog/iso-17025-calibracion-acreditada-empresas-colombia" class="text-white underline hover:text-blue-200">ISO/IEC 17025 — Calibración acreditada para su empresa</a> · <a href="/servicios" class="text-white underline hover:text-blue-200">Ver servicios de validación</a>
         </p>
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="validacion-autoclaves-requisitos-normativos" category="Validación" />
 </Layout>

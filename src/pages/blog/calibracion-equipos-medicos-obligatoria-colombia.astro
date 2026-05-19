@@ -1,12 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="Calibración obligatoria en Colombia: salud e industria | Metromedics SAS"
   description="Normas INVIMA, RETIE y Decreto 4725 exigen calibración en Colombia. Evite sanciones con laboratorio acreditado ONAC. Solicite su cotización."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="Calibración obligatoria en Colombia: salud e industria"
     description="Normas INVIMA, RETIE y Decreto 4725 exigen calibración en Colombia. Evite sanciones con laboratorio acreditado ONAC."
@@ -29,11 +32,24 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           En Colombia, la calibración de equipos médicos e industriales no es una opción: es una obligación legal. Diversas normas nacionales —desde decretos del Ministerio de Salud hasta regulaciones técnicas del sector eléctrico y normas de calidad industrial— exigen que los dispositivos de medición utilizados en diagnosis, producción, control de calidad y seguridad sean calibrados periódicamente por laboratorios competentes.
@@ -161,4 +177,5 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="calibracion-equipos-medicos-obligatoria-colombia" category="Calibración" />
 </Layout>

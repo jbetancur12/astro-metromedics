@@ -1,0 +1,14 @@
+---
+export interface Props {
+  text: string;
+  author?: string;
+}
+const { text, author } = Astro.props;
+---
+<blockquote class="relative my-10 pl-6 border-l-4 border-medical-blue bg-gradient-to-r from-blue-50 to-transparent py-4 pr-6 rounded-r-2xl">
+  <svg class="absolute top-3 left-3 w-8 h-8 text-medical-blue/20" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-10.983z"></path>
+  </svg>
+  <p class="text-xl md:text-2xl font-medium text-gray-800 italic leading-relaxed ml-8">{text}</p>
+  {author && <cite class="block mt-3 ml-8 text-sm text-gray-500 not-italic">— {author}</cite>}
+</blockquote>

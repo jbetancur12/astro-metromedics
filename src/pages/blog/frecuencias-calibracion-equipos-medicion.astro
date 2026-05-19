@@ -1,19 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="Frecuencias de calibración: guía recomendada | Metromedics SAS"
   description="Tabla de frecuencias para calibración de tensiómetros, balanzas, termómetros y manómetros. Guía para los sectores salud e industrial. Solicite su programa de calibración."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="Frecuencias de calibración: guía recomendada"
     description="Tabla de frecuencias para calibración de tensiómetros, balanzas, termómetros y manómetros. Guía para los sectores salud e industrial."
     datePublished="2026-04-14"
   />
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-purple-600 to-indigo-600 text-white py-20">
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -21,19 +24,32 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
         </div>
-        <p class="text-sm text-purple-200 mb-2 tracking-widest uppercase font-medium">14 de abril, 2026 · 8 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">14 de abril, 2026 · 8 min de lectura</p>
         <h1 class="text-display-lg font-bold mb-6">Frecuencias de calibración de equipos de medición — Guía recomendada</h1>
-        <p class="text-xl mb-4 text-purple-100 leading-relaxed max-w-3xl mx-auto">
+        <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Tabla completa de frecuencias recomendadas para la calibración de tensiómetros, balanzas, termómetros, manómetros y más equipos de medición utilizados en Colombia.
         </p>
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           Una de las preguntas más frecuentes que recibimos en Metromedics SAS es: ¿cada cuánto debo calibrar mis equipos de medición? La respuesta no es única, ya que la frecuencia de calibración depende de múltiples factores. Sin embargo, existen guías y recomendaciones basadas en normas técnicas y la experiencia del sector que pueden ayudar a establecer un programa de calibración adecuado.
@@ -237,17 +253,17 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
   </article>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+  <section class="py-20 bg-gradient-to-r from-medical-blue to-primary-600 text-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Implemente su programa de calibración con expertos</h2>
-        <p class="text-xl text-purple-100 mb-8">
-          En Metromedics SAS contamos con laboratorio acreditado ONAC y más de 10 años de experiencia en calibración de equipos médicos e industriales en Colombia.
+        <p class="text-xl text-blue-100 mb-8">
+          En Metromedics SAS contamos con laboratorio acreditado ONAC y más de 15 años de experiencia en calibración de equipos médicos e industriales en Colombia.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/contacto"
-            class="inline-flex items-center px-8 py-4 bg-white text-purple-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+            class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -264,10 +280,11 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             Laboratorio Acreditado
           </a>
         </div>
-        <p class="text-purple-200 mt-6 text-sm">
-           Leer también: <a href="/blog/calibracion-equipos-medicos-obligatoria-colombia" class="text-white underline hover:text-purple-200">Calibración obligatoria en Colombia</a> · <a href="/blog/iso-17025-calibracion-acreditada-empresas-colombia" class="text-white underline hover:text-purple-200">ISO/IEC 17025 para su empresa</a> · <a href="/laboratorios/laboratorio-acreditado" class="text-white underline hover:text-purple-200">Laboratorio acreditado ONAC</a>
+        <p class="text-blue-200 mt-6 text-sm">
+           Leer también: <a href="/blog/calibracion-equipos-medicos-obligatoria-colombia" class="text-white underline hover:text-blue-200">Calibración obligatoria en Colombia</a> · <a href="/blog/iso-17025-calibracion-acreditada-empresas-colombia" class="text-white underline hover:text-blue-200">ISO/IEC 17025 para su empresa</a> · <a href="/laboratorios/laboratorio-acreditado" class="text-white underline hover:text-blue-200">Laboratorio acreditado ONAC</a>
         </p>
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="frecuencias-calibracion-equipos-medicion" category="Guías" />
 </Layout>

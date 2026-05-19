@@ -1,0 +1,24 @@
+<div id="reading-progress-bar" class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-[60]">
+  <div id="reading-progress-fill" class="h-full bg-medical-blue transition-all duration-150 ease-out" style="width: 0%"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const progressFill = document.getElementById('reading-progress-fill');
+    if (!progressFill) return;
+
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) {
+        progressFill.style.width = '100%';
+        return;
+      }
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      progressFill.style.width = Math.min(scrollPercent, 100) + '%';
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  });
+</script>

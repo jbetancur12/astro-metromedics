@@ -1,19 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="Validación de autoclaves en central de esterilización: IQ, OQ, PQ paso a paso | Metromedics SAS"
   description="Protocolo completo IQ, OQ, PQ para validación de autoclaves en centrales de esterilización. Pruebas Bowie-Dick, indicadores biológicos y normativa INVIMA."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="Validación de autoclaves en central de esterilización: IQ, OQ, PQ paso a paso"
     description="Protocolo completo IQ, OQ, PQ para validación de autoclaves en centrales de esterilización. Pruebas Bowie-Dick, indicadores biológicos y normativa INVIMA."
     datePublished="2026-06-16"
   />
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-red-700 to-rose-900 text-white py-20">
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -21,19 +24,32 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>
           </svg>
         </div>
-        <p class="text-sm text-red-200 mb-2 tracking-widest uppercase font-medium">16 de junio, 2026 · 11 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">16 de junio, 2026 · 11 min de lectura</p>
         <h1 class="text-display-lg font-bold mb-6">Validación de autoclaves en central de esterilización: IQ, OQ, PQ paso a paso</h1>
-        <p class="text-xl mb-4 text-red-100 leading-relaxed max-w-3xl mx-auto">
+        <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Protocolo completo para la validación de autoclaves en centrales de esterilización. Pruebas Bowie-Dick, indicadores biológicos, cálculo de F0 y cumplimiento de la normativa INVIMA para garantizar la esterilidad de los instrumentos.
         </p>
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           La central de esterilización es el corazón de la seguridad en cualquier institución de salud. Cada día, miles de instrumentos quirúrgicos, dispositivos médicos y materiales pasan por procesos de esterilización que deben garantizar la eliminación completa de microorganismos. La validación de autoclaves —el proceso documentado que demuestra que un esterilizador funciona correctamente de manera consistente— es el pilar sobre el que se sostiene esta garantía.
@@ -97,7 +113,7 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
           La OQ demuestra que el autoclave opera dentro de los parámetros especificados en todas las condiciones de operación. Durante esta fase se realizan las siguientes pruebas:
         </p>
         <ul>
-          <li><strong>Perfil térmico en vacío:</strong> Se instalan múltiples sensores de temperatura (termopares) en diferentes puntos de la cámara vacía y se ejecuta un ciclo completo. Se mide la distribución y uniformidad de la temperatura en toda la cámara. La norma ISO 17665-1 exige que la temperatura en cualquier punto de la cámara no varíe mas de +/-1 C respecto a la temperatura de consigna durante la fase de mantenimiento.</li>
+          <li><strong>Perfil térmico en vacío:</strong> Se instalan múltiples sensores de temperatura (termopares) en diferentes puntos de la cámara vacía y se ejecuta un ciclo completo. Se mide la distribución y uniformidad de la temperatura en toda la cámara. La norma ISO 17665-1 exige que la temperatura en cualquier punto de la cámara no varíe más de ±1 °C respecto a la temperatura de consigna durante la fase de mantenimiento.</li>
           <li><strong>Prueba de vacío y fugas:</strong> Se mide la capacidad del autoclave para alcanzar y mantener el vacío requerido. La tasa de fuga no debe exceder los límites especificados por el fabricante.</li>
           <li><strong>Tiempos de calentamiento y enfriamiento:</strong> Se verifican los tiempos que tarda el autoclave en alcanzar la temperatura de esterilización y en enfriarse al final del ciclo.</li>
           <li><strong>Verificación de controles y alarmas:</strong> Se prueba el funcionamiento correcto de todos los controles, indicadores y alarmas del equipo.</li>
@@ -121,11 +137,11 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
         <h2>Factor F0 y su cálculo en la validación</h2>
 
         <p>
-          El Factor F0 es el parametro mas importante para demostrar la efectividad de un ciclo de esterilización por calor húmedo. Representa el tiempo de esterilización equivalente a 121 C, calculado a partir de las temperaturas reales medidas en el punto mas frío de la carga.
+          El Factor F0 es el parámetro más importante para demostrar la efectividad de un ciclo de esterilización por calor húmedo. Representa el tiempo de esterilización equivalente a 121 °C, calculado a partir de las temperaturas reales medidas en el punto más frío de la carga.
         </p>
 
         <p>
-          La formula para su calculo es:
+          La fórmula para su cálculo es:
         </p>
 
         <p class="text-center font-mono text-sm bg-gray-50 rounded-xl p-4 my-6">
@@ -133,7 +149,7 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
         </p>
 
         <p>
-          Donde T(t) es la temperatura medida en el punto mas frío de la carga en el tiempo t, integrada a lo largo de todo el ciclo de esterilización. Para la mayoría de aplicaciones, se requiere un F0 minimo de 12 minutos para lograr una reducción de la carga microbiana de 6 logaritmos (reducción de 1.000.000 de microorganismos a 1).
+          Donde T(t) es la temperatura medida en el punto más frío de la carga en el tiempo t, integrada a lo largo de todo el ciclo de esterilización. Para la mayoría de aplicaciones, se requiere un F0 mínimo de 12 minutos para lograr una reducción de la carga microbiana de 6 logaritmos (reducción de 1.000.000 de microorganismos a 1).
         </p>
 
         <p>
@@ -166,7 +182,7 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
           <li><strong>No conformidades en habilitación:</strong> Durante las visitas de verificación de la Resolución 3100 de 2019, la falta de validación de autoclaves es una no conformidad crítica que puede impedir la habilitación del servicio de esterilización.</li>
           <li><strong>Sanciones del INVIMA:</strong> El INVIMA puede imponer multas y ordenar el cierre temporal de la central de esterilización si determina que los procesos no son seguros.</li>
           <li><strong>Responsabilidad legal:</strong> En caso de brotes de infecciones asociadas a la atención en salud (IAAS), la institución puede enfrentar demandas y procesos administrativos.</li>
-          <li><strong>Sobrecosstos operativos:</strong> La falta de validación impide optimizar los ciclos, lo que puede generar consumos excesivos de energía, desgaste prematuro del equipo y reprocesos.</li>
+          <li><strong>Sobrecostos operativos:</strong> La falta de validación impide optimizar los ciclos, lo que puede generar consumos excesivos de energía, desgaste prematuro del equipo y reprocesos.</li>
         </ul>
 
         <p>
@@ -184,22 +200,22 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
   </article>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-red-700 to-rose-900 text-white">
+  <section class="py-20 bg-gradient-to-r from-medical-blue to-primary-600 text-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Valide sus autoclaves con laboratorio acreditado ONAC</h2>
-        <p class="text-xl text-red-100 mb-8">
-          En Metromedics SAS realizamos la validación completa de autoclaves (IQ, OQ, PQ) con instrumentos calibrados y trazables, respaldados por nuestra acreditación ONAC codigo 18-LAC-020. Atendemos centrales de esterilización en todo Colombia.
+        <p class="text-xl text-blue-100 mb-8">
+          En Metromedics SAS realizamos la validación completa de autoclaves (IQ, OQ, PQ) con instrumentos calibrados y trazables, respaldados por nuestra acreditación ONAC código 18-LAC-020. Atendemos centrales de esterilización en todo Colombia.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/contacto"
-            class="inline-flex items-center px-8 py-4 bg-white text-red-700 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+            class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
             </svg>
-            Solicitar Validación
+            Solicitar Asesoría
           </a>
           <a
             href="/servicios"
@@ -211,10 +227,11 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             Ver Servicios
           </a>
         </div>
-        <p class="text-red-200 mt-6 text-sm">
-           Leer también: <a href="/blog/validacion-autoclaves-requisitos-normativos" class="text-white underline hover:text-red-200">Validación de autoclaves — requisitos normativos</a> · <a href="/blog/resolucion-3100-2019-calibracion-ips" class="text-white underline hover:text-red-200">Resolución 3100 de 2019 para IPS</a> · <a href="/blog/calibracion-vs-mantenimiento-equipos-biomedicos" class="text-white underline hover:text-red-200">Calibración vs mantenimiento</a>
+        <p class="text-blue-200 mt-6 text-sm">
+           Leer también: <a href="/blog/validacion-autoclaves-requisitos-normativos" class="text-white underline hover:text-blue-200">Validación de autoclaves — requisitos normativos</a> · <a href="/blog/resolucion-3100-2019-calibracion-ips" class="text-white underline hover:text-blue-200">Resolución 3100 de 2019 para IPS</a> · <a href="/blog/calibracion-vs-mantenimiento-equipos-biomedicos" class="text-white underline hover:text-blue-200">Calibración vs mantenimiento</a>
         </p>
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="validacion-autoclaves-central-esterilizacion-iq-oq-pq" category="Validación" />
 </Layout>

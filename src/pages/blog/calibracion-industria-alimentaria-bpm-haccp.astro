@@ -1,19 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="Calibración en la industria alimentaria: requisitos INVIMA, BPM y HACCP | Metromedics SAS"
   description="Requisitos de calibración para la industria alimentaria en Colombia. Normas INVIMA, BPM y HACCP para termómetros, balanzas y dataloggers. Evite sanciones. Solicite asesoría."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="Calibración en la industria alimentaria: requisitos INVIMA, BPM y HACCP"
     description="Requisitos de calibración para la industria alimentaria en Colombia. Normas INVIMA, BPM y HACCP para termómetros, balanzas y dataloggers."
     datePublished="2026-06-02"
   />
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-emerald-800 to-green-600 text-white py-20">
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -21,19 +24,32 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
           </svg>
         </div>
-        <p class="text-sm text-emerald-200 mb-2 tracking-widest uppercase font-medium">2 de junio, 2026 · 10 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">2 de junio, 2026 · 10 min de lectura</p>
         <h1 class="text-display-lg font-bold mb-6">Calibración en la industria alimentaria: requisitos INVIMA, BPM y HACCP</h1>
-        <p class="text-xl mb-4 text-emerald-100 leading-relaxed max-w-3xl mx-auto">
+        <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Los termómetros, balanzas y dataloggers de su planta de alimentos deben estar calibrados. Conozca los requisitos INVIMA, las Buenas Prácticas de Manufactura y el sistema HACCP para evitar sanciones y proteger al consumidor.
         </p>
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           En la industria alimentaria colombiana, la calibración de equipos de medición no es un tema exclusivo de los laboratorios o la industria farmacéutica. Cada vez que un termómetro mide la temperatura de un cuarto frío, una balanza pesa un lote de materia prima o un datalogger registra la cadena de frío de un producto perecedero, la precisión de esos instrumentos impacta directamente la inocuidad de los alimentos que llegan a la mesa de los consumidores.
@@ -210,17 +226,17 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
   </article>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-emerald-800 to-green-600 text-white">
+  <section class="py-20 bg-gradient-to-r from-medical-blue to-primary-600 text-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">Asegure la inocuidad de sus alimentos con calibración acreditada</h2>
-        <p class="text-xl text-emerald-100 mb-8">
+        <p class="text-xl text-blue-100 mb-8">
           En Metromedics SAS contamos con laboratorio acreditado ONAC para la calibración de termómetros, balanzas, dataloggers y más equipos utilizados en la industria alimentaria colombiana.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/contacto"
-            class="inline-flex items-center px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+            class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -237,10 +253,11 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             Ver Servicios
           </a>
         </div>
-        <p class="text-emerald-200 mt-6 text-sm">
-           Leer también: <a href="/blog/frecuencias-calibracion-equipos-medicion" class="text-white underline hover:text-emerald-200">Frecuencias de calibración recomendadas</a> · <a href="/blog/calibracion-basculas-balanzas-comercio-sic-oiml" class="text-white underline hover:text-emerald-200">Calibración de básculas para comercio</a> · <a href="/blog/calibracion-equipos-medicos-obligatoria-colombia" class="text-white underline hover:text-emerald-200">Calibración obligatoria en Colombia</a>
+        <p class="text-blue-200 mt-6 text-sm">
+           Leer también: <a href="/blog/frecuencias-calibracion-equipos-medicion" class="text-white underline hover:text-blue-200">Frecuencias de calibración recomendadas</a> · <a href="/blog/calibracion-basculas-balanzas-comercio-sic-oiml" class="text-white underline hover:text-blue-200">Calibración de básculas para comercio</a> · <a href="/blog/calibracion-equipos-medicos-obligatoria-colombia" class="text-white underline hover:text-blue-200">Calibración obligatoria en Colombia</a>
         </p>
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="calibracion-industria-alimentaria-bpm-haccp" category="Calibración" />
 </Layout>

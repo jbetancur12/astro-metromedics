@@ -109,6 +109,13 @@ const pathname = Astro.url.pathname;
         <li>
           <a
             class="nav-link block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
+            class:list={[pathname.startsWith("/blog") && "text-green-600 bg-green-50 font-bold"]}
+            href="/blog">Blog</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
             class:list={[pathname == "/nosotros" && "text-green-600 bg-green-50 font-bold"]}
             href="/nosotros">Nosotros</a
           >
@@ -280,6 +287,17 @@ const pathname = Astro.url.pathname;
           </a>
         </div>
       </div>
+
+      <a
+        href="/blog"
+        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
+        class:list={[pathname.startsWith("/blog") && "text-green-600 bg-green-50 font-bold"]}
+      >
+        <svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20l-5.5-5.5M15 10a5 5 0 11-10 0 5 5 0 0110 0z"/>
+        </svg>
+        Blog
+      </a>
 
       <a
         href="/nosotros"

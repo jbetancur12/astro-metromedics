@@ -1,19 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="ISO/IEC 17025: calibración acreditada para su empresa | Metromedics SAS"
   description="La norma ISO/IEC 17025 es el estándar para laboratorios de calibración. Sepa por qué es crucial para su empresa en Colombia. Laboratorio acreditado ONAC."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="ISO/IEC 17025: calibración acreditada para su empresa"
     description="La norma ISO/IEC 17025 es el estándar para laboratorios de calibración. Sepa por qué es crucial para su empresa en Colombia."
     datePublished="2026-05-05"
   />
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-blue-700 to-indigo-700 text-white py-20">
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -29,11 +32,24 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           Cuando una empresa, hospital o laboratorio contrata un servicio de calibración, una de las preguntas más importantes que debe hacerse es: ¿el laboratorio que realizará la calibración está acreditado bajo la norma ISO/IEC 17025? Esta norma internacional es el referente mundial para determinar la competencia técnica de los laboratorios de calibración y ensayo.
@@ -171,7 +187,7 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
-            Solicitar Información
+            Solicitar Asesoría
           </a>
         </div>
         <p class="text-blue-200 mt-6 text-sm">
@@ -180,4 +196,5 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="iso-17025-calibracion-acreditada-empresas-colombia" category="Normativa" />
 </Layout>

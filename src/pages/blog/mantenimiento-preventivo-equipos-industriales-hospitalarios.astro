@@ -1,19 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
+import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
+import RelatedArticles from "../../components/blog/RelatedArticles.astro";
 ---
 
 <Layout
   title="Mantenimiento preventivo industrial y hospitalario | Metromedics SAS"
-  description="Guía de mantenimiento preventivo para equipos médicos e industriales. Frecuencias, checklist y prácticas recomendadas. Solicite su programa de mantenimiento."
+  description="Guía de mantenimiento preventivo para equipos médicos e industriales. Frecuencias, checklist y prácticas recomendadas. Guía completa 2026."
 >
+  <ReadingProgressBar />
   <ArticleSchema
     headline="Mantenimiento preventivo industrial y hospitalario"
     description="Guía de mantenimiento preventivo para equipos médicos e industriales. Frecuencias, checklist y prácticas recomendadas."
     datePublished="2026-04-28"
   />
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-teal-600 to-medical-blue text-white py-20">
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -22,18 +25,31 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
           </svg>
         </div>
         <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">28 de abril, 2026 · 11 min de lectura</p>
-        <h1 class="text-display-lg font-bold mb-6">Mantenimiento preventivo de equipos industriales y hospitalarios — Guía completa 2025</h1>
+        <h1 class="text-display-lg font-bold mb-6">Mantenimiento preventivo de equipos industriales y hospitalarios — Guía completa 2026</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Una guía práctica con frecuencias, checklist y recomendaciones para mantener sus equipos médicos e industriales en óptimas condiciones de funcionamiento.
         </p>
       </div>
     </div>
   </section>
+  <!-- Back to Blog -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto py-3">
+        <a href="/blog" class="inline-flex items-center text-sm text-gray-500 hover:text-medical-blue transition-colors">
+          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Article Content -->
   <article class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto prose prose-lg prose-gray">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-gray blog-content">
 
         <p class="text-xl text-gray-700 leading-relaxed font-medium">
           El mantenimiento preventivo de equipos industriales y hospitalarios es una de las actividades más importantes para garantizar la seguridad, la precisión de los procesos y la continuidad operativa. En el sector salud protege a los pacientes y asegura diagnósticos confiables; en la industria, evita paradas de producción, reduce costos y prolonga la vida útil de los activos. En Colombia, además, es un requisito normativo obligatorio en múltiples sectores regulados.
@@ -199,7 +215,7 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            Ver Servicio de Mantenimiento
+            Ver Servicios
           </a>
           <a
             href="/contacto"
@@ -217,4 +233,5 @@ import ArticleSchema from "../../components/ui/ArticleSchema.astro";
       </div>
     </div>
   </section>
+  <RelatedArticles currentSlug="mantenimiento-preventivo-equipos-industriales-hospitalarios" category="Mantenimiento" />
 </Layout>
