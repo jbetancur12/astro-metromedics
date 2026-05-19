@@ -138,15 +138,31 @@
         })
       });
 
-      btn.innerHTML = '¡Guía enviada! Revise su correo';
-      document.cookie = "lead_shown=true; max-age=" + (30 * 24 * 60 * 60) + "; path=/";
+      btn.innerHTML = '¡Gracias! Descargando guía...';
 
-      setTimeout(() => {
-        hideModal();
-        btn.disabled = false;
-        btn.innerHTML = originalText;
-        form.reset();
-      }, 3000);
+      const formContainer = document.getElementById("leadForm");
+      const successHtml = `
+        <div class="text-center py-8">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">¡Guía lista!</h3>
+          <p class="text-gray-600 mb-6">Haga clic en el botón para descargar su guía gratuita.</p>
+          <a href="/pdf/guia-cumplimiento-normativo-equipos-medicos.pdf" download
+             class="inline-flex items-center px-6 py-3 bg-medical-blue hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Descargar Guía PDF
+          </a>
+          <p class="text-xs text-gray-400 mt-4">También puede cerrar esta ventana y seguir navegando.</p>
+        </div>
+      `;
+      if (formContainer) formContainer.innerHTML = successHtml;
+
+      document.cookie = "lead_shown=true; max-age=" + (30 * 24 * 60 * 60) + "; path=/";
     } catch {
       btn.innerHTML = 'Error al enviar. Intente de nuevo.';
       setTimeout(() => {
