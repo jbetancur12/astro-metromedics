@@ -1,0 +1,35 @@
+---
+interface Props {
+  headline: string;
+  description: string;
+  datePublished: string;
+  image?: string;
+}
+
+const { headline, description, datePublished, image = "https://metromedics.co/images/Logo-pagina-web.png" } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": headline,
+  "description": description,
+  "image": image,
+  "author": {
+    "@type": "Organization",
+    "name": "Metromedics SAS",
+    "url": "https://metromedics.co"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Metromedics SAS",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://metromedics.co/images/Logo-pagina-web.png"
+    }
+  },
+  "datePublished": datePublished,
+  "dateModified": datePublished
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
