@@ -12,6 +12,36 @@ import WhatsAppFloat from "../components/ui/WhatsAppFloat.astro";
 import "../styles/Layout.css";
 
 const { title, description } = Astro.props;
+
+// JSON-LD Structured Data for Organization
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Metromedics SAS",
+  "url": "https://metromedics.co",
+  "logo": "https://metromedics.co/images/Logo-pagina-web.png",
+  "description": "Calibración y mantenimiento de equipos médicos e industriales. Laboratorio acreditado ONAC bajo ISO/IEC 17025:2017.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 35 13-46 Guadalupe",
+    "addressLocality": "Dosquebradas",
+    "addressRegion": "Risaralda",
+    "addressCountry": "CO"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+57-606-352-6161",
+      "contactType": "sales",
+      "email": "comercial@metromedicslab.com.co",
+      "availableLanguage": ["Spanish"]
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/metromedics",
+    "https://www.instagram.com/metromedics"
+  ]
+};
 ---
 
 <!doctype html>
@@ -19,14 +49,12 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <meta name="description" content="Metromedics S.A.S, Es una compañía dedicada dedicada a realizar procesos metrológicos bajo normas técnicas nacionales e internaciones, contribuyendo en la estandarización de los procedimientos metrológicos a nivel nacional">
-    <title>Astro Landing - {title}</title> -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <SEOMetadata
       siteName={`Metromedics SAS`}
       title={title}
       description={description}
-      image={"http://example.com/the_image_url-preferably_absolute.jpg"}
+      image={"https://metromedics.co/images/Logo-pagina-web.png"}
       favicon={"/images/favicon-1.png"}
       author="Jorge Betancur"
       copyright="ISC"
@@ -35,6 +63,8 @@ const { title, description } = Astro.props;
       type={"website"}
       astroGenerator={true}
     />
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   </head>
   <body>
     <Header />
