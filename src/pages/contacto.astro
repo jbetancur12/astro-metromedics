@@ -68,6 +68,34 @@ import Layout from "../layouts/Layout.astro";
               </div>
             </div>
 
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Teléfono / Celular<span class="text-red-500 ml-1">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder="300 123 4567"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label for="company" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Empresa / Institución
+                </label>
+                <input
+                  type="text"
+                  name="company"
+                  id="company"
+                  placeholder="Nombre de tu empresa"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+                />
+              </div>
+            </div>
+
             <div>
               <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
                 Asunto<span class="text-red-500 ml-1">*</span>
@@ -99,6 +127,21 @@ import Layout from "../layouts/Layout.astro";
                 class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none resize-none"
                 required
               ></textarea>
+            </div>
+
+            <div class="flex items-start">
+              <input
+                type="checkbox"
+                name="privacy"
+                id="privacy"
+                class="mt-1 mr-3 h-4 w-4 rounded border-gray-300 text-medical-blue focus:ring-medical-blue"
+                required
+              />
+              <label for="privacy" class="text-sm text-gray-600">
+                Acepto la
+                <a href="/politica-datos" target="_blank" class="text-medical-blue underline hover:text-blue-700">Política de Tratamiento de Datos Personales</a>
+                y autorizo a Metromedics SAS para contactarme.<span class="text-red-500 ml-1">*</span>
+              </label>
             </div>
 
             <button
@@ -311,7 +354,7 @@ import Layout from "../layouts/Layout.astro";
       </span>
     `;
 
-    fetch("http://localhost:5050/contact", {
+    fetch("/api/contact", {
       method: "POST",
       body: json,
       headers: {

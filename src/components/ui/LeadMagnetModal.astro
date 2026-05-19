@@ -1,0 +1,181 @@
+---
+---
+
+<!-- Exit-Intent Lead Magnet Modal -->
+<div
+  id="leadMagnetModal"
+  class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4"
+>
+  <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full relative overflow-hidden animate-fade-in-up">
+    <!-- Close button -->
+    <button
+      id="closeLeadMagnet"
+      class="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors z-10"
+      aria-label="Cerrar"
+    >
+      <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Content -->
+    <div class="bg-gradient-to-r from-medical-blue to-primary-600 text-white p-8 text-center">
+      <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold mb-2">Guía Gratuita</h2>
+      <p class="text-blue-100">Cumplimiento Normativo para Equipos Médicos en Colombia</p>
+    </div>
+
+    <div class="p-8">
+      <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+        Descargue nuestra guía completa con checklist de requisitos INVIMA, frecuencias recomendadas de calibración y consecuencias legales de no cumplir con la normativa.
+      </p>
+
+      <form id="leadForm" class="space-y-4">
+        <div>
+          <input
+            type="text"
+            name="name"
+            id="leadName"
+            placeholder="Su nombre completo"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="email"
+            name="email"
+            id="leadEmail"
+            placeholder="Su correo electrónico"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-medical-blue/20 focus:border-medical-blue transition-all duration-200 outline-none"
+            required
+          />
+        </div>
+        <div class="flex items-start">
+          <input
+            type="checkbox"
+            name="privacy"
+            id="leadPrivacy"
+            class="mt-1 mr-3 h-4 w-4 rounded border-gray-300 text-medical-blue focus:ring-medical-blue"
+            required
+          />
+          <label for="leadPrivacy" class="text-xs text-gray-500">
+            Acepto la
+            <a href="/politica-datos" target="_blank" class="text-medical-blue underline">Política de Tratamiento de Datos</a>
+            para recibir la guía gratuita.
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-medical-blue hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-medical-blue/30"
+        >
+          Descargar Guía Gratuita
+        </button>
+      </form>
+
+      <p class="text-xs text-gray-400 text-center mt-4">
+        Sus datos están seguros. No compartimos información con terceros.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Exit-intent detection
+  let shown = false;
+
+  function showModal() {
+    if (shown) return;
+    shown = true;
+    const modal = document.getElementById("leadMagnetModal");
+    if (modal) modal.classList.remove("hidden");
+  }
+
+  function hideModal() {
+    const modal = document.getElementById("leadMagnetModal");
+    if (modal) modal.classList.add("hidden");
+  }
+
+  document.addEventListener("mouseleave", (e) => {
+    if (e.clientY <= 0 && !shown) {
+      // Check cookie to not show again for 30 days
+      if (document.cookie.includes("lead_shown=true")) return;
+      showModal();
+    }
+  });
+
+  document.getElementById("closeLeadMagnet")?.addEventListener("click", hideModal);
+
+  // Click outside to close
+  document.getElementById("leadMagnetModal")?.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) hideModal();
+  });
+
+  // Form submission
+  document.getElementById("leadForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = 'Enviando...';
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          subject: "Descargar Guía de Cumplimiento Normativo",
+          message: "Solicitud de guía gratuita de cumplimiento normativo para equipos médicos."
+        })
+      });
+
+      btn.innerHTML = '¡Guía enviada! Revise su correo';
+      document.cookie = "lead_shown=true; max-age=" + (30 * 24 * 60 * 60) + "; path=/";
+
+      setTimeout(() => {
+        hideModal();
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        form.reset();
+      }, 3000);
+    } catch {
+      btn.innerHTML = 'Error al enviar. Intente de nuevo.';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }, 3000);
+    }
+  });
+
+  // Also show modal after 60 seconds on page
+  setTimeout(() => {
+    if (!shown && !document.cookie.includes("lead_shown=true")) {
+      showModal();
+    }
+  }, 60000);
+</script>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.4s ease-out;
+  }
+</style>
