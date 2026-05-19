@@ -1,0 +1,195 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const articles = [
+  {
+    slug: "calibracion-equipos-medicos-obligatoria-colombia",
+    title: "¿Por qué es obligatoria la calibración de equipos médicos en Colombia?",
+    excerpt:
+      "Conozca las normas INVIMA, RETIE y el Decreto 4725 que exigen la calibración de equipos médicos en Colombia. Evite sanciones y garantice la seguridad de sus pacientes.",
+    date: "12 de mayo, 2026",
+    readTime: "9 min",
+    category: "Calibración",
+    gradient: "from-medical-blue to-primary-600",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    slug: "iso-17025-lo-que-todo-hospital-debe-saber",
+    title: "ISO/IEC 17025:2017 — Lo que todo hospital debe saber sobre calibración",
+    excerpt:
+      "La norma ISO/IEC 17025 es el estándar internacional para laboratorios de calibración. Sepa por qué es crucial para su institución de salud en Colombia.",
+    date: "5 de mayo, 2026",
+    readTime: "10 min",
+    category: "Normativa",
+    gradient: "from-blue-700 to-indigo-700",
+    icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z",
+  },
+  {
+    slug: "mantenimiento-preventivo-equipos-hospitalarios",
+    title: "Mantenimiento preventivo de equipos hospitalarios — Guía completa 2025",
+    excerpt:
+      "Guía completa de mantenimiento preventivo para equipos médicos. Frecuencias, checklist y mejores prácticas para hospitales y clínicas en Colombia.",
+    date: "28 de abril, 2026",
+    readTime: "11 min",
+    category: "Mantenimiento",
+    gradient: "from-teal-600 to-medical-blue",
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 11a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2zM4 17a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2z",
+  },
+  {
+    slug: "validacion-autoclaves-requisitos-normativos",
+    title: "Validación de autoclaves — Requisitos normativos en Colombia",
+    excerpt:
+      "Requisitos para la validación de autoclaves y esterilizadores en Colombia. Proceso IQ, OQ, PQ, determinación de Factor F y normativa aplicable.",
+    date: "21 de abril, 2026",
+    readTime: "10 min",
+    category: "Validación",
+    gradient: "from-orange-600 to-red-600",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+  },
+  {
+    slug: "frecuencias-calibracion-equipos-medicion",
+    title: "Frecuencias de calibración de equipos de medición — Guía recomendada",
+    excerpt:
+      "Tabla completa de frecuencias recomendadas para calibración de tensiómetros, balanzas, termómetros, manómetros y más equipos en Colombia.",
+    date: "14 de abril, 2026",
+    readTime: "8 min",
+    category: "Guías",
+    gradient: "from-purple-600 to-indigo-600",
+    icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+  },
+];
+---
+
+<Layout
+  title="Blog — Recursos de Calibración y Metrología | Metromedics SAS"
+  description="Artículos sobre calibración de equipos médicos, normativa INVIMA, mantenimiento industrial y metrología en Colombia. Conozca las mejores prácticas del sector."
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-medical-blue to-primary-600 text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20l-5.5-5.5M15 10a5 5 0 11-10 0 5 5 0 0110 0z"></path>
+          </svg>
+        </div>
+        <h1 class="text-display-lg font-bold mb-6">Blog de Metrología</h1>
+        <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+          Artículos, guías y recursos sobre calibración de equipos, normativa colombiana,
+          mantenimiento hospitalario y mejores prácticas en metrología.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-3 mb-12 justify-center">
+          <span class="px-4 py-2 bg-medical-blue text-white rounded-xl text-sm font-semibold">Todos</span>
+          <span class="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-xl text-sm font-medium hover:border-medical-blue hover:text-medical-blue transition-colors">Calibración</span>
+          <span class="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-xl text-sm font-medium hover:border-medical-blue hover:text-medical-blue transition-colors">Normativa</span>
+          <span class="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-xl text-sm font-medium hover:border-medical-blue hover:text-medical-blue transition-colors">Mantenimiento</span>
+          <span class="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-xl text-sm font-medium hover:border-medical-blue hover:text-medical-blue transition-colors">Validación</span>
+          <span class="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-xl text-sm font-medium hover:border-medical-blue hover:text-medical-blue transition-colors">Guías</span>
+        </div>
+
+        <!-- Articles List -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {
+            articles.map((article) => (
+              <a
+                href={`/blog/${article.slug}`}
+                class="group bg-white rounded-2xl shadow-large overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+              >
+                <!-- Card Header Gradient -->
+                <div class={`bg-gradient-to-br ${article.gradient} p-6 min-h-[180px] flex items-end relative overflow-hidden`}>
+                  <div class="absolute top-4 right-4">
+                    <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      {article.category}
+                    </span>
+                  </div>
+                  <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-2">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={article.icon}></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-6 flex flex-col flex-1">
+                  <div class="flex items-center gap-3 text-sm text-gray-500 mb-3">
+                    <span class="flex items-center gap-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                      </svg>
+                      {article.date}
+                    </span>
+                    <span class="flex items-center gap-1">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      {article.readTime}
+                    </span>
+                  </div>
+
+                  <h2 class="text-heading-md text-gray-900 mb-3 group-hover:text-medical-blue transition-colors">
+                    {article.title}
+                  </h2>
+
+                  <p class="text-gray-600 text-body-md flex-1">
+                    {article.excerpt}
+                  </p>
+
+                  <div class="mt-4 pt-4 border-t border-gray-100">
+                    <span class="text-medical-blue font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                      Leer artículo
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-medical-blue to-primary-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Necesita asesoría especializada?</h2>
+        <p class="text-xl text-blue-100 mb-8">
+          Nuestro equipo de metrología está listo para resolver sus dudas y ofrecerle
+          una solución a la medida de su institución.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contacto"
+            class="inline-flex items-center px-8 py-4 bg-white text-medical-blue font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+            Solicitar Cotización
+          </a>
+          <a
+            href="tel:+5760635261611"
+            class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Llamar Ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
