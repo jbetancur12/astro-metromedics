@@ -142,6 +142,11 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fina
           event_label: 'WhatsApp Technical Consultation'
         });
       }
+
+      // Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Contact');
+      }
     });
   });
 </script>
