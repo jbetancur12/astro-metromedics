@@ -77,6 +77,11 @@ const gaId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
       type={"website"}
       astroGenerator={true}
     />
+    <!-- Favicon declarations -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-1.png" />
+    <link rel="apple-touch-icon" href="/images/favicon-1.png" />
+    <meta name="msapplication-TileImage" content="/images/favicon-1.png" />
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
