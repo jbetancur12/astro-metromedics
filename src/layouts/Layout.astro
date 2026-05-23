@@ -44,6 +44,15 @@ const organizationSchema = {
   ]
 };
 
+// WebSite schema (for Google Search site name)
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Metromedics SAS",
+  "alternateName": "Metromedics",
+  "url": "https://metromedics.co",
+};
+
 // BreadcrumbList schema
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -81,8 +90,11 @@ const gaId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-1.png" />
     <link rel="apple-touch-icon" href="/images/favicon-1.png" />
+    <meta name="apple-mobile-web-app-title" content="Metromedics SAS" />
+    <meta name="application-name" content="Metromedics SAS" />
     <meta name="msapplication-TileImage" content="/images/favicon-1.png" />
     <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
