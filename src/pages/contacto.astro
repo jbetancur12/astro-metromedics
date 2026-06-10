@@ -367,6 +367,10 @@ import Layout from "../layouts/Layout.astro";
   contactForm?.addEventListener("submit", function (event) {
     event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
 
+    if (typeof posthog !== "undefined") {
+      posthog.capture("contact_form_submitted", { form: "contacto" });
+    }
+
     const formData = new FormData(contactForm);
 
     const object: Record<string, FormDataEntryValue> = {};
@@ -399,6 +403,10 @@ import Layout from "../layouts/Layout.astro";
     })
       .then((response) => response.json())
       .then((data) => {
+        if (typeof posthog !== "undefined") {
+          posthog.capture("contact_form_success", { form: "contacto" });
+        }
+
         // Show success message
         submitButton.innerHTML = `
           <span class="flex items-center justify-center">

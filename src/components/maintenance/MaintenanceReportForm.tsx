@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import {
@@ -48,6 +48,20 @@ const steps = [
   'Confirmación'
 ]
 
+// Lightweight PostHog helpers — posthog is loaded globally via the inline
+// snippet in Layout.astro, so we reference it off window and no-op if absent.
+const phCapture = (event: string, props?: Record<string, unknown>) => {
+  if (typeof window !== 'undefined' && (window as any).posthog) {
+    (window as any).posthog.capture(event, props)
+  }
+}
+
+const phException = (error: unknown, props?: Record<string, unknown>) => {
+  if (typeof window !== 'undefined' && (window as any).posthog?.captureException) {
+    (window as any).posthog.captureException(error, props)
+  }
+}
+
 const MaintenanceReportForm: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [files, setFiles] = useState<File[]>([])
@@ -57,6 +71,11 @@ const MaintenanceReportForm: React.FC = () => {
     message: string
   } | null>(null)
   const [isLoading, setIsLoading] = useState(false)
+
+  // Track that a user opened the maintenance request flow (funnel entry point).
+  useEffect(() => {
+    phCapture('maintenance_request_started')
+  }, [])
 
   const formik = useFormik<MaintenanceCreateRequest>({
     initialValues: {
@@ -73,6 +92,11 @@ const MaintenanceReportForm: React.FC = () => {
     },
     validationSchema,
     onSubmit: async (values: MaintenanceCreateRequest) => {
+      phCapture('maintenance_request_submitted', {
+        equipment_type: values.equipmentType,
+        location: values.location,
+        files_count: files.length
+      })
       try {
         setIsLoading(true)
         const submitData = {
@@ -83,10 +107,17 @@ const MaintenanceReportForm: React.FC = () => {
 
         const result = await maintenanceApi.createTicket(submitData)
 
+        const ticketNumber =
+          result?.ticketNumber || result?.ticket?.ticketCode || 'Sin número'
+
+        phCapture('maintenance_request_succeeded', {
+          ticket_number: ticketNumber,
+          files_count: files.length
+        })
+
         setSubmissionResult({
           success: true,
-          ticketNumber:
-            result?.ticketNumber || result?.ticket?.ticketCode || 'Sin número',
+          ticketNumber,
           message:
             'Solicitud enviada exitosamente. Su ticket ha sido creado y está pendiente de asignación. Recibirá una confirmación por email.'
         })
@@ -107,6 +138,15 @@ const MaintenanceReportForm: React.FC = () => {
           errorMessage = error.message
         }
 
+        phCapture('maintenance_request_failed', {
+          error_message: errorMessage,
+          status: error.response?.status ?? null,
+          equipment_type: values.equipmentType,
+          location: values.location,
+          files_count: files.length
+        })
+        phException(error, { context: 'maintenance_request_submit' })
+
         setSubmissionResult({
           success: false,
           message: errorMessage
@@ -119,6 +159,11 @@ const MaintenanceReportForm: React.FC = () => {
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
+      phCapture('maintenance_step_completed', {
+        step_index: activeStep,
+        step_name: steps[activeStep],
+        next_step: steps[activeStep + 1]
+      })
       setActiveStep(activeStep + 1)
     }
   }

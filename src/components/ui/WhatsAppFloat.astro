@@ -147,6 +147,11 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fina
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Contact');
       }
+
+      // PostHog
+      if (typeof posthog !== 'undefined') {
+        posthog.capture('whatsapp_click', { location: 'floating_button' });
+      }
     });
   });
 </script>
