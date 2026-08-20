@@ -19,8 +19,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Metromedics SAS",
-  "url": "https://metromedics.co",
-  "logo": "https://metromedics.co/images/Logo-pagina-web.png",
+  "url": "https://metromedicslab.com",
+  "logo": "https://metromedicslab.com/images/Logo-pagina-web.png",
   "description": "Calibración y mantenimiento de equipos médicos e industriales. Laboratorio acreditado ONAC bajo ISO/IEC 17025:2017.",
   "address": {
     "@type": "PostalAddress",
@@ -51,7 +51,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": "Metromedics SAS",
   "alternateName": "Metromedics",
-  "url": "https://metromedics.co",
+  "url": "https://metromedicslab.com",
 };
 
 // BreadcrumbList schema
@@ -59,7 +59,7 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://metromedics.co" },
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://metromedicslab.com" },
     { "@type": "ListItem", "position": 2, "name": title, "item": Astro.url.toString() }
   ]
 };
@@ -80,7 +80,7 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
       siteName={`Metromedics SAS`}
       title={title}
       description={description}
-      image={"https://metromedics.co/images/Logo-pagina-web.png"}
+      image={"https://metromedicslab.com/images/Logo-pagina-web.png"}
       favicon={"/images/favicon-1.png"}
       author="Jorge Betancur"
       copyright="ISC"
