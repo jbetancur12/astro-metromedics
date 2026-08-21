@@ -9,6 +9,6 @@ import compressor from "astro-compressor";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), sitemap(), robotsTxt(), compressor({ gzip: true, brotli: false },)],
-  site: 'https://metromedics.co',
+  site: 'https://metromedicslab.com',
   base: '/'
 });
