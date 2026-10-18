@@ -77,7 +77,9 @@ ssh metromedics@209.97.156.169 << 'EOF'
 
   # Verificar que el servidor web está funcionando
   echo "Verificando estado del servidor web..."
-  http_status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost)
+  # Pide el sitio real contra este mismo servidor: nginx cierra las
+  # peticiones a hosts desconocidos como "localhost" (return 444).
+  http_status=$(curl -s -o /dev/null -w "%{http_code}" --resolve metromedicslab.com:443:127.0.0.1 https://metromedicslab.com/)
 
   if [ "$http_status" != "200" ] && [ "$http_status" != "301" ] && [ "$http_status" != "302" ]; then
     echo "ADVERTENCIA: El servidor web no responde correctamente (HTTP $http_status)" >&2
