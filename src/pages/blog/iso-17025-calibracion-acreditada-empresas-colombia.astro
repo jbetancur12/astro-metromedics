@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="ISO/IEC 17025: calibración acreditada para su empresa | Metromedics SAS"
+  title="ISO/IEC 17025 y calibración acreditada | Metromedics SAS"
   description="La norma ISO/IEC 17025 es el estándar para laboratorios de calibración. Sepa por qué es crucial para su empresa en Colombia. Laboratorio acreditado ONAC."
+  type="article"
+  publishedTime="2026-05-05"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="ISO/IEC 17025: calibración acreditada para su empresa"
     description="La norma ISO/IEC 17025 es el estándar para laboratorios de calibración. Sepa por qué es crucial para su empresa en Colombia."
     datePublished="2026-05-05"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">5 de mayo, 2026 · 10 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-05-05">5 de mayo, 2026</time> · 10 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">ISO/IEC 17025:2017 — Lo que toda empresa debe saber sobre calibración acreditada</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           El estándar internacional para laboratorios de calibración y ensayo. Descubra por qué es fundamental para la calidad y seguridad en los sectores salud, industrial, farmacéutico y más.
@@ -196,5 +200,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-05-05" />
   <RelatedArticles currentSlug="iso-17025-calibracion-acreditada-empresas-colombia" category="Normativa" />
 </Layout>

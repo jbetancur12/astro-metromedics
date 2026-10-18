@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Cómo preparar sus equipos para una auditoría ISO 9001: guía de calibración | Metromedics SAS"
+  title="Auditoría ISO 9001: prepare sus equipos | Metromedics SAS"
   description="Guía para preparar sus equipos de medición antes de una auditoría ISO 9001. Checklist, requisitos de calibración y trazabilidad. Evite no conformidades. Solicite diagnóstico."
+  type="article"
+  publishedTime="2026-06-09"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Cómo preparar sus equipos para una auditoría ISO 9001: guía de calibración"
     description="Guía para preparar sus equipos de medición antes de una auditoría ISO 9001. Checklist, requisitos de calibración y trazabilidad. Evite no conformidades."
     datePublished="2026-06-09"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">9 de junio, 2026 · 11 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-06-09">9 de junio, 2026</time> · 11 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Cómo preparar sus equipos de medición para una auditoría ISO 9001</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Guía práctica para que su organización enfrente con éxito la auditoría ISO 9001 en lo relativo a la calibración y control de equipos de medición. Checklist, documentos requeridos y errores más comunes que debe evitar.
@@ -270,5 +274,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-06-09" />
   <RelatedArticles currentSlug="preparar-auditoria-iso-9001-calibracion" category="Guías" />
 </Layout>

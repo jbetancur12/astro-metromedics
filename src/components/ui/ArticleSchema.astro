@@ -3,32 +3,53 @@ interface Props {
   headline: string;
   description: string;
   datePublished: string;
+  dateModified?: string;
   image?: string;
 }
 
-const { headline, description, datePublished, image = "https://metromedicslab.com/images/Logo-pagina-web.png" } = Astro.props;
+const SITE_URL = "https://metromedicslab.com";
+
+const {
+  headline,
+  description,
+  datePublished,
+  dateModified = datePublished,
+  image = `${SITE_URL}/images/og-default.jpg`,
+} = Astro.props;
+
+const url = new URL(Astro.url.pathname, SITE_URL).toString();
 
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  "@id": `${url}#article`,
   "headline": headline,
   "description": description,
   "image": image,
+  "url": url,
+  "mainEntityOfPage": { "@id": `${url}#webpage` },
+  "inLanguage": "es-CO",
+  "isPartOf": { "@id": `${SITE_URL}/#website` },
   "author": {
     "@type": "Organization",
-    "name": "Metromedics SAS",
-    "url": "https://metromedicslab.com"
+    "@id": `${SITE_URL}/#equipo-tecnico`,
+    "name": "Equipo técnico de Metromedics SAS",
+    "url": `${SITE_URL}/nosotros/`,
+    "description": "Ingenieros y metrólogos del laboratorio de calibración de Metromedics SAS, acreditado por ONAC (18-LAC-020) bajo ISO/IEC 17025:2017.",
+    "parentOrganization": { "@id": `${SITE_URL}/#organization` },
+    "knowsAbout": ["Metrología", "Calibración de equipos biomédicos", "Calibración de equipos industriales", "ISO/IEC 17025"]
   },
   "publisher": {
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     "name": "Metromedics SAS",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://metromedicslab.com/images/Logo-pagina-web.png"
+      "url": `${SITE_URL}/images/Logo-pagina-web.png`
     }
   },
   "datePublished": datePublished,
-  "dateModified": datePublished
+  "dateModified": dateModified
 };
 ---
 

@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Validación de autoclaves en central de esterilización: IQ, OQ, PQ paso a paso | Metromedics SAS"
+  title="Validar autoclaves paso a paso: IQ, OQ, PQ | Metromedics SAS"
   description="Protocolo completo IQ, OQ, PQ para validación de autoclaves en centrales de esterilización. Pruebas Bowie-Dick, indicadores biológicos y normativa INVIMA."
+  type="article"
+  publishedTime="2026-06-16"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Validación de autoclaves en central de esterilización: IQ, OQ, PQ paso a paso"
     description="Protocolo completo IQ, OQ, PQ para validación de autoclaves en centrales de esterilización. Pruebas Bowie-Dick, indicadores biológicos y normativa INVIMA."
     datePublished="2026-06-16"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">16 de junio, 2026 · 11 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-06-16">16 de junio, 2026</time> · 11 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Validación de autoclaves en central de esterilización: IQ, OQ, PQ paso a paso</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Protocolo completo para la validación de autoclaves en centrales de esterilización. Pruebas Bowie-Dick, indicadores biológicos, cálculo de F0 y cumplimiento de la normativa INVIMA para garantizar la esterilidad de los instrumentos.
@@ -233,5 +237,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-06-16" />
   <RelatedArticles currentSlug="validacion-autoclaves-central-esterilizacion-iq-oq-pq" category="Validación" />
 </Layout>

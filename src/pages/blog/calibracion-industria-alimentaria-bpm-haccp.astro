@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Calibración en la industria alimentaria: requisitos INVIMA, BPM y HACCP | Metromedics SAS"
+  title="Calibración en alimentos: BPM y HACCP | Metromedics SAS"
   description="Requisitos de calibración para la industria alimentaria en Colombia. Normas INVIMA, BPM y HACCP para termómetros, balanzas y dataloggers. Evite sanciones. Solicite asesoría."
+  type="article"
+  publishedTime="2026-06-02"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Calibración en la industria alimentaria: requisitos INVIMA, BPM y HACCP"
     description="Requisitos de calibración para la industria alimentaria en Colombia. Normas INVIMA, BPM y HACCP para termómetros, balanzas y dataloggers."
     datePublished="2026-06-02"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">2 de junio, 2026 · 10 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-06-02">2 de junio, 2026</time> · 10 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Calibración en la industria alimentaria: requisitos INVIMA, BPM y HACCP</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Los termómetros, balanzas y dataloggers de su planta de alimentos deben estar calibrados. Conozca los requisitos INVIMA, las Buenas Prácticas de Manufactura y el sistema HACCP para evitar sanciones y proteger al consumidor.
@@ -259,5 +263,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-06-02" />
   <RelatedArticles currentSlug="calibracion-industria-alimentaria-bpm-haccp" category="Calibración" />
 </Layout>

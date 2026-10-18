@@ -2,33 +2,86 @@
 interface Props {
   title: string;
   description: string;
+  image?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  noindex?: boolean;
 }
-import { SEOMetadata } from "astro-seo-metadata";
 import Copyright from "../components/landing/Copyright.astro";
 import Footer from "../components/landing/Footer.astro";
 import Header from "../components/landing/Header.astro";
 import WhatsAppFloat from "../components/ui/WhatsAppFloat.astro";
 import LeadMagnetModal from "../components/ui/LeadMagnetModal.astro";
+import { lastModified } from "../utils/lastModified.mjs";
 
 import "../styles/Layout.css";
 
-const { title, description } = Astro.props;
+const SITE_URL = "https://metromedicslab.com";
+const SITE_NAME = "Metromedics SAS";
+const LOGO_URL = `${SITE_URL}/images/Logo-pagina-web.png`;
+// 1200x630 share image, generated from the brand gradient and the logo
+const DEFAULT_IMAGE = `${SITE_URL}/images/og-default.jpg`;
+
+const {
+  title,
+  description,
+  image = DEFAULT_IMAGE,
+  type = "website",
+  publishedTime,
+  modifiedTime = publishedTime,
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const imageUrl = new URL(image, SITE_URL).toString();
+// Page name without the " | Metromedics SAS" suffix, for breadcrumbs.
+const pageName = title.split(" | ")[0];
+// Articles use their own dates; other pages, the last commit of their source.
+const pageModified = modifiedTime ?? lastModified(Astro.url.pathname);
 
 // JSON-LD Structured Data
 const organizationSchema = {
-  "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Metromedics SAS",
-  "url": "https://metromedicslab.com",
-  "logo": "https://metromedicslab.com/images/Logo-pagina-web.png",
+  "@id": `${SITE_URL}/#organization`,
+  "name": SITE_NAME,
+  "alternateName": "Metromedics",
+  "url": SITE_URL,
+  "logo": LOGO_URL,
+  "image": DEFAULT_IMAGE,
   "description": "Calibración y mantenimiento de equipos médicos e industriales. Laboratorio acreditado ONAC bajo ISO/IEC 17025:2017.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Calle 35 13-46 Guadalupe",
-    "addressLocality": "Dosquebradas",
-    "addressRegion": "Risaralda",
-    "postalCode": "661001",
-    "addressCountry": "CO"
+  "areaServed": { "@type": "Country", "name": "Colombia" },
+  "knowsAbout": [
+    "Calibración de equipos biomédicos",
+    "Calibración de equipos industriales",
+    "Metrología",
+    "ISO/IEC 17025",
+    "Mantenimiento de equipos médicos",
+    "Validación de autoclaves"
+  ],
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 35 13-46 Guadalupe",
+      "addressLocality": "Dosquebradas",
+      "addressRegion": "Risaralda",
+      "postalCode": "661001",
+      "addressCountry": "CO"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Cra. 71c #52-34, Oficina 101",
+      "addressLocality": "Bogotá",
+      "addressRegion": "Bogotá D.C.",
+      "addressCountry": "CO"
+    }
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Acreditación de laboratorio",
+    "name": "Acreditación ONAC 18-LAC-020 bajo ISO/IEC 17025:2017",
+    "url": `${SITE_URL}/pdf/18-LAC-020.pdf`,
+    "recognizedBy": { "@type": "Organization", "name": "Organismo Nacional de Acreditación de Colombia (ONAC)", "url": "https://onac.org.co" }
   },
   "contactPoint": [
     {
@@ -47,21 +100,48 @@ const organizationSchema = {
 
 // WebSite schema (for Google Search site name)
 const websiteSchema = {
-  "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Metromedics SAS",
+  "@id": `${SITE_URL}/#website`,
+  "name": SITE_NAME,
   "alternateName": "Metromedics",
-  "url": "https://metromedicslab.com",
+  "url": SITE_URL,
+  "inLanguage": "es-CO",
+  "publisher": { "@id": `${SITE_URL}/#organization` },
 };
 
-// BreadcrumbList schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
+// BreadcrumbList schema: Inicio > section (when it has its own page) > page.
+// Not emitted on the homepage, where it would only repeat itself.
+const sectionNames: Record<string, string> = { blog: "Blog", mantenimiento: "Mantenimiento" };
+const segments = Astro.url.pathname.split("/").filter(Boolean);
+const crumbs = [{ name: "Inicio", item: `${SITE_URL}/` }];
+if (segments.length > 1 && sectionNames[segments[0]]) {
+  crumbs.push({ name: sectionNames[segments[0]], item: `${SITE_URL}/${segments[0]}/` });
+}
+if (segments.length > 0) crumbs.push({ name: pageName, item: canonicalUrl });
+const breadcrumbSchema = segments.length > 0 && {
   "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://metromedicslab.com" },
-    { "@type": "ListItem", "position": 2, "name": title, "item": Astro.url.toString() }
-  ]
+  "@id": `${canonicalUrl}#breadcrumb`,
+  "itemListElement": crumbs.map((c, i) => ({ "@type": "ListItem", "position": i + 1, ...c })),
+};
+
+const webPageSchema = {
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}#webpage`,
+  "url": canonicalUrl,
+  "name": title,
+  "description": description,
+  "inLanguage": "es-CO",
+  "isPartOf": { "@id": `${SITE_URL}/#website` },
+  "about": { "@id": `${SITE_URL}/#organization` },
+  "primaryImageOfPage": { "@type": "ImageObject", "url": imageUrl },
+  ...(breadcrumbSchema && { "breadcrumb": { "@id": `${canonicalUrl}#breadcrumb` } }),
+  ...(publishedTime && { "datePublished": publishedTime }),
+  ...(pageModified && { "dateModified": pageModified }),
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [websiteSchema, organizationSchema, webPageSchema, breadcrumbSchema].filter(Boolean),
 };
 
 const pixelId = import.meta.env.PUBLIC_FACEBOOK_PIXEL_ID;
@@ -75,20 +155,41 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <SEOMetadata
-      siteName={`Metromedics SAS`}
-      title={title}
-      description={description}
-      image={"https://metromedicslab.com/images/Logo-pagina-web.png"}
-      favicon={"/images/favicon-1.png"}
-      author="Jorge Betancur"
-      copyright="ISC"
-      astroSitemap={true}
-      canonicalUrl={Astro.url.toString()}
-      type={"website"}
-      astroGenerator={true}
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="author" content={type === "article" ? "Equipo técnico de Metromedics SAS" : SITE_NAME} />
+    <link rel="author" href={`${SITE_URL}/nosotros/`} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1"} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    {!noindex && Astro.url.pathname.endsWith("/") && (
+      <link rel="alternate" type="text/markdown" href={`${canonicalUrl}index.md`} />
+    )}
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    {imageUrl === DEFAULT_IMAGE && (
+      <>
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+      </>
+    )}
+    <meta property="og:image:alt" content={pageName} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {type === "article" && <meta property="article:publisher" content="https://www.facebook.com/metromedics" />}
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
     <!-- Favicon declarations -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-1.png" />
@@ -97,12 +198,10 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
     <meta name="application-name" content="Metromedics SAS" />
     <meta name="msapplication-TileImage" content="/images/favicon-1.png" />
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <slot name="head" />
 
     {pixelId && (
-      <>
         <script is:inline data-pixel-id={pixelId}>
           var pid = document.currentScript.dataset.pixelId;
           !function(f,b,e,v,n,t,s)
@@ -116,15 +215,11 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
           fbq('init', pid);
           fbq('track', 'PageView');
         </script>
-        <noscript><img height="1" width="1" style="display:none"
-          src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
-        /></noscript>
-      </>
     )}
 
     {gaId && (
       <>
-        <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
         <script is:inline data-ga-id={gaId}>
           var gid = document.currentScript.dataset.gaId;
           window.dataLayer = window.dataLayer || [];
@@ -168,6 +263,13 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB52DKRX"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    {/* Facebook Pixel (noscript): must live in the body; an img inside the head
+        makes the Astro compiler drop the body tag from the output. */}
+    {pixelId && (
+      <noscript><img height="1" width="1" style="display:none" alt=""
+        src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+      /></noscript>
+    )}
     <Header />
     <main id="mainContent" class="mx-auto mt-[87px]">
       <slot />

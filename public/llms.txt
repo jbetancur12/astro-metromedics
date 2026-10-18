@@ -1,0 +1,41 @@
+# Metromedics SAS
+
+> Laboratorio de metrología colombiano acreditado por ONAC (código 18-LAC-020) bajo ISO/IEC 17025:2017. Calibra y mantiene equipos biomédicos e industriales (masa, presión, temperatura y humedad) con trazabilidad al SI, y valida autoclaves (IQ, OQ, PQ). Sedes en Dosquebradas (Risaralda) y Bogotá; atiende clientes en toda Colombia.
+
+Datos de contacto: Calle 35 13-46 Guadalupe, Dosquebradas, Risaralda, Colombia. Teléfono +57 (606) 352 6161. WhatsApp +57 301 254 1543. Correo comercial@metromedicslab.com.co. Portal de clientes: https://app.metromedicslab.com
+
+Cada página tiene una versión en Markdown: agregue `index.md` a su URL (por ejemplo https://metromedicslab.com/servicios/index.md).
+
+## Servicios
+
+- [Servicios de calibración y mantenimiento](https://metromedicslab.com/servicios/): calibración de equipos médicos e industriales, mantenimiento y validación de autoclaves.
+- [Laboratorio acreditado ONAC ISO/IEC 17025](https://metromedicslab.com/laboratorios/laboratorio-acreditado/): alcance de la acreditación 18-LAC-020 en masa, presión, temperatura y humedad.
+- [Laboratorio con trazabilidad al SI](https://metromedicslab.com/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial/): trazabilidad metrológica para los sectores biomédico e industrial.
+- [Mantenimiento de equipos](https://metromedicslab.com/mantenimiento/): mantenimiento preventivo y correctivo de equipos médicos e industriales.
+- [Solicitar mantenimiento](https://metromedicslab.com/mantenimiento/solicitar/): formulario de solicitud con carga de archivos.
+- [Seguimiento de solicitudes](https://metromedicslab.com/mantenimiento/seguimiento/): consulta del estado de una solicitud con su número de ticket.
+
+## Guías y normativa (blog)
+
+- [Calibración obligatoria en Colombia](https://metromedicslab.com/blog/calibracion-equipos-medicos-obligatoria-colombia/): normas INVIMA, RETIE y Decreto 4725 que exigen calibración.
+- [Resolución 3100 de 2019 para IPS](https://metromedicslab.com/blog/resolucion-3100-2019-calibracion-ips/): requisitos de calibración para la habilitación de IPS.
+- [ISO/IEC 17025 y calibración acreditada](https://metromedicslab.com/blog/iso-17025-calibracion-acreditada-empresas-colombia/): qué es y por qué importa a las empresas.
+- [Frecuencias de calibración](https://metromedicslab.com/blog/frecuencias-calibracion-equipos-medicion/): tabla de frecuencias recomendadas por tipo de equipo.
+- [Calibración vs mantenimiento de equipos biomédicos](https://metromedicslab.com/blog/calibracion-vs-mantenimiento-equipos-biomedicos/): qué necesita cada equipo.
+- [Mantenimiento preventivo industrial y hospitalario](https://metromedicslab.com/blog/mantenimiento-preventivo-equipos-industriales-hospitalarios/): frecuencias y checklist.
+- [Preparar equipos para una auditoría ISO 9001](https://metromedicslab.com/blog/preparar-auditoria-iso-9001-calibracion/): checklist de calibración y trazabilidad.
+- [Calibración en la industria alimentaria](https://metromedicslab.com/blog/calibracion-industria-alimentaria-bpm-haccp/): requisitos INVIMA, BPM y HACCP.
+- [Calibración de básculas para comercio](https://metromedicslab.com/blog/calibracion-basculas-balanzas-comercio-sic-oiml/): normativa SIC y OIML R76.
+- [Validación de autoclaves: IQ, OQ, PQ paso a paso](https://metromedicslab.com/blog/validacion-autoclaves-central-esterilizacion-iq-oq-pq/): protocolo para centrales de esterilización.
+- [Validación de autoclaves: requisitos normativos](https://metromedicslab.com/blog/validacion-autoclaves-requisitos-normativos/): Factor F y normativa aplicable en Colombia.
+
+## Empresa
+
+- [Nosotros](https://metromedicslab.com/nosotros/): historia, valores y trayectoria de Metromedics SAS.
+- [Contacto y cotizaciones](https://metromedicslab.com/contacto/): sedes, teléfonos y formulario de cotización.
+- [Certificado de acreditación ONAC (PDF)](https://metromedicslab.com/pdf/18-LAC-020.pdf)
+
+## Optional
+
+- [PQR: peticiones, quejas y reclamos](https://metromedicslab.com/pqr/)
+- [Política de tratamiento de datos personales](https://metromedicslab.com/politica-datos/)

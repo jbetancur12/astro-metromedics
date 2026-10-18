@@ -1,0 +1,46 @@
+---
+// Firma del artículo: quién lo escribe, con qué credenciales y cuándo.
+// Refuerza las señales de autoría (E-E-A-T) para buscadores y motores de IA.
+interface Props {
+  datePublished: string;
+  dateModified?: string;
+}
+
+const { datePublished, dateModified = datePublished } = Astro.props;
+
+const formatDate = (iso: string) =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" });
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <aside
+      class="max-w-4xl mx-auto bg-white rounded-2xl shadow-large p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start"
+      aria-label="Sobre el autor"
+    >
+      <div class="w-16 h-16 shrink-0 bg-gradient-to-br from-medical-blue to-primary-600 rounded-2xl flex items-center justify-center">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <p class="text-sm text-gray-500 mb-1">Escrito por</p>
+        <p class="text-heading-sm text-gray-900 mb-2">Equipo técnico de Metromedics SAS</p>
+        <p class="text-gray-600 text-body-md mb-4">
+          Ingenieros y metrólogos del laboratorio de calibración de Metromedics SAS, acreditado por ONAC
+          con el código <strong>18-LAC-020</strong> bajo la norma <strong>ISO/IEC 17025:2017</strong>.
+          Calibramos, mantenemos y validamos equipos biomédicos e industriales para IPS, clínicas,
+          hospitales e industria en toda Colombia.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-500">
+          <span>Publicado: <time datetime={datePublished}>{formatDate(datePublished)}</time></span>
+          {dateModified !== datePublished && (
+            <span>Actualizado: <time datetime={dateModified}>{formatDate(dateModified)}</time></span>
+          )}
+          <a href="/nosotros" rel="author" class="text-medical-blue font-semibold hover:underline">Conozca al equipo</a>
+          <a href="/laboratorios/laboratorio-acreditado" class="text-medical-blue font-semibold hover:underline">Ver acreditación</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>

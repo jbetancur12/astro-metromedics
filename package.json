@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/build-markdown.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -27,7 +27,6 @@
     "astro": "^3.0.12",
     "astro-compressor": "^0.4.0",
     "astro-robots-txt": "^1.0.0",
-    "astro-seo-metadata": "^0.6.0",
     "axios": "^1.5.0",
     "date-fns": "^2.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -48,5 +47,9 @@
     "tailwindcss": "^3.3.3",
     "tw-elements": "^1.0.0-rc.1",
     "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "turndown": "^7.2.0",
+    "turndown-plugin-gfm": "^1.0.2"
   }
 }

@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Validación de autoclaves en Colombia: IQ, OQ, PQ | Metromedics SAS"
+  title="Normativa de validación de autoclaves | Metromedics SAS"
   description="Proceso IQ, OQ, PQ y normativa para validación de autoclaves en Colombia. Factor F y requisitos para los sectores salud e industrial. Solicite su validación."
+  type="article"
+  publishedTime="2026-04-21"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Validación de autoclaves en Colombia: IQ, OQ, PQ"
     description="Proceso IQ, OQ, PQ y normativa para validación de autoclaves en Colombia. Factor F y requisitos para los sectores salud e industrial."
     datePublished="2026-04-21"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">21 de abril, 2026 · 10 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-04-21">21 de abril, 2026</time> · 10 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Validación de autoclaves — Requisitos normativos en Colombia</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Conozca el proceso completo de validación de autoclaves y esterilizadores: etapas IQ, OQ, PQ, determinación del Factor F y la normativa colombiana aplicable.
@@ -221,5 +225,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-04-21" />
   <RelatedArticles currentSlug="validacion-autoclaves-requisitos-normativos" category="Validación" />
 </Layout>

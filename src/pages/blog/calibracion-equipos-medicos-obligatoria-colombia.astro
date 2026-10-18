@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Calibración obligatoria en Colombia: salud e industria | Metromedics SAS"
+  title="Calibración obligatoria en Colombia | Metromedics SAS"
   description="Normas INVIMA, RETIE y Decreto 4725 exigen calibración en Colombia. Evite sanciones con laboratorio acreditado ONAC. Solicite su cotización."
+  type="article"
+  publishedTime="2026-05-12"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Calibración obligatoria en Colombia: salud e industria"
     description="Normas INVIMA, RETIE y Decreto 4725 exigen calibración en Colombia. Evite sanciones con laboratorio acreditado ONAC."
     datePublished="2026-05-12"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">12 de mayo, 2026 · 9 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-05-12">12 de mayo, 2026</time> · 9 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">¿Por qué es obligatoria la calibración de equipos médicos e industriales en Colombia?</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           El marco legal colombiano exige la calibración periódica de equipos tanto en el sector salud como en la industria. Conozca las normas que lo respaldan y las consecuencias de no cumplirlas.
@@ -177,5 +181,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-05-12" />
   <RelatedArticles currentSlug="calibracion-equipos-medicos-obligatoria-colombia" category="Calibración" />
 </Layout>

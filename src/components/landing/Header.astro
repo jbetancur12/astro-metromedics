@@ -252,6 +252,7 @@ const pathname = Astro.url.pathname;
           id="laboratoriosMobileLink"
           class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center justify-between cursor-pointer"
           role="button"
+          tabindex="0"
           aria-expanded="false"
           aria-controls="laboratoriosMobile"
         >
@@ -345,6 +346,7 @@ const pathname = Astro.url.pathname;
           id="clientesMobileLink"
           class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center justify-between cursor-pointer"
           role="button"
+          tabindex="0"
           aria-expanded="false"
           aria-controls="clientesMobile"
         >
@@ -493,6 +495,13 @@ const pathname = Astro.url.pathname;
         const icon = mobileLink.querySelector("svg:last-child");
         if (icon) {
           icon.style.transform = !isExpanded ? "rotate(180deg)" : "rotate(0deg)";
+        }
+      });
+      // role="button" en un div: Enter y Espacio también lo activan
+      mobileLink?.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          mobileLink.click();
         }
       });
     }

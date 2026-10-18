@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Calibración vs mantenimiento: qué necesita cada equipo biomédico | Metromedics SAS"
+  title="Calibración vs mantenimiento biomédico | Metromedics SAS"
   description="Diferencias entre calibración y mantenimiento de equipos biomédicos. Guía de decisión para ingenieros biomédicos sobre qué necesita cada equipo y con qué frecuencia."
+  type="article"
+  publishedTime="2026-05-26"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Calibración vs mantenimiento: qué necesita cada equipo biomédico"
     description="Diferencias entre calibración y mantenimiento de equipos biomédicos. Guía de decisión para ingenieros biomédicos sobre qué necesita cada equipo y con qué frecuencia."
     datePublished="2026-05-26"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">26 de mayo, 2026 · 10 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-05-26">26 de mayo, 2026</time> · 10 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Calibración vs mantenimiento: ¿qué necesita cada equipo biomédico?</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Una de las dudas más frecuentes entre ingenieros biomédicos y administradores hospitalarios es la diferencia entre calibración y mantenimiento. En esta guía le explicamos cuándo aplicar cada uno, cómo se complementan y cómo optimizar su presupuesto sin comprometer la seguridad ni el cumplimiento normativo.
@@ -282,5 +286,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-05-26" />
   <RelatedArticles currentSlug="calibracion-vs-mantenimiento-equipos-biomedicos" category="Guías" />
 </Layout>

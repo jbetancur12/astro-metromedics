@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Frecuencias de calibración: guía recomendada | Metromedics SAS"
+  title="Frecuencias de calibración por equipo | Metromedics SAS"
   description="Tabla de frecuencias para calibración de tensiómetros, balanzas, termómetros y manómetros. Guía para los sectores salud e industrial. Solicite su programa de calibración."
+  type="article"
+  publishedTime="2026-04-14"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Frecuencias de calibración: guía recomendada"
     description="Tabla de frecuencias para calibración de tensiómetros, balanzas, termómetros y manómetros. Guía para los sectores salud e industrial."
     datePublished="2026-04-14"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">14 de abril, 2026 · 8 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-04-14">14 de abril, 2026</time> · 8 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Frecuencias de calibración de equipos de medición — Guía recomendada</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Tabla completa de frecuencias recomendadas para la calibración de tensiómetros, balanzas, termómetros, manómetros y más equipos de medición utilizados en Colombia.
@@ -286,5 +290,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-04-14" />
   <RelatedArticles currentSlug="frecuencias-calibracion-equipos-medicion" category="Guías" />
 </Layout>

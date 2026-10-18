@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Resolución 3100 de 2019: guía de calibración para habilitación de IPS | Metromedics SAS"
+  title="Resolución 3100 de 2019: calibración IPS | Metromedics SAS"
   description="Guía completa de la Resolución 3100 de 2019 para calibración de equipos biomédicos en IPS. Estándares de habilitación, requisitos y frecuencias. Asegure su habilitación."
+  type="article"
+  publishedTime="2026-05-19"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Resolución 3100 de 2019: guía de calibración para habilitación de IPS"
     description="Guía completa de la Resolución 3100 de 2019 para calibración de equipos biomédicos en IPS. Estándares de habilitación, requisitos y frecuencias."
     datePublished="2026-05-19"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">19 de mayo, 2026 · 11 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-05-19">19 de mayo, 2026</time> · 11 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Resolución 3100 de 2019 — Guía completa de calibración para la habilitación de IPS</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           La Resolución 3100 de 2019 del Ministerio de Salud define los estándares de habilitación para prestadores de servicios de salud. Conozca en detalle los requisitos de calibración de equipos biomédicos que exige y cómo prepararse para una visita de verificación.
@@ -249,5 +253,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-05-19" />
   <RelatedArticles currentSlug="resolucion-3100-2019-calibracion-ips" category="Normativa" />
 </Layout>

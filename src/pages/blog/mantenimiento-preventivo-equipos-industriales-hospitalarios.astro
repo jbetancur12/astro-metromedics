@@ -3,14 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSchema from "../../components/ui/ArticleSchema.astro";
 import ReadingProgressBar from "../../components/blog/ReadingProgressBar.astro";
 import RelatedArticles from "../../components/blog/RelatedArticles.astro";
+import AuthorBox from "../../components/blog/AuthorBox.astro";
 ---
 
 <Layout
-  title="Mantenimiento preventivo industrial y hospitalario | Metromedics SAS"
+  title="Mantenimiento preventivo de equipos | Metromedics SAS"
   description="Guía de mantenimiento preventivo para equipos médicos e industriales. Frecuencias, checklist y prácticas recomendadas. Guía completa 2026."
+  type="article"
+  publishedTime="2026-04-28"
 >
   <ReadingProgressBar />
   <ArticleSchema
+    slot="head"
     headline="Mantenimiento preventivo industrial y hospitalario"
     description="Guía de mantenimiento preventivo para equipos médicos e industriales. Frecuencias, checklist y prácticas recomendadas."
     datePublished="2026-04-28"
@@ -24,7 +28,7 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 11a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2zM4 17a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1v-2z"></path>
           </svg>
         </div>
-        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium">28 de abril, 2026 · 11 min de lectura</p>
+        <p class="text-sm text-blue-200 mb-2 tracking-widest uppercase font-medium"><time datetime="2026-04-28">28 de abril, 2026</time> · 11 min de lectura · Equipo técnico</p>
         <h1 class="text-display-lg font-bold mb-6">Mantenimiento preventivo de equipos industriales y hospitalarios — Guía completa 2026</h1>
         <p class="text-xl mb-4 text-blue-100 leading-relaxed max-w-3xl mx-auto">
           Una guía práctica con frecuencias, checklist y recomendaciones para mantener sus equipos médicos e industriales en óptimas condiciones de funcionamiento.
@@ -233,5 +237,6 @@ import RelatedArticles from "../../components/blog/RelatedArticles.astro";
       </div>
     </div>
   </section>
+  <AuthorBox datePublished="2026-04-28" />
   <RelatedArticles currentSlug="mantenimiento-preventivo-equipos-industriales-hospitalarios" category="Mantenimiento" />
 </Layout>
