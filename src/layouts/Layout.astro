@@ -145,7 +145,8 @@ const jsonLd = {
 };
 
 const pixelId = import.meta.env.PUBLIC_FACEBOOK_PIXEL_ID;
-const gaId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID;
+// GA4 (G-SL4DKWTKVJ) se carga solo desde GTM (GTM-MB52DKRX). Cargarlo también
+// aquí con gtag duplicaba page_view y los eventos.
 const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
 const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
 ---
@@ -215,19 +216,6 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
           fbq('init', pid);
           fbq('track', 'PageView');
         </script>
-    )}
-
-    {gaId && (
-      <>
-        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-        <script is:inline data-ga-id={gaId}>
-          var gid = document.currentScript.dataset.gaId;
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', gid);
-        </script>
-      </>
     )}
 
     {posthogKey && (
