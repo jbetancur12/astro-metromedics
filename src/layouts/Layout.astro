@@ -267,6 +267,21 @@ const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || "https://us.i.posthog
     {import.meta.env.PUBLIC_LEAD_MAGNET_ENABLED !== "false" && <LeadMagnetModal />}
 
     <!-- <Copyright /> -->
+    <script>
+      import { trackEvent } from "../utils/analytics";
+
+      // Clics en teléfono y correo en cualquier página (delegación de eventos)
+      document.addEventListener("click", (e) => {
+        const link = (e.target as Element | null)?.closest?.('a[href^="tel:"], a[href^="mailto:"]') as HTMLAnchorElement | null;
+        if (!link) return;
+        const href = link.getAttribute("href") || "";
+        const isPhone = href.startsWith("tel:");
+        trackEvent(isPhone ? "phone_click" : "email_click", {
+          link_url: href.replace(/^(tel:|mailto:)/, "").split("?")[0],
+          link_text: (link.textContent || "").trim().slice(0, 100),
+        });
+      });
+    </script>
     <script is:inline>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {

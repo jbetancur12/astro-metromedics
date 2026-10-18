@@ -366,6 +366,8 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
+  import { trackLead } from "../utils/analytics";
+
   const contactForm = document.getElementById("contactForm") as HTMLFormElement;
 
   contactForm?.addEventListener("submit", function (event) {
@@ -405,11 +407,15 @@ import Layout from "../layouts/Layout.astro";
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
       .then((data) => {
         if (typeof posthog !== "undefined") {
           posthog.capture("contact_form_success", { form: "contacto" });
         }
+        trackLead("contacto", { sector: object.sector || "" });
 
         // Show success message
         submitButton.innerHTML = `

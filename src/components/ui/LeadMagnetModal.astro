@@ -104,6 +104,8 @@
 </div>
 
 <script>
+  import { trackLead } from "../../utils/analytics";
+
   let shown = false;
   const GUIDE_MEDICA = "/pdf/guia-cumplimiento-normativo-equipos-medicos.pdf";
   const GUIDE_INDUSTRIAL = "/pdf/guia-calibracion-industrial.pdf";
@@ -164,6 +166,7 @@
       });
 
       btn.innerHTML = '¡Gracias! Descargando guía...';
+      trackLead("guia_cumplimiento", { guide_type: guideType });
 
       const formContainer = document.getElementById("leadForm");
       const successHtml = `

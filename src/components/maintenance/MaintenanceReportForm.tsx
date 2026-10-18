@@ -11,6 +11,7 @@ import {
 } from '@mui/icons-material'
 import MaintenanceFileUpload from './MaintenanceFileUpload'
 import { maintenanceApi } from '../../services/maintenanceApi'
+import { trackLead } from '../../utils/analytics'
 import type {
   MaintenanceCreateRequest
 } from '../../types/maintenance'
@@ -113,6 +114,10 @@ const MaintenanceReportForm: React.FC = () => {
         phCapture('maintenance_request_succeeded', {
           ticket_number: ticketNumber,
           files_count: files.length
+        })
+        trackLead('solicitud_mantenimiento', {
+          equipment_type: values.equipmentType,
+          location: values.location
         })
 
         setSubmissionResult({
