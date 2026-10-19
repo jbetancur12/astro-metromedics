@@ -105,6 +105,7 @@
 
 <script>
   import { trackLead } from "../../utils/analytics";
+  import { API_BASE_URL } from "../../utils/apiUrl";
 
   let shown = false;
   const GUIDE_MEDICA = "/pdf/guia-cumplimiento-normativo-equipos-medicos.pdf";
@@ -155,7 +156,7 @@
     const guideLabel = guideType === "industrial" ? "industrial" : "médico";
 
     try {
-      await fetch("/api/contact", {
+      await fetch(`${API_BASE_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,7 +1,5 @@
 import axios from 'axios'
-
-// API base URL - use environment variable or default to localhost
-const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'https://api.metromedicslab.com.co'
+import { API_BASE_URL } from './apiUrl'
 
 // Public axios instance for maintenance endpoints (no auth required)
 export const axiosPublic = axios.create({

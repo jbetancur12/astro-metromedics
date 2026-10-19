@@ -367,6 +367,7 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   import { trackLead } from "../utils/analytics";
+  import { API_BASE_URL } from "../utils/apiUrl";
 
   const contactForm = document.getElementById("contactForm") as HTMLFormElement;
 
@@ -384,7 +385,6 @@ import Layout from "../layouts/Layout.astro";
       object[key] = value;
     });
     const json = JSON.stringify(object);
-    console.log("🚀 ~ file: contacto.astro ~ json:", json);
 
     // Show loading state
     const submitButton = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -400,7 +400,7 @@ import Layout from "../layouts/Layout.astro";
       </span>
     `;
 
-    fetch("/api/contact", {
+    fetch(`${API_BASE_URL}/contact`, {
       method: "POST",
       body: json,
       headers: {
