@@ -71,7 +71,7 @@ const MaintenanceFileUpload: React.FC<FileUploadProps> = ({
   }
 
   const getFileIcon = (file: MaintenanceFile) => {
-    if (file.isImage) return <ImageIcon className="w-5 h-5 text-blue-600" />
+    if (file.isImage) return <ImageIcon className="w-5 h-5 text-primary-600" />
     if (file.isVideo) return <VideoFile className="w-5 h-5 text-purple-600" />
     if (file.fileType?.includes('pdf')) return <InsertDriveFile className="w-5 h-5 text-red-600" />
     return <AttachFile className="w-5 h-5 text-gray-600" />
@@ -85,8 +85,8 @@ const MaintenanceFileUpload: React.FC<FileUploadProps> = ({
         className={`
           border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors
           ${isDragActive
-            ? 'border-blue-400 bg-blue-50'
-            : 'border-gray-300 hover:border-blue-400 hover:bg-gray-50'
+            ? 'border-primary-400 bg-primary-50'
+            : 'border-gray-300 hover:border-primary-400 hover:bg-gray-50'
           }
           ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
           ${files.length >= maxFiles ? 'opacity-50 cursor-not-allowed' : ''}
@@ -96,7 +96,7 @@ const MaintenanceFileUpload: React.FC<FileUploadProps> = ({
         <CloudUpload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
 
         {isDragActive ? (
-          <p className="text-blue-600 font-medium">Suelte los archivos aquí...</p>
+          <p className="text-primary-600 font-medium">Suelte los archivos aquí...</p>
         ) : (
           <div>
             <p className="text-gray-600 font-medium mb-2">

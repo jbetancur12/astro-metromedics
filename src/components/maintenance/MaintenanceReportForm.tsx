@@ -252,7 +252,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.customerName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.customerName && formik.errors.customerName
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.customerName && formik.errors.customerName
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -273,7 +273,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.customerEmail}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.customerEmail && formik.errors.customerEmail
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.customerEmail && formik.errors.customerEmail
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -294,7 +294,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.customerPhone}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.customerPhone && formik.errors.customerPhone
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.customerPhone && formik.errors.customerPhone
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -315,7 +315,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.location}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.location && formik.errors.location
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.location && formik.errors.location
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -347,7 +347,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentType}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentType && formik.errors.equipmentType
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.equipmentType && formik.errors.equipmentType
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -368,7 +368,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentBrand}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentBrand && formik.errors.equipmentBrand
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.equipmentBrand && formik.errors.equipmentBrand
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -389,7 +389,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentModel}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentModel && formik.errors.equipmentModel
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.equipmentModel && formik.errors.equipmentModel
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -410,7 +410,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.equipmentSerial}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${formik.touched.equipmentSerial && formik.errors.equipmentSerial
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${formik.touched.equipmentSerial && formik.errors.equipmentSerial
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -442,7 +442,7 @@ const MaintenanceReportForm: React.FC = () => {
                 value={formik.values.issueDescription}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none ${formik.touched.issueDescription && formik.errors.issueDescription
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none ${formik.touched.issueDescription && formik.errors.issueDescription
                     ? 'border-red-500'
                     : 'border-gray-300'
                   }`}
@@ -528,7 +528,7 @@ const MaintenanceReportForm: React.FC = () => {
                       {files.map((file, index) => (
                         <span
                           key={index}
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800"
                         >
                           {file.name}
                         </span>
@@ -557,7 +557,7 @@ const MaintenanceReportForm: React.FC = () => {
                 ¡Solicitud Enviada!
               </h2>
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                Número de Ticket: <span className="text-blue-600">{submissionResult.ticketNumber}</span>
+                Número de Ticket: <span className="text-primary-600">{submissionResult.ticketNumber}</span>
               </h3>
               <p className="text-gray-600 mb-4">
                 {submissionResult.message}
@@ -569,7 +569,7 @@ const MaintenanceReportForm: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
                   href="/mantenimiento/seguimiento"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
                 >
                   Hacer Seguimiento
                 </a>
@@ -607,12 +607,12 @@ const MaintenanceReportForm: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       <div className="bg-white rounded-xl shadow-lg overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6 text-center">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-8 py-6 text-center">
           <Build className="w-12 h-12 text-white mx-auto mb-3" />
           <h1 className="text-2xl font-bold text-white mb-2">
             Solicitud de Mantenimiento
           </h1>
-          <p className="text-blue-100">
+          <p className="text-primary-100">
             Complete el siguiente formulario para reportar un problema con su equipo médico
           </p>
         </div>
@@ -626,7 +626,7 @@ const MaintenanceReportForm: React.FC = () => {
                   className={`
                     flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium
                     ${index <= activeStep
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-primary-600 text-white'
                       : 'bg-gray-200 text-gray-600'
                     }
                   `}
@@ -636,7 +636,7 @@ const MaintenanceReportForm: React.FC = () => {
                 <span
                   className={`
                     ml-3 text-sm font-medium
-                    ${index <= activeStep ? 'text-blue-600' : 'text-gray-500'
+                    ${index <= activeStep ? 'text-primary-600' : 'text-gray-500'
                     }
                   `}
                 >
@@ -646,7 +646,7 @@ const MaintenanceReportForm: React.FC = () => {
                   <div
                     className={`
                       ml-6 w-16 h-0.5
-                      ${index < activeStep ? 'bg-blue-600' : 'bg-gray-200'
+                      ${index < activeStep ? 'bg-primary-600' : 'bg-gray-200'
                       }
                     `}
                   />
@@ -658,9 +658,9 @@ const MaintenanceReportForm: React.FC = () => {
 
         {/* Loading indicator */}
         {isLoading && (
-          <div className="px-8 py-4 bg-blue-50 border-b border-blue-200">
-            <div className="flex items-center text-blue-700">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700 mr-3"></div>
+          <div className="px-8 py-4 bg-primary-50 border-b border-primary-200">
+            <div className="flex items-center text-primary-700">
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-700 mr-3"></div>
               <span className="text-sm font-medium">Enviando solicitud...</span>
             </div>
           </div>
@@ -693,7 +693,7 @@ const MaintenanceReportForm: React.FC = () => {
                   ? !formik.isValid || isLoading
                   : !isStepValid(activeStep)
               }
-              className="inline-flex items-center px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center px-6 py-2 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {activeStep === steps.length - 1 ? (
                 <>

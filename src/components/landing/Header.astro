@@ -5,7 +5,7 @@ const pathname = Astro.url.pathname;
 
 <nav
   id="header"
-  class="fixed w-full z-50 top-0 text-black border-y-green-500 border-t-6 bg-white"
+  class="fixed w-full z-50 top-0 text-black border-y-primary-500 border-t-6 bg-white"
 >
   <div
     class="w-full container mx-auto flex items-center justify-between mt-0 py-2"
@@ -53,15 +53,15 @@ const pathname = Astro.url.pathname;
       <ul class="list-reset lg:flex justify-center flex-1 items-center text-sm lg:text-base space-y-2 lg:space-y-0 lg:space-x-8">
         <li>
           <a
-            class="nav-link block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
-            class:list={[pathname == "/servicios" && "text-green-600 bg-green-50 font-bold"]}
+            class="nav-link whitespace-nowrap block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
+            class:list={[pathname == "/servicios" && "text-primary-600 bg-primary-50 font-bold"]}
             href="/servicios">Servicios</a
           >
         </li>
         <li class="relative">
           <a
             id="laboratoriosLink"
-            class="nav-link-dropdown block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium flex items-center group"
+            class="nav-link-dropdown block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium flex items-center group"
             href="/laboratorios/laboratorio-acreditado"
             aria-expanded="false"
             aria-haspopup="true"
@@ -71,7 +71,7 @@ const pathname = Astro.url.pathname;
             Laboratorios
             <svg
               id="angle-down"
-              class="ml-2 w-4 h-4 text-gray-500 group-hover:text-green-600 transition-transform duration-200"
+              class="ml-2 w-4 h-4 text-gray-500 group-hover:text-primary-600 transition-transform duration-200"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -94,13 +94,13 @@ const pathname = Astro.url.pathname;
           >
             <a
               href="/laboratorios/laboratorio-acreditado"
-              class="block px-6 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 font-medium"
+              class="block px-6 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 font-medium"
               role="menuitem"
               >Laboratorio Acreditado</a
             >
             <a
               href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
-              class="block px-6 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 font-medium"
+              class="block px-6 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 font-medium"
               role="menuitem"
               >Laboratorio con Trazabilidad</a
             >
@@ -108,22 +108,22 @@ const pathname = Astro.url.pathname;
         </li>
         <li>
           <a
-            class="nav-link block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
-            class:list={[pathname == "/nosotros" && "text-green-600 bg-green-50 font-bold"]}
+            class="nav-link whitespace-nowrap block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
+            class:list={[pathname == "/nosotros" && "text-primary-600 bg-primary-50 font-bold"]}
             href="/nosotros">Nosotros</a
           >
         </li>
         <li>
           <a
-            class="nav-link block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
-            class:list={[pathname == "/evaluacion-servicio" && "text-green-600 bg-green-50 font-bold"]}
-            href="/evaluacion-servicio">Evaluación de Servicio</a
+            class="nav-link whitespace-nowrap block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
+            class:list={[pathname == "/evaluacion-servicio" && "text-primary-600 bg-primary-50 font-bold"]}
+            href="/evaluacion-servicio">Evaluación</a
           >
         </li>
         <li>
           <a
-            class="nav-link block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
-            class:list={[pathname == "/pqr" && "text-green-600 bg-green-50 font-bold"]}
+            class="nav-link whitespace-nowrap block py-3 px-4 lg:py-2 text-gray-700 no-underline hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg transition-all duration-200 font-medium"
+            class:list={[pathname == "/pqr" && "text-primary-600 bg-primary-50 font-bold"]}
             href="/pqr">PQR</a
           >
         </li>
@@ -134,7 +134,7 @@ const pathname = Astro.url.pathname;
         <!-- CTA Primario -->
         <a
           href="/contacto"
-          class="btn-primary block lg:inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+          class="btn-primary whitespace-nowrap block lg:inline-flex items-center justify-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -146,7 +146,7 @@ const pathname = Astro.url.pathname;
         <div class="relative">
           <a
             id="clientesLink"
-            class="btn-secondary inline-flex items-center px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 font-medium rounded-lg transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            class="btn-secondary inline-flex items-center px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 font-medium rounded-lg transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
             href="#"
             aria-expanded="false"
             aria-haspopup="true"
@@ -159,7 +159,7 @@ const pathname = Astro.url.pathname;
             Portal Cliente
             <svg
               id="angle-down-clientes"
-              class="ml-2 w-4 h-4 text-gray-400 group-hover:text-green-600 transition-transform duration-200"
+              class="ml-2 w-4 h-4 text-gray-400 group-hover:text-primary-600 transition-transform duration-200"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -181,12 +181,12 @@ const pathname = Astro.url.pathname;
           >
             <a
               href="https://app.metromedicslab.com/login"
-              class="flex items-center px-6 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 font-medium"
+              class="flex items-center px-6 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 font-medium"
               role="menuitem"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <svg class="w-4 h-4 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
               </svg>
               Calibraciones
@@ -196,7 +196,7 @@ const pathname = Astro.url.pathname;
             </a>
             <a
               href="/mantenimiento"
-              class="flex items-center px-6 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 font-medium"
+              class="flex items-center px-6 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 font-medium"
               role="menuitem"
             >
               <svg class="w-4 h-4 mr-3 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,12 +206,12 @@ const pathname = Astro.url.pathname;
             </a>
             <a
               href="https://fm34.easytechpro.com/fmi/webd"
-              class="flex items-center px-6 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 font-medium"
+              class="flex items-center px-6 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 font-medium"
               role="menuitem"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <svg class="w-4 h-4 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
@@ -237,10 +237,10 @@ const pathname = Astro.url.pathname;
       <!-- Navegación Principal Móvil -->
       <a
         href="/servicios"
-        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
-        class:list={[pathname == "/servicios" && "text-green-600 bg-green-50 font-bold"]}
+        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
+        class:list={[pathname == "/servicios" && "text-primary-600 bg-primary-50 font-bold"]}
       >
-        <svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6z"></path>
         </svg>
         Servicios
@@ -250,14 +250,14 @@ const pathname = Astro.url.pathname;
       <div>
         <div
           id="laboratoriosMobileLink"
-          class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center justify-between cursor-pointer"
+          class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center justify-between cursor-pointer"
           role="button"
           tabindex="0"
           aria-expanded="false"
           aria-controls="laboratoriosMobile"
         >
           <div class="flex items-center">
-            <svg class="w-5 h-5 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
             </svg>
             Laboratorios
@@ -266,16 +266,16 @@ const pathname = Astro.url.pathname;
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </div>
-        <div id="laboratoriosMobile" class="hidden bg-gray-50 py-2 ml-4 rounded-lg border-l-4 border-green-200">
+        <div id="laboratoriosMobile" class="hidden bg-gray-50 py-2 ml-4 rounded-lg border-l-4 border-primary-200">
           <a
             href="/laboratorios/laboratorio-acreditado"
-            class="block px-6 py-3 text-gray-600 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
+            class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
           >
             Laboratorio Acreditado
           </a>
           <a
             href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial"
-            class="block px-6 py-3 text-gray-600 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
+            class="block px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
           >
             Laboratorio con Trazabilidad
           </a>
@@ -284,10 +284,10 @@ const pathname = Astro.url.pathname;
 
       <a
         href="/nosotros"
-        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
-        class:list={[pathname == "/nosotros" && "text-green-600 bg-green-50 font-bold"]}
+        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
+        class:list={[pathname == "/nosotros" && "text-primary-600 bg-primary-50 font-bold"]}
       >
-        <svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20l-5.5-5.5M15 10a5 5 0 11-10 0 5 5 0 0110 0z"/>
         </svg>
         Blog
@@ -295,8 +295,8 @@ const pathname = Astro.url.pathname;
 
       <a
         href="/nosotros"
-        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
-        class:list={[pathname == "/nosotros" && "text-green-600 bg-green-50 font-bold"]}
+        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
+        class:list={[pathname == "/nosotros" && "text-primary-600 bg-primary-50 font-bold"]}
       >
         <svg class="w-5 h-5 mr-3 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -306,8 +306,8 @@ const pathname = Astro.url.pathname;
 
       <a
         href="/evaluacion-servicio"
-        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
-        class:list={[pathname == "/evaluacion-servicio" && "text-green-600 bg-green-50 font-bold"]}
+        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
+        class:list={[pathname == "/evaluacion-servicio" && "text-primary-600 bg-primary-50 font-bold"]}
       >
         <svg class="w-5 h-5 mr-3 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
@@ -317,8 +317,8 @@ const pathname = Astro.url.pathname;
 
       <a
         href="/pqr"
-        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center"
-        class:list={[pathname == "/pqr" && "text-green-600 bg-green-50 font-bold"]}
+        class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center"
+        class:list={[pathname == "/pqr" && "text-primary-600 bg-primary-50 font-bold"]}
       >
         <svg class="w-5 h-5 mr-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -332,7 +332,7 @@ const pathname = Astro.url.pathname;
       <!-- CTA Móvil -->
       <a
         href="/contacto"
-        class="block w-full px-6 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-center"
+        class="block w-full px-6 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-center"
       >
         <svg class="w-5 h-5 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -344,7 +344,7 @@ const pathname = Astro.url.pathname;
       <div>
         <div
           id="clientesMobileLink"
-          class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px] flex items-center justify-between cursor-pointer"
+          class="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px] flex items-center justify-between cursor-pointer"
           role="button"
           tabindex="0"
           aria-expanded="false"
@@ -363,11 +363,11 @@ const pathname = Astro.url.pathname;
         <div id="clientesMobile" class="hidden bg-gray-50 py-2 ml-4 rounded-lg border-l-4 border-purple-200">
           <a
             href="https://app.metromedicslab.com/login"
-            class="flex items-center px-6 py-3 text-gray-600 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px]"
+            class="flex items-center px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px]"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <svg class="w-4 h-4 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
             </svg>
             Calibraciones
@@ -377,7 +377,7 @@ const pathname = Astro.url.pathname;
           </a>
           <a
             href="/mantenimiento"
-            class="flex items-center px-6 py-3 text-gray-600 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px]"
+            class="flex items-center px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px]"
           >
             <svg class="w-4 h-4 mr-3 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
@@ -386,11 +386,11 @@ const pathname = Astro.url.pathname;
           </a>
           <a
             href="https://fm34.easytechpro.com/fmi/webd"
-            class="flex items-center px-6 py-3 text-gray-600 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:bg-green-50 focus:text-green-700 transition-colors duration-200 min-h-[44px]"
+            class="flex items-center px-6 py-3 text-gray-600 hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:bg-primary-50 focus:text-primary-700 transition-colors duration-200 min-h-[44px]"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <svg class="w-4 h-4 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mr-3 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>

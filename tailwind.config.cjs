@@ -13,16 +13,17 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d'
+          // Turquesa del front (#00BFA5); 700 (#00897B) es el tono con contraste para texto
+          50: '#E0F7F4',
+          100: '#B2EBE3',
+          200: '#80DED1',
+          300: '#4DD0BE',
+          400: '#26C6AE',
+          500: '#00BFA5',
+          600: '#00A38C',
+          700: '#00897B',
+          800: '#00695C',
+          900: '#004D40'
         },
         success: {
           50: '#f0fdf4',
@@ -30,8 +31,9 @@ module.exports = {
           600: '#16a34a'
         },
         medical: {
-          blue: '#2563eb',
-          green: '#22c55e',
+          // "blue" se conserva como alias para no tocar ~100 clases; ahora es el turquesa oscuro
+          blue: '#00897B',
+          green: '#00BFA5',
           gray: '#6b7280'
         }
       },

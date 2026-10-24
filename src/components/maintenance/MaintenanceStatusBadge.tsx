@@ -21,7 +21,7 @@ const MaintenanceStatusBadge: React.FC<MaintenanceStatusBadgeProps> = ({
 
   const colorClasses: Record<string, string> = {
     gray: 'bg-gray-100 text-gray-800 border-gray-200',
-    blue: 'bg-blue-100 text-blue-800 border-blue-200',
+    blue: 'bg-primary-100 text-primary-800 border-primary-200',
     purple: 'bg-purple-100 text-purple-800 border-purple-200',
     orange: 'bg-orange-100 text-orange-800 border-orange-200',
     yellow: 'bg-yellow-100 text-yellow-800 border-yellow-200',
@@ -42,7 +42,7 @@ const MaintenanceStatusBadge: React.FC<MaintenanceStatusBadgeProps> = ({
         className={`
           w-2 h-2 rounded-full mr-2
           ${colorClass === 'gray' ? 'bg-gray-400' : ''}
-          ${colorClass === 'blue' ? 'bg-blue-400' : ''}
+          ${colorClass === 'blue' ? 'bg-primary-400' : ''}
           ${colorClass === 'purple' ? 'bg-purple-400' : ''}
           ${colorClass === 'orange' ? 'bg-orange-400' : ''}
           ${colorClass === 'yellow' ? 'bg-yellow-400' : ''}
