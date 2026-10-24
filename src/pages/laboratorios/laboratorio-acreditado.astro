@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import LabIllustration from '../../components/landing/LabIllustration.astro';
 ---
 
 <Layout
@@ -121,16 +122,11 @@ import Layout from "../../layouts/Layout.astro";
 
   <!-- Magnitud Masa -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
-    <div class="relative aspect-square bg-[#0f1e2e] overflow-hidden">
-      <img
-        src="/images/item2-291x300.jpg"
-        alt="Calibración de Magnitud Masa"
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
+      <LabIllustration name="masa" label="Calibración de Magnitud Masa" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
  
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-medium text-white leading-tight">Magnitud Masa</h3>
+        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Magnitud Masa</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -166,16 +162,11 @@ import Layout from "../../layouts/Layout.astro";
 
   <!-- Magnitud Presión -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
-    <div class="relative aspect-square bg-[#0f1e2e] overflow-hidden">
-      <img
-        src="/images/item1-292x300.jpg"
-        alt="Calibración de Magnitud Presión"
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
+      <LabIllustration name="presion" label="Calibración de Magnitud Presión" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
  
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-medium text-white leading-tight">Magnitud Presión</h3>
+        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Magnitud Presión</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -223,16 +214,11 @@ import Layout from "../../layouts/Layout.astro";
 
   <!-- Temperatura y Humedad Relativa -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
-    <div class="relative aspect-square bg-[#0f1e2e] overflow-hidden">
-      <img
-        src="/images/items_temp_relativa-292x300.jpg"
-        alt="Calibración de Temperatura y Humedad Relativa"
-        class="w-full h-full object-cover  group-hover:scale-105 transition-transform duration-500"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
+      <LabIllustration name="humedad" label="Calibración de Temperatura y Humedad Relativa" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
  
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-medium text-white leading-tight">Temperatura y Humedad</h3>
+        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Temperatura y Humedad</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -258,16 +244,11 @@ import Layout from "../../layouts/Layout.astro";
 
   <!-- Temperatura de Contacto -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
-    <div class="relative aspect-square bg-[#0f1e2e] overflow-hidden">
-      <img
-        src="/images/items_temp-292x300.jpg"
-        alt="Calibración de Temperatura de Contacto"
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
+      <LabIllustration name="contacto" label="Calibración de Temperatura de Contacto" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
  
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-medium text-white leading-tight">Temperatura de Contacto</h3>
+        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Temperatura de Contacto</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -296,16 +277,11 @@ import Layout from "../../layouts/Layout.astro";
 
   <!-- Caracterización de Equipos -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300 lg:col-span-2 xl:col-span-1">
-    <div class="relative aspect-square bg-[#0f1e2e] overflow-hidden">
-      <img
-        src="/images/isotermicos3.png"
-        alt="Caracterización de Equipos Isotérmicos"
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
+      <LabIllustration name="isotermico" label="Caracterización de Equipos Isotérmicos" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
 
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-medium text-white leading-tight">Caracterización de Equipos</h3>
+        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Caracterización de Equipos</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">

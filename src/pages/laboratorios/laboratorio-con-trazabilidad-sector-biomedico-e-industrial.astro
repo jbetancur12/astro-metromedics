@@ -1,6 +1,14 @@
 ---
 import laboratorioTrazabilidad from '../../config/laboratorio-trazabilidad.json';
 import Layout from '../../layouts/Layout.astro';
+import LabIllustration from '../../components/landing/LabIllustration.astro';
+
+const labNames = {
+  "Laboratorio De Temperatura": "temperatura",
+  "Laboratorio De Presión": "presion",
+  "Laboratorio De Volumen": "volumen",
+  "Laboratorio De Flujo": "flujo",
+};
 ---
 
 <Layout
@@ -96,16 +104,12 @@ import Layout from '../../layouts/Layout.astro';
                 <!-- Image -->
                 <div class="flex-1 max-w-lg">
                   <div class="relative group">
-                    <img
-                      src={item.image}
-                      alt={`${item.title} - MetroMedics`}
-                      class="w-full h-80 lg:h-96 object-cover rounded-2xl shadow-large group-hover:shadow-xl transition-all duration-300"
-                      loading="lazy"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl group-hover:from-black/40 transition-all duration-300"></div>
+                    <div class="w-full h-80 lg:h-96 bg-primary-50 rounded-2xl shadow-large group-hover:shadow-xl transition-all duration-300 overflow-hidden flex items-center justify-center p-6">
+                      <LabIllustration name={labNames[item.title]} label={item.title} class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                    </div>
                     <div class="absolute bottom-6 left-6">
-                      <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div class="w-12 h-12 bg-white shadow-soft rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[item.title] || icons["Laboratorio De Temperatura"]}></path>
                         </svg>
                       </div>
