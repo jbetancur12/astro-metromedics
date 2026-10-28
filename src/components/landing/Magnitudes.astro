@@ -1,0 +1,48 @@
+---
+// Fotos del laboratorio: los banners ya traen el logo viejo y el título, así que se
+// amplía la esquina inferior izquierda, donde sólo aparecen los equipos.
+const magnitudes = [
+  { n: "01", name: "MASA", title: "Balanzas", text: "Analíticas, de precisión e industriales.", img: "/images/3.jpg", alt: "Balanza analítica con pesas patrón" },
+  { n: "02", name: "TEMPERATURA", title: "Calibración térmica", text: "Termómetros, termohigrómetros y sensores.", img: "/images/4.jpg", zoom: "scale-[2.4] group-hover:scale-[2.5]", alt: "Termómetros y fuentes de calibración sobre el banco de temperatura" },
+  { n: "03", name: "PRESIÓN", title: "Manómetros y tensiómetros", text: "Presión manométrica y de vacío.", img: "/images/1.jpg", alt: "Manómetros digitales en la bomba de comparación" },
+  { n: "04", name: "AUTOCLAVES", title: "Validación de autoclaves", text: "Calificación IQ, OQ y PQ con determinación del factor F.", img: "/images/5.jpg", alt: "Autoclave horizontal con las puertas abiertas" },
+];
+---
+
+<section id="magnitudes" class="bg-white">
+  <div class="mx-auto max-w-[1240px] px-6 py-24 lg:py-28">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-[600px]">
+        <span class="text-xs font-semibold tracking-[0.3em] text-primary-800">ALCANCE ACREDITADO</span>
+        <h2 class="mt-4 text-[clamp(30px,3.4vw,42px)] font-light leading-[1.15] tracking-[-0.015em] text-ink">¿Qué magnitud necesita calibrar?</h2>
+      </div>
+      <p class="max-w-[420px] text-base leading-relaxed text-gray-600">
+        Consulte el alcance de cada magnitud en el certificado de acreditación y solicite su cotización.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {magnitudes.map((m) => (
+        <a
+          href="/laboratorios/laboratorio-acreditado"
+          class="group flex flex-col overflow-hidden rounded-sm border border-gray-200 bg-white text-inherit no-underline transition-colors hover:border-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+        >
+          <div class="relative h-[220px] overflow-hidden bg-paper">
+            <img
+              src={m.img}
+              alt={m.alt}
+              loading="lazy"
+              class:list={["absolute bottom-0 left-0 h-full w-auto max-w-none origin-bottom-left transition-transform duration-500", m.zoom ?? "scale-[1.7] group-hover:scale-[1.8]"]}
+            />
+          </div>
+          <div class="flex flex-1 flex-col gap-2 p-6">
+            <span class="text-xs tracking-[0.2em] text-primary-800">{m.n} · {m.name}</span>
+            <span class="text-xl font-medium text-ink">{m.title}</span>
+            <span class="text-sm leading-relaxed text-gray-600">{m.text}</span>
+            <span class="mt-auto pt-2 text-xs font-semibold tracking-[0.14em] text-primary-800">VER ALCANCE →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

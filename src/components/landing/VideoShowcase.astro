@@ -1,131 +1,54 @@
 ---
+const features = [
+  { title: "Acreditación ONAC 18-LAC-020", text: "Bajo la norma ISO/IEC 17025:2017." },
+  { title: "Equipos de precisión", text: "Tecnología calibrada con patrones trazables a NIST." },
+  { title: "Personal especializado", text: "Técnicos certificados con más de 10 años de experiencia." },
+];
 ---
 
-<!-- Professional Video Showcase Section -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <div class="max-w-6xl mx-auto">
-      <!-- Section Header -->
-      <div class="text-center mb-12">
-        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-          Conoce Nuestro <span class="text-medical-blue">Laboratorio</span>
+<section id="laboratorio" class="bg-ink text-white">
+  <div class="mx-auto max-w-[1240px] px-6 py-24 lg:py-28">
+    <div class="flex flex-wrap items-end justify-between gap-x-14 gap-y-6">
+      <div class="max-w-[560px]">
+        <span class="text-xs font-medium tracking-[0.3em] text-primary-500">NUESTRO LABORATORIO</span>
+        <h2 class="mt-4 text-[clamp(30px,3.4vw,42px)] font-light leading-[1.15] tracking-[-0.015em]">
+          Patrones trazables, condiciones controladas y técnicos certificados.
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Descubre nuestras instalaciones acreditadas ONAC y los procesos de calibración
-          que garantizan la máxima precisión en cada servicio.
-        </p>
+      </div>
+      <p class="max-w-[400px] text-base leading-relaxed text-white/75">
+        Más de 10 años de experiencia calibrando equipos para el sector salud y la industria.
+      </p>
+    </div>
+
+    <div class="mt-14 grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
+      <div class="aspect-video overflow-hidden rounded-sm bg-ink-700">
+        <video
+          controls
+          preload="none"
+          poster="/images/companymmcs.jpg"
+          class="h-full w-full object-cover"
+          aria-label="Video institucional de Metromedics"
+        >
+          <source src="/videos/companymmcs.mp4" type="video/mp4" />
+          Su navegador no soporta el elemento de video.
+        </video>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Video Player -->
-        <div class="order-2 lg:order-1">
-          <div class="relative group">
-            <!-- Actual Video -->
-            <div id="video-player" class="aspect-video rounded-2xl overflow-hidden shadow-large">
-              <video
-                id="video-element"
-                width="100%"
-                height="100%"
-                controls
-                preload="none"
-                poster="/images/companymmcs.jpg"
-                class="w-full h-full object-cover rounded-2xl"
-              >
-                <source src="/videos/companymmcs.mp4" type="video/mp4">
-                Tu navegador no soporta el elemento de video.
-              </video>
-            </div>
-          </div>
-
-          <!-- Video Info -->
-          <div class="mt-6 flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-              <div class="flex items-center space-x-2">
-                <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-sm text-gray-600">Acreditado ONAC</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <svg class="w-5 h-5 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content & Features -->
-        <div class="order-1 lg:order-2 space-y-8">
-          <div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Instalaciones de Última Generación</h3>
-            <p class="text-gray-600 leading-relaxed mb-6">
-              Nuestro laboratorio cuenta con tecnología de vanguardia y procesos certificados
-              que garantizan la máxima precisión en cada calibración.
-            </p>
-          </div>
-
-          <!-- Key Features -->
-          <div class="space-y-4">
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                </svg>
-              </div>
+      <div class="flex flex-col gap-8">
+        <ul class="flex flex-col">
+          {features.map((f, i) => (
+            <li class="flex gap-5 border-t border-white/15 py-5 last:border-b">
+              <span class="pt-0.5 text-xs tracking-[0.2em] text-primary-500">0{i + 1}</span>
               <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Acreditación ONAC 18-LAC-020</h4>
-                <p class="text-gray-600 text-sm">Certificación bajo norma ISO/IEC 17025:2017</p>
+                <h3 class="text-lg font-medium">{f.title}</h3>
+                <p class="mt-1 text-[15px] leading-relaxed text-white/70">{f.text}</p>
               </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-medical-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Equipos de Precisión</h4>
-                <p class="text-gray-600 text-sm">Tecnología calibrada con patrones trazables NIST</p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 mb-1">Personal Especializado</h4>
-                <p class="text-gray-600 text-sm">Técnicos certificados con más de 10 años de experiencia</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 pt-4">
-            <a
-              href="/contacto"
-              class="inline-flex items-center px-6 py-3 bg-medical-blue hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-4 focus:ring-primary-300"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-              </svg>
-              Agendar Visita
-            </a>
-            <a
-              href="/servicios"
-              class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 transition-colors focus:outline-none focus:ring-4 focus:ring-gray-300"
-            >
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-              </svg>
-              Ver Servicios
-            </a>
-          </div>
+            </li>
+          ))}
+        </ul>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-xs font-semibold tracking-[0.18em] text-ink no-underline transition-colors hover:bg-primary-300 hover:text-ink">AGENDAR VISITA</a>
+          <a href="/laboratorios/laboratorio-acreditado" class="rounded-sm border border-white/45 px-7 py-[15px] text-xs font-medium tracking-[0.18em] text-white no-underline transition-colors hover:border-white hover:text-white">VER EL LABORATORIO</a>
         </div>
       </div>
     </div>

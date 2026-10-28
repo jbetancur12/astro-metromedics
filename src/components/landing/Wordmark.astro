@@ -1,0 +1,27 @@
+---
+// Logo 2026 (C2 premium): METR + manómetro + MEDICS. El trazo sigue currentColor;
+// la aguja usa --wm-needle para poder cambiarla según el fondo.
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<span
+  class:list={["wordmark font-medium leading-none whitespace-nowrap", className]}
+  role="img"
+  aria-label="Metromedics"
+>METR<svg viewBox="0 0 100 100" aria-hidden="true" class="wordmark-dial"><circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="12"></circle><path d="M50 22V27M22 50H27M73 50H78" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path><path d="M46 56.93L65 24.02" stroke="var(--wm-needle, #00bfa5)" stroke-width="8" stroke-linecap="round"></path><circle cx="50" cy="50" r="7" fill="currentColor"></circle></svg>MEDICS</span>
+
+<style>
+  .wordmark {
+    letter-spacing: 0.2em;
+  }
+  .wordmark-dial {
+    display: inline-block;
+    width: 0.76em;
+    height: 0.76em;
+    vertical-align: -0.018em;
+    margin-right: 0.2em;
+  }
+</style>

@@ -27,3 +27,71 @@
 .prose.blog-content ul li::marker { color: #00897B; }
 .prose.blog-content strong { color: #111827; font-weight: 600; }
 .prose.blog-content a { color: #00897B; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ------------------------------------------------------------------
+   Rediseño 2026 en las páginas internas: las secciones heredadas se
+   adaptan al sistema (verde profundo, papel cálido, esquinas rectas)
+   sin reescribir cada página. Las secciones nuevas usan utilidades
+   propias y no dependen de estas reglas.
+   ------------------------------------------------------------------ */
+main h1 {
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+main h2 {
+  letter-spacing: -0.015em;
+}
+
+/* Degradados turquesa → fondo verde profundo plano */
+main [class*="bg-gradient-to-"]:is(
+    [class~="from-medical-blue"],
+    [class~="from-primary-500"],
+    [class~="from-primary-600"],
+    [class~="from-primary-700"]
+  ) {
+  background-image: none;
+  background-color: #072724;
+}
+
+/* Fondos claros: papel cálido en lugar de gris frío */
+main .bg-gray-50 {
+  background-color: #f7f6f2;
+}
+main [class*="bg-gradient-to-"][class~="from-gray-50"] {
+  background-image: none;
+  background-color: #f7f6f2;
+}
+
+/* Esquinas casi rectas y sombras discretas */
+main .rounded-3xl,
+main .rounded-2xl,
+main .rounded-xl {
+  border-radius: 4px;
+}
+main .rounded-lg {
+  border-radius: 2px;
+}
+main .shadow-soft,
+main .shadow-medium,
+main .shadow-large,
+main .shadow-lg,
+main .shadow-xl,
+main .shadow-2xl {
+  box-shadow: 0 1px 2px rgba(7, 39, 36, 0.08), 0 0 0 1px rgba(7, 39, 36, 0.04);
+}
+main .hover\:-translate-y-2:hover,
+main .hover\:scale-105:hover {
+  transform: none;
+}
+
+/* Botones de acción: turquesa con texto oscuro (antes naranja) */
+main .bg-orange-500,
+main a.bg-orange-500:hover {
+  background-color: #00bfa5;
+  color: #072724;
+}
+main .bg-orange-500:hover,
+main .hover\:bg-orange-600:hover {
+  background-color: #4dd0be;
+  color: #072724;
+}
