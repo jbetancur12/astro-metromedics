@@ -1,11 +1,9 @@
 ---
-// Fotos del laboratorio: los banners ya traen el logo viejo y el título, así que se
-// amplía la esquina inferior izquierda, donde sólo aparecen los equipos.
 const magnitudes = [
-  { n: "01", name: "MASA", title: "Balanzas", text: "Analíticas, de precisión e industriales.", img: "/images/3.jpg", alt: "Balanza analítica con pesas patrón" },
-  { n: "02", name: "TEMPERATURA", title: "Calibración térmica", text: "Termómetros, termohigrómetros y sensores.", img: "/images/4.jpg", zoom: "scale-[2.4] group-hover:scale-[2.5]", alt: "Termómetros y fuentes de calibración sobre el banco de temperatura" },
-  { n: "03", name: "PRESIÓN", title: "Manómetros y tensiómetros", text: "Presión manométrica y de vacío.", img: "/images/1.jpg", alt: "Manómetros digitales en la bomba de comparación" },
-  { n: "04", name: "AUTOCLAVES", title: "Validación de autoclaves", text: "Calificación IQ, OQ y PQ con determinación del factor F.", img: "/images/5.jpg", alt: "Autoclave horizontal con las puertas abiertas" },
+  { n: "01", name: "MASA", title: "Balanzas", text: "Analíticas, de precisión e industriales.", img: "/images/home/magnitud-masa.webp", alt: "Balanza analítica con pesas patrón" },
+  { n: "02", name: "TEMPERATURA", title: "Calibración térmica", text: "Termómetros, termohigrómetros y sensores.", img: "/images/home/magnitud-temperatura.webp", alt: "Termómetro de referencia en baño térmico" },
+  { n: "03", name: "PRESIÓN", title: "Manómetros y tensiómetros", text: "Presión manométrica y de vacío.", img: "/images/home/magnitud-presion.webp", alt: "Manómetro en la bomba de comparación" },
+  { n: "04", name: "TEMPERATURA AVANZADA", title: "Medios isotermos", text: "Calibración especializada de equipos térmicos.", img: "/images/home/magnitud-temperatura-avanzada.webp", alt: "Sensores dentro de una autoclave o incubadora" },
 ];
 ---
 
@@ -27,13 +25,8 @@ const magnitudes = [
           href="/laboratorios/laboratorio-acreditado"
           class="group flex flex-col overflow-hidden rounded-sm border border-gray-200 bg-white text-inherit no-underline transition-colors hover:border-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
         >
-          <div class="relative h-[220px] overflow-hidden bg-paper">
-            <img
-              src={m.img}
-              alt={m.alt}
-              loading="lazy"
-              class:list={["absolute bottom-0 left-0 h-full w-auto max-w-none origin-bottom-left transition-transform duration-500", m.zoom ?? "scale-[1.7] group-hover:scale-[1.8]"]}
-            />
+          <div class="h-[220px] overflow-hidden bg-paper">
+            <img src={m.img} alt={m.alt} loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
           <div class="flex flex-1 flex-col gap-2 p-6">
             <span class="text-xs tracking-[0.2em] text-primary-800">{m.n} · {m.name}</span>
