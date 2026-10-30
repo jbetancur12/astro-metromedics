@@ -135,10 +135,25 @@ const MaintenanceReportForm: React.FC = () => {
         console.error('Maintenance form submission error:', error)
         let errorMessage = 'Error al enviar la solicitud. Intente nuevamente.'
 
-        if (error.response?.data?.message) {
-          errorMessage = error.response.data.message
-        } else if (error.response?.data?.error) {
-          errorMessage = error.response.data.error
+        // El API responde { error: { code, message, details } } (estándar),
+        // { error: 'texto' } o { message: 'texto' }: se leen los tres.
+        const apiData = error.response?.data
+        const apiError = apiData?.error
+        const apiDetails = Array.isArray(apiError?.details)
+          ? apiError.details
+              .map((d: { message?: string }) => d?.message)
+              .filter(Boolean)
+              .join('. ')
+          : ''
+        const apiReason =
+          apiDetails ||
+          (apiError && typeof apiError === 'object'
+            ? apiError.message
+            : apiError) ||
+          apiData?.message
+
+        if (typeof apiReason === 'string' && apiReason.trim()) {
+          errorMessage = apiReason
         } else if (error.message) {
           errorMessage = error.message
         }
