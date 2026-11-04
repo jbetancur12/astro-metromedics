@@ -1,6 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import LabIllustration from '../../components/landing/LabIllustration.astro';
+import { Image } from "astro:assets";
+import masaImg from "../../assets/images/M.jpg";
+import presionImg from "../../assets/images/P.jpg";
+import humedadImg from "../../assets/images/TH.jpg";
+import contactoImg from "../../assets/images/T.jpg";
+import isotermicoImg from "../../assets/images/C.jpg";
+import onacImg from "../../assets/images/onac_grande.png";
 ---
 
 <Layout
@@ -83,8 +89,9 @@ import LabIllustration from '../../components/landing/LabIllustration.astro';
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
         <div class="bg-white rounded-2xl shadow-large p-8 mb-12">
-          <img
-            src="/images/onac_grande.png"
+          <Image
+            src={onacImg}
+            width={800}
             alt="Certificación ONAC MetroMedics"
             class="mx-auto mb-6 max-h-32"
           />
@@ -123,10 +130,17 @@ import LabIllustration from '../../components/landing/LabIllustration.astro';
   <!-- Magnitud Masa -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <LabIllustration name="masa" label="Calibración de Magnitud Masa" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
- 
+      <Image
+        src={masaImg}
+        width={800}
+        alt="Calibración de Magnitud Masa"
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"></div>
+
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Magnitud Masa</h3>
+        <h3 class="text-xl font-semibold text-white leading-tight drop-shadow-sm">Magnitud Masa</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -163,10 +177,17 @@ import LabIllustration from '../../components/landing/LabIllustration.astro';
   <!-- Magnitud Presión -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <LabIllustration name="presion" label="Calibración de Magnitud Presión" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
- 
+      <Image
+        src={presionImg}
+        width={800}
+        alt="Calibración de Magnitud Presión"
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"></div>
+
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Magnitud Presión</h3>
+        <h3 class="text-xl font-semibold text-white leading-tight drop-shadow-sm">Magnitud Presión</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -215,10 +236,17 @@ import LabIllustration from '../../components/landing/LabIllustration.astro';
   <!-- Temperatura y Humedad Relativa -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <LabIllustration name="humedad" label="Calibración de Temperatura y Humedad Relativa" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
- 
+      <Image
+        src={humedadImg}
+        width={800}
+        alt="Calibración de Temperatura y Humedad Relativa"
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"></div>
+
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Temperatura y Humedad</h3>
+        <h3 class="text-xl font-semibold text-white leading-tight drop-shadow-sm">Temperatura y Humedad</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -245,10 +273,17 @@ import LabIllustration from '../../components/landing/LabIllustration.astro';
   <!-- Temperatura de Contacto -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <LabIllustration name="contacto" label="Calibración de Temperatura de Contacto" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
- 
+      <Image
+        src={contactoImg}
+        width={800}
+        alt="Calibración de Temperatura de Contacto"
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"></div>
+
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Temperatura de Contacto</h3>
+        <h3 class="text-xl font-semibold text-white leading-tight drop-shadow-sm">Temperatura de Contacto</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
@@ -278,10 +313,17 @@ import LabIllustration from '../../components/landing/LabIllustration.astro';
   <!-- Caracterización de Equipos -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300 lg:col-span-2 xl:col-span-1">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <LabIllustration name="isotermico" label="Caracterización de Equipos Isotérmicos" class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
+      <Image
+        src={isotermicoImg}
+        width={800}
+        alt="Caracterización de Equipos Isotérmicos"
+        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      />
+
+      <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 via-black/35 to-transparent pointer-events-none"></div>
 
       <div class="absolute bottom-3.5 left-4 right-4">
-        <h3 class="text-xl font-semibold text-primary-900 leading-tight">Caracterización de Equipos</h3>
+        <h3 class="text-xl font-semibold text-white leading-tight drop-shadow-sm">Caracterización de Equipos</h3>
       </div>
     </div>
     <div class="p-5 space-y-3">
