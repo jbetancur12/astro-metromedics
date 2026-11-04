@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 import masaImg from "../../assets/images/M.jpg";
 import presionImg from "../../assets/images/P.jpg";
 import humedadImg from "../../assets/images/TH.jpg";
@@ -130,9 +130,12 @@ import onacImg from "../../assets/images/onac_grande.png";
   <!-- Magnitud Masa -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <Image
+      <Picture
         src={masaImg}
-        width={800}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[400, 800]}
+        sizes="(min-width: 1280px) 400px, (min-width: 1024px) 45vw, 100vw"
         alt="Calibración de Magnitud Masa"
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -177,9 +180,12 @@ import onacImg from "../../assets/images/onac_grande.png";
   <!-- Magnitud Presión -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <Image
+      <Picture
         src={presionImg}
-        width={800}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[400, 800]}
+        sizes="(min-width: 1280px) 400px, (min-width: 1024px) 45vw, 100vw"
         alt="Calibración de Magnitud Presión"
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -236,9 +242,12 @@ import onacImg from "../../assets/images/onac_grande.png";
   <!-- Temperatura y Humedad Relativa -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <Image
+      <Picture
         src={humedadImg}
-        width={800}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[400, 800]}
+        sizes="(min-width: 1280px) 400px, (min-width: 1024px) 45vw, 100vw"
         alt="Calibración de Temperatura y Humedad Relativa"
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -273,9 +282,12 @@ import onacImg from "../../assets/images/onac_grande.png";
   <!-- Temperatura de Contacto -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <Image
+      <Picture
         src={contactoImg}
-        width={800}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[400, 800]}
+        sizes="(min-width: 1280px) 400px, (min-width: 1024px) 45vw, 100vw"
         alt="Calibración de Temperatura de Contacto"
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -313,9 +325,12 @@ import onacImg from "../../assets/images/onac_grande.png";
   <!-- Caracterización de Equipos -->
   <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300 lg:col-span-2 xl:col-span-1">
     <div class="relative aspect-square bg-primary-50 overflow-hidden flex items-center justify-center p-6 pb-16">
-      <Image
+      <Picture
         src={isotermicoImg}
-        width={800}
+        formats={["avif", "webp"]}
+        fallbackFormat="webp"
+        widths={[400, 800]}
+        sizes="(min-width: 1280px) 400px, (min-width: 1024px) 45vw, 100vw"
         alt="Caracterización de Equipos Isotérmicos"
         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
