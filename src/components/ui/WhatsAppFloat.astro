@@ -135,13 +135,17 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fina
     whatsappButton.addEventListener('click', (e) => {
       console.log('WhatsApp consultation requested - MetroMedics');
 
-      // GA4 vía GTM: el activador "whatsapp_consultation" de GTM envía el evento
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'whatsapp_consultation',
-        event_category: 'Lead Generation',
-        event_label: 'WhatsApp Technical Consultation'
-      });
+      // GA4 vía GTM: el activador "whatsapp_consultation" de GTM envía el evento.
+      // Solo se encola si hay consentimiento de analítica.
+      const consent = window.mmcsConsent && window.mmcsConsent.get ? window.mmcsConsent.get() : null;
+      if (consent && consent.analytics) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'whatsapp_consultation',
+          event_category: 'Lead Generation',
+          event_label: 'WhatsApp Technical Consultation'
+        });
+      }
 
       // Facebook Pixel
       if (typeof fbq !== 'undefined') {

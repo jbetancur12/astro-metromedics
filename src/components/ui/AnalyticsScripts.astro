@@ -1,0 +1,266 @@
+---
+/**
+ * Carga las herramientas de medición solo cuando la persona dio su permiso.
+ *
+ * Sin consentimiento no se pide nada a Google, Meta ni PostHog. La decisión se
+ * guarda en localStorage (`mmcs_cookie_consent`) y se puede cambiar desde el
+ * banner o desde /politica-cookies. Las cookies necesarias del sitio (por
+ * ejemplo la preferencia del modal de lead magnet) no pasan por aquí.
+ */
+const gtmId = import.meta.env.PUBLIC_GTM_ID || 'GTM-MB52DKRX';
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
+const posthogHost =
+  import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com';
+const pixelId = import.meta.env.PUBLIC_FACEBOOK_PIXEL_ID;
+---
+
+<script
+  is:inline
+  data-gtm-id={gtmId}
+  data-ph-key={posthogKey}
+  data-ph-host={posthogHost}
+  data-pixel-id={pixelId}
+>
+  (function () {
+    var current = document.currentScript;
+    var GTM_ID = current && current.dataset.gtmId;
+    var PH_KEY = current && current.dataset.phKey;
+    var PH_HOST = current && current.dataset.phHost;
+    var PIXEL_ID = current && current.dataset.pixelId;
+
+    var STORAGE_KEY = 'mmcs_cookie_consent';
+    var VERSION = 1;
+    var loaded = { gtm: false, pixel: false, posthog: false };
+
+    function readConsent() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (!parsed || parsed.version !== VERSION) return null;
+        return {
+          analytics: Boolean(parsed.analytics),
+          marketing: Boolean(parsed.marketing)
+        };
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function dataLayer() {
+      window.dataLayer = window.dataLayer || [];
+      if (!window.gtag) {
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+      }
+      return window.dataLayer;
+    }
+
+    function consentMode(consent) {
+      return {
+        ad_storage: consent.marketing ? 'granted' : 'denied',
+        ad_user_data: consent.marketing ? 'granted' : 'denied',
+        ad_personalization: consent.marketing ? 'granted' : 'denied',
+        analytics_storage: consent.analytics ? 'granted' : 'denied'
+      };
+    }
+
+    function loadGtm(consent) {
+      dataLayer();
+      if (loaded.gtm) {
+        window.gtag('consent', 'update', consentMode(consent));
+        return;
+      }
+
+      window.gtag('consent', 'default', consentMode(consent));
+      if (!GTM_ID) return;
+
+      loaded.gtm = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src =
+        'https://www.googletagmanager.com/gtm.js?id=' +
+        encodeURIComponent(GTM_ID);
+      document.head.appendChild(script);
+    }
+
+    function loadPostHog() {
+      if (!PH_KEY) return;
+
+      if (loaded.posthog) {
+        if (window.posthog && window.posthog.opt_in_capturing) {
+          window.posthog.opt_in_capturing();
+        }
+        return;
+      }
+
+      loaded.posthog = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src =
+        PH_HOST.replace('.i.posthog.com', '-assets.i.posthog.com') +
+        '/static/array.js';
+      script.onload = function () {
+        if (!window.posthog || !window.posthog.init) return;
+        window.posthog.init(PH_KEY, {
+          api_host: PH_HOST,
+          capture_pageview: true,
+          autocapture: true,
+          enable_heatmaps: true,
+          person_profiles: 'always'
+        });
+        // Mismo proyecto que la app interna: se separa el sitio de marketing.
+        window.posthog.register({ site: 'marketing' });
+      };
+      document.head.appendChild(script);
+    }
+
+    function revokePostHog() {
+      if (!window.posthog) return;
+      if (window.posthog.opt_out_capturing) window.posthog.opt_out_capturing();
+      if (window.posthog.reset) window.posthog.reset();
+      try {
+        Object.keys(localStorage)
+          .filter(function (key) {
+            return key.indexOf('ph_') === 0;
+          })
+          .forEach(function (key) {
+            localStorage.removeItem(key);
+          });
+      } catch (error) {
+        // modo privado: no hay nada que borrar
+      }
+    }
+
+    function loadMetaPixel() {
+      if (!PIXEL_ID) return;
+
+      if (loaded.pixel) {
+        if (window.fbq) window.fbq('consent', 'grant');
+        return;
+      }
+
+      loaded.pixel = true;
+      /* eslint-disable */
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = true;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = true;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      /* eslint-enable */
+
+      window.fbq('init', PIXEL_ID);
+      window.fbq('track', 'PageView');
+    }
+
+    function revokeMetaPixel() {
+      if (window.fbq) window.fbq('consent', 'revoke');
+      deleteCookies(['_fbp', '_fbc']);
+    }
+
+    function deleteCookie(name) {
+      var host = window.location.hostname;
+      var parts = host.split('.');
+      var rootDomain = parts.length > 2 ? '.' + parts.slice(-2).join('.') : host;
+      document.cookie =
+        name + '=; Max-Age=0; path=/; SameSite=Lax; domain=' + host;
+      document.cookie =
+        name + '=; Max-Age=0; path=/; SameSite=Lax; domain=' + rootDomain;
+      document.cookie = name + '=; Max-Age=0; path=/; SameSite=Lax';
+    }
+
+    function deleteCookies(prefixes) {
+      document.cookie.split(';').forEach(function (entry) {
+        var name = entry.split('=')[0].trim();
+        if (!name) return;
+        var matches = prefixes.some(function (prefix) {
+          return name.indexOf(prefix) === 0;
+        });
+        if (matches) deleteCookie(name);
+      });
+    }
+
+    function applyConsent(consent) {
+      var analytics = Boolean(consent && consent.analytics);
+      var marketing = Boolean(consent && consent.marketing);
+
+      // Google Tag Manager aloja GA4 y las etiquetas de marketing; con Consent
+      // Mode se le dice qué puede guardar en cada categoría.
+      if (analytics || marketing) {
+        loadGtm({ analytics: analytics, marketing: marketing });
+      } else if (loaded.gtm) {
+        window.gtag('consent', 'update', consentMode({ analytics: false, marketing: false }));
+      }
+
+      if (analytics) {
+        loadPostHog();
+      } else if (loaded.posthog) {
+        revokePostHog();
+      }
+
+      if (marketing) {
+        loadMetaPixel();
+      } else if (loaded.pixel) {
+        revokeMetaPixel();
+      }
+
+      if (!analytics) deleteCookies(['_ga', '_gid', '_gat', 'ph_']);
+      if (!marketing) deleteCookies(['_fbp', '_fbc']);
+    }
+
+    function saveConsent(consent) {
+      var value = {
+        version: VERSION,
+        analytics: Boolean(consent.analytics),
+        marketing: Boolean(consent.marketing),
+        updatedAt: new Date().toISOString()
+      };
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+      } catch (error) {
+        // modo privado: la decisión vale solo para esta visita
+      }
+
+      applyConsent(value);
+      window.dispatchEvent(
+        new CustomEvent('mmcs:consent-changed', { detail: value })
+      );
+      return value;
+    }
+
+    window.mmcsConsent = {
+      version: VERSION,
+      get: readConsent,
+      set: saveConsent,
+      acceptAll: function () {
+        return saveConsent({ analytics: true, marketing: true });
+      },
+      rejectAll: function () {
+        return saveConsent({ analytics: false, marketing: false });
+      },
+      open: function () {
+        window.dispatchEvent(new CustomEvent('mmcs:consent-open'));
+      },
+      hasDecision: function () {
+        return Boolean(readConsent());
+      }
+    };
+
+    applyConsent(readConsent());
+  })();
+</script>
