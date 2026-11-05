@@ -110,5 +110,14 @@ ssh metromedics@209.97.156.169 << 'EOF'
 
 EOF
 
+deploy_status=$?
+
+# Avisar a IndexNow solo si el despliegue terminó bien (no bloquea si falla)
+if [ $deploy_status -eq 0 ]; then
+  echo
+  echo "Avisando a IndexNow de las URLs publicadas..."
+  npm run indexnow || echo "IndexNow falló; el sitio ya quedó desplegado."
+fi
+
 # Mostrar errores
 show_errors
