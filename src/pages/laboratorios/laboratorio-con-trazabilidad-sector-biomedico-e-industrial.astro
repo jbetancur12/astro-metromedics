@@ -1,218 +1,168 @@
 ---
-import laboratorioTrazabilidad from '../../config/laboratorio-trazabilidad.json';
-import Layout from '../../layouts/Layout.astro';
 import { Picture } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
 import volumenImg from '../../assets/images/V.jpg';
 import flujoImg from '../../assets/images/F.jpg';
 import trazaImg from '../../assets/images/Traza.jpg';
 
-const labImages = {
-  "Laboratorio De Volumen": { src: volumenImg, alt: "Calibración de instrumentos de volumen: micropipeta, bureta y balones aforados" },
-  "Laboratorio De Flujo": { src: flujoImg, alt: "Calibración de equipos de flujo: bomba de infusión, ventilador y regulador de oxígeno" },
-};
+const cadena = [
+  { n: '01', titulo: 'Sistema Internacional (SI)', texto: 'La definición de la unidad.' },
+  { n: '02', titulo: 'NIST y referencias nacionales', texto: 'Institutos que materializan la unidad.' },
+  { n: '03', titulo: 'Patrones de Metromedics', texto: 'Calibrados contra esas referencias.' },
+  { n: '04', titulo: 'Su equipo', texto: 'Calibrado contra nuestros patrones.', destacado: true },
+];
+
+const laboratorios = [
+  {
+    n: '01 · LABORATORIO DE VOLUMEN',
+    rango: '1 µL a 200 mL',
+    img: volumenImg,
+    alt: 'Calibración de instrumentos de volumen: micropipeta, bureta y balones aforados',
+    items: [
+      'Micropipetas fijas y variables',
+      'Micropipetas multicanal',
+      'Buretas',
+      'Picnómetros',
+      'Balones aforados',
+      'Probetas graduadas',
+    ],
+  },
+  {
+    n: '02 · LABORATORIO DE FLUJO',
+    rango: '0 a 1 000 L/min',
+    img: flujoImg,
+    alt: 'Calibración de equipos de flujo: bomba de infusión, ventilador y regulador de oxígeno',
+    items: [
+      'Bombas de infusión',
+      'Flujómetros',
+      'Reguladores de oxígeno',
+      'Ventiladores mecánicos',
+      'Máquinas de anestesia',
+      'Cabinas de flujo laminar',
+      'Nebulizadores',
+      'Y otros equipos: consúltenos',
+    ],
+  },
+];
 ---
 
 <Layout
   title="Laboratorio con Trazabilidad SI: Biomédico e Industrial | Metromedics SAS"
   description="Laboratorio de calibración con trazabilidad al SI y NIST. Servicios para los sectores biomédico e industrial en Dosquebradas y Bogotá. Solicite su cotización."
 >
-  <!-- Modern Hero Section -->
-  <section class="bg-gradient-to-br from-primary-600 to-medical-blue text-white py-20">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-          </svg>
-        </div>
-        <h1 class="text-display-lg font-bold mb-6">Laboratorio con Trazabilidad</h1>
-        <p class="text-xl font-medium mb-4 text-primary-100">Sector Biomédico e Industrial</p>
-        <p class="text-lg mb-8 text-primary-100 leading-relaxed max-w-3xl mx-auto">
-          Garantizamos la trazabilidad de nuestros patrones de medición a través de equipos de referencia
-          nacionales e internacionales, trazados al Sistema Internacional de Unidades (SI) y NIST.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contacto" class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-            Solicitar Servicio
-          </a>
-          <a href="#laboratorios" class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-colors">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-            Ver Laboratorios
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Traceability Info Section -->
-  <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="bg-white rounded-2xl shadow-large overflow-hidden">
-          <Picture
-            src={trazaImg}
-            formats={["avif", "webp"]}
-            fallbackFormat="webp"
-            widths={[480, 800, 1200]}
-            sizes="(min-width: 896px) 896px, 100vw"
-            alt="Patrones de referencia en vitrina y técnico revisando un certificado de calibración"
-            class="w-full h-56 sm:h-72 object-cover"
-          />
-          <div class="p-8">
-          <div class="w-16 h-16 bg-primary-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-            </svg>
-          </div>
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Trazabilidad Internacional Garantizada</h2>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            El Laboratorio MetroMedics S.A.S asegura el mantenimiento de la trazabilidad
-            de los patrones utilizados en las mediciones a través de equipos de referencia
-            nacionales e internacionales los cuales están trazados al
-            <strong class="text-primary-600">Sistema Internacional de Unidades (SI)</strong>
-            o a través del <strong class="text-primary-600">NIST</strong>.
+  <!-- Hero -->
+  <section class="bg-ink text-white">
+    <div class="container mx-auto px-4 max-w-[1240px] pt-10 pb-20 lg:pb-24">
+      <nav aria-label="Ruta" class="text-sm text-white/65 flex flex-wrap gap-2">
+        <a href="/" class="text-white/75 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span>Laboratorios</span><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Laboratorio con trazabilidad</span>
+      </nav>
+      <div class="mt-12 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-xs font-medium tracking-[0.3em] text-primary-500">SECTOR BIOMÉDICO E INDUSTRIAL</span>
+          <h1 class="mt-5 text-4xl lg:text-[54px] font-light leading-[1.08] tracking-tight">Laboratorio con trazabilidad al Sistema Internacional</h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/75">
+            Calibramos volumen y flujo con patrones de referencia trazables al SI a través de NIST, con equipos de última tecnología y personal calificado.
           </p>
+          <div class="mt-9 flex flex-col sm:flex-row gap-4">
+            <a href="/contacto" class="px-7 py-4 bg-primary-500 hover:bg-primary-400 text-ink text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">SOLICITAR CALIBRACIÓN</a>
+            <a href="#laboratorios" class="px-7 py-4 border border-white/45 hover:border-white text-white text-xs font-medium tracking-[0.18em] rounded-sm text-center transition-colors">VER LABORATORIOS</a>
           </div>
         </div>
+        <Picture
+          src={trazaImg}
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 1024px) 600px, 100vw"
+          alt="Patrones de referencia en vitrina y técnico revisando un certificado de calibración"
+          loading="eager"
+          class="w-full h-64 lg:h-[380px] object-cover rounded"
+        />
       </div>
     </div>
   </section>
 
-  <!-- Laboratories Section -->
-  <section id="laboratorios" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-display-md font-bold text-gray-900 mb-4">
-          Nuestros <span class="text-primary-600">Laboratorios</span>
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Ofrecemos servicios especializados de calibración en diferentes magnitudes,
-          con equipos de última tecnología y personal altamente calificado.
-        </p>
-      </div>
+  <!-- Qué es la trazabilidad -->
+  <section class="bg-paper">
+    <div class="container mx-auto px-4 max-w-[1240px] py-20 lg:py-24">
+      <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">QUÉ ES LA TRAZABILIDAD</span>
+      <h2 class="mt-4 max-w-3xl text-3xl lg:text-4xl font-light leading-tight tracking-tight text-ink">
+        Una cadena ininterrumpida de calibraciones que une la medida de su equipo con la definición de la unidad.
+      </h2>
+      <ol aria-label="Cadena de trazabilidad" class="mt-12 flex flex-col lg:flex-row lg:items-stretch gap-3">
+        {cadena.map((paso, i) => (
+          <>
+            <li class={`flex-1 rounded p-6 flex flex-col gap-1.5 ${paso.destacado ? 'bg-ink' : 'bg-white border border-[#e3e0d7]'}`}>
+              <span class={`text-xs tracking-[0.2em] ${paso.destacado ? 'text-primary-500' : 'text-primary-700'}`}>{paso.n}</span>
+              <span class={`text-lg font-medium ${paso.destacado ? 'text-white' : 'text-ink'}`}>{paso.titulo}</span>
+              <span class={`text-sm leading-relaxed ${paso.destacado ? 'text-white/75' : 'text-gray-600'}`}>{paso.texto}</span>
+            </li>
+            {i < cadena.length - 1 && (
+              <li aria-hidden="true" class="flex items-center justify-center text-primary-700 text-2xl rotate-90 lg:rotate-0">→</li>
+            )}
+          </>
+        ))}
+      </ol>
+    </div>
+  </section>
 
-      <div class="space-y-16 max-w-7xl mx-auto">
-        {
-          laboratorioTrazabilidad.map((item, index) => {
-             if (item.title === "Laboratorio De Temperatura" || item.title === "Laboratorio De Presión") {
-        return null;
-      }
+  <!-- Laboratorios -->
+  <section id="laboratorios" class="bg-white">
+    <div class="container mx-auto px-4 max-w-[1240px] py-20 lg:py-28">
+      <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">NUESTROS LABORATORIOS</span>
+      <h2 class="mt-4 text-3xl lg:text-4xl font-light tracking-tight text-ink">Volumen y flujo</h2>
 
-      const isEven = index % 2 === 0;
-      const icons = {
-        "Laboratorio De Temperatura": "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-        "Laboratorio De Presión": "M13 10V3L4 14h7v7l9-11h-7z",
-        "Laboratorio De Volumen": "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
-        "Laboratorio De Flujo": "M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 4v1a3 3 0 003 3h4a3 3 0 003-3V8M7 4h10M8 8h8m-8 4h.01M16 12h.01"
-      };
-
-            return (
-              <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
-                <!-- Image -->
-                <div class="flex-1 max-w-lg">
-                  <div class="relative group">
-                    <div class="relative w-full h-80 lg:h-96 bg-primary-50 rounded-2xl shadow-large group-hover:shadow-xl transition-all duration-300 overflow-hidden">
-                      <Picture
-                        src={labImages[item.title].src}
-                        formats={["avif", "webp"]}
-                        fallbackFormat="webp"
-                        widths={[400, 800]}
-                        sizes="(min-width: 1024px) 512px, 100vw"
-                        alt={labImages[item.title].alt}
-                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div class="absolute bottom-6 left-6">
-                      <div class="w-12 h-12 bg-white shadow-soft rounded-xl flex items-center justify-center">
-                        <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[item.title] || icons["Laboratorio De Temperatura"]}></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Content -->
-                <div class="flex-1 space-y-6">
-                  <div class="flex items-start space-x-4">
-                    <div class="w-16 h-16 bg-primary-600/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icons[item.title] || icons["Laboratorio De Temperatura"]}></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                      <div class="w-20 h-1 bg-primary-600 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  <div class="prose prose-lg max-w-none">
-                    <div set:html={item.content} class="text-gray-600 leading-relaxed space-y-4" />
-                  </div>
-
-                  <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a
-                      href="/contacto"
-                      class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-primary-300"
-                    >
-                      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                      </svg>
-                      Solicitar Calibración
-                    </a>
-                    <a
-                      href="tel:+576063526161"
-                      class="inline-flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-gray-300"
-                    >
-                      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                      </svg>
-                      Llamar Ahora
-                    </a>
-                  </div>
-                </div>
-              </div>
-            );
-          })
-        }
+      <div class="mt-14 space-y-20">
+        {laboratorios.map((lab, i) => (
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+              <Picture
+                src={lab.img}
+                formats={["avif", "webp"]}
+                fallbackFormat="webp"
+                widths={[480, 800, 1200]}
+                sizes="(min-width: 1024px) 600px, 100vw"
+                alt={lab.alt}
+                class="w-full h-72 lg:h-[400px] object-cover rounded"
+              />
+            </div>
+            <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+              <span class="text-xs tracking-[0.2em] text-primary-700">{lab.n}</span>
+              <div class="mt-3 text-3xl lg:text-4xl font-light tracking-tight text-ink">{lab.rango}</div>
+              <ul class="mt-7 grid sm:grid-cols-2 gap-x-6 border-t border-gray-200">
+                {lab.items.map((item) => (
+                  <li class="py-3.5 border-b border-gray-200 text-[15px] text-gray-800">{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-primary-600 to-medical-blue text-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">¿Necesitas calibración con trazabilidad internacional?</h2>
-        <p class="text-xl text-primary-100 mb-8">
-          Confía en nuestros laboratorios especializados para garantizar la precisión
-          y confiabilidad de tus equipos biomédicos e industriales.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/contacto"
-            class="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-            Obtener Cotización
-          </a>
-          <a
-            href="/servicios"
-            class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border-2 border-white/30 hover:bg-white/20 transition-colors"
-          >
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-            </svg>
-            Ver Todos los Servicios
-          </a>
-        </div>
+  <!-- Auditoría -->
+  <section class="bg-paper border-t border-[#e3e0d7]">
+    <div class="container mx-auto px-4 max-w-[1240px] py-16 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl font-normal text-ink">¿Su auditoría pide calibración acreditada?</h2>
+        <p class="mt-2.5 text-[15px] leading-relaxed text-gray-600">Masa, presión y temperatura las calibramos bajo acreditación ONAC 18-LAC-020.</p>
+      </div>
+      <a href="/laboratorios/laboratorio-acreditado/" class="px-7 py-4 border border-ink text-ink hover:bg-ink hover:text-white text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">VER LABORATORIO ACREDITADO</a>
+    </div>
+  </section>
+
+  <!-- Cotizar -->
+  <section id="cotizar" class="bg-ink text-white">
+    <div class="container mx-auto px-4 max-w-[1240px] py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+      <div class="max-w-xl">
+        <h2 class="text-3xl lg:text-4xl font-light leading-tight tracking-tight">Cotice la calibración de sus equipos biomédicos</h2>
+        <p class="mt-3.5 text-base leading-relaxed text-white/75">Consulta técnica por WhatsApp, lunes a viernes de 8:00 a. m. a 6:00 p. m.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contacto" class="px-7 py-4 bg-primary-500 hover:bg-primary-400 text-ink text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">SOLICITAR COTIZACIÓN</a>
+        <a href="https://wa.me/573012541543" class="px-7 py-4 border border-white/45 hover:border-white text-white text-xs font-medium tracking-[0.18em] rounded-sm text-center transition-colors">WHATSAPP</a>
+        <a href="tel:+576063526161" class="px-7 py-4 border border-white/45 hover:border-white text-white text-xs font-medium tracking-[0.18em] rounded-sm text-center transition-colors">LLAMAR</a>
       </div>
     </div>
   </section>
