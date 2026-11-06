@@ -25,13 +25,14 @@ module.exports = {
           800: '#00695C',
           900: '#004D40'
         },
-        // Rediseño 2026: verdes profundos de la marca y papel cálido
+        // Rediseño 2026, alineado con el sistema de diseño (front designTokens.ts):
+        // ink = tinta de marca (#00695C) para fondos oscuros y títulos; paper = fondo suave (softer).
         ink: {
-          DEFAULT: '#072724',
-          700: '#0f3a36',
-          900: '#051d1b'
+          DEFAULT: '#00695C',
+          700: '#00897B',
+          900: '#004D40'
         },
-        paper: '#f7f6f2',
+        paper: '#f6fcfb',
         success: {
           50: '#f0fdf4',
           500: '#22c55e',
