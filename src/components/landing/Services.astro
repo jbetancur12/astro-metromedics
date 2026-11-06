@@ -1,5 +1,8 @@
 ---
-
+import { Picture } from "astro:assets";
+import onacImg from "../../assets/images/banner-onac.jpg";
+import autoImg from "../../assets/images/auto.jpg";
+import mmtoImg from "../../assets/images/mmto.jpg";
 ---
 
 <!-- Modern Services Section -->
@@ -20,6 +23,17 @@
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <!-- Service 1: Laboratorio Acreditado -->
       <div class="group bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+        <div class="overflow-hidden">
+          <Picture
+            src={onacImg}
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[400, 800]}
+            sizes="(min-width: 1024px) 384px, (min-width: 768px) 33vw, 100vw"
+            alt="Técnico revisando un certificado de calibración junto a una balanza analítica"
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
         <div class="p-8">
           <div class="w-16 h-16 bg-medical-blue/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-medical-blue/20 transition-colors">
             <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,6 +79,17 @@
 
       <!-- Service 2: Validation -->
       <div class="group bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+        <div class="overflow-hidden">
+          <Picture
+            src={autoImg}
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[400, 800]}
+            sizes="(min-width: 1024px) 384px, (min-width: 768px) 33vw, 100vw"
+            alt="Validación de un autoclave con sensores de temperatura"
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
         <div class="p-8">
           <div class="w-16 h-16 bg-primary-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-500/20 transition-colors">
             <svg class="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,6 +135,17 @@
 
       <!-- Service 3: Maintenance -->
       <div class="group bg-white rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+        <div class="overflow-hidden">
+          <Picture
+            src={mmtoImg}
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[400, 800]}
+            sizes="(min-width: 1024px) 384px, (min-width: 768px) 33vw, 100vw"
+            alt="Técnico realizando mantenimiento a un equipo médico"
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
         <div class="p-8">
           <div class="w-16 h-16 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-500/20 transition-colors">
             <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

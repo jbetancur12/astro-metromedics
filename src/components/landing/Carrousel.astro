@@ -1,10 +1,23 @@
 ---
+import { Picture } from "astro:assets";
+import heroImg from "../../assets/images/Hero.jpg";
 ---
 
 <!-- Modern Hero Section -->
 <div class="relative bg-gradient-to-br from-medical-blue to-primary-600 overflow-hidden">
   <!-- Background Pattern -->
-  <div class="absolute inset-0 bg-black/10"></div>
+  <Picture
+    src={heroImg}
+    formats={["avif", "webp"]}
+    fallbackFormat="webp"
+    widths={[768, 1280, 1920]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-right"
+  />
+  <div class="absolute inset-0 bg-gradient-to-br from-medical-blue/90 to-primary-600/80"></div>
 
   <!-- Content -->
   <div class="relative container mx-auto px-4 py-20 lg:py-32">

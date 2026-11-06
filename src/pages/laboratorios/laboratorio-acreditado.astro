@@ -6,7 +6,7 @@ import presionImg from "../../assets/images/P.jpg";
 import humedadImg from "../../assets/images/TH.jpg";
 import contactoImg from "../../assets/images/T.jpg";
 import isotermicoImg from "../../assets/images/C.jpg";
-import onacImg from "../../assets/images/onac_grande.png";
+import onacImg from "../../assets/images/banner-onac.jpg";
 ---
 
 <Layout
@@ -88,13 +88,17 @@ import onacImg from "../../assets/images/onac_grande.png";
   <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <div class="bg-white rounded-2xl shadow-large p-8 mb-12">
-          <Image
+        <div class="bg-white rounded-2xl shadow-large overflow-hidden mb-12">
+          <Picture
             src={onacImg}
-            width={800}
-            alt="Certificación ONAC MetroMedics"
-            class="mx-auto mb-6 h-32 w-auto object-contain"
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 896px) 896px, 100vw"
+            alt="Técnico revisando un certificado de calibración junto a una balanza analítica"
+            class="w-full h-56 sm:h-72 object-cover "
           />
+          <div class="p-8">
           <h2 class="text-2xl font-bold text-gray-900 mb-4">
             Acreditación ONAC Vigente
           </h2>
@@ -107,6 +111,7 @@ import onacImg from "../../assets/images/onac_grande.png";
             la competencia técnica y confiabilidad de nuestros servicios de
             calibración.
           </p>
+          </div>
         </div>
       </div>
     </div>
