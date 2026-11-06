@@ -20,30 +20,38 @@ const aiCrawlers = [
 // A crawler only reads its own group, so the line goes in every group.
 const contentSignal = "Content-Signal: search=yes, ai-input=yes, ai-train=no";
 
+// Vista previa del rediseño (v2): sin sitemap y con robots.txt que lo cierra todo.
+const isPreview = process.env.PUBLIC_PREVIEW === "1";
+const previewSite = process.env.PREVIEW_SITE || "https://v2.metromedicslab.com";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     tailwind(),
     react(),
-    sitemap({
+    ...(isPreview ? [] : [sitemap({
       filter: (page) => !page.includes("/evaluacion-servicio"),
       serialize: (item) => {
         const lastmod = lastModified(new URL(item.url).pathname);
         return lastmod ? { ...item, lastmod } : item;
       },
-    }),
-    robotsTxt({
-      policy: [
-        { userAgent: "*", allow: "/" },
-        ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
-      ],
-      transform: (content) =>
-        content
-          .replace(/^Allow: \/$/gm, `Allow: /\n${contentSignal}`)
-          .replace(/\nSitemap:/, "\n\nSitemap:"),
-    }),
+    })]),
+    robotsTxt(
+      isPreview
+        ? { policy: [{ userAgent: "*", disallow: "/" }], sitemap: false }
+        : {
+            policy: [
+              { userAgent: "*", allow: "/" },
+              ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
+            ],
+            transform: (content) =>
+              content
+                .replace(/^Allow: \/$/gm, `Allow: /\n${contentSignal}`)
+                .replace(/\nSitemap:/, "\n\nSitemap:"),
+          },
+    ),
     compressor({ gzip: true, brotli: false },),
   ],
-  site: 'https://metromedicslab.com',
+  site: isPreview ? previewSite : 'https://metromedicslab.com',
   base: '/'
 });
