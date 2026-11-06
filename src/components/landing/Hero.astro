@@ -1,4 +1,6 @@
 ---
+import { Picture } from "astro:assets";
+import heroImg from "../../assets/images/home/hero-tecnico-manometro.webp";
 ---
 
 <section class="bg-ink text-white">
@@ -22,11 +24,14 @@
 
     <div class="relative min-w-0 flex-[1_1_460px]">
       <div class="h-[420px] overflow-hidden rounded-sm bg-ink-700 sm:h-[540px]">
-        <img
-          src="/images/home/hero-tecnico-manometro.webp"
+        <Picture
+          src={heroImg}
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          widths={[640, 960, 1400]}
+          sizes="(min-width: 1024px) 600px, 100vw"
           alt="Técnico del laboratorio calibrando un manómetro contra el patrón en el banco de presión"
-          width="1400"
-          height="782"
+          loading="eager"
           fetchpriority="high"
           class="h-full w-full object-cover object-[68%_50%]"
         />

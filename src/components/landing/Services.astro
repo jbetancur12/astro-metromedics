@@ -1,10 +1,15 @@
 ---
+import { Picture } from "astro:assets";
+import calibracion from "../../assets/images/home/servicio-calibracion.webp";
+import autoclaves from "../../assets/images/home/servicio-autoclaves.webp";
+import mantenimiento from "../../assets/images/home/servicio-mantenimiento.webp";
+
 const services = [
   {
     n: "01",
     title: "Calibración acreditada",
     text: "ISO/IEC 17025:2017 con trazabilidad NIST, en laboratorio o en sitio. Acreditación ONAC 18-LAC-020.",
-    img: "/images/home/servicio-calibracion.webp",
+    img: calibracion,
     alt: "Calibración de equipos biomédicos",
     href: "https://www.calameo.com/read/007460758775f4141e5f8",
     cta: "VER PORTAFOLIO",
@@ -14,7 +19,7 @@ const services = [
     n: "02",
     title: "Validación de autoclaves",
     text: "Calificación IQ, OQ y PQ por comparación directa y determinación del factor F, para autoclaves hospitalarios e industriales.",
-    img: "/images/home/servicio-autoclaves.webp",
+    img: autoclaves,
     alt: "Autoclave en validación",
     href: "/servicios",
     cta: "VER SERVICIO",
@@ -24,7 +29,7 @@ const services = [
     n: "03",
     title: "Mantenimiento especializado",
     text: "Preventivo y correctivo para equipos médicos, odontológicos e industriales, con respuesta oportuna ante fallas.",
-    img: "/images/home/servicio-mantenimiento.webp",
+    img: mantenimiento,
     alt: "Mantenimiento de equipos médicos",
     href: "/servicios",
     cta: "VER SERVICIO",
@@ -44,7 +49,7 @@ const services = [
       {services.map((s) => (
         <article class="flex flex-col gap-4">
           <div class="h-[240px] overflow-hidden rounded-sm bg-paper">
-            <img src={s.img} alt={s.alt} loading="lazy" class="h-full w-full object-cover" />
+            <Picture src={s.img} formats={["avif", "webp"]} fallbackFormat="webp" widths={[400, 640, 800]} sizes="(min-width: 1024px) 400px, (min-width: 640px) 45vw, 100vw" alt={s.alt} class="h-full w-full object-cover" />
           </div>
           <span class="text-xs tracking-[0.2em] text-primary-800">{s.n}</span>
           <h3 class="text-[22px] font-medium text-ink">{s.title}</h3>

@@ -4,13 +4,16 @@ import services from "../config/services.json";
 import masaImg from "../assets/images/M.jpg";
 import presionImg from "../assets/images/P.jpg";
 import humedadImg from "../assets/images/TH.jpg";
+import calibracionImg from "../assets/images/home/servicio-calibracion.webp";
+import autoclavesImg from "../assets/images/home/servicio-autoclaves.webp";
+import mantenimientoImg from "../assets/images/home/servicio-mantenimiento.webp";
+import ventaImg from "../assets/images/servici2.webp";
 import Layout from "../layouts/Layout.astro";
 
 // Etiqueta y enlaces extra por servicio (el texto, la imagen y el portafolio
 // siguen viniendo de config/services.json).
-// Fotos del laboratorio para los servicios de masa, presión y temperatura
-// (reemplazan las imágenes genéricas antiguas de services.json).
-const fotos = { 1: masaImg, 2: presionImg, 3: humedadImg };
+// Fotos de cada servicio, optimizadas por Astro (mismo orden que services.json).
+const fotos = [calibracionImg, masaImg, presionImg, humedadImg, autoclavesImg, mantenimientoImg, ventaImg];
 
 const extras = [
   {
