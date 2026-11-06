@@ -26,11 +26,11 @@ module.exports = {
           900: '#004D40'
         },
         // Rediseño 2026, alineado con el sistema de diseño (front designTokens.ts):
-        // ink = tinta de marca (#00695C) para fondos oscuros y títulos; paper = fondo suave (softer).
+        // ink = tinta de marca (#004D40, primary-900) para fondos oscuros y títulos; 900 es un paso más profundo para el pie; paper = fondo suave (softer).
         ink: {
-          DEFAULT: '#00695C',
-          700: '#00897B',
-          900: '#004D40'
+          DEFAULT: '#004D40',
+          700: '#00695C',
+          900: '#00382F'
         },
         paper: '#f6fcfb',
         success: {

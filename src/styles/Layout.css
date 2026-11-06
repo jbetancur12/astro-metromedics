@@ -50,7 +50,7 @@ main [class*="bg-gradient-to-"]:is(
     [class~="from-primary-700"]
   ) {
   background-image: none;
-  background-color: #00695C;
+  background-color: #004D40;
 }
 
 /* Fondos claros: papel cálido en lugar de gris frío */
@@ -88,10 +88,10 @@ main .hover\:scale-105:hover {
 main .bg-orange-500,
 main a.bg-orange-500:hover {
   background-color: #00bfa5;
-  color: #00695C;
+  color: #004D40;
 }
 main .bg-orange-500:hover,
 main .hover\:bg-orange-600:hover {
   background-color: #4dd0be;
-  color: #00695C;
+  color: #004D40;
 }

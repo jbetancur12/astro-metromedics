@@ -54,17 +54,17 @@ const laboratorios = [
   <section class="bg-ink text-white">
     <div class="container mx-auto px-4 max-w-[1240px] pt-10 pb-20 lg:pb-24">
       <nav aria-label="Ruta" class="text-sm text-white/65 flex flex-wrap gap-2">
-        <a href="/" class="text-white/75 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span>Laboratorios</span><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Laboratorio con trazabilidad</span>
+        <a href="/" class="text-white/90 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span>Laboratorios</span><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Laboratorio con trazabilidad</span>
       </nav>
       <div class="mt-12 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span class="text-xs font-medium tracking-[0.3em] text-primary-100">SECTOR BIOMÉDICO E INDUSTRIAL</span>
           <h1 class="mt-5 text-4xl lg:text-[54px] font-light leading-[1.08] tracking-tight">Laboratorio con trazabilidad al Sistema Internacional</h1>
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/75">
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/90">
             Calibramos volumen y flujo con patrones de referencia trazables al SI a través de NIST, con equipos de última tecnología y personal calificado.
           </p>
           <div class="mt-9 flex flex-col sm:flex-row gap-4">
-            <a href="/contacto" class="px-7 py-4 bg-primary-500 hover:bg-primary-400 text-primary-900 text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">SOLICITAR CALIBRACIÓN</a>
+            <a href="/contacto" class="px-7 py-4 bg-primary-500 hover:bg-primary-400 text-ink-900 text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">SOLICITAR CALIBRACIÓN</a>
             <a href="#laboratorios" class="px-7 py-4 border border-white/45 hover:border-white text-white text-xs font-medium tracking-[0.18em] rounded-sm text-center transition-colors">VER LABORATORIOS</a>
           </div>
         </div>
@@ -85,7 +85,7 @@ const laboratorios = [
   <!-- Qué es la trazabilidad -->
   <section class="bg-paper">
     <div class="container mx-auto px-4 max-w-[1240px] py-20 lg:py-24">
-      <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">QUÉ ES LA TRAZABILIDAD</span>
+      <span class="text-xs font-semibold tracking-[0.3em] text-primary-800">QUÉ ES LA TRAZABILIDAD</span>
       <h2 class="mt-4 max-w-3xl text-3xl lg:text-4xl font-light leading-tight tracking-tight text-ink">
         Una cadena ininterrumpida de calibraciones que une la medida de su equipo con la definición de la unidad.
       </h2>
@@ -93,12 +93,12 @@ const laboratorios = [
         {cadena.map((paso, i) => (
           <>
             <li class={`flex-1 rounded p-6 flex flex-col gap-1.5 ${paso.destacado ? 'bg-ink' : 'bg-white border border-gray-200'}`}>
-              <span class={`text-xs tracking-[0.2em] ${paso.destacado ? 'text-primary-100' : 'text-primary-700'}`}>{paso.n}</span>
+              <span class={`text-xs tracking-[0.2em] ${paso.destacado ? 'text-primary-100' : 'text-primary-800'}`}>{paso.n}</span>
               <span class={`text-lg font-medium ${paso.destacado ? 'text-white' : 'text-ink'}`}>{paso.titulo}</span>
-              <span class={`text-sm leading-relaxed ${paso.destacado ? 'text-white/75' : 'text-gray-600'}`}>{paso.texto}</span>
+              <span class={`text-sm leading-relaxed ${paso.destacado ? 'text-white/90' : 'text-gray-600'}`}>{paso.texto}</span>
             </li>
             {i < cadena.length - 1 && (
-              <li aria-hidden="true" class="flex items-center justify-center text-primary-700 text-2xl rotate-90 lg:rotate-0">→</li>
+              <li aria-hidden="true" class="flex items-center justify-center text-primary-800 text-2xl rotate-90 lg:rotate-0">→</li>
             )}
           </>
         ))}
@@ -109,7 +109,7 @@ const laboratorios = [
   <!-- Laboratorios -->
   <section id="laboratorios" class="bg-white">
     <div class="container mx-auto px-4 max-w-[1240px] py-20 lg:py-28">
-      <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">NUESTROS LABORATORIOS</span>
+      <span class="text-xs font-semibold tracking-[0.3em] text-primary-800">NUESTROS LABORATORIOS</span>
       <h2 class="mt-4 text-3xl lg:text-4xl font-light tracking-tight text-ink">Volumen y flujo</h2>
 
       <div class="mt-14 space-y-20">
@@ -127,7 +127,7 @@ const laboratorios = [
               />
             </div>
             <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
-              <span class="text-xs tracking-[0.2em] text-primary-700">{lab.n}</span>
+              <span class="text-xs tracking-[0.2em] text-primary-800">{lab.n}</span>
               <div class="mt-3 text-3xl lg:text-4xl font-light tracking-tight text-ink">{lab.rango}</div>
               <ul class="mt-7 grid sm:grid-cols-2 gap-x-6 border-t border-gray-200">
                 {lab.items.map((item) => (
@@ -157,10 +157,10 @@ const laboratorios = [
     <div class="container mx-auto px-4 max-w-[1240px] py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
       <div class="max-w-xl">
         <h2 class="text-3xl lg:text-4xl font-light leading-tight tracking-tight">Cotice la calibración de sus equipos biomédicos</h2>
-        <p class="mt-3.5 text-base leading-relaxed text-white/75">Consulta técnica por WhatsApp, lunes a viernes de 8:00 a. m. a 6:00 p. m.</p>
+        <p class="mt-3.5 text-base leading-relaxed text-white/90">Consulta técnica por WhatsApp, lunes a viernes de 8:00 a. m. a 6:00 p. m.</p>
       </div>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/contacto" class="px-7 py-4 bg-primary-500 hover:bg-primary-400 text-primary-900 text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">SOLICITAR COTIZACIÓN</a>
+        <a href="/contacto" class="px-7 py-4 bg-primary-500 hover:bg-primary-400 text-ink-900 text-xs font-semibold tracking-[0.18em] rounded-sm text-center transition-colors">SOLICITAR COTIZACIÓN</a>
         <a href="https://wa.me/573012541543" class="px-7 py-4 border border-white/45 hover:border-white text-white text-xs font-medium tracking-[0.18em] rounded-sm text-center transition-colors">WHATSAPP</a>
         <a href="tel:+576063526161" class="px-7 py-4 border border-white/45 hover:border-white text-white text-xs font-medium tracking-[0.18em] rounded-sm text-center transition-colors">LLAMAR</a>
       </div>

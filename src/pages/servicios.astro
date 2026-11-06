@@ -43,16 +43,16 @@ const extras = [
   <section class="bg-ink text-white">
     <div class="mx-auto max-w-[1240px] px-6 pb-20 pt-10 lg:pb-24">
       <nav aria-label="Ruta" class="flex flex-wrap gap-2 text-sm text-white/65">
-        <a href="/" class="text-white/75 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Servicios</span>
+        <a href="/" class="text-white/90 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Servicios</span>
       </nav>
       <div class="mt-12 max-w-3xl">
-        <span class="text-xs font-medium tracking-[0.3em] text-primary-500">SERVICIOS</span>
+        <span class="text-xs font-medium tracking-[0.3em] text-primary-100">SERVICIOS</span>
         <h1 class="mt-5 text-4xl font-light leading-[1.08] tracking-tight lg:text-[54px]">Servicios de calibración para los sectores médico e industrial</h1>
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/90">
           Soluciones integrales de calibración y mantenimiento de equipos médicos e industriales. Nuestro equipo técnico garantiza que sus equipos operen con la máxima precisión y cumplan las normativas vigentes.
         </p>
         <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-          <a href="#servicios" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-primary-900 transition-colors hover:bg-primary-300">VER SERVICIOS</a>
+          <a href="#servicios" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-ink-900 transition-colors hover:bg-primary-300">VER SERVICIOS</a>
           <a href="/contacto" class="rounded-sm border border-white/45 px-7 py-4 text-center text-xs font-medium tracking-[0.18em] text-white transition-colors hover:border-white">SOLICITAR COTIZACIÓN</a>
         </div>
       </div>
@@ -92,7 +92,7 @@ const extras = [
                 )}
               </div>
               <div class={invertido ? "lg:order-1" : ""}>
-                <span class="text-xs tracking-[0.2em] text-primary-700">{numero}{extra.etiqueta && ` · ${extra.etiqueta}`}</span>
+                <span class="text-xs tracking-[0.2em] text-primary-800">{numero}{extra.etiqueta && ` · ${extra.etiqueta}`}</span>
                 <h2 class="mt-3 text-3xl font-light leading-tight tracking-tight text-ink lg:text-4xl">{service.title}</h2>
                 <p class="mt-5 text-base leading-relaxed text-gray-700">{service.content}</p>
                 <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -100,9 +100,9 @@ const extras = [
                     <a href={service.portafolio} target="_blank" rel="noopener" class="rounded-sm border border-ink px-6 py-3.5 text-xs font-semibold tracking-[0.16em] text-ink no-underline transition-colors hover:bg-ink hover:text-white">VER PORTAFOLIO</a>
                   )}
                   {extra.enlaces.map((e) => (
-                    <a href={e.href} class="text-xs font-semibold tracking-[0.14em] text-primary-700 no-underline hover:text-ink">{e.texto}</a>
+                    <a href={e.href} class="text-xs font-semibold tracking-[0.14em] text-primary-800 no-underline hover:text-ink">{e.texto}</a>
                   ))}
-                  <a href="/contacto" class="text-xs font-semibold tracking-[0.14em] text-primary-700 no-underline hover:text-ink">SOLICITAR INFORMACIÓN →</a>
+                  <a href="/contacto" class="text-xs font-semibold tracking-[0.14em] text-primary-800 no-underline hover:text-ink">SOLICITAR INFORMACIÓN →</a>
                 </div>
               </div>
             </article>
@@ -116,14 +116,14 @@ const extras = [
   <section class="bg-ink text-white">
     <div class="mx-auto flex max-w-[1240px] flex-col justify-between gap-8 px-6 py-20 lg:flex-row lg:items-center">
       <div class="max-w-xl">
-        <span class="text-xs font-medium tracking-[0.3em] text-primary-500">SOLUCIÓN A LA MEDIDA</span>
+        <span class="text-xs font-medium tracking-[0.3em] text-primary-100">SOLUCIÓN A LA MEDIDA</span>
         <h2 class="mt-4 text-3xl font-light leading-tight tracking-tight lg:text-4xl">¿Necesita una solución personalizada?</h2>
-        <p class="mt-3.5 text-base leading-relaxed text-white/75">
+        <p class="mt-3.5 text-base leading-relaxed text-white/90">
           Nuestro equipo evalúa sus necesidades y prepara una propuesta a la medida para su empresa.
         </p>
       </div>
       <div class="flex flex-col gap-4 sm:flex-row">
-        <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-primary-900 transition-colors hover:bg-primary-300">COTIZACIÓN PERSONALIZADA</a>
+        <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-ink-900 transition-colors hover:bg-primary-300">COTIZACIÓN PERSONALIZADA</a>
         <a href="tel:+576063526161" class="rounded-sm border border-white/45 px-7 py-4 text-center text-xs font-medium tracking-[0.18em] text-white transition-colors hover:border-white">LLAMAR AHORA</a>
       </div>
     </div>

@@ -26,12 +26,12 @@ const linkBase =
 ---
 
 <!-- Franja superior: contacto y atención al cliente -->
-<div class="bg-ink-900 text-white/75 text-xs tracking-[0.04em]">
+<div class="bg-ink-900 text-white/90 text-xs tracking-[0.04em]">
   <div class="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-x-6 gap-y-1 px-6 py-2.5">
     <span class="hidden sm:inline">Dosquebradas · Bogotá · Lun–Vie 8:00 a. m. – 6:00 p. m.</span>
     <div class="flex flex-wrap items-center gap-x-6 gap-y-1">
-      <a href="tel:+576063526161" class="text-white/85 no-underline hover:text-white">(+57) 606 352 6161</a>
-      <a href="https://wa.me/573012541543" class="hidden text-white/85 no-underline hover:text-white md:inline">WhatsApp 301 254 1543</a>
+      <a href="tel:+576063526161" class="text-white/90 no-underline hover:text-white">(+57) 606 352 6161</a>
+      <a href="https://wa.me/573012541543" class="hidden text-white/90 no-underline hover:text-white md:inline">WhatsApp 301 254 1543</a>
       <span aria-hidden="true" class="hidden text-white/30 sm:inline">|</span>
       <a href="/evaluacion-servicio" class="font-semibold text-white no-underline hover:text-primary-300">Evaluar servicio</a>
       <a href="/pqr" class="font-semibold text-white no-underline hover:text-primary-300">PQR</a>
@@ -65,7 +65,7 @@ const linkBase =
     <nav aria-label="Principal" class="hidden items-center gap-x-6 lg:flex">
       <a
         href={navLinks[0].href}
-        class:list={[linkBase, isActive(navLinks[0].href) ? "text-primary-300" : "text-white/85 hover:text-white"]}
+        class:list={[linkBase, isActive(navLinks[0].href) ? "text-primary-300" : "text-white/90 hover:text-white"]}
         aria-current={isActive(navLinks[0].href) ? "page" : undefined}>{navLinks[0].label}</a
       >
 
@@ -73,7 +73,7 @@ const linkBase =
         <a
           id="laboratoriosLink"
           href={labLinks[0].href}
-          class:list={[linkBase, "group flex items-center gap-1.5", pathname.startsWith("/laboratorios") ? "text-primary-300" : "text-white/85 hover:text-white"]}
+          class:list={[linkBase, "group flex items-center gap-1.5", pathname.startsWith("/laboratorios") ? "text-primary-300" : "text-white/90 hover:text-white"]}
           aria-expanded="false"
           aria-haspopup="true"
           aria-controls="laboratorios"
@@ -94,7 +94,7 @@ const linkBase =
       {navLinks.slice(1).map((l) => (
         <a
           href={l.href}
-          class:list={[linkBase, isActive(l.href) || (l.href === "/blog" && pathname.startsWith("/blog")) ? "text-primary-300" : "text-white/85 hover:text-white"]}
+          class:list={[linkBase, isActive(l.href) || (l.href === "/blog" && pathname.startsWith("/blog")) ? "text-primary-300" : "text-white/90 hover:text-white"]}
           aria-current={isActive(l.href) ? "page" : undefined}>{l.label}</a
         >
       ))}
@@ -103,7 +103,7 @@ const linkBase =
         <a
           id="clientesLink"
           href="#"
-          class:list={[linkBase, "group flex items-center gap-1.5 text-white/85 hover:text-white"]}
+          class:list={[linkBase, "group flex items-center gap-1.5 text-white/90 hover:text-white"]}
           aria-expanded="false"
           aria-haspopup="true"
           aria-controls="clientes"
@@ -136,7 +136,7 @@ const linkBase =
 
       <a
         href="/contacto"
-        class="rounded-sm bg-primary-500 px-5 py-3 text-xs font-semibold tracking-[0.16em] text-primary-900 no-underline transition-colors hover:bg-primary-300 hover:text-primary-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        class="rounded-sm bg-primary-500 px-5 py-3 text-xs font-semibold tracking-[0.16em] text-ink-900 no-underline transition-colors hover:bg-primary-300 hover:text-ink-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
       >COTIZAR</a>
     </nav>
   </div>
@@ -198,7 +198,7 @@ const linkBase =
 
       <a
         href="/contacto"
-        class="mt-5 block rounded-sm bg-primary-500 px-6 py-4 text-center text-xs font-semibold tracking-[0.18em] text-primary-900 no-underline hover:bg-primary-300"
+        class="mt-5 block rounded-sm bg-primary-500 px-6 py-4 text-center text-xs font-semibold tracking-[0.18em] text-ink-900 no-underline hover:bg-primary-300"
       >SOLICITAR COTIZACIÓN</a>
     </div>
   </div>

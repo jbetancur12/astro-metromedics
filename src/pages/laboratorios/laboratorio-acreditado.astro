@@ -98,17 +98,17 @@ const pasos = [
   <section class="bg-ink text-white">
     <div class="mx-auto max-w-[1240px] px-6 pt-10">
       <nav aria-label="Ruta" class="flex flex-wrap gap-2 text-sm text-white/65">
-        <a href="/" class="text-white/75 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span>Laboratorios</span><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Laboratorio acreditado</span>
+        <a href="/" class="text-white/90 hover:text-white">Inicio</a><span aria-hidden="true">/</span><span>Laboratorios</span><span aria-hidden="true">/</span><span aria-current="page" class="text-white">Laboratorio acreditado</span>
       </nav>
       <div class="mt-12 grid items-stretch gap-12 lg:grid-cols-2">
         <div class="flex flex-col justify-center pb-10">
           <span class="text-xs font-medium tracking-[0.3em] text-primary-100">ISO/IEC 17025:2017 · ONAC 18-LAC-020</span>
           <h1 class="mt-5 text-4xl font-light leading-[1.08] tracking-tight lg:text-[54px]">Laboratorio acreditado por ONAC</h1>
-          <p class="mt-6 max-w-lg text-lg leading-relaxed text-white/75">
+          <p class="mt-6 max-w-lg text-lg leading-relaxed text-white/90">
             Nuestra competencia técnica está evaluada por el Organismo Nacional de Acreditación de Colombia. Sus certificados llevan el respaldo de la acreditación en cada magnitud del alcance.
           </p>
           <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-            <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-primary-900 transition-colors hover:bg-primary-300">SOLICITAR CALIBRACIÓN</a>
+            <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-ink-900 transition-colors hover:bg-primary-300">SOLICITAR CALIBRACIÓN</a>
             <a href="#alcance" class="rounded-sm border border-white/45 px-7 py-4 text-center text-xs font-medium tracking-[0.18em] text-white transition-colors hover:border-white">VER ALCANCE</a>
           </div>
         </div>
@@ -143,10 +143,10 @@ const pasos = [
     <div class="mx-auto max-w-[1240px] px-6 py-20 lg:py-28">
       <div class="flex flex-wrap items-end justify-between gap-6">
         <div class="max-w-xl">
-          <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">ALCANCE ACREDITADO</span>
+          <span class="text-xs font-semibold tracking-[0.3em] text-primary-800">ALCANCE ACREDITADO</span>
           <h2 class="mt-4 text-3xl font-light leading-tight tracking-tight text-ink lg:text-4xl">Qué calibramos bajo acreditación</h2>
         </div>
-        <a href="/pdf/18-LAC-020.pdf" target="_blank" rel="noopener" class="py-3 text-xs font-semibold tracking-[0.14em] text-primary-700 no-underline hover:text-ink">DESCARGAR CERTIFICADO DE ACREDITACIÓN (PDF) →</a>
+        <a href="/pdf/18-LAC-020.pdf" target="_blank" rel="noopener" class="py-3 text-xs font-semibold tracking-[0.14em] text-primary-800 no-underline hover:text-ink">DESCARGAR CERTIFICADO DE ACREDITACIÓN (PDF) →</a>
       </div>
 
       <div class="mt-12 border-t border-ink">
@@ -162,14 +162,14 @@ const pasos = [
               class="h-[170px] w-full rounded object-cover sm:w-[260px]"
             />
             <div class="min-w-[200px] flex-1">
-              <div class="text-xs tracking-[0.2em] text-primary-700">{m.n}</div>
+              <div class="text-xs tracking-[0.2em] text-primary-800">{m.n}</div>
               <h3 class="mt-2 text-2xl font-medium text-ink">{m.titulo}</h3>
             </div>
             <div class="grid flex-[3_1_480px] gap-x-8 gap-y-4 md:grid-cols-2">
               {m.items.map((it) => (
                 <div>
                   <div class="text-[15px] text-gray-900">{it.texto}</div>
-                  <div class="mt-1 text-[15px] font-semibold text-primary-700">{it.rango}</div>
+                  <div class="mt-1 text-[15px] font-semibold text-primary-800">{it.rango}</div>
                   {it.nota && <div class="mt-0.5 text-[13px] text-gray-600">{it.nota}</div>}
                 </div>
               ))}
@@ -189,7 +189,7 @@ const pasos = [
       <div class="max-w-2xl">
         <span class="text-xs font-medium tracking-[0.3em] text-primary-100">ACREDITACIÓN VIGENTE</span>
         <h2 class="mt-4 text-3xl font-light leading-tight tracking-tight lg:text-4xl">Competencia técnica evaluada por ONAC</h2>
-        <p class="mt-5 max-w-xl text-base leading-relaxed text-white/75">
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-white/90">
           Metromedics S.A.S. cuenta con acreditación ONAC vigente, bajo la norma ISO/IEC 17025:2017. Esta acreditación garantiza la competencia técnica y la confiabilidad de nuestros servicios de calibración.
         </p>
         <dl class="mt-8 grid gap-x-6 border-t border-white/20 sm:grid-cols-3">
@@ -198,7 +198,7 @@ const pasos = [
           <div class="border-b border-white/20 py-4"><dt class="text-xs tracking-[0.2em] text-white/65">CÓDIGO</dt><dd class="mt-1.5 text-base">18-LAC-020</dd></div>
         </dl>
         <div class="mt-8">
-          <a href="/pdf/18-LAC-020.pdf" target="_blank" rel="noopener" class="inline-block rounded-sm bg-primary-500 px-7 py-4 text-xs font-semibold tracking-[0.18em] text-primary-900 no-underline transition-colors hover:bg-primary-300 hover:text-primary-900">DESCARGAR CERTIFICADO</a>
+          <a href="/pdf/18-LAC-020.pdf" target="_blank" rel="noopener" class="inline-block rounded-sm bg-primary-500 px-7 py-4 text-xs font-semibold tracking-[0.18em] text-ink-900 no-underline transition-colors hover:bg-primary-300 hover:text-ink-900">DESCARGAR CERTIFICADO</a>
         </div>
       </div>
     </div>
@@ -207,26 +207,26 @@ const pasos = [
   <!-- Cuál necesita -->
   <section class="bg-paper">
     <div class="mx-auto max-w-[1240px] px-6 py-20 lg:py-28">
-      <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">¿CUÁL NECESITA?</span>
+      <span class="text-xs font-semibold tracking-[0.3em] text-primary-800">¿CUÁL NECESITA?</span>
       <h2 class="mt-4 max-w-2xl text-3xl font-light leading-tight tracking-tight text-ink lg:text-4xl">Calibración acreditada o con trazabilidad</h2>
       <div class="mt-12 grid gap-6 md:grid-cols-2">
         <div class="flex flex-col gap-4 rounded bg-ink p-9 text-white">
           <span class="text-xs font-medium tracking-[0.24em] text-primary-100">ESTA PÁGINA</span>
           <h3 class="text-2xl font-normal">Calibración acreditada</h3>
-          <ul class="flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-relaxed text-white/85">
+          <ul class="flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-relaxed text-white/90">
             <li>ONAC evaluó nuestra competencia técnica para esa magnitud e intervalo.</li>
             <li>El certificado lleva el símbolo de acreditación.</li>
             <li>La opción indicada cuando una auditoría o norma pide calibración acreditada.</li>
           </ul>
         </div>
         <div class="flex flex-col gap-4 rounded border border-gray-200 bg-white p-9">
-          <span class="text-xs font-semibold tracking-[0.24em] text-primary-700">VOLUMEN Y FLUJO</span>
+          <span class="text-xs font-semibold tracking-[0.24em] text-primary-800">VOLUMEN Y FLUJO</span>
           <h3 class="text-2xl font-normal text-ink">Calibración con trazabilidad</h3>
           <ul class="flex list-disc flex-col gap-2.5 pl-5 text-[15px] leading-relaxed text-gray-600">
             <li>Resultados trazables al Sistema Internacional mediante patrones calibrados.</li>
             <li>Para magnitudes fuera del alcance acreditado, como volumen y flujo.</li>
           </ul>
-          <a href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial/" class="mt-auto pt-2 text-xs font-semibold tracking-[0.14em] text-primary-700 no-underline hover:text-ink">VER LABORATORIO CON TRAZABILIDAD →</a>
+          <a href="/laboratorios/laboratorio-con-trazabilidad-sector-biomedico-e-industrial/" class="mt-auto pt-2 text-xs font-semibold tracking-[0.14em] text-primary-800 no-underline hover:text-ink">VER LABORATORIO CON TRAZABILIDAD →</a>
         </div>
       </div>
     </div>
@@ -235,12 +235,12 @@ const pasos = [
   <!-- Cómo funciona -->
   <section class="bg-white">
     <div class="mx-auto max-w-[1240px] px-6 py-20 lg:py-28">
-      <span class="text-xs font-semibold tracking-[0.3em] text-primary-700">CÓMO FUNCIONA</span>
+      <span class="text-xs font-semibold tracking-[0.3em] text-primary-800">CÓMO FUNCIONA</span>
       <h2 class="mt-4 text-3xl font-light leading-tight tracking-tight text-ink lg:text-4xl">De la solicitud al certificado</h2>
       <ol class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {pasos.map((p) => (
           <li class="border-t border-ink pt-5">
-            <div class="text-xs tracking-[0.2em] text-primary-700">{p.n}</div>
+            <div class="text-xs tracking-[0.2em] text-primary-800">{p.n}</div>
             <div class="mt-2 text-lg font-medium text-ink">{p.titulo}</div>
             <p class="mt-2 text-sm leading-relaxed text-gray-600">{p.texto}</p>
           </li>
@@ -254,10 +254,10 @@ const pasos = [
     <div class="mx-auto flex max-w-[1240px] flex-col justify-between gap-8 px-6 py-20 lg:flex-row lg:items-center">
       <div class="max-w-xl">
         <h2 class="text-3xl font-light leading-tight tracking-tight lg:text-4xl">¿Necesita calibración acreditada?</h2>
-        <p class="mt-3.5 text-base leading-relaxed text-white/75">Consulta técnica por WhatsApp, lunes a viernes de 8:00 a. m. a 6:00 p. m.</p>
+        <p class="mt-3.5 text-base leading-relaxed text-white/90">Consulta técnica por WhatsApp, lunes a viernes de 8:00 a. m. a 6:00 p. m.</p>
       </div>
       <div class="flex flex-col gap-4 sm:flex-row">
-        <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-primary-900 transition-colors hover:bg-primary-300">SOLICITAR COTIZACIÓN</a>
+        <a href="/contacto" class="rounded-sm bg-primary-500 px-7 py-4 text-center text-xs font-semibold tracking-[0.18em] text-ink-900 transition-colors hover:bg-primary-300">SOLICITAR COTIZACIÓN</a>
         <a href="https://wa.me/573012541543" class="rounded-sm border border-white/45 px-7 py-4 text-center text-xs font-medium tracking-[0.18em] text-white transition-colors hover:border-white">WHATSAPP</a>
         <a href="tel:+576063526161" class="rounded-sm border border-white/45 px-7 py-4 text-center text-xs font-medium tracking-[0.18em] text-white transition-colors hover:border-white">LLAMAR</a>
       </div>
