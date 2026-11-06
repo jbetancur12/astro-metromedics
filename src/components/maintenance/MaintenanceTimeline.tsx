@@ -59,7 +59,7 @@ const MaintenanceTimeline: React.FC<MaintenanceTimelineProps> = ({ timeline }) =
   const getActionColor = (action: MaintenanceAction) => {
     switch (action) {
       case MaintenanceAction.CREATED:
-        return 'text-primary-600 bg-primary-100'
+        return 'text-primary-800 bg-primary-100'
       case MaintenanceAction.ASSIGNED:
         return 'text-purple-600 bg-purple-100'
       case MaintenanceAction.STATUS_CHANGED:
@@ -167,7 +167,7 @@ const MaintenanceTimeline: React.FC<MaintenanceTimelineProps> = ({ timeline }) =
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 rounded-full bg-primary-100 flex items-center justify-center">
-              <Build className="w-2 h-2 text-primary-600" />
+              <Build className="w-2 h-2 text-primary-800" />
             </div>
             <span className="text-gray-600">Creado</span>
           </div>

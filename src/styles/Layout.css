@@ -24,9 +24,9 @@
   margin-bottom: 0.75rem;
   scroll-margin-top: 6rem;
 }
-.prose.blog-content ul li::marker { color: #00897B; }
+.prose.blog-content ul li::marker { color: #00695C; }
 .prose.blog-content strong { color: #111827; font-weight: 600; }
-.prose.blog-content a { color: #00897B; text-decoration: underline; text-underline-offset: 2px; }
+.prose.blog-content a { color: #00695C; text-decoration: underline; text-underline-offset: 2px; }
 
 /* ------------------------------------------------------------------
    Rediseño 2026 en las páginas internas: las secciones heredadas se
@@ -88,10 +88,10 @@ main .hover\:scale-105:hover {
 main .bg-orange-500,
 main a.bg-orange-500:hover {
   background-color: #00bfa5;
-  color: #004D40;
+  color: #00382F;
 }
 main .bg-orange-500:hover,
 main .hover\:bg-orange-600:hover {
   background-color: #4dd0be;
-  color: #004D40;
+  color: #00382F;
 }

@@ -58,7 +58,7 @@ const MaintenanceTrackingForm: React.FC = () => {
       {/* Header and Search */}
       <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
         <div className="text-center mb-8">
-          <Search className="w-12 h-12 text-primary-600 mx-auto mb-4" />
+          <Search className="w-12 h-12 text-primary-800 mx-auto mb-4" />
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             Seguimiento de Mantenimiento
           </h1>
@@ -83,7 +83,7 @@ const MaintenanceTrackingForm: React.FC = () => {
             <button
               type="submit"
               disabled={!ticketNumber.trim() || isLoading}
-              className="px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+              className="px-6 py-3 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
             >
               <Search className="w-5 h-5 mr-2" />
               Buscar
@@ -94,7 +94,7 @@ const MaintenanceTrackingForm: React.FC = () => {
         {/* Loading indicator */}
         {isLoading && (
           <div className="mt-6 text-center">
-            <div className="inline-flex items-center text-primary-600">
+            <div className="inline-flex items-center text-primary-800">
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-600 mr-3"></div>
               <span className="font-medium">Buscando ticket...</span>
             </div>
@@ -215,7 +215,7 @@ const MaintenanceTrackingForm: React.FC = () => {
                     Técnico Asignado
                   </h3>
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-semibold text-lg mr-4">
+                    <div className="w-12 h-12 bg-primary-800 rounded-full flex items-center justify-center text-white font-semibold text-lg mr-4">
                       {getInitials(trackingData.ticket.assignedTechnician.name)}
                     </div>
                     <div>
@@ -310,7 +310,7 @@ const MaintenanceTrackingForm: React.FC = () => {
                   Calificación del Servicio
                 </h3>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 mb-2">
+                  <div className="text-3xl font-bold text-primary-800 mb-2">
                     {trackingData.ticket.customerSatisfaction}/5
                   </div>
                   <p className="text-gray-600">estrellas</p>

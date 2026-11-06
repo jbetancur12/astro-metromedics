@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
       <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="text-display-md font-bold text-gray-900 mb-4">
-          Contáctate Con <span class="text-medical-blue">Nosotros</span>
+          Contáctate Con <span class="text-primary-800">Nosotros</span>
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           Estamos aquí para ayudarte con todas tus necesidades de calibración y mantenimiento.
@@ -26,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
         <div class="bg-white rounded-2xl shadow-large p-8">
           <div class="mb-8">
             <div class="w-16 h-16 bg-medical-blue/10 rounded-2xl flex items-center justify-center mb-6">
-              <svg class="w-8 h-8 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
             </div>
@@ -42,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Nombre Completo<span class="text-red-500 ml-1">*</span>
+                  Nombre Completo<span class="text-red-700 ml-1">*</span>
                 </label>
                 <input
                   type="text"
@@ -56,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
               </div>
               <div>
                 <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Correo Electrónico<span class="text-red-500 ml-1">*</span>
+                  Correo Electrónico<span class="text-red-700 ml-1">*</span>
                 </label>
                 <input
                   type="email"
@@ -73,7 +73,7 @@ import Layout from "../layouts/Layout.astro";
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
-                  Teléfono / Celular<span class="text-red-500 ml-1">*</span>
+                  Teléfono / Celular<span class="text-red-700 ml-1">*</span>
                 </label>
                 <input
                   type="tel"
@@ -102,7 +102,7 @@ import Layout from "../layouts/Layout.astro";
 
             <div>
               <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
-                Asunto<span class="text-red-500 ml-1">*</span>
+                Asunto<span class="text-red-700 ml-1">*</span>
               </label>
               <select
                 name="subject"
@@ -121,32 +121,32 @@ import Layout from "../layouts/Layout.astro";
 
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-3">
-                Sector de su organización<span class="text-red-500 ml-1">*</span>
+                Sector de su organización<span class="text-red-700 ml-1">*</span>
               </label>
               <div class="grid grid-cols-2 gap-3">
                 <label class="flex items-center p-3 border border-gray-300 rounded-xl cursor-pointer hover:border-medical-blue transition-colors has-[:checked]:border-medical-blue has-[:checked]:bg-medical-blue/5">
-                  <input type="radio" name="sector" value="salud" class="mr-2 text-medical-blue focus:ring-medical-blue" required />
-                  <svg class="w-5 h-5 mr-1 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <input type="radio" name="sector" value="salud" class="mr-2 text-primary-800 focus:ring-medical-blue" required />
+                  <svg class="w-5 h-5 mr-1 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                   </svg>
                   <span class="text-sm font-medium text-gray-700">Salud / Hospitalario</span>
                 </label>
                 <label class="flex items-center p-3 border border-gray-300 rounded-xl cursor-pointer hover:border-medical-blue transition-colors has-[:checked]:border-medical-blue has-[:checked]:bg-medical-blue/5">
-                  <input type="radio" name="sector" value="industrial" class="mr-2 text-medical-blue focus:ring-medical-blue" required />
-                  <svg class="w-5 h-5 mr-1 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <input type="radio" name="sector" value="industrial" class="mr-2 text-primary-800 focus:ring-medical-blue" required />
+                  <svg class="w-5 h-5 mr-1 text-primary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                   </svg>
                   <span class="text-sm font-medium text-gray-700">Industrial / Manufactura</span>
                 </label>
                 <label class="flex items-center p-3 border border-gray-300 rounded-xl cursor-pointer hover:border-medical-blue transition-colors has-[:checked]:border-medical-blue has-[:checked]:bg-medical-blue/5">
-                  <input type="radio" name="sector" value="farmaceutico" class="mr-2 text-medical-blue focus:ring-medical-blue" />
+                  <input type="radio" name="sector" value="farmaceutico" class="mr-2 text-primary-800 focus:ring-medical-blue" />
                   <svg class="w-5 h-5 mr-1 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                   </svg>
                   <span class="text-sm font-medium text-gray-700">Lab. / Farmacéutico</span>
                 </label>
                 <label class="flex items-center p-3 border border-gray-300 rounded-xl cursor-pointer hover:border-medical-blue transition-colors has-[:checked]:border-medical-blue has-[:checked]:bg-medical-blue/5">
-                  <input type="radio" name="sector" value="otro" class="mr-2 text-medical-blue focus:ring-medical-blue" />
+                  <input type="radio" name="sector" value="otro" class="mr-2 text-primary-800 focus:ring-medical-blue" />
                   <svg class="w-5 h-5 mr-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                   </svg>
@@ -157,7 +157,7 @@ import Layout from "../layouts/Layout.astro";
 
             <div>
               <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
-                Mensaje<span class="text-red-500 ml-1">*</span>
+                Mensaje<span class="text-red-700 ml-1">*</span>
               </label>
               <textarea
                 name="message"
@@ -174,19 +174,19 @@ import Layout from "../layouts/Layout.astro";
                 type="checkbox"
                 name="privacy"
                 id="privacy"
-                class="mt-1 mr-3 h-4 w-4 rounded border-gray-300 text-medical-blue focus:ring-medical-blue"
+                class="mt-1 mr-3 h-4 w-4 rounded border-gray-300 text-primary-800 focus:ring-medical-blue"
                 required
               />
               <label for="privacy" class="text-sm text-gray-600">
                 Acepto la
-                <a href="/politica-datos" target="_blank" class="text-medical-blue underline hover:text-primary-700">Política de Tratamiento de Datos Personales</a>
-                y autorizo a Metromedics SAS para contactarme.<span class="text-red-500 ml-1">*</span>
+                <a href="/politica-datos" target="_blank" class="text-primary-800 underline hover:text-primary-700">Política de Tratamiento de Datos Personales</a>
+                y autorizo a Metromedics SAS para contactarme.<span class="text-red-700 ml-1">*</span>
               </label>
             </div>
 
             <button
               type="submit"
-              class="w-full bg-medical-blue hover:bg-primary-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-medical-blue/30 shadow-lg hover:shadow-xl"
+              class="w-full bg-primary-800 hover:bg-primary-900 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-medical-blue/30 shadow-lg hover:shadow-xl"
             >
               <span class="flex items-center justify-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,7 +203,7 @@ import Layout from "../layouts/Layout.astro";
           <!-- PQR Card -->
           <div class="bg-white rounded-2xl shadow-large p-8">
             <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-6">
-              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
             </div>
@@ -265,7 +265,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
         <h2 class="text-display-md font-bold text-gray-900 mb-4">
-          Nuestras <span class="text-medical-blue">Ubicaciones</span>
+          Nuestras <span class="text-primary-800">Ubicaciones</span>
         </h2>
         <p class="text-xl text-gray-600">
           Visítanos en cualquiera de nuestras sedes para recibir atención personalizada
@@ -290,13 +290,13 @@ import Layout from "../layouts/Layout.astro";
           <div class="p-8">
             <div class="flex items-center mb-4">
               <div class="w-12 h-12 bg-medical-blue/10 rounded-xl flex items-center justify-center mr-4">
-                <svg class="w-6 h-6 text-medical-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-primary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                 </svg>
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900">Sede Principal</h3>
-                <p class="text-medical-blue font-semibold">Dosquebradas, Risaralda</p>
+                <p class="text-primary-800 font-semibold">Dosquebradas, Risaralda</p>
               </div>
             </div>
             <div class="space-y-3">
@@ -334,13 +334,13 @@ import Layout from "../layouts/Layout.astro";
           <div class="p-8">
             <div class="flex items-center mb-4">
               <div class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center mr-4">
-                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-primary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                 </svg>
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900">Oficina Bogotá</h3>
-                <p class="text-primary-500 font-semibold">Bogotá, Cundinamarca</p>
+                <p class="text-primary-800 font-semibold">Bogotá, Cundinamarca</p>
               </div>
             </div>
             <div class="space-y-3">

@@ -572,7 +572,7 @@ const MaintenanceReportForm: React.FC = () => {
                 ¡Solicitud Enviada!
               </h2>
               <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                Número de Ticket: <span className="text-primary-600">{submissionResult.ticketNumber}</span>
+                Número de Ticket: <span className="text-primary-800">{submissionResult.ticketNumber}</span>
               </h3>
               <p className="text-gray-600 mb-4">
                 {submissionResult.message}
@@ -584,7 +584,7 @@ const MaintenanceReportForm: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
                   href="/mantenimiento/seguimiento"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-colors"
                 >
                   Hacer Seguimiento
                 </a>
@@ -641,7 +641,7 @@ const MaintenanceReportForm: React.FC = () => {
                   className={`
                     flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium
                     ${index <= activeStep
-                      ? 'bg-primary-600 text-white'
+                      ? 'bg-primary-800 text-white'
                       : 'bg-gray-200 text-gray-600'
                     }
                   `}
@@ -651,7 +651,7 @@ const MaintenanceReportForm: React.FC = () => {
                 <span
                   className={`
                     ml-3 text-sm font-medium
-                    ${index <= activeStep ? 'text-primary-600' : 'text-gray-500'
+                    ${index <= activeStep ? 'text-primary-800' : 'text-gray-500'
                     }
                   `}
                 >
@@ -674,7 +674,7 @@ const MaintenanceReportForm: React.FC = () => {
         {/* Loading indicator */}
         {isLoading && (
           <div className="px-8 py-4 bg-primary-50 border-b border-primary-200">
-            <div className="flex items-center text-primary-700">
+            <div className="flex items-center text-primary-800">
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-700 mr-3"></div>
               <span className="text-sm font-medium">Enviando solicitud...</span>
             </div>
@@ -708,7 +708,7 @@ const MaintenanceReportForm: React.FC = () => {
                   ? !formik.isValid || isLoading
                   : !isStepValid(activeStep)
               }
-              className="inline-flex items-center px-6 py-2 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center px-6 py-2 bg-primary-800 text-white font-medium rounded-lg hover:bg-primary-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {activeStep === steps.length - 1 ? (
                 <>

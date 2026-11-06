@@ -71,7 +71,7 @@ const MaintenanceFileUpload: React.FC<FileUploadProps> = ({
   }
 
   const getFileIcon = (file: MaintenanceFile) => {
-    if (file.isImage) return <ImageIcon className="w-5 h-5 text-primary-600" />
+    if (file.isImage) return <ImageIcon className="w-5 h-5 text-primary-800" />
     if (file.isVideo) return <VideoFile className="w-5 h-5 text-purple-600" />
     if (file.fileType?.includes('pdf')) return <InsertDriveFile className="w-5 h-5 text-red-600" />
     return <AttachFile className="w-5 h-5 text-gray-600" />
@@ -96,7 +96,7 @@ const MaintenanceFileUpload: React.FC<FileUploadProps> = ({
         <CloudUpload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
 
         {isDragActive ? (
-          <p className="text-primary-600 font-medium">Suelte los archivos aquí...</p>
+          <p className="text-primary-800 font-medium">Suelte los archivos aquí...</p>
         ) : (
           <div>
             <p className="text-gray-600 font-medium mb-2">
