@@ -1,4 +1,8 @@
 ---
+import { getImage } from "astro:assets";
+import posterImg from "../../assets/images/companymmcs.jpg";
+
+const poster = await getImage({ src: posterImg, width: 960, format: "webp" });
 const features = [
   { title: "Acreditación ONAC 18-LAC-020", text: "Bajo la norma ISO/IEC 17025:2017." },
   { title: "Equipos de precisión", text: "Tecnología calibrada con patrones trazables a NIST." },
@@ -25,7 +29,7 @@ const features = [
         <video
           controls
           preload="none"
-          poster="/images/companymmcs.jpg"
+          poster={poster.src}
           class="h-full w-full object-cover"
           aria-label="Video institucional de Metromedics"
         >

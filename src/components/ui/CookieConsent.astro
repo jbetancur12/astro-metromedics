@@ -1,0 +1,162 @@
+---
+/**
+ * Banner de consentimiento de cookies del sitio público.
+ *
+ * No bloquea la página: informa y deja elegir. Hasta que la persona decida,
+ * AnalyticsScripts no carga GTM, PostHog ni Meta Pixel. La decisión se puede
+ * cambiar desde /politica-cookies.
+ */
+---
+
+<div
+  id="mmcs-cookie-consent"
+  class="fixed inset-x-4 bottom-24 z-[70] hidden md:bottom-6 md:left-6 md:right-auto md:w-[27rem]"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="mmcs-cookie-title"
+  aria-describedby="mmcs-cookie-text"
+>
+  <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-large">
+    <div class="flex items-start gap-3">
+      <div class="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-primary-50 text-primary-700">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 109 9 4 4 0 01-5-5 4 4 0 01-4-4z" />
+          <circle cx="8.5" cy="10" r=".75" fill="currentColor" stroke="none" />
+          <circle cx="12" cy="15.5" r=".75" fill="currentColor" stroke="none" />
+          <circle cx="16.5" cy="12.5" r=".75" fill="currentColor" stroke="none" />
+        </svg>
+      </div>
+      <div class="min-w-0">
+        <h2 id="mmcs-cookie-title" class="text-base font-bold text-gray-900">
+          Cookies y analítica
+        </h2>
+        <p id="mmcs-cookie-text" class="mt-1 text-sm leading-relaxed text-gray-600">
+          Usamos cookies necesarias para que el sitio funcione y, si lo permites,
+          cookies de analítica y marketing para entender cómo se usa y mejorar la
+          atención. Puedes cambiar tu elección cuando quieras. Más información en
+          la
+          <a href="/politica-cookies" class="font-medium text-primary-700 underline">
+            política de cookies
+          </a>.
+        </p>
+      </div>
+    </div>
+
+    <div id="mmcs-cookie-preferences" class="mt-4 hidden rounded-xl bg-gray-50 p-4">
+      <label class="flex items-start gap-3">
+        <input
+          id="mmcs-consent-analytics"
+          type="checkbox"
+          class="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-2 focus:ring-primary-300"
+        />
+        <span>
+          <span class="block text-sm font-semibold text-gray-800">Analítica</span>
+          <span class="block text-xs leading-relaxed text-gray-500">
+            PostHog y Google Analytics para medir visitas y uso del sitio.
+          </span>
+        </span>
+      </label>
+      <label class="mt-3 flex items-start gap-3">
+        <input
+          id="mmcs-consent-marketing"
+          type="checkbox"
+          class="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-2 focus:ring-primary-300"
+        />
+        <span>
+          <span class="block text-sm font-semibold text-gray-800">Marketing</span>
+          <span class="block text-xs leading-relaxed text-gray-500">
+            Meta Pixel para medir campañas y mostrar contenido relevante.
+          </span>
+        </span>
+      </label>
+      <button
+        id="mmcs-consent-save"
+        type="button"
+        class="mt-4 w-full rounded-lg bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
+      >
+        Guardar preferencias
+      </button>
+    </div>
+
+    <div class="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-end">
+      <button
+        id="mmcs-consent-configure"
+        type="button"
+        class="rounded-lg px-3 py-2 text-sm font-semibold text-gray-600 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-300"
+      >
+        Configurar
+      </button>
+      <button
+        id="mmcs-consent-reject"
+        type="button"
+        class="rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-300"
+      >
+        Solo necesarias
+      </button>
+      <button
+        id="mmcs-consent-accept"
+        type="button"
+        class="rounded-lg bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2"
+      >
+        Aceptar todas
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var root = document.getElementById('mmcs-cookie-consent');
+    var api = window.mmcsConsent;
+    if (!root || !api) return;
+
+    var preferences = document.getElementById('mmcs-cookie-preferences');
+    var analyticsInput = document.getElementById('mmcs-consent-analytics');
+    var marketingInput = document.getElementById('mmcs-consent-marketing');
+    var configureButton = document.getElementById('mmcs-consent-configure');
+
+    function syncInputs() {
+      var current = api.get() || { analytics: false, marketing: false };
+      analyticsInput.checked = Boolean(current.analytics);
+      marketingInput.checked = Boolean(current.marketing);
+    }
+
+    function show() {
+      syncInputs();
+      root.classList.remove('hidden');
+      if (configureButton) configureButton.focus();
+    }
+
+    function hide() {
+      root.classList.add('hidden');
+      preferences.classList.add('hidden');
+    }
+
+    document.getElementById('mmcs-consent-accept').addEventListener('click', function () {
+      api.acceptAll();
+      hide();
+    });
+
+    document.getElementById('mmcs-consent-reject').addEventListener('click', function () {
+      api.rejectAll();
+      hide();
+    });
+
+    configureButton.addEventListener('click', function () {
+      syncInputs();
+      preferences.classList.toggle('hidden');
+    });
+
+    document.getElementById('mmcs-consent-save').addEventListener('click', function () {
+      api.set({
+        analytics: analyticsInput.checked,
+        marketing: marketingInput.checked
+      });
+      hide();
+    });
+
+    window.addEventListener('mmcs:consent-open', show);
+
+    if (!api.get()) show();
+  })();
+</script>

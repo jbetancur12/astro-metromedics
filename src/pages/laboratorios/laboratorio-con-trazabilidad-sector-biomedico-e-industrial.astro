@@ -1,13 +1,14 @@
 ---
 import laboratorioTrazabilidad from '../../config/laboratorio-trazabilidad.json';
 import Layout from '../../layouts/Layout.astro';
-import LabIllustration from '../../components/landing/LabIllustration.astro';
+import { Picture } from 'astro:assets';
+import volumenImg from '../../assets/images/V.jpg';
+import flujoImg from '../../assets/images/F.jpg';
+import trazaImg from '../../assets/images/Traza.jpg';
 
-const labNames = {
-  "Laboratorio De Temperatura": "temperatura",
-  "Laboratorio De Presión": "presion",
-  "Laboratorio De Volumen": "volumen",
-  "Laboratorio De Flujo": "flujo",
+const labImages = {
+  "Laboratorio De Volumen": { src: volumenImg, alt: "Calibración de instrumentos de volumen: micropipeta, bureta y balones aforados" },
+  "Laboratorio De Flujo": { src: flujoImg, alt: "Calibración de equipos de flujo: bomba de infusión, ventilador y regulador de oxígeno" },
 };
 ---
 
@@ -52,7 +53,17 @@ const labNames = {
   <section class="py-16 bg-gradient-to-b from-gray-50 to-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <div class="bg-white rounded-2xl shadow-large p-8">
+        <div class="bg-white rounded-2xl shadow-large overflow-hidden">
+          <Picture
+            src={trazaImg}
+            formats={["avif", "webp"]}
+            fallbackFormat="webp"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 896px) 896px, 100vw"
+            alt="Patrones de referencia en vitrina y técnico revisando un certificado de calibración"
+            class="w-full h-56 sm:h-72 object-cover"
+          />
+          <div class="p-8">
           <div class="w-16 h-16 bg-primary-600/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
@@ -66,6 +77,7 @@ const labNames = {
             <strong class="text-primary-600">Sistema Internacional de Unidades (SI)</strong>
             o a través del <strong class="text-primary-600">NIST</strong>.
           </p>
+          </div>
         </div>
       </div>
     </div>
@@ -104,8 +116,16 @@ const labNames = {
                 <!-- Image -->
                 <div class="flex-1 max-w-lg">
                   <div class="relative group">
-                    <div class="w-full h-80 lg:h-96 bg-primary-50 rounded-2xl shadow-large group-hover:shadow-xl transition-all duration-300 overflow-hidden flex items-center justify-center p-6">
-                      <LabIllustration name={labNames[item.title]} label={item.title} class="w-full h-full group-hover:scale-105 transition-transform duration-500" />
+                    <div class="relative w-full h-80 lg:h-96 bg-primary-50 rounded-2xl shadow-large group-hover:shadow-xl transition-all duration-300 overflow-hidden">
+                      <Picture
+                        src={labImages[item.title].src}
+                        formats={["avif", "webp"]}
+                        fallbackFormat="webp"
+                        widths={[400, 800]}
+                        sizes="(min-width: 1024px) 512px, 100vw"
+                        alt={labImages[item.title].alt}
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                     <div class="absolute bottom-6 left-6">
                       <div class="w-12 h-12 bg-white shadow-soft rounded-xl flex items-center justify-center">
